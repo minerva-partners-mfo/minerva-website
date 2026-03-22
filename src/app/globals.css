@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════
+   MINERVA PARTNERS — Design System Tokens
+   ═══════════════════════════════════════════ */
+
+@theme {
+  /* Navy palette */
+  --color-navy: #1A2744;
+  --color-navy-light: #243256;
+  --color-navy-deep: #0D1520;
+  --color-navy-darkest: #070D17;
+
+  /* Gold palette */
+  --color-gold: #C9912B;
+  --color-gold-light: #D4A94E;
+  --color-gold-pale: #F5ECD7;
+  --color-gold-dim: rgba(201, 145, 43, 0.15);
+
+  /* Cream palette */
+  --color-cream: #F8F6F1;
+  --color-cream-dark: #EDE9E0;
+
+  /* Fonts */
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-sans: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   Base styles
+   ═══════════════════════════════════════════ */
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
+body {
+  @apply bg-navy-deep text-white font-sans antialiased;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════
+   Selection
+   ═══════════════════════════════════════════ */
+
+::selection {
+  background-color: rgba(201, 145, 43, 0.3);
+  color: white;
+}
+
+/* ═══════════════════════════════════════════
+   Scrollbar (subtle)
+   ═══════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D1520;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 145, 43, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 145, 43, 0.5);
+}
+
+/* ═══════════════════════════════════════════
+   Performance — skip rendering for off-screen sections
+   ═══════════════════════════════════════════ */
+
+.perf-defer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 100vh;
+}

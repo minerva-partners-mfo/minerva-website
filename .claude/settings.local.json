@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --no-turbopack --import-alias \"@/*\" --use-npm 2>&1 | tail -20)",
+      "Bash(npm install:*)",
+      "Bash(npx next:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/it)",
+      "Bash(pwd && rm -f /c/minerva-website/public/videos/next.config.compiled.js && cd /c/minerva-website && npx next build 2>&1 | tail -20)",
+      "Bash(ls -la *.md)",
+      "Bash(ANALYZE=true npx next build 2>&1 | tail -40)",
+      "Bash(ls -la C:/minerva-website/public/images/img1.* 2>&1)",
+      "Bash(ls -la /c/minerva-website/src/app/\\\\[locale\\\\]/ | grep -E \"^d\")",
+      "Bash(ls -la C:/minerva-website/public/videos/*.mp4)",
+      "Bash(claude install:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(sleep:*)",
+      "Bash(cd:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl:*)",
+      "Bash(tasklist:*)",
+      "Bash(taskkill:*)",
+      "Bash(npm ls:*)",
+      "Bash(node:*)",
+      "Bash(for p:*)",
+      "Bash(do echo:*)",
+      "Read(//c/minerva-website/src/app/[locale]/**)",
+      "Bash(done)",
+      "Bash(echo:*)",
+      "Bash(xargs grep:*)",
+      "Bash(wc:*)",
+      "Bash(git init:*)",
+      "Bash(git remote:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)"
+    ]
+  }
+}
