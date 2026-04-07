@@ -654,8 +654,20 @@ export function ProblemaPage() {
             </p>
           </div>
         </div>
-        <div className="w-full md:w-[55%] grid grid-cols-2 gap-2 p-2 md:p-4 self-center">
-          {HERO_PHOTOS.map((photo, i) => <HeroPhoto key={i} photo={photo} />)}
+        <div className="w-full md:w-[55%] grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-8 self-center">
+          {[
+            { num: '$124 trilioni', desc: 'di ricchezza in trasferimento entro il 2048' },
+            { num: '70%', desc: 'delle aziende familiari non sopravvive al primo passaggio generazionale' },
+            { num: '81%', desc: 'degli eredi cambia consulente entro 1-2 anni dall\u2019eredit\u00E0' },
+            { num: '80,6%', desc: 'della consulenza in Italia \u00E8 basata su retrocessioni, non fee trasparenti' },
+          ].map((s, i) => (
+            <FadeIn key={i} delay={i * 150}>
+              <div className="rounded-xl h-full flex flex-col justify-center" style={{ backgroundColor: '#1A2744', border: '1px solid rgba(201,145,43,0.15)', padding: '32px 28px', minHeight: 180 }}>
+                <span className="font-serif font-bold block leading-none" style={{ fontSize: 44, color: '#C9912B' }}>{s.num}</span>
+                <p className="font-sans text-[14px] mt-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>{s.desc}</p>
+              </div>
+            </FadeIn>
+          ))}
         </div>
       </section>
 
@@ -674,38 +686,6 @@ export function ProblemaPage() {
             ))}
           </div>
 
-          {/* Confronto cards — dati a confronto con effetto */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14 pt-14" style={{ borderTop: '1px solid rgba(201,145,43,0.1)' }}>
-            {DATA_CONFRONTO.map((card: any, ci: number) => (
-              <FadeIn key={ci} delay={ci * 200}>
-                <div className="rounded-xl overflow-hidden h-full flex flex-col" style={{ border: '1px solid rgba(201,145,43,0.12)', background: 'linear-gradient(135deg, rgba(201,145,43,0.04) 0%, rgba(13,21,32,1) 100%)' }}>
-                  <div className="px-6 pt-6 pb-4">
-                    <p className="font-sans text-[11px] font-bold uppercase" style={{ color: 'rgba(201,145,43,0.5)', letterSpacing: '0.15em' }}>{card.tema}</p>
-                  </div>
-                  <div className="px-6 pb-4 space-y-4 flex-1">
-                    {card.pairs.map((p: any, pi: number) => (
-                      <ConfrontoDatum key={pi} label={p.label} value={p.value} sub={p.sub} index={pi} parentIndex={ci} />
-                    ))}
-                  </div>
-                  {/* Bridge: from → to */}
-                  {card.bridge && (
-                    <div className="px-6 py-4 flex items-center justify-center gap-3" style={{ borderTop: '1px solid rgba(201,145,43,0.08)' }}>
-                      <span className="font-serif text-[20px] font-bold" style={{ color: 'rgba(255,255,255,0.4)' }}>{card.bridge.from}</span>
-                      <div className="flex items-center gap-1">
-                        <div className="h-[1px] w-8" style={{ backgroundColor: 'rgba(201,145,43,0.3)' }} />
-                        <span className="font-sans text-[11px] font-bold" style={{ color: '#C9912B' }}>{card.bridge.label}</span>
-                        <div className="h-[1px] w-8" style={{ backgroundColor: 'rgba(201,145,43,0.3)' }} />
-                      </div>
-                      <span className="font-serif text-[24px] font-bold" style={{ color: '#C9912B' }}>{card.bridge.to}</span>
-                    </div>
-                  )}
-                  <div className="px-6 py-3" style={{ backgroundColor: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-                    <p className="font-sans text-[10px]" style={{ color: 'rgba(255,255,255,0.2)' }}>{card.source}</p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -823,90 +803,6 @@ export function ProblemaPage() {
             </FadeIn>
           </div>
 
-          {/* ASSET ALLOCATION — 3 TORTE */}
-          <div className="mt-8">
-            <h3 className="font-serif text-[24px] md:text-[28px] text-white mb-8">Come è cambiata l&apos;allocazione del patrimonio</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[
-                { data: PIE_1960, label: '1960', source: 'Banca d\u2019Italia' },
-                { data: PIE_1990, label: '1990', source: 'Banca d\u2019Italia' },
-                { data: PIE_2025, label: '2025', source: 'AIPB, Consob, Intesa Sanpaolo Survey 2024' },
-              ].map((pie, pi) => (
-                <div key={pi} className="text-center">
-                  <div style={{ width: '100%', height: 250 }}>
-                    <ResponsiveContainer>
-                      <PieChart>
-                        <Pie
-                          data={pie.data}
-                          cx="50%"
-                          cy="50%"
-                          outerRadius={90}
-                          innerRadius={30}
-                          dataKey="value"
-                          stroke="#0D1520"
-                          strokeWidth={1}
-                          animationBegin={pi * 300}
-                          animationDuration={1200}
-                        >
-                          {pie.data.map((_, i) => (
-                            <PieCell key={i} fill={PIE_COLORS[i] || PIE_COLORS[PIE_COLORS.length - 1]} />
-                          ))}
-                        </Pie>
-                        <Tooltip content={<PieTooltipContent />} />
-                      </PieChart>
-                    </ResponsiveContainer>
-                  </div>
-                  <p className="font-sans text-[14px] font-bold mt-2" style={{ color: 'rgba(255,255,255,0.4)' }}>{pie.label}</p>
-                  <p className="font-sans text-[9px] mt-1" style={{ color: 'rgba(255,255,255,0.2)' }}>{pie.source}</p>
-                </div>
-              ))}
-            </div>
-            <p className="font-sans text-[15px] italic text-center mt-8" style={{ color: 'rgba(255,255,255,0.45)' }}>
-              Dal mattone a un sistema complesso. Ma chi coordina le 7 classi di investimento?
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ═══════ S4: MEGA-TREND ═══════ */}
-      <section className="py-20 px-6" style={{ background: 'linear-gradient(180deg, #0D1520 0%, rgba(139,58,58,0.03) 100%)' }}>
-        <div className="max-w-[1100px] mx-auto">
-          <h2 className="font-serif text-[30px] md:text-[36px] text-white mb-2">6 forze che convergono</h2>
-          <p className="font-sans text-[16px] mb-10" style={{ color: 'rgba(255,255,255,0.45)' }}>Ognuna da sola è gestibile. Insieme ridisegnano il mercato.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {MEGATRENDS.map((t, i) => {
-              const SvgDecor = TREND_SVGS[i]
-              return (
-                <div
-                  key={i}
-                  className="relative rounded-xl cursor-pointer transition-all duration-300 overflow-hidden"
-                  style={{
-                    backgroundColor: hoveredTrend === i ? 'rgba(139,58,58,0.08)' : 'rgba(255,255,255,0.02)',
-                    borderLeft: `3px solid ${hoveredTrend === i ? '#E74C3C' : '#8B3A3A'}`,
-                    borderRadius: 12, padding: 32,
-                    transform: hoveredTrend === i ? 'translateY(-4px)' : 'translateY(0)',
-                    boxShadow: hoveredTrend === i ? '0 8px 32px rgba(0,0,0,0.3)' : 'none',
-                  }}
-                  onMouseEnter={() => setHoveredTrend(i)}
-                  onMouseLeave={() => setHoveredTrend(null)}
-                >
-                  {SvgDecor && <SvgDecor />}
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <NumberCircle num={String(i + 1).padStart(2, '0')} bg="#8B3A3A" />
-                      <h4 className="font-sans text-[17px] font-bold text-white">{t.title}</h4>
-                    </div>
-                    <span className="font-serif text-[36px] md:text-[44px] font-bold block leading-none" style={{ color: '#C9912B' }}>{t.num}</span>
-                    <p className="font-sans text-[14px] mt-2" style={{ color: 'rgba(255,255,255,0.6)' }}>{t.desc}</p>
-                    <div style={{ maxHeight: hoveredTrend === i ? 120 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-                      <p className="font-sans text-[12px] mt-3 pt-3" style={{ color: 'rgba(255,255,255,0.4)', borderTop: '1px solid rgba(255,255,255,0.06)' }}>{t.extra}</p>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
         </div>
       </section>
 
