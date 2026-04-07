@@ -14,20 +14,21 @@ const BLOCKS: {
     subtitle: 'Il Portale delle Opportunità',
     text: "Una bacheca digitale ultra-riservata dedicata a operazioni off-market e portafogli inaccessibili al mercato pubblico. L'accesso è selettivo, garantendo un controllo assoluto e tracciabile sulla sicurezza delle informazioni strategiche tramite NDA digitali.",
     visual: 'image',
-    image: '/images/room.jpg',
+    image: '/images/Progetto%20senza%20titolo.jpg',
   },
   {
     title: 'Wealth Engine',
     subtitle: 'Aggregatore di Eccellenze',
     text: "Il motore industriale e finanziario che fonde capitali pazienti e competenze iperspecializzate. Coordiniamo dinamicamente le risorse per strutturare Club Deal proprietari e ottimizzare la finanza d'impresa, mantenendo un focus ossessivo sull'execution e sulla generazione di risultati tangibili.",
-    visual: 'temple',
+    visual: 'image',
+    image: '/images/freepik_ultra-realistic-cinematic_2737153529.png',
   },
   {
     title: 'Minerva Platform',
     subtitle: 'Intelligenza Predittiva',
     text: 'Non ci limitiamo a leggere i bilanci passati. La nostra piattaforma avanzata supporta il decision making strategico proiettando scenari futuri. Eseguiamo stress test patrimoniali e forniamo letture macroeconomiche precise per anticipare i movimenti del mercato prima che si verifichino.',
     visual: 'image',
-    image: '/images/img6.png',
+    image: '/images/freepik_an-abstract-hightech-visu_2737170775.png',
   },
 ]
 
