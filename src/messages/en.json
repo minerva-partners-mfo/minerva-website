@@ -1187,7 +1187,7 @@
     "s04": {
       "num": "04",
       "title": "Wealth Management",
-      "subtitle": "The deal is the beginning. The relationship is forever.",
+      "subtitle": "The relationship that protects value over time.",
       "desc": "We don't build portfolios. We build strategies. Fee-only, 100% retrocession. No products to push.",
       "caps": {
         "c1": {
@@ -1660,8 +1660,8 @@
     "cta": "REQUEST PORTAL ACCESS"
   },
   "wealth": {
-    "headline1": "The deal is the beginning.",
-    "headline2": "The relationship is forever.",
+    "headline1": "The relationship that protects value.",
+    "headline2": "Over time, alongside the client.",
     "subtitle": "Wealth management is not an add-on service. It’s the reason everything else exists.",
     "cycle": {
       "center": "THE WEALTH CYCLE",

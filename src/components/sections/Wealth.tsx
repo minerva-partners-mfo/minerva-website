@@ -91,8 +91,11 @@ export function WealthPage() {
       {/* ════════════════════════════════════════════════════════
           HERO
           ════════════════════════════════════════════════════════ */}
-      <div ref={heroRef} className="min-h-[60vh] flex items-center justify-center px-4 md:px-6">
-        <div className="max-w-[750px] mx-auto text-center py-24 md:py-32">
+      <div ref={heroRef} className="relative min-h-[70vh] flex items-center justify-center px-4 md:px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/tavolo.png')" }} />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(13,21,32,0.78)' }} />
+        <div className="absolute inset-x-0 bottom-0 h-[140px] bg-gradient-to-t from-[#0D1520] to-transparent" />
+        <div className="relative z-10 max-w-[820px] mx-auto text-center py-24 md:py-32">
           <h1
             className="hero-anim font-serif font-semibold text-white leading-tight"
             style={{ fontSize: 'clamp(32px, 5vw, 48px)' }}

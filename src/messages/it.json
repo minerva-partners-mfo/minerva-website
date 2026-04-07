@@ -1187,7 +1187,7 @@
     "s04": {
       "num": "04",
       "title": "Wealth Management",
-      "subtitle": "Il deal è l'inizio. La relazione è per sempre.",
+      "subtitle": "La relazione che custodisce il valore nel tempo.",
       "desc": "Non costruiamo portafogli. Costruiamo strategie. Fee-only, retrocessione 100%. Nessun prodotto da piazzare.",
       "caps": {
         "c1": {
@@ -1660,8 +1660,8 @@
     "cta": "RICHIEDI ACCESSO AL PORTALE"
   },
   "wealth": {
-    "headline1": "Il deal è l’inizio.",
-    "headline2": "La relazione è per sempre.",
+    "headline1": "La relazione che custodisce il valore.",
+    "headline2": "Nel tempo, accanto al cliente.",
     "subtitle": "Il wealth management non è un servizio aggiuntivo. È il motivo per cui tutto il resto esiste.",
     "cycle": {
       "center": "IL CICLO DEL PATRIMONIO",
