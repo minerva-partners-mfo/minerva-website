@@ -78,13 +78,6 @@ export function CodicePage() {
             scrollTrigger: { trigger: firmaRef.current, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
-        if (sanzioniRef.current) {
-          const items = sanzioniRef.current.querySelectorAll('.sanzione-step')
-          gsap.from(items, {
-            y: 30, opacity: 0, duration: 0.5, stagger: 0.15, ease: 'power2.out',
-            scrollTrigger: { trigger: sanzioniRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
       }, section)
     })
 
