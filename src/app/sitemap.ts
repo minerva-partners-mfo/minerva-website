@@ -11,7 +11,6 @@ const pages = [
   '/ecosistema/advisors',
   '/soluzioni',
   '/abilitatori',
-  '/wealth',
   '/codice',
   '/trasparenza',
   '/selezione',

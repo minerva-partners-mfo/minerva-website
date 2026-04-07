@@ -46,11 +46,12 @@
       "Bash(for page:*)",
       "Bash(npx:*)",
       "Bash(powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\")",
-      "Bash(claude mcp:*)"
+      "Bash(claude mcp:*)",
+      "Bash(rm:*)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "claude-skills-mcp"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }

@@ -22,7 +22,6 @@ const NAV_GROUPS = [
       { key: 'hub', href: '/hub' },
       { key: 'ecosistema', href: '/ecosistema' },
       { key: 'abilitatori', href: '/abilitatori' },
-      { key: 'wealth', href: '/wealth' },
     ],
   },
   {

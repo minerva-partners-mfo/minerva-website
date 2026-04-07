@@ -16,7 +16,6 @@ const PAGE_META: Record<string, PageMeta> = {
   'ecosistema/advisors': { namespace: 'meta', titleKey: 'ecosistemaAdvisors.title', descKey: 'ecosistemaAdvisors.desc' },
   soluzioni: { namespace: 'meta', titleKey: 'soluzioni.title', descKey: 'soluzioni.desc' },
   abilitatori: { namespace: 'meta', titleKey: 'abilitatori.title', descKey: 'abilitatori.desc' },
-  wealth: { namespace: 'meta', titleKey: 'wealth.title', descKey: 'wealth.desc' },
   codice: { namespace: 'meta', titleKey: 'codice.title', descKey: 'codice.desc' },
   trasparenza: { namespace: 'meta', titleKey: 'trasparenza.title', descKey: 'trasparenza.desc' },
   selezione: { namespace: 'meta', titleKey: 'selezione.title', descKey: 'selezione.desc' },
