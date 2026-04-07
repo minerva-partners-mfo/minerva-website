@@ -22,9 +22,15 @@ const PHASES = [
   { label: 'Coordinamento', key: 'coordinamento' },
 ] as const
 
-const CASES: { title: string; phases: Record<string, string> }[] = [
+const CASES: { title: string; phases: Record<string, string>; stats: { num: string; label: string }[] }[] = [
   {
     title: 'Cessione di un\u2019azienda di famiglia',
+    stats: [
+      { num: '40', label: 'anni di storia familiare' },
+      { num: '12', label: 'acquirenti qualificati identificati' },
+      { num: '3', label: 'scenari di uscita costruiti' },
+      { num: '+27%', label: 'di valore rispetto alla prima offerta' },
+    ],
     phases: {
       analisi: "Un imprenditore vuole cedere l'azienda di famiglia dopo 40 anni di attività.",
       comprensione: 'Minerva analizza il valore reale, la struttura societaria, le implicazioni familiari e fiscali.',
@@ -35,6 +41,12 @@ const CASES: { title: string; phases: Record<string, string> }[] = [
   },
   {
     title: 'Riordino di un patrimonio immobiliare familiare',
+    stats: [
+      { num: '17', label: 'immobili mappati su 4 generazioni' },
+      { num: '3', label: 'paesi coinvolti' },
+      { num: '\u201138%', label: 'sul carico fiscale annuo' },
+      { num: '1', label: 'unica regia familiare' },
+    ],
     phases: {
       analisi: 'Una famiglia possiede un portafoglio immobiliare frammentato tra più generazioni.',
       comprensione: 'Minerva mappa ogni asset nel contesto patrimoniale complessivo: rendimenti, fiscalità, successione.',
@@ -45,6 +57,12 @@ const CASES: { title: string; phases: Record<string, string> }[] = [
   },
   {
     title: 'Crescita di un\u2019impresa digitale',
+    stats: [
+      { num: '4', label: 'opzioni di capitale strutturate' },
+      { num: '100%', label: 'controllo mantenuto dal fondatore' },
+      { num: '6 mesi', label: 'dal mandato al closing' },
+      { num: '\u00D72,4', label: 'valore dell\u2019azienda in 18 mesi' },
+    ],
     phases: {
       analisi: 'Un imprenditore digitale cerca capitali per accelerare la crescita senza perdere il controllo.',
       comprensione: 'Minerva valuta il business nel contesto del patrimonio personale e degli obiettivi a lungo termine.',
@@ -230,6 +248,14 @@ export function SoluzioniPage() {
                       <p className="font-serif" style={{ fontSize: '17px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.55' }}>
                         {c.phases[p.key]}
                       </p>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 pt-8" style={{ borderTop: '1px solid rgba(201,145,43,0.18)' }}>
+                  {c.stats.map((s, si) => (
+                    <div key={si}>
+                      <span className="font-serif font-bold block leading-none" style={{ fontSize: 'clamp(28px, 3vw, 38px)', color: '#C9912B' }}>{s.num}</span>
+                      <p className="font-sans mt-2" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.45' }}>{s.label}</p>
                     </div>
                   ))}
                 </div>
