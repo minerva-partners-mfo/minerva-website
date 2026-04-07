@@ -645,7 +645,7 @@ export function ProblemaPage() {
 
       {/* ═══════ S1: HERO ═══════ */}
       <section className="relative pt-24 md:pt-28 min-h-[90vh] flex flex-col md:flex-row">
-        <div className="absolute inset-0 bg-cover bg-center z-0" style={{ backgroundImage: "url('/images/img44.png')" }} />
+        <div className="absolute inset-0 bg-cover bg-center z-0" style={{ backgroundImage: "url('/images/image44.png')" }} />
         <div className="absolute inset-0 z-0" style={{ backgroundColor: 'rgba(13,21,32,0.75)' }} />
         <div className="relative z-10 w-full md:w-[45%] flex items-center justify-center px-8 md:px-16 py-16 md:py-0">
           <div style={{ maxWidth: 500 }}>
