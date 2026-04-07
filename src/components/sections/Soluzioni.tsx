@@ -9,9 +9,9 @@ import { useTranslations } from 'next-intl'
 /* ── Constants ── */
 const STEP_KEYS = ['s1', 's2', 's3', 's4', 's5'] as const
 const CASE_GRADIENTS = [
-  'linear-gradient(135deg, #1A2744, #2E3A6E)',
-  'linear-gradient(135deg, #1A2744, #1A3A2A)',
-  'linear-gradient(135deg, #1A2744, #3A2250)',
+  'linear-gradient(135deg, #2C2C2E 0%, #5A5A5C 50%, #E5E5E7 100%)',
+  'linear-gradient(135deg, #1A2744 0%, #2E5090 60%, #C9912B 100%)',
+  'linear-gradient(135deg, #1A2744 0%, #B8860B 55%, #C9912B 100%)',
 ]
 
 const PHASES = [
