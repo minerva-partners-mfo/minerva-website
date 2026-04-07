@@ -8,11 +8,51 @@ import { useTranslations } from 'next-intl'
 
 /* ── Constants ── */
 const STEP_KEYS = ['s1', 's2', 's3', 's4', 's5'] as const
-const CASE_KEYS = ['c1', 'c2', 'c3'] as const
 const CASE_GRADIENTS = [
   'linear-gradient(135deg, #1A2744, #2E3A6E)',
   'linear-gradient(135deg, #1A2744, #1A3A2A)',
   'linear-gradient(135deg, #1A2744, #3A2250)',
+]
+
+const PHASES = [
+  { label: 'Analisi', key: 'analisi' },
+  { label: 'Comprensione', key: 'comprensione' },
+  { label: 'Azione', key: 'azione' },
+  { label: 'Integrazione', key: 'integrazione' },
+  { label: 'Coordinamento', key: 'coordinamento' },
+] as const
+
+const CASES: { title: string; phases: Record<string, string> }[] = [
+  {
+    title: 'Cessione di un\u2019azienda di famiglia',
+    phases: {
+      analisi: "Un imprenditore vuole cedere l'azienda di famiglia dopo 40 anni di attività.",
+      comprensione: 'Minerva analizza il valore reale, la struttura societaria, le implicazioni familiari e fiscali.',
+      azione: 'Vengono identificati 12 potenziali acquirenti e costruiti 3 scenari di uscita.',
+      integrazione: 'Avvocati, fiscalisti e advisor finanziari lavorano come un unico team coordinato.',
+      coordinamento: 'Minerva guida la negoziazione fino al closing, proteggendo il valore e la riservatezza.',
+    },
+  },
+  {
+    title: 'Riordino di un patrimonio immobiliare familiare',
+    phases: {
+      analisi: 'Una famiglia possiede un portafoglio immobiliare frammentato tra più generazioni.',
+      comprensione: 'Minerva mappa ogni asset nel contesto patrimoniale complessivo: rendimenti, fiscalità, successione.',
+      azione: 'Viene disegnato un piano di ottimizzazione: vendere, riqualificare, consolidare.',
+      integrazione: "Specialisti immobiliari, legali e bancari attivati sotto un'unica regia.",
+      coordinamento: 'Ogni decisione è coerente con la strategia familiare, non con la singola operazione.',
+    },
+  },
+  {
+    title: 'Crescita di un\u2019impresa digitale',
+    phases: {
+      analisi: 'Un imprenditore digitale cerca capitali per accelerare la crescita senza perdere il controllo.',
+      comprensione: 'Minerva valuta il business nel contesto del patrimonio personale e degli obiettivi a lungo termine.',
+      azione: 'Vengono strutturate più opzioni: investitori strategici, club deal riservato, linea di credito dedicata.',
+      integrazione: 'Il team legale, finanziario e strategico lavora in parallelo con tempi certi.',
+      coordinamento: "Minerva rimane al tavolo anche dopo l'operazione, per proteggere il valore creato.",
+    },
+  },
 ]
 
 export function SoluzioniPage() {
@@ -92,19 +132,24 @@ export function SoluzioniPage() {
     <section ref={sectionRef} className="relative min-h-screen" style={{ backgroundColor: '#0D1520' }}>
 
       {/* ════════════════════════════════════════════════════════
-          HERO
+          HERO — full-width tavolo
           ════════════════════════════════════════════════════════ */}
-      <div ref={heroRef} className="min-h-[60vh] flex items-center justify-center px-4 md:px-6">
-        <div className="max-w-[750px] mx-auto text-center py-24 md:py-32">
-          <h1
-            className="hero-anim font-serif font-semibold text-white leading-tight mb-4"
-            style={{ fontSize: 'clamp(32px, 5vw, 48px)' }}
-          >
-            {t('headline')}
-          </h1>
-          <p className="hero-anim font-sans" style={{ fontSize: '17px', color: '#C9912B', lineHeight: '1.6' }}>
-            {t('subtitle')}
-          </p>
+      <div ref={heroRef} className="relative w-full overflow-hidden" style={{ minHeight: '70vh' }}>
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/tavolo.png')" }} />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(13,21,32,0.7)' }} />
+        <div className="absolute inset-x-0 bottom-0 h-[160px] bg-gradient-to-t from-[#0D1520] to-transparent" />
+        <div className="relative z-10 flex items-center justify-center px-4 md:px-6" style={{ minHeight: '70vh' }}>
+          <div className="max-w-[820px] mx-auto text-center pt-24 md:pt-28">
+            <h1
+              className="hero-anim font-serif font-semibold text-white leading-tight mb-4"
+              style={{ fontSize: 'clamp(36px, 6vw, 60px)' }}
+            >
+              Soluzioni Unified
+            </h1>
+            <p className="hero-anim font-sans" style={{ fontSize: '17px', color: '#C9912B', lineHeight: '1.6' }}>
+              {t('subtitle')}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -166,44 +211,27 @@ export function SoluzioniPage() {
             {t('casesTitle')}
           </h2>
 
-          <div className="flex flex-col gap-6">
-            {CASE_KEYS.map((key, i) => (
+          <div className="flex flex-col gap-8">
+            {CASES.map((c, i) => (
               <div
-                key={key}
+                key={i}
                 className="case-card rounded-xl"
-                style={{ background: CASE_GRADIENTS[i], padding: '32px' }}
+                style={{ background: CASE_GRADIENTS[i], padding: '40px 36px' }}
               >
-                <h3 className="font-serif font-semibold text-white mb-4" style={{ fontSize: '22px' }}>
-                  {t(`cases.${key}.title`)}
+                <h3 className="font-serif font-semibold text-white mb-8" style={{ fontSize: '24px' }}>
+                  {c.title}
                 </h3>
-
-                <div className="space-y-4">
-                  <div>
-                    <span className="font-sans font-bold uppercase tracking-wider mb-1 block" style={{ fontSize: '10px', color: '#C9912B' }}>
-                      {t('caseLabels.situazione')}
-                    </span>
-                    <p className="font-sans font-light" style={{ fontSize: '15px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.7' }}>
-                      {t(`cases.${key}.situazione`)}
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="font-sans font-bold uppercase tracking-wider mb-1 block" style={{ fontSize: '10px', color: '#C9912B' }}>
-                      {t('caseLabels.soluzione')}
-                    </span>
-                    <p className="font-sans font-light" style={{ fontSize: '15px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.7' }}>
-                      {t(`cases.${key}.soluzione`)}
-                    </p>
-                  </div>
-
-                  <div
-                    className="rounded-lg mt-2"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '12px 16px' }}
-                  >
-                    <p className="font-sans" style={{ fontSize: '13px', color: 'rgba(255,255,255,0.50)' }}>
-                      {t(`cases.${key}.team`)}
-                    </p>
-                  </div>
+                <div className="space-y-6">
+                  {PHASES.map((p) => (
+                    <div key={p.key}>
+                      <span className="font-sans font-bold uppercase tracking-[0.15em] block mb-2" style={{ fontSize: '11px', color: '#C9912B' }}>
+                        {p.label}
+                      </span>
+                      <p className="font-serif" style={{ fontSize: '17px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.55' }}>
+                        {c.phases[p.key]}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
