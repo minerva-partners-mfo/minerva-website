@@ -31,14 +31,27 @@ const PARTNER_NODES: { x: number; y: number }[] = [
   { x: 180, y: 180 },   // 315°
 ]
 
-// Ring 4 — FRIENDS nodes (r=300, 6 evenly spaced, 70px diameter)
-const FRIEND_NODES: { x: number; y: number }[] = [
-  { x: 350, y: 50 },    // 0°
-  { x: 610, y: 200 },   // 60°
-  { x: 610, y: 500 },   // 120°
-  { x: 350, y: 650 },   // 180°
-  { x: 90, y: 500 },    // 240°
-  { x: 90, y: 200 },    // 300°
+// Ring 4 — FRIENDS nodes (5 evenly spaced, 70px diameter)
+const FRIEND_NODES: { x: number; y: number; label: string }[] = [
+  { x: 350, y: 50,  label: 'Penalista' },          // top
+  { x: 590, y: 230, label: 'Enologo' },            // top-right
+  { x: 510, y: 590, label: 'Art Advisor' },        // bottom-right
+  { x: 190, y: 590, label: 'Consulente Cliente' }, // bottom-left
+  { x: 110, y: 230, label: 'Professore' },         // top-left
+]
+
+const WHY_BLOCKS = [
+  { title: 'SOLUZIONI INFINITE', desc: 'Combinazioni di competenze sempre nuove, modellate sul singolo cliente.' },
+  { title: 'COORDINAMENTO UNICO', desc: 'Una sola regia che governa il processo dall’inizio alla fine.' },
+  { title: 'VELOCITÀ E INDIPENDENZA', desc: 'Tempi di decisione rapidi, nessun conflitto di interesse.' },
+  { title: 'RISERVATEZZA', desc: 'Ogni informazione protetta dal Codice Minerva e dai vincoli dei membri.' },
+]
+
+const COINV_ROLES = [
+  { title: 'ORIGINATOR', desc: 'Segnala deal. Fee di origination 10-35%.' },
+  { title: 'INVESTITORE', desc: 'Opportunità sulla bacheca, club deal e molto altro.' },
+  { title: 'PROPONENTE', desc: 'Propone idee, esplora settori, partecipa.' },
+  { title: 'CONNETTORE', desc: 'Presenta professionisti, famiglie, opportunità.' },
 ]
 
 // Scattered ADVISOR dots (24px, various positions in outer zone)
@@ -58,13 +71,6 @@ const LEGEND = [
   { colorCls: 'bg-[#C9912B]/30', key: 'partners', descKey: 'partnersDesc', ctaKey: 'partnersCta', href: '/ecosistema/partners' as const },
   { colorCls: 'bg-white/15', key: 'friends', descKey: 'friendsDesc', ctaKey: 'friendsCta', href: '/ecosistema/friends' as const },
   { colorCls: 'bg-white/10', key: 'advisors', descKey: 'advisorsDesc', ctaKey: 'advisorsCta', href: '/ecosistema/advisors' as const },
-] as const
-
-const JOIN_CARDS = [
-  { key: 'c1', href: '/ecosistema/partners' as const },
-  { key: 'c2', href: '/ecosistema/friends' as const },
-  { key: 'c3', href: '/ecosistema/advisors' as const },
-  { key: 'c4', href: '/contatti' as const },
 ] as const
 
 export function EcosistemaPage() {
@@ -209,34 +215,72 @@ export function EcosistemaPage() {
           ))}
 
           {/* PARTNER nodes — 90px → 12.86% of 700 */}
-          {PARTNER_NODES.map((pos, i) => (
-            <div key={`partner-${i}`}
-              className="eco-node absolute rounded-full border border-[#C9912B]/30 bg-[#0D1520] flex items-center justify-center"
-              style={{
-                width: '12.86%', height: '12.86%',
-                left: `${(pos.x / 700) * 100 - 6.43}%`,
-                top: `${(pos.y / 700) * 100 - 6.43}%`,
-              }}>
-              <span className="font-sans text-[8px] md:text-[11px] font-semibold text-white/70 tracking-wide">
-                {t(`map.partnerNodes.n${i + 1}`)}
-              </span>
-            </div>
-          ))}
+          {PARTNER_NODES.map((pos, i) => {
+            const isIntl = i === 6 // n7 = International — too long for circle
+            const label = isIntl ? 'International' : t(`map.partnerNodes.n${i + 1}`)
+            return (
+              <div key={`partner-${i}`}
+                className="eco-node absolute rounded-full border border-[#C9912B]/30 bg-[#0D1520] flex items-center justify-center"
+                style={{
+                  width: '12.86%', height: '12.86%',
+                  left: `${(pos.x / 700) * 100 - 6.43}%`,
+                  top: `${(pos.y / 700) * 100 - 6.43}%`,
+                }}>
+                {isIntl ? (
+                  <>
+                    {/* External label with connector to the left */}
+                    <span
+                      className="absolute font-sans text-[9px] md:text-[11px] font-semibold text-white/80 tracking-wide whitespace-nowrap"
+                      style={{ right: 'calc(100% + 10px)', top: '50%', transform: 'translateY(-50%)' }}
+                    >
+                      International
+                    </span>
+                    <span
+                      className="absolute"
+                      style={{ right: '100%', top: '50%', width: 8, height: 1, backgroundColor: 'rgba(201,145,43,0.5)' }}
+                    />
+                  </>
+                ) : (
+                  <span className="font-sans text-[8px] md:text-[11px] font-semibold text-white/70 tracking-wide">
+                    {label}
+                  </span>
+                )}
+              </div>
+            )
+          })}
 
-          {/* FRIEND nodes — 70px → 10% of 700 */}
-          {FRIEND_NODES.map((pos, i) => (
-            <div key={`friend-${i}`}
-              className="eco-node absolute rounded-full border border-white/[0.15] bg-[#0D1520] flex items-center justify-center"
-              style={{
-                width: '10%', height: '10%',
-                left: `${(pos.x / 700) * 100 - 5}%`,
-                top: `${(pos.y / 700) * 100 - 5}%`,
-              }}>
-              <span className="font-sans text-[7px] md:text-[10px] font-medium text-white/50 text-center leading-tight px-1">
-                {t(`map.friendNodes.n${i + 1}`)}
-              </span>
-            </div>
-          ))}
+          {/* FRIEND nodes — 70px → 10% of 700, with external labels */}
+          {FRIEND_NODES.map((pos, i) => {
+            const isLeft = pos.x < 350
+            return (
+              <div key={`friend-${i}`}
+                className="eco-node absolute rounded-full border border-white/[0.15] bg-[#0D1520]"
+                style={{
+                  width: '10%', height: '10%',
+                  left: `${(pos.x / 700) * 100 - 5}%`,
+                  top: `${(pos.y / 700) * 100 - 5}%`,
+                }}>
+                <span
+                  className="absolute font-sans text-[9px] md:text-[11px] font-medium text-white/65 whitespace-nowrap"
+                  style={{
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    [isLeft ? 'right' : 'left']: 'calc(100% + 10px)' as any,
+                  }}
+                >
+                  {pos.label}
+                </span>
+                <span
+                  className="absolute"
+                  style={{
+                    top: '50%',
+                    [isLeft ? 'right' : 'left']: '100%' as any,
+                    width: 8, height: 1, backgroundColor: 'rgba(255,255,255,0.25)',
+                  }}
+                />
+              </div>
+            )
+          })}
 
           {/* ADVISOR dots — 24px → 3.43% of 700 */}
           {ADVISOR_DOTS.map((pos, i) => (
@@ -276,69 +320,41 @@ export function EcosistemaPage() {
       {/* ── SECTION 3 — PERCHE FUNZIONA ── */}
       <div ref={whyRef} className="px-4 md:px-6 py-20 md:py-28 border-t border-white/[0.06]">
         <div className="max-w-[1000px] mx-auto">
-          <h2 className="font-serif text-[24px] md:text-[28px] text-white mb-12 md:mb-16">
-            {t('why.title')}
+          <h2 className="font-serif text-[24px] md:text-[32px] text-white text-center mb-14">
+            Perché funziona
           </h2>
-
-          {[1, 2, 3].map((n) => (
-            <div key={n}
-              className="why-block flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-12 py-10 border-b border-white/[0.06] last:border-b-0">
-              <div className="flex-1">
-                <h3 className="font-serif text-[18px] md:text-[22px] text-[#C9912B] mb-3">
-                  {t(`why.b${n}.title`)}
-                </h3>
-                <p className="font-sans text-[14px] md:text-[15px] font-light leading-[1.7] text-white/55 max-w-[550px]">
-                  {t(`why.b${n}.desc`)}
-                </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
+            {WHY_BLOCKS.map((b) => (
+              <div key={b.title} className="why-block rounded-xl p-6 md:p-8" style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(201,145,43,0.15)' }}>
+                <h3 className="font-sans text-[13px] font-bold tracking-[0.15em]" style={{ color: '#C9912B' }}>{b.title}</h3>
+                <p className="font-sans text-[14px] md:text-[15px] font-light leading-[1.7] text-white/70 mt-3">{b.desc}</p>
               </div>
-              <div className="text-right md:min-w-[160px]">
-                <span className="block font-serif text-[40px] md:text-[56px] text-[#C9912B] leading-none">
-                  {t(`why.b${n}.num`)}
-                </span>
-                <span className="block font-sans text-[11px] md:text-[13px] font-light text-white/40 mt-1">
-                  {t(`why.b${n}.numLabel`)}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ── SECTION 4 — CHI PUO ENTRARE ── */}
-      <div ref={joinRef} className="px-4 md:px-6 py-20 md:py-28 border-t border-white/[0.06]">
-        <div className="max-w-[900px] mx-auto">
-          <h2 className="font-serif text-[20px] md:text-[24px] text-white mb-10 md:mb-14">
-            {t('join.title')}
-          </h2>
-
-          <div className="flex flex-col gap-5">
-            {JOIN_CARDS.map((card) => (
-              <Link key={card.key} href={card.href}
-                className="join-card block bg-white/[0.03] border-l-[3px] border-l-[#C9912B] border border-transparent rounded-xl px-6 md:px-8 py-6 md:py-7 hover:border-[#C9912B] transition-all duration-300 group">
-                <h3 className="font-sans text-[14px] md:text-[16px] font-bold text-white tracking-wide mb-2">
-                  {t(`join.${card.key}.title`)}
-                </h3>
-                <p className="font-sans text-[13px] md:text-[15px] font-light leading-[1.7] text-white/55 mb-3">
-                  {t(`join.${card.key}.desc`)}
-                </p>
-                <span className="font-sans text-[13px] font-semibold text-[#C9912B] group-hover:tracking-wider transition-all duration-300">
-                  {t(`join.${card.key}.cta`)}
-                </span>
-              </Link>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ── SECTION 5 — CTA ── */}
-      <div ref={ctaRef} className="px-4 md:px-6 py-20 md:py-28 text-center border-t border-white/[0.06]">
-        <p className="font-sans text-[16px] md:text-[18px] font-light text-white/60 mb-8">
-          {t('ctaLine')}
-        </p>
-        <Link href="/contatti"
-          className="inline-block font-sans text-[13px] md:text-[14px] font-bold tracking-[0.2em] uppercase bg-[#C9912B] text-white px-10 py-4 rounded-lg hover:bg-[#C9912B]/90 transition-colors duration-300">
-          {t('ctaBtn')}
-        </Link>
+      {/* ── SECTION 4 — COINVOLGIMENTO ATTIVO ── */}
+      <div ref={joinRef} className="px-4 md:px-6 py-20 md:py-28 border-t border-white/[0.06]">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="join-card flex items-center justify-center rounded-full mx-auto mb-6" style={{ width: '48px', height: '48px', border: '2px solid #C9912B' }}>
+            <span className="font-sans font-bold text-[#C9912B] text-[16px]">03</span>
+          </div>
+          <h2 className="font-serif text-[26px] md:text-[32px] text-white text-center mb-4">
+            Coinvolgimento attivo di ciascuno, anche del cliente
+          </h2>
+          <p className="font-sans text-[15px] md:text-[16px] font-light text-white/55 text-center mx-auto mb-12 max-w-[700px] leading-[1.7]">
+            Non solo Minerva si muove. Ogni attore dell&apos;ecosistema può esplorare, contribuire, originare, investire.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[900px] mx-auto">
+            {COINV_ROLES.map((r) => (
+              <div key={r.title} className="join-card" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(201,145,43,0.12)', borderLeft: '3px solid #C9912B', padding: '24px', borderRadius: 12 }}>
+                <h3 className="font-sans font-bold uppercase tracking-wider mb-2" style={{ fontSize: '13px', color: '#C9912B' }}>{r.title}</h3>
+                <p className="font-sans font-light" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6' }}>{r.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -15,7 +15,6 @@ const DEAL_GRADIENTS = [
 ]
 
 const DASH_KEYS = ['pipeline', 'documenti', 'performance', 'governance'] as const
-const ROLE_KEYS = ['r1', 'r2', 'r3', 'r4'] as const
 
 export function AbilitatoriPage() {
   const t = useTranslations('abilitatori')
@@ -24,7 +23,6 @@ export function AbilitatoriPage() {
   const heroRef = useRef<HTMLDivElement>(null)
   const bachecaRef = useRef<HTMLDivElement>(null)
   const portaleRef = useRef<HTMLDivElement>(null)
-  const coinvRef = useRef<HTMLDivElement>(null)
   const ctaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -53,13 +51,6 @@ export function AbilitatoriPage() {
           gsap.from(portaleRef.current.querySelectorAll('.ptl-anim'), {
             y: 40, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
             scrollTrigger: { trigger: portaleRef.current, start: 'top 80%', toggleActions: 'play none none none' },
-          })
-        }
-
-        if (coinvRef.current) {
-          gsap.from(coinvRef.current.querySelectorAll('.cv-anim'), {
-            y: 40, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
-            scrollTrigger: { trigger: coinvRef.current, start: 'top 80%', toggleActions: 'play none none none' },
           })
         }
 
@@ -242,54 +233,6 @@ export function AbilitatoriPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ════════════════════════════════════════════════════════
-          ABILITATORE 03 — COINVOLGIMENTO ATTIVO
-          ════════════════════════════════════════════════════════ */}
-      <div
-        ref={coinvRef}
-        className="flex items-center justify-center px-4 md:px-6 py-20 md:py-28"
-        style={{ minHeight: '60vh', background: 'linear-gradient(to bottom, #0D1520, rgba(201,145,43,0.06))' }}
-      >
-        <div className="max-w-[1100px] mx-auto w-full">
-          <div className="cv-anim flex items-center justify-center rounded-full mx-auto mb-6" style={{ width: '48px', height: '48px', border: '2px solid #C9912B' }}>
-            <span className="font-sans font-bold" style={{ fontSize: '16px', color: '#C9912B' }}>03</span>
-          </div>
-          <h2 className="cv-anim font-serif font-semibold text-white text-center mb-4" style={{ fontSize: '32px' }}>
-            {t('coinvolgimento.title')}
-          </h2>
-          <p
-            className="cv-anim font-sans font-light text-center mx-auto mb-12"
-            style={{ fontSize: '16px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.7', maxWidth: '700px' }}
-          >
-            {t('coinvolgimento.desc')}
-          </p>
-
-          {/* 4 role cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {ROLE_KEYS.map((key) => (
-              <div
-                key={key}
-                className="cv-anim"
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(201,145,43,0.12)',
-                  borderLeft: '3px solid #C9912B',
-                  padding: '24px',
-                  borderRadius: '12px',
-                }}
-              >
-                <h3 className="font-sans font-bold uppercase tracking-wider mb-2" style={{ fontSize: '13px', color: '#C9912B' }}>
-                  {t(`coinvolgimento.roles.${key}.title`)}
-                </h3>
-                <p className="font-sans font-light" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.60)', lineHeight: '1.6' }}>
-                  {t(`coinvolgimento.roles.${key}.desc`)}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
