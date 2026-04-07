@@ -141,7 +141,14 @@ function Visual({ step }: { step: number }) {
     )
   }
   if (step === 1) {
-    return <FadeUp><ChartCosti /></FadeUp>
+    return (
+      <FadeUp>
+        <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: '4/3' }}>
+          <img src="/images/img46.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(13,21,32,0.3)' }} />
+        </div>
+      </FadeUp>
+    )
   }
   if (step === 2) {
     return (
@@ -183,7 +190,14 @@ function Visual({ step }: { step: number }) {
     )
   }
   if (step === 6) {
-    return <FadeUp><ChartRegia /></FadeUp>
+    return (
+      <FadeUp>
+        <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: '4/3' }}>
+          <img src="/images/img5.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(13,21,32,0.3)' }} />
+        </div>
+      </FadeUp>
+    )
   }
   if (step === 7) {
     return (
