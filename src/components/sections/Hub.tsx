@@ -17,9 +17,9 @@ const FUNNEL_WIDTHS = ['100%', '80%', '60%', '40%', '20%']
 const S02_CAPS = ['c1', 'c2', 'c3', 'c4', 'c5'] as const
 const S02_DEALS = ['d1', 'd2', 'd3'] as const
 const DEAL_GRADIENTS = [
-  'linear-gradient(135deg, #1A2744, #2E3A6E)',
-  'linear-gradient(135deg, #1A2744, #1A3A2A)',
-  'linear-gradient(135deg, #1A2744, #3A2250)',
+  'linear-gradient(135deg, #2C2C2E 0%, #5A5A5C 50%, #E5E5E7 100%)',
+  'linear-gradient(135deg, #1A2744 0%, #2E5090 60%, #C9912B 100%)',
+  'linear-gradient(135deg, #1A2744 0%, #B8860B 55%, #C9912B 100%)',
 ]
 
 const S03_CAPS = ['c1', 'c2', 'c3', 'c4'] as const
