@@ -202,43 +202,46 @@ export function HubPage() {
     <section ref={sectionRef} className="relative min-h-screen" style={{ backgroundColor: '#0D1520' }}>
 
       {/* ════════════════════════════════════════════════════════
-          SECTION 1 — HERO
+          SECTION 1 — HERO con due sfere COORDINA / AGISCE
           ════════════════════════════════════════════════════════ */}
-      <div
-        className="relative flex items-end justify-center overflow-hidden"
-        style={{
-          height: '60vh',
-          background: 'linear-gradient(to bottom, #1A2744, rgba(201,145,43,0.08))',
-        }}
-      >
-        {/* Overlays */}
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(26,39,68,0.5)' }} />
-        <div
-          className="absolute bottom-0 left-0 right-0"
-          style={{
-            height: '200px',
-            background: 'linear-gradient(to bottom, transparent, #0D1520)',
-          }}
-        />
+      <div className="relative overflow-hidden pt-24 md:pt-28 pb-20 md:pb-28">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/freepik_imagine-group-of-abstract_2717946232.png')" }} />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(13,21,32,0.82)' }} />
+        <div className="absolute inset-x-0 bottom-0 h-[160px] bg-gradient-to-t from-[#0D1520] to-transparent" />
 
-        <div ref={heroRef} className="relative z-10 text-center px-4 pb-12 md:pb-16 max-w-[800px] mx-auto">
-          <span
-            className="hero-anim block font-sans uppercase font-semibold tracking-widest mb-4"
-            style={{ fontSize: '12px', color: '#C9912B' }}
-          >
-            {t('label')}
-          </span>
-          <h1
-            className="hero-anim font-serif font-semibold text-white leading-tight mb-5"
-            style={{ fontSize: 'clamp(32px, 5vw, 48px)' }}
-          >
-            {t('headline')}
+        <div ref={heroRef} className="relative z-10 px-4 md:px-6 max-w-[1100px] mx-auto text-center">
+          <h1 className="hero-anim font-serif font-semibold text-white leading-tight" style={{ fontSize: 'clamp(40px, 6vw, 64px)' }}>
+            Minerva Hub
           </h1>
-          <p
-            className="hero-anim font-sans font-light mx-auto"
-            style={{ fontSize: '17px', color: 'rgba(255,255,255,0.55)', maxWidth: '650px', lineHeight: '1.7' }}
-          >
-            {t('subtitle')}
+
+          <div className="hero-anim mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 justify-items-center">
+            {[
+              { title: 'COORDINA', desc: 'Orchestra le competenze, allinea le decisioni, governa il processo.' },
+              { title: 'AGISCE', desc: "Esegue in prima persona quando l'operazione lo richiede." },
+            ].map((sphere) => (
+              <div
+                key={sphere.title}
+                className="rounded-full flex flex-col items-center justify-center text-center p-10"
+                style={{
+                  width: 'min(86vw, 320px)',
+                  height: 'min(86vw, 320px)',
+                  border: '1px solid rgba(201,145,43,0.5)',
+                  background: 'radial-gradient(circle at center, rgba(201,145,43,0.1) 0%, rgba(13,21,32,0.6) 70%)',
+                  boxShadow: '0 0 60px rgba(201,145,43,0.08)',
+                }}
+              >
+                <span className="font-serif font-bold tracking-[0.08em]" style={{ fontSize: 'clamp(28px, 3.4vw, 38px)', color: '#C9912B' }}>
+                  {sphere.title}
+                </span>
+                <p className="font-sans font-light mt-4 max-w-[230px]" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.78)', lineHeight: '1.55' }}>
+                  {sphere.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <p className="hero-anim font-sans mt-14 mx-auto" style={{ fontSize: '15px', color: 'rgba(255,255,255,0.65)', maxWidth: 560 }}>
+            Non solo regia. Anche execution diretta nelle aree chiave.
           </p>
         </div>
       </div>
