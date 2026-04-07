@@ -237,12 +237,11 @@ export function ComeFunzionaPage() {
             </div>
 
             {/* RIGHT — visuals */}
-            <div className="hidden md:block relative">
-              {FLOW.map((_, i) => (
-                <div key={i} className="flex items-center" style={{ minHeight: 'calc(1.4em * 1.45 + 56px + 80px)' }}>
-                  <Visual step={i} />
-                </div>
-              ))}
+            <div className="hidden md:flex flex-col gap-16 justify-around">
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((s) => {
+                const v = <Visual step={s} />
+                return v ? <div key={s} className="w-full">{v}</div> : null
+              })}
             </div>
 
             {/* RIGHT mobile — stacked at bottom */}
