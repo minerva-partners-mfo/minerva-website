@@ -210,8 +210,14 @@ export function HubPage() {
         <div className="absolute inset-x-0 bottom-0 h-[160px] bg-gradient-to-t from-[#0D1520] to-transparent" />
 
         <div ref={heroRef} className="relative z-10 px-4 md:px-6 max-w-[1100px] mx-auto text-center">
-          <h1 className="hero-anim font-serif font-semibold text-white leading-tight" style={{ fontSize: 'clamp(40px, 6vw, 64px)' }}>
-            Minerva Hub
+          <span
+            className="hero-anim inline-block font-sans font-bold uppercase tracking-[0.2em] mb-6"
+            style={{ fontSize: '12px', color: '#C9912B', border: '1px solid rgba(201,145,43,0.5)', padding: '8px 18px', borderRadius: 4 }}
+          >
+            MINERVA HUB
+          </span>
+          <h1 className="hero-anim font-serif font-semibold text-white leading-tight mx-auto" style={{ fontSize: 'clamp(32px, 5vw, 52px)', maxWidth: 900 }}>
+            Eseguire quattro servizi e orchestrare la regia
           </h1>
 
           <div className="hero-anim mt-14 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 justify-items-center">
