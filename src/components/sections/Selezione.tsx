@@ -49,14 +49,6 @@ export function SelezionePage() {
             scrollTrigger: { trigger: headerRef.current, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
-        if (criteriRef.current) {
-          const cards = criteriRef.current.querySelectorAll('.criterio-card')
-          gsap.from(cards, {
-            y: 40, opacity: 0, rotation: (i: number) => (i - 2) * 2,
-            duration: 0.6, stagger: 0.12, ease: 'power2.out',
-            scrollTrigger: { trigger: criteriRef.current, start: 'top 80%', toggleActions: 'play none none none' },
-          })
-        }
         if (funnelRef.current) {
           const steps = funnelRef.current.querySelectorAll('.funnel-step')
           gsap.from(steps, {
