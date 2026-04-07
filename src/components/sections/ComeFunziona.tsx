@@ -10,7 +10,7 @@ const FLOW: { text: string; href: string }[] = [
   { text: "Attiva le persone giuste — selezionate e vincolate dal Codice Minerva.", href: '/codice' },
   { text: "Il cliente è parte attiva del processo.", href: '/ecosistema' },
   { text: "Minerva agisce ed esegue, anche direttamente quando necessario.", href: '/hub' },
-  { text: "Coordina le decisioni nel tempo, in modo coerente e trasparente.", href: '/trasparenza' },
+  { text: "Coordina le decisioni nel tempo, in modo coerente e trasparente.", href: '/veritas' },
   { text: "Obiettivo: trasformare le scelte in valore, e il valore in patrimonio.", href: '/next-gen' },
 ]
 

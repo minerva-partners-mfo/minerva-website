@@ -29,7 +29,6 @@ const NAV_GROUPS = [
     items: [
       { key: 'codice', href: '/codice' },
       { key: 'veritas', href: '/veritas' },
-      { key: 'trasparenza', href: '/trasparenza' },
       { key: 'selezione', href: '/selezione' },
     ],
   },

@@ -17,7 +17,6 @@ const PAGE_META: Record<string, PageMeta> = {
   soluzioni: { namespace: 'meta', titleKey: 'soluzioni.title', descKey: 'soluzioni.desc' },
   abilitatori: { namespace: 'meta', titleKey: 'abilitatori.title', descKey: 'abilitatori.desc' },
   codice: { namespace: 'meta', titleKey: 'codice.title', descKey: 'codice.desc' },
-  trasparenza: { namespace: 'meta', titleKey: 'trasparenza.title', descKey: 'trasparenza.desc' },
   selezione: { namespace: 'meta', titleKey: 'selezione.title', descKey: 'selezione.desc' },
   eventi: { namespace: 'meta', titleKey: 'eventi.title', descKey: 'eventi.desc' },
   'point-zero': { namespace: 'meta', titleKey: 'pointZero.title', descKey: 'pointZero.desc' },

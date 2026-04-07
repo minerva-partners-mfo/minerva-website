@@ -12,7 +12,6 @@ const pages = [
   '/soluzioni',
   '/abilitatori',
   '/codice',
-  '/trasparenza',
   '/selezione',
   '/eventi',
   '/point-zero',
