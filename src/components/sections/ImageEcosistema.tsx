@@ -12,8 +12,8 @@ export function ImageEcosistema() {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/img9.webp')" }}
       />
-      {/* Dark overlay 60% */}
-      <div className="absolute inset-0 bg-[#0D1520]/60" />
+      {/* Dark overlay 80% */}
+      <div className="absolute inset-0 bg-[#0D1520]/80" />
       {/* Gradient bottom → navy-deep */}
       <div
         className="absolute inset-0"

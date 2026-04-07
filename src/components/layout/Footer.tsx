@@ -15,19 +15,15 @@ export function Footer() {
             <Image
               src="/images/logoPNG.png"
               alt="Minerva Partners"
-              width={160}
-              height={44}
-              className="h-10 w-auto object-contain"
+              width={320}
+              height={88}
+              className="h-20 w-auto object-contain"
               style={{ opacity: 1 }}
               loading="lazy"
             />
-            <span className="block font-sans text-[12px] text-white leading-relaxed">
-              Via Roggia Vignola, 9, 24047 Treviglio (BG) Italia
-            </span>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <a href="tel:+39036349160" className="font-sans text-[12px] text-white hover:text-[#C9912B] transition-colors">036349160</a>
             <a href="mailto:info@minervapartners.it" className="font-sans text-[12px] text-white hover:text-[#C9912B] transition-colors">info@minervapartners.it</a>
             <a href="https://www.linkedin.com/company/minerva-partners-srl" target="_blank" rel="noopener noreferrer" className="font-sans text-[12px] text-white hover:text-[#C9912B] transition-colors">LinkedIn</a>
           </div>
