@@ -43,6 +43,88 @@ function Arrow() {
   )
 }
 
+function LinkCard({ href, src, label, sub }: { href: string; src: string; label: string; sub: string }) {
+  return (
+    <Link href={href} className="block group relative rounded-xl overflow-hidden" style={{ aspectRatio: '16/10', border: '1px solid rgba(201,145,43,0.2)' }}>
+      <img src={src} alt={label} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(13,21,32,0.2) 0%, rgba(13,21,32,0.85) 100%)' }} />
+      <div className="absolute inset-x-0 bottom-0 p-5">
+        <p className="font-sans text-[10px] uppercase tracking-[0.18em] mb-1" style={{ color: '#C9912B' }}>{sub}</p>
+        <p className="font-serif text-[20px] md:text-[22px] text-white leading-tight">{label}</p>
+        <span className="font-sans text-[11px] mt-2 inline-block" style={{ color: 'rgba(255,255,255,0.7)' }}>Scopri →</span>
+      </div>
+    </Link>
+  )
+}
+
+function ChartCosti() {
+  // Simple bar comparison: 5-7 advisor (frammentato) vs Minerva (unificato)
+  return (
+    <div className="rounded-xl p-6" style={{ border: '1px solid rgba(201,145,43,0.15)', backgroundColor: 'rgba(255,255,255,0.02)' }}>
+      <p className="font-sans text-[10px] uppercase tracking-[0.15em] mb-4" style={{ color: 'rgba(201,145,43,0.8)' }}>Costo del non coordinamento</p>
+      {[
+        { l: 'Frammentato', v: 100, c: '#E74C3C', val: '5–7 advisor' },
+        { l: 'Coordinato', v: 38, c: '#C9912B', val: 'Regia Minerva' },
+      ].map((b) => (
+        <div key={b.l} className="mb-4 last:mb-0">
+          <div className="flex justify-between text-[11px] font-sans mb-1.5">
+            <span style={{ color: 'rgba(255,255,255,0.6)' }}>{b.l}</span>
+            <span style={{ color: 'rgba(255,255,255,0.4)' }}>{b.val}</span>
+          </div>
+          <div className="h-2 rounded-full overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
+            <div className="h-full rounded-full" style={{ width: `${b.v}%`, backgroundColor: b.c, transition: 'width 1.2s ease' }} />
+          </div>
+        </div>
+      ))}
+      <p className="font-sans text-[10px] mt-4" style={{ color: 'rgba(255,255,255,0.3)' }}>Tempo, costi, distrazioni — tutto cresce con la frammentazione.</p>
+    </div>
+  )
+}
+
+function ChartRegia() {
+  // Donut: 4 dimensioni del patrimonio coordinate
+  const segs = [
+    { c: '#C9912B', label: 'Impresa' },
+    { c: 'rgba(201,145,43,0.75)', label: 'Immobili' },
+    { c: 'rgba(201,145,43,0.5)', label: 'Finanza' },
+    { c: 'rgba(201,145,43,0.3)', label: 'Famiglia' },
+  ]
+  const r = 60
+  const C = 2 * Math.PI * r
+  const seg = C / 4
+  return (
+    <div className="rounded-xl p-6" style={{ border: '1px solid rgba(201,145,43,0.15)', backgroundColor: 'rgba(255,255,255,0.02)' }}>
+      <p className="font-sans text-[10px] uppercase tracking-[0.15em] mb-4" style={{ color: 'rgba(201,145,43,0.8)' }}>Una sola regia, ogni dimensione</p>
+      <div className="flex items-center gap-5">
+        <svg width="140" height="140" viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r={r} fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="20" />
+          {segs.map((s, i) => (
+            <circle
+              key={i}
+              cx="80" cy="80" r={r}
+              fill="none"
+              stroke={s.c}
+              strokeWidth="20"
+              strokeDasharray={`${seg - 4} ${C - seg + 4}`}
+              strokeDashoffset={-i * seg}
+              transform="rotate(-90 80 80)"
+            />
+          ))}
+          <text x="80" y="86" textAnchor="middle" className="font-serif" fontSize="22" fill="#C9912B" fontWeight="bold">4</text>
+        </svg>
+        <div className="space-y-2">
+          {segs.map((s) => (
+            <div key={s.label} className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: s.c }} />
+              <span className="font-sans text-[12px]" style={{ color: 'rgba(255,255,255,0.65)' }}>{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* Visual blocks aligned to flow steps (8 entries, one per step) */
 function Visual({ step }: { step: number }) {
   // 0,1 → number 5-7 ; 2,3 → impact phrase ; 4 → image ; 5,6 → 3 words ; 7 → final phrase
@@ -58,6 +140,9 @@ function Visual({ step }: { step: number }) {
       </FadeUp>
     )
   }
+  if (step === 1) {
+    return <FadeUp><ChartCosti /></FadeUp>
+  }
   if (step === 2) {
     return (
       <FadeUp>
@@ -66,6 +151,9 @@ function Visual({ step }: { step: number }) {
         </p>
       </FadeUp>
     )
+  }
+  if (step === 3) {
+    return <FadeUp><LinkCard href="/codice" src="/images/room.jpg" label="Il Codice Minerva" sub="Selezione & Etica" /></FadeUp>
   }
   if (step === 4) {
     return (
@@ -93,6 +181,9 @@ function Visual({ step }: { step: number }) {
         </div>
       </FadeUp>
     )
+  }
+  if (step === 6) {
+    return <FadeUp><ChartRegia /></FadeUp>
   }
   if (step === 7) {
     return (
@@ -142,7 +233,7 @@ export function ComeFunzionaPage() {
 
             {/* RIGHT mobile — stacked at bottom */}
             <div className="md:hidden space-y-16">
-              {[0, 2, 4, 5, 7].map((s) => (
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((s) => (
                 <div key={s}>
                   <Visual step={s} />
                 </div>
