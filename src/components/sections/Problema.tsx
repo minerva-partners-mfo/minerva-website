@@ -644,8 +644,10 @@ export function ProblemaPage() {
     <div className="bg-[#0D1520]">
 
       {/* ═══════ S1: HERO ═══════ */}
-      <section className="pt-24 md:pt-28 min-h-[90vh] flex flex-col md:flex-row">
-        <div className="w-full md:w-[45%] flex items-center justify-center px-8 md:px-16 py-16 md:py-0">
+      <section className="relative pt-24 md:pt-28 min-h-[90vh] flex flex-col md:flex-row">
+        <div className="absolute inset-0 bg-cover bg-center z-0" style={{ backgroundImage: "url('/images/img44.png')" }} />
+        <div className="absolute inset-0 z-0" style={{ backgroundColor: 'rgba(13,21,32,0.75)' }} />
+        <div className="relative z-10 w-full md:w-[45%] flex items-center justify-center px-8 md:px-16 py-16 md:py-0">
           <div style={{ maxWidth: 500 }}>
             <h1 className="font-serif text-[36px] md:text-[44px] text-white leading-[1.3]">Quando il sistema cambia,</h1>
             <p className="font-serif text-[36px] md:text-[44px] font-bold leading-[1.3] mt-1" style={{ color: '#C9912B' }}>anche tu devi evolvere.</p>
@@ -654,7 +656,7 @@ export function ProblemaPage() {
             </p>
           </div>
         </div>
-        <div className="w-full md:w-[55%] grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-8 self-center">
+        <div className="relative z-10 w-full md:w-[55%] grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-8 self-center">
           {[
             { num: '$124 trilioni', desc: 'di ricchezza in trasferimento entro il 2048' },
             { num: '70%', desc: 'delle aziende familiari non sopravvive al primo passaggio generazionale' },
