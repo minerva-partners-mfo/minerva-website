@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "claude-skills-mcp": {
+      "command": "uvx",
+      "args": ["claude-skills-mcp"]
+    }
+  }
+}

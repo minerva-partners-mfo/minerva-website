@@ -21,22 +21,34 @@ const DATA_ITEMS = [
 
 const DATA_CONFRONTO = [
   {
-    tema: 'TRASFERIMENTO RICCHEZZA',
+    tema: 'TRASFERIMENTO RICCHEZZA PER PAESE',
     pairs: [
-      { label: 'Ricchezza globale in trasferimento', value: '$124.000 miliardi', sub: 'entro il 2048' },
-      { label: 'Di cui da grandi patrimoni', value: '$62.000 miliardi', sub: 'HNWI e UHNWI' },
-      { label: 'Imprese italiane coinvolte', value: '2-2,5 milioni', sub: 'nel prossimo decennio' },
+      { label: 'Stati Uniti', value: '$68.000 mld', sub: '1 famiglia su 3 trasferirà entro il 2045' },
+      { label: 'Europa', value: '$33.000 mld', sub: '1 impresa su 5 cambierà proprietà nel prossimo decennio' },
+      { label: 'Italia', value: '€2.200 mld', sub: '1 PMI su 4 coinvolta. 207.000 aziende familiari' },
+      { label: 'Asia-Pacifico', value: '$18.000 mld', sub: '1 famiglia su 10 ha un piano strutturato' },
+      { label: 'Medio Oriente', value: '$3.500 mld', sub: '1 famiglia su 7 sta già trasferendo' },
     ],
-    source: 'Cerulli Associates 2024',
+    source: 'Cerulli Associates 2024, Capgemini, Credit Suisse',
   },
   {
     tema: 'FAMILY OFFICE ITALIANI',
     pairs: [
-      { label: 'Patrimonio gestito', value: '\u20AC850 miliardi', sub: 'oggi' },
-      { label: 'Strutture attive', value: '244', sub: 'oggi' },
-      { label: 'Strutture previste', value: '533', sub: 'nel 2040 (+118%)' },
+      { label: 'Patrimonio gestito', value: '€110 miliardi', sub: 'AUM complessivo dei family office italiani' },
+      { label: 'Strutture attive oggi', value: '244', sub: 'family office operativi in Italia' },
+      { label: 'Strutture previste 2040', value: '533', sub: '+118% — il mercato raddoppierà (atteso)' },
     ],
     source: 'AIFI 2025',
+    bridge: { from: '244', to: '533', label: '+118%' },
+  },
+  {
+    tema: 'COMPLESSITÀ DI GESTIONE',
+    pairs: [
+      { label: 'Ieri: patrimonio semplice', value: '2-3 asset', sub: 'Azienda, casa, conto corrente. Un commercialista bastava.' },
+      { label: 'Oggi: patrimonio articolato', value: '5-7 asset', sub: 'Azienda, immobili, finanza, polizze, partecipazioni. 5-7 advisor.' },
+      { label: 'Domani: patrimonio complesso', value: '10+ asset', sub: 'Multi-giurisdizione, crypto, PE, art, ESG. Serve una regia. (atteso)' },
+    ],
+    source: 'AIPB, Bain & Co 2025',
   },
 ]
 
@@ -82,9 +94,9 @@ const MEGATRENDS = [
 ]
 
 const PARADOXES = [
-  { front: 'Ricchezza alta', back: 'Liquidità bassa', detail: '67% bloccata in business equity. Vendere = perdere valore. Non vendere = non diversificare.' },
-  { front: 'Azienda forte', back: 'Non vendibile bene', detail: 'Senza preparazione: valuation \u2193 20-30%. Il 70% dei mandati M&A non chiude.' },
-  { front: 'Figli presenti', back: 'Non coinvolti', detail: "39% imprenditori: nessun erede sarà in azienda. Chi è capace emigra." },
+  { front: 'Ricchezza alta', back: 'Liquidità bassa', detail: '67% bloccata in business equity. Vendere = perdere valore. Non vendere = non diversificare.', hint: 'la liquidità è un\'altra storia' },
+  { front: 'Azienda forte', back: 'Non vendibile bene', detail: 'Senza preparazione: valuation \u2193 20-30%. Il 70% dei mandati M&A non chiude.', hint: 'venderla bene è un\'altra cosa' },
+  { front: 'Figli presenti', back: 'Non coinvolti', detail: "39% imprenditori: nessun erede sarà in azienda. Chi è capace emigra.", hint: 'coinvolgerli è un\'altra sfida' },
 ]
 
 /* ════════════════════════════════════════
@@ -227,10 +239,13 @@ function ConfrontoDatum({ label, value, sub, index, parentIndex }: {
   )
 }
 
-/* Single data item — 3 fields: ieri / oggi / domani */
+/* Single data item — 3 fields: ieri / oggi / domani + badge + trend */
 function DataItem({ item, index }: { item: typeof DATA_ITEMS[number]; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
+  const [badgeVisible, setBadgeVisible] = useState(false)
+  const badge = DATA_BADGES[index]
+  const rising = DATA_TRENDS[index]
 
   useEffect(() => {
     const el = ref.current
@@ -238,6 +253,7 @@ function DataItem({ item, index }: { item: typeof DATA_ITEMS[number]; index: num
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && !visible) {
         setTimeout(() => setVisible(true), index * 150)
+        setTimeout(() => setBadgeVisible(true), index * 150 + 500)
         obs.disconnect()
       }
     }, { threshold: 0.2 })
@@ -248,22 +264,34 @@ function DataItem({ item, index }: { item: typeof DATA_ITEMS[number]; index: num
   return (
     <div
       ref={ref}
-      className="transition-all duration-700"
+      className="relative transition-all duration-700"
       style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(20px)' }}
     >
+      {/* Badge top-right */}
+      {badge && (
+        <div className="absolute top-0 right-0" style={{ opacity: badgeVisible ? 1 : 0, transform: badgeVisible ? 'scale(1)' : 'scale(0)', transition: 'opacity 0.4s cubic-bezier(0.34,1.56,0.64,1), transform 0.4s cubic-bezier(0.34,1.56,0.64,1)' }}>
+          <Badge text={badge.text} color={badge.color} tooltip={badge.tooltip} />
+        </div>
+      )}
+
       <p className="font-sans text-[13px] font-bold uppercase mb-4" style={{ color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em' }}>{item.tema}</p>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-3 items-end">
         <div>
           <span className="font-sans text-[10px] uppercase block mb-1" style={{ color: 'rgba(255,255,255,0.25)', letterSpacing: '0.1em' }}>Ieri</span>
-          <span className="font-serif text-[22px] md:text-[26px] font-bold block leading-tight" style={{ color: 'rgba(255,255,255,0.35)' }}>{item.ieri}</span>
+          <span className="font-serif text-[18px] md:text-[20px] font-bold block leading-tight" style={{ color: 'rgba(255,255,255,0.35)' }}>{item.ieri}</span>
         </div>
         <div>
           <span className="font-sans text-[10px] uppercase block mb-1" style={{ color: 'rgba(201,145,43,0.6)', letterSpacing: '0.1em' }}>Oggi</span>
-          <span className="font-serif text-[22px] md:text-[26px] font-bold block leading-tight" style={{ color: '#C9912B' }}>{item.oggi}</span>
+          <span className="font-serif text-[24px] md:text-[30px] font-bold block leading-tight" style={{ color: '#C9912B' }}>{item.oggi}</span>
         </div>
         <div>
           <span className="font-sans text-[10px] uppercase block mb-1" style={{ color: 'rgba(231,76,60,0.5)', letterSpacing: '0.1em' }}>Domani</span>
-          <span className="font-serif text-[22px] md:text-[26px] font-bold block leading-tight" style={{ color: '#E74C3C' }}>{item.domani}</span>
+          <span className="font-serif text-[28px] md:text-[36px] font-bold block leading-tight" style={{ color: '#E74C3C' }}>
+            {item.domani}
+            {(item.domani.includes('000') || item.domani.includes('%') || item.domani.includes('+')) && (
+              <span className="font-sans text-[10px] italic font-normal ml-1" style={{ color: 'rgba(255,255,255,0.25)' }}>(atteso)</span>
+            )}
+          </span>
         </div>
       </div>
       <div className="mt-3 h-[1px]" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.05), rgba(201,145,43,0.15), rgba(231,76,60,0.1))' }} />
@@ -369,6 +397,221 @@ function ConfrontoRow({ num, leftTitle, leftText, rightTitle, rightText, rightSo
 }
 
 /* ════════════════════════════════════════
+   PARADOX CARD (enhanced flip)
+   ════════════════════════════════════════ */
+
+function ParadoxCard({ index, front, back, detail, hint }: {
+  index: number; front: string; back: string; detail: string; hint: string
+}) {
+  const [hintVisible, setHintVisible] = useState(false)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setTimeout(() => setHintVisible(true), 800)
+        obs.disconnect()
+      }
+    }, { threshold: 0.3 })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  return (
+    <div ref={ref} className="group" style={{ perspective: 1000, height: 320 }}>
+      <div className="relative w-full h-full transition-transform duration-[600ms] ease-in-out" style={{ transformStyle: 'preserve-3d' }}>
+        {/* Front */}
+        <div className="absolute inset-0 rounded-xl flex flex-col items-center justify-center group-hover:[transform:rotateY(180deg)] transition-transform duration-[600ms] ease-in-out" style={{ backfaceVisibility: 'hidden', backgroundColor: '#0D1520', border: '1px solid rgba(201,145,43,0.15)' }}>
+          <NumberCircle num={String(index + 1).padStart(2, '0')} size={36} />
+          <p className="font-serif text-[26px] text-white mt-4">{front}</p>
+
+          {/* "ma" hint */}
+          <div className="mt-3 flex items-center justify-center gap-1.5" style={{ opacity: hintVisible ? 1 : 0, transition: 'opacity 0.5s ease' }}>
+            <svg width="16" height="16" viewBox="0 0 16 16" style={{ animation: 'maArrowBounce 1.5s ease-in-out infinite' }}>
+              <path d="M8 2 L8 12 M4 9 L8 13 L12 9" stroke="#E74C3C" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span className="font-sans text-[16px] font-bold italic" style={{ color: '#E74C3C' }}>ma</span>
+          </div>
+          <p className="font-sans text-[13px] mt-2 transition-all duration-700" style={{ color: 'rgba(255,255,255,0.4)', opacity: hintVisible ? 1 : 0, transform: hintVisible ? 'translateY(0)' : 'translateY(8px)', transition: 'opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s' }}>
+            {hint}
+          </p>
+        </div>
+
+        {/* Back */}
+        <div className="absolute inset-0 rounded-xl flex flex-col items-center justify-center px-6 group-hover:[transform:rotateY(0deg)] [transform:rotateY(-180deg)] transition-transform duration-[600ms] ease-in-out" style={{ backfaceVisibility: 'hidden', backgroundColor: '#1A2744' }}>
+          <p className="font-serif text-[26px]" style={{ color: '#C9912B' }}>{back}</p>
+          <p className="font-sans text-[14px] text-center mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>{detail}</p>
+        </div>
+      </div>
+      <style>{`@keyframes maArrowBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }`}</style>
+    </div>
+  )
+}
+
+/* ════════════════════════════════════════
+   TREND SVG DECORATIVES
+   ════════════════════════════════════════ */
+
+function TrendSvg01() {
+  // Foreign takeover: arrows converging on Italy
+  return (
+    <svg className="absolute top-0 right-0 hidden md:block" width="70%" height="70%" viewBox="0 0 300 300" fill="none" style={{ opacity: 0.06, zIndex: 0 }}>
+      <path d="M150 40 C120 60, 110 100, 120 140 C130 180, 140 220, 130 260 C125 240, 145 200, 155 180 C165 160, 170 120, 160 80 C155 60, 150 40, 150 40Z" fill="white" fillOpacity="0.15" />
+      <line x1="20" y1="80" x2="120" y2="150" stroke="#E74C3C" strokeWidth="1.5" strokeOpacity="0.3"><animate attributeName="stroke-dashoffset" from="150" to="0" dur="1.5s" fill="freeze" /></line>
+      <line x1="280" y1="60" x2="170" y2="140" stroke="#E74C3C" strokeWidth="1.5" strokeOpacity="0.3"><animate attributeName="stroke-dashoffset" from="150" to="0" dur="1.5s" begin="0.2s" fill="freeze" /></line>
+      <line x1="280" y1="200" x2="170" y2="170" stroke="#E74C3C" strokeWidth="1.5" strokeOpacity="0.3"><animate attributeName="stroke-dashoffset" from="150" to="0" dur="1.5s" begin="0.4s" fill="freeze" /></line>
+      <line x1="40" y1="240" x2="130" y2="190" stroke="#E74C3C" strokeWidth="1.5" strokeOpacity="0.3"><animate attributeName="stroke-dashoffset" from="150" to="0" dur="1.5s" begin="0.6s" fill="freeze" /></line>
+      <text x="10" y="75" fill="white" fillOpacity="0.08" fontSize="7" fontFamily="sans-serif">CN</text>
+      <text x="275" y="55" fill="white" fillOpacity="0.08" fontSize="7" fontFamily="sans-serif">US</text>
+      <text x="275" y="210" fill="white" fillOpacity="0.08" fontSize="7" fontFamily="sans-serif">AE</text>
+      <text x="30" y="250" fill="white" fillOpacity="0.08" fontSize="7" fontFamily="sans-serif">DE</text>
+    </svg>
+  )
+}
+
+function TrendSvg02() {
+  // Emigrazione: arrows leaving Italy outward
+  return (
+    <svg className="absolute top-0 right-0 hidden md:block" width="70%" height="70%" viewBox="0 0 300 300" fill="none" style={{ opacity: 0.06, zIndex: 0 }}>
+      <path d="M130 40 C100 60, 90 100, 100 140 C110 180, 120 220, 110 260 C105 240, 125 200, 135 180 C145 160, 150 120, 140 80 C135 60, 130 40, 130 40Z" fill="white" fillOpacity="0.15" />
+      <line x1="140" y1="120" x2="260" y2="60" stroke="#E74C3C" strokeWidth="1.5" strokeOpacity="0.25" />
+      <line x1="140" y1="160" x2="270" y2="170" stroke="#E74C3C" strokeWidth="1.5" strokeOpacity="0.25" />
+      <line x1="130" y1="200" x2="260" y2="250" stroke="#E74C3C" strokeWidth="1.5" strokeOpacity="0.25" />
+      <circle cx="260" cy="60" r="6" fill="none" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+      <circle cx="270" cy="170" r="6" fill="none" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+      <circle cx="260" cy="250" r="6" fill="none" stroke="white" strokeOpacity="0.1" strokeWidth="1" />
+      <text x="252" y="50" fill="white" fillOpacity="0.08" fontSize="7" fontFamily="sans-serif">CH</text>
+      <text x="262" y="165" fill="white" fillOpacity="0.08" fontSize="7" fontFamily="sans-serif">AE</text>
+      <text x="252" y="245" fill="white" fillOpacity="0.08" fontSize="7" fontFamily="sans-serif">SG</text>
+    </svg>
+  )
+}
+
+function TrendSvg03() {
+  // Longevità: clock at 11:55
+  return (
+    <svg className="absolute top-4 right-4 hidden md:block" width="60%" height="60%" viewBox="0 0 200 200" fill="none" style={{ opacity: 0.08, zIndex: 0 }}>
+      <circle cx="100" cy="100" r="80" stroke="white" strokeWidth="1.5" strokeOpacity="0.1" />
+      <circle cx="100" cy="100" r="3" fill="white" fillOpacity="0.15" />
+      {/* Hour hand at ~11:55 */}
+      <line x1="100" y1="100" x2="92" y2="35" stroke="white" strokeWidth="2" strokeOpacity="0.12" strokeLinecap="round" />
+      {/* Minute hand at 55 min */}
+      <line x1="100" y1="100" x2="95" y2="22" stroke="white" strokeWidth="1.2" strokeOpacity="0.1" strokeLinecap="round" />
+      {/* Hour markers */}
+      {[0,30,60,90,120,150,180,210,240,270,300,330].map(deg => (
+        <line key={deg} x1="100" y1="25" x2="100" y2="30" stroke="white" strokeWidth="1" strokeOpacity="0.08" transform={`rotate(${deg} 100 100)`} />
+      ))}
+    </svg>
+  )
+}
+
+function TrendSvg04() {
+  // Next-gen failure: two figures with broken connection
+  return (
+    <svg className="absolute top-0 right-0 hidden md:block" width="65%" height="65%" viewBox="0 0 300 200" fill="none" style={{ opacity: 0.07, zIndex: 0 }}>
+      {/* Parent figure */}
+      <rect x="60" y="60" width="40" height="80" rx="12" fill="white" fillOpacity="0.06" />
+      <circle cx="80" cy="45" r="14" fill="white" fillOpacity="0.06" />
+      {/* Child figure */}
+      <rect x="200" y="80" width="30" height="60" rx="10" fill="white" fillOpacity="0.06" />
+      <circle cx="215" cy="68" r="11" fill="white" fillOpacity="0.06" />
+      {/* Broken connection */}
+      <line x1="105" y1="100" x2="140" y2="100" stroke="white" strokeWidth="1.5" strokeOpacity="0.08" strokeDasharray="4 4" />
+      <line x1="160" y1="100" x2="195" y2="100" stroke="white" strokeWidth="1.5" strokeOpacity="0.08" strokeDasharray="4 4" />
+      {/* Gap */}
+      <text x="142" y="104" fill="#E74C3C" fillOpacity="0.12" fontSize="16" fontFamily="sans-serif">?</text>
+    </svg>
+  )
+}
+
+function TrendSvg05() {
+  // Tsunami regolatorio: stacking documents
+  return (
+    <svg className="absolute top-0 right-0 hidden md:block" width="55%" height="70%" viewBox="0 0 200 280" fill="none" style={{ opacity: 0.06, zIndex: 0 }}>
+      {[0,1,2,3,4,5,6,7].map(i => (
+        <g key={i}>
+          <rect x={40 + i * 3} y={220 - i * 30} width="100" height="24" rx="3" fill="white" fillOpacity="0.08" stroke="white" strokeOpacity="0.04" strokeWidth="0.5">
+            <animate attributeName="opacity" from="0" to="0.08" dur="0.4s" begin={`${i * 0.15}s`} fill="freeze" />
+            <animateTransform attributeName="transform" type="translate" from="0 -20" to="0 0" dur="0.4s" begin={`${i * 0.15}s`} fill="freeze" />
+          </rect>
+          <text x={80 + i * 3} y={236 - i * 30} fill="white" fillOpacity="0.06" fontSize="10" fontFamily="sans-serif" textAnchor="middle">§</text>
+        </g>
+      ))}
+    </svg>
+  )
+}
+
+function TrendSvg06() {
+  // Compressione margini: declining line chart
+  return (
+    <svg className="absolute top-0 right-0 hidden md:block" width="70%" height="60%" viewBox="0 0 300 180" fill="none" style={{ opacity: 0.08, zIndex: 0 }}>
+      <defs>
+        <linearGradient id="marginLine" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="white" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#E74C3C" stopOpacity="0.12" />
+        </linearGradient>
+        <linearGradient id="marginFill" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="white" stopOpacity="0.02" />
+          <stop offset="100%" stopColor="#E74C3C" stopOpacity="0.04" />
+        </linearGradient>
+      </defs>
+      <path d="M20 30 C80 35, 140 60, 200 100 C240 125, 270 145, 285 155" stroke="url(#marginLine)" strokeWidth="4" fill="none" strokeLinecap="round" />
+      <path d="M20 30 C80 35, 140 60, 200 100 C240 125, 270 145, 285 155 L285 175 L20 175 Z" fill="url(#marginFill)" />
+    </svg>
+  )
+}
+
+const TREND_SVGS = [TrendSvg01, TrendSvg02, TrendSvg03, TrendSvg04, TrendSvg05, TrendSvg06]
+
+/* ════════════════════════════════════════
+   DATA BADGES & TREND LINES
+   ════════════════════════════════════════ */
+
+const DATA_BADGES = [
+  { text: '×109', color: '#C9912B', tooltip: 'cresciuta 109 volte dal 1960' },
+  { text: '×20', color: '#C9912B', tooltip: '20 volte più HNWI rispetto al 1960' },
+  { text: '24 anni', color: 'rgba(255,255,255,0.7)', tooltip: 'da trasferire nei prossimi 24 anni' },
+  { text: 'illiquida', color: '#E74C3C', tooltip: 'bloccata in business equity' },
+  { text: '×2', color: '#C9912B', tooltip: 'raddoppiata rispetto al 1960 (10,5%)' },
+  { text: '×2,3', color: '#C9912B', tooltip: 'AUM family office previsto a €2.000 mld nel 2040' },
+]
+
+// true = rising (gold), false = declining (red)
+const DATA_TRENDS = [true, true, true, false, true, true]
+
+function TrendLine({ rising }: { rising: boolean }) {
+  const color = rising ? '#C9912B' : '#E74C3C'
+  const path = rising ? 'M2 20 C20 18, 40 10, 60 4 L78 2' : 'M2 4 C20 6, 40 14, 60 18 L78 22'
+  return (
+    <svg width="80" height="24" viewBox="0 0 80 24" className="mt-2">
+      <path d={path} stroke={color} strokeWidth="2" fill="none" strokeLinecap="round" strokeDasharray="100" strokeDashoffset="100">
+        <animate attributeName="stroke-dashoffset" from="100" to="0" dur="1.5s" fill="freeze" />
+      </path>
+    </svg>
+  )
+}
+
+function Badge({ text, color, tooltip }: { text: string; color: string; tooltip: string }) {
+  const [show, setShow] = useState(false)
+  return (
+    <span
+      className="relative inline-block ml-2 cursor-default"
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+    >
+      <span className="font-sans text-[11px] font-bold rounded" style={{ color, backgroundColor: `${color}15`, padding: '2px 8px' }}>{text}</span>
+      {show && (
+        <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded font-sans text-[10px] whitespace-nowrap z-10" style={{ backgroundColor: 'rgba(13,21,32,0.95)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(201,145,43,0.2)' }}>
+          {tooltip}
+        </span>
+      )}
+    </span>
+  )
+}
+
+/* ════════════════════════════════════════
    MAIN
    ════════════════════════════════════════ */
 
@@ -420,23 +663,42 @@ export function ProblemaPage() {
       <section className="px-6 bg-[#0D1520]" style={{ padding: '100px 24px' }}>
         <div className="max-w-[1200px] mx-auto">
           <h2 className="font-serif text-[32px] text-white mb-12">I numeri di un sistema che cambia</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-14">
-            {DATA_ITEMS.map((item, i) => <DataItem key={i} item={item} index={i} />)}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-14">
+            {DATA_ITEMS.map((item, i) => (
+              <div key={i} className="relative px-5 md:px-8">
+                {/* Vertical separator (desktop) / horizontal separator (mobile) */}
+                {i % 2 === 1 && <div className="hidden md:block absolute left-0 top-[10%] bottom-[10%] w-[1px]" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />}
+                {i > 0 && <div className="md:hidden absolute top-0 left-[10%] right-[10%] h-[1px]" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }} />}
+                <DataItem item={item} index={i} />
+              </div>
+            ))}
           </div>
 
           {/* Confronto cards — dati a confronto con effetto */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-14 pt-14" style={{ borderTop: '1px solid rgba(201,145,43,0.1)' }}>
-            {DATA_CONFRONTO.map((card, ci) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14 pt-14" style={{ borderTop: '1px solid rgba(201,145,43,0.1)' }}>
+            {DATA_CONFRONTO.map((card: any, ci: number) => (
               <FadeIn key={ci} delay={ci * 200}>
-                <div className="rounded-xl overflow-hidden" style={{ border: '1px solid rgba(201,145,43,0.12)', background: 'linear-gradient(135deg, rgba(201,145,43,0.04) 0%, rgba(13,21,32,1) 100%)' }}>
+                <div className="rounded-xl overflow-hidden h-full flex flex-col" style={{ border: '1px solid rgba(201,145,43,0.12)', background: 'linear-gradient(135deg, rgba(201,145,43,0.04) 0%, rgba(13,21,32,1) 100%)' }}>
                   <div className="px-6 pt-6 pb-4">
                     <p className="font-sans text-[11px] font-bold uppercase" style={{ color: 'rgba(201,145,43,0.5)', letterSpacing: '0.15em' }}>{card.tema}</p>
                   </div>
-                  <div className="px-6 pb-6 space-y-5">
-                    {card.pairs.map((p, pi) => (
+                  <div className="px-6 pb-4 space-y-4 flex-1">
+                    {card.pairs.map((p: any, pi: number) => (
                       <ConfrontoDatum key={pi} label={p.label} value={p.value} sub={p.sub} index={pi} parentIndex={ci} />
                     ))}
                   </div>
+                  {/* Bridge: from → to */}
+                  {card.bridge && (
+                    <div className="px-6 py-4 flex items-center justify-center gap-3" style={{ borderTop: '1px solid rgba(201,145,43,0.08)' }}>
+                      <span className="font-serif text-[20px] font-bold" style={{ color: 'rgba(255,255,255,0.4)' }}>{card.bridge.from}</span>
+                      <div className="flex items-center gap-1">
+                        <div className="h-[1px] w-8" style={{ backgroundColor: 'rgba(201,145,43,0.3)' }} />
+                        <span className="font-sans text-[11px] font-bold" style={{ color: '#C9912B' }}>{card.bridge.label}</span>
+                        <div className="h-[1px] w-8" style={{ backgroundColor: 'rgba(201,145,43,0.3)' }} />
+                      </div>
+                      <span className="font-serif text-[24px] font-bold" style={{ color: '#C9912B' }}>{card.bridge.to}</span>
+                    </div>
+                  )}
                   <div className="px-6 py-3" style={{ backgroundColor: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
                     <p className="font-sans text-[10px]" style={{ color: 'rgba(255,255,255,0.2)' }}>{card.source}</p>
                   </div>
@@ -613,31 +875,37 @@ export function ProblemaPage() {
           <h2 className="font-serif text-[30px] md:text-[36px] text-white mb-2">6 forze che convergono</h2>
           <p className="font-sans text-[16px] mb-10" style={{ color: 'rgba(255,255,255,0.45)' }}>Ognuna da sola è gestibile. Insieme ridisegnano il mercato.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {MEGATRENDS.map((t, i) => (
-              <div
-                key={i}
-                className="rounded-xl cursor-pointer transition-all duration-300"
-                style={{
-                  backgroundColor: hoveredTrend === i ? 'rgba(139,58,58,0.08)' : 'rgba(255,255,255,0.02)',
-                  borderLeft: `3px solid ${hoveredTrend === i ? '#E74C3C' : '#8B3A3A'}`,
-                  borderRadius: 12, padding: 32,
-                  transform: hoveredTrend === i ? 'translateY(-4px)' : 'translateY(0)',
-                  boxShadow: hoveredTrend === i ? '0 8px 32px rgba(0,0,0,0.3)' : 'none',
-                }}
-                onMouseEnter={() => setHoveredTrend(i)}
-                onMouseLeave={() => setHoveredTrend(null)}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <NumberCircle num={String(i + 1).padStart(2, '0')} bg="#8B3A3A" />
-                  <h4 className="font-sans text-[17px] font-bold text-white">{t.title}</h4>
+            {MEGATRENDS.map((t, i) => {
+              const SvgDecor = TREND_SVGS[i]
+              return (
+                <div
+                  key={i}
+                  className="relative rounded-xl cursor-pointer transition-all duration-300 overflow-hidden"
+                  style={{
+                    backgroundColor: hoveredTrend === i ? 'rgba(139,58,58,0.08)' : 'rgba(255,255,255,0.02)',
+                    borderLeft: `3px solid ${hoveredTrend === i ? '#E74C3C' : '#8B3A3A'}`,
+                    borderRadius: 12, padding: 32,
+                    transform: hoveredTrend === i ? 'translateY(-4px)' : 'translateY(0)',
+                    boxShadow: hoveredTrend === i ? '0 8px 32px rgba(0,0,0,0.3)' : 'none',
+                  }}
+                  onMouseEnter={() => setHoveredTrend(i)}
+                  onMouseLeave={() => setHoveredTrend(null)}
+                >
+                  {SvgDecor && <SvgDecor />}
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <NumberCircle num={String(i + 1).padStart(2, '0')} bg="#8B3A3A" />
+                      <h4 className="font-sans text-[17px] font-bold text-white">{t.title}</h4>
+                    </div>
+                    <span className="font-serif text-[36px] md:text-[44px] font-bold block leading-none" style={{ color: '#C9912B' }}>{t.num}</span>
+                    <p className="font-sans text-[14px] mt-2" style={{ color: 'rgba(255,255,255,0.6)' }}>{t.desc}</p>
+                    <div style={{ maxHeight: hoveredTrend === i ? 120 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
+                      <p className="font-sans text-[12px] mt-3 pt-3" style={{ color: 'rgba(255,255,255,0.4)', borderTop: '1px solid rgba(255,255,255,0.06)' }}>{t.extra}</p>
+                    </div>
+                  </div>
                 </div>
-                <span className="font-serif text-[36px] md:text-[44px] font-bold block leading-none" style={{ color: '#C9912B' }}>{t.num}</span>
-                <p className="font-sans text-[14px] mt-2" style={{ color: 'rgba(255,255,255,0.6)' }}>{t.desc}</p>
-                <div style={{ maxHeight: hoveredTrend === i ? 120 : 0, overflow: 'hidden', transition: 'max-height 0.4s ease' }}>
-                  <p className="font-sans text-[12px] mt-3 pt-3" style={{ color: 'rgba(255,255,255,0.4)', borderTop: '1px solid rgba(255,255,255,0.06)' }}>{t.extra}</p>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </section>
@@ -697,18 +965,7 @@ export function ProblemaPage() {
           <h2 className="font-serif text-[32px] text-white mb-8 text-center">Tre paradossi</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {PARADOXES.map((p, i) => (
-              <div key={i} className="group" style={{ perspective: 1000, height: 280 }}>
-                <div className="relative w-full h-full transition-transform duration-[600ms] ease-in-out" style={{ transformStyle: 'preserve-3d' }}>
-                  <div className="absolute inset-0 rounded-xl flex flex-col items-center justify-center group-hover:[transform:rotateY(180deg)] transition-transform duration-[600ms] ease-in-out" style={{ backfaceVisibility: 'hidden', backgroundColor: '#0D1520', border: '1px solid rgba(201,145,43,0.15)' }}>
-                    <NumberCircle num={String(i + 1).padStart(2, '0')} size={36} />
-                    <p className="font-serif text-[26px] text-white mt-4">{p.front}</p>
-                  </div>
-                  <div className="absolute inset-0 rounded-xl flex flex-col items-center justify-center px-6 group-hover:[transform:rotateY(0deg)] [transform:rotateY(-180deg)] transition-transform duration-[600ms] ease-in-out" style={{ backfaceVisibility: 'hidden', backgroundColor: '#1A2744' }}>
-                    <p className="font-serif text-[26px]" style={{ color: '#C9912B' }}>{p.back}</p>
-                    <p className="font-sans text-[14px] text-center mt-4" style={{ color: 'rgba(255,255,255,0.6)' }}>{p.detail}</p>
-                  </div>
-                </div>
-              </div>
+              <ParadoxCard key={i} index={i} front={p.front} back={p.back} detail={p.detail} hint={p.hint} />
             ))}
           </div>
         </div>

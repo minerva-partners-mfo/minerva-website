@@ -1,44 +1,31 @@
 'use client'
 
 import { useRef, useEffect } from 'react'
+import { Link } from '@/i18n/navigation'
 import { gsap } from '@/lib/gsap'
 import { onIdle } from '@/lib/idle'
 import { useTranslations } from 'next-intl'
 
+/* ── Constants ── */
 const CYCLE_KEYS = ['exit', 'liquidita', 'wm', 'reinvestimento', 'opportunita', 'crescita'] as const
-const APPROACH_KEYS = ['a1', 'a2', 'a3', 'a4'] as const
+const CYCLE_ANGLES = [270, 330, 30, 90, 150, 210] // 12h, 2h, 4h, 6h, 8h, 10h
 
-/* ── Positions on the circle (6 nodes, evenly spaced, starting top) ── */
-function getNodePos(index: number, total: number, cx: number, cy: number, r: number) {
-  const angle = (index / total) * Math.PI * 2 - Math.PI / 2 // start at top
-  return {
-    x: cx + r * Math.cos(angle),
-    y: cy + r * Math.sin(angle),
-  }
-}
+const TRAD_KEYS = ['t1', 't2', 't3', 't4', 't5'] as const
+const MINERVA_KEYS = ['m1', 'm2', 'm3', 'm4', 'm5'] as const
 
-function ApproachIcon({ index }: { index: number }) {
-  const cls = 'w-8 h-8 text-gold'
-  switch (index) {
-    case 0: // Continuità
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M23 4v6h-6" /><path d="M1 20v-6h6" /><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" /></svg>)
-    case 1: // Visione integrata
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z" /></svg>)
-    case 2: // Trasparenza
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>)
-    case 3: // Protezione
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" /><path d="M9 12l2 2 4-4" /></svg>)
-    default:
-      return null
-  }
-}
+const CAP_KEYS = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] as const
+const STAT_KEYS = ['s1', 's2', 's3'] as const
 
 export function WealthPage() {
   const t = useTranslations('wealth')
+
   const sectionRef = useRef<HTMLElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const svgRef = useRef<SVGSVGElement>(null)
-  const approachRef = useRef<HTMLDivElement>(null)
+  const heroRef = useRef<HTMLDivElement>(null)
+  const cycleRef = useRef<HTMLDivElement>(null)
+  const compRef = useRef<HTMLDivElement>(null)
+  const capsRef = useRef<HTMLDivElement>(null)
+  const statsRef = useRef<HTMLDivElement>(null)
+  const ctaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -48,54 +35,45 @@ export function WealthPage() {
     const cancelIdle = onIdle(() => {
       if (!sectionRef.current) return
       ctx = gsap.context(() => {
-        // Header
-        if (headerRef.current) {
-          gsap.from(headerRef.current, {
-            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: headerRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+        if (heroRef.current) {
+          gsap.from(heroRef.current.querySelectorAll('.hero-anim'), {
+            y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power2.out',
+            scrollTrigger: { trigger: heroRef.current, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
 
-        if (svgRef.current) {
-          // Arc draws progressively
-          const arc = svgRef.current.querySelector('.cycle-arc')
-          if (arc) {
-            const el = arc as SVGCircleElement
-            const circumference = 2 * Math.PI * 180 // r=180
-            gsap.set(el, { strokeDasharray: circumference, strokeDashoffset: circumference })
-            gsap.to(el, {
-              strokeDashoffset: 0,
-              duration: 2,
-              ease: 'power1.inOut',
-              scrollTrigger: { trigger: svgRef.current, start: 'top 75%', toggleActions: 'play none none none' },
-            })
-          }
-
-          // Nodes fade in with stagger
-          const nodes = svgRef.current.querySelectorAll('.cycle-node')
-          gsap.from(nodes, {
-            scale: 0, opacity: 0, duration: 0.5, stagger: 0.2, ease: 'back.out(1.5)',
-            scrollTrigger: { trigger: svgRef.current, start: 'top 75%', toggleActions: 'play none none none' },
-            delay: 0.5,
+        if (cycleRef.current) {
+          gsap.from(cycleRef.current.querySelectorAll('.cycle-seg'), {
+            scale: 0, opacity: 0, duration: 0.5, stagger: 0.2, ease: 'back.out(1.7)',
+            scrollTrigger: { trigger: cycleRef.current, start: 'top 80%', toggleActions: 'play none none none' },
           })
-
-          // Center text
-          const center = svgRef.current.querySelector('.cycle-center')
-          if (center) {
-            gsap.from(center, {
-              scale: 0, opacity: 0, duration: 0.6, ease: 'back.out(2)',
-              scrollTrigger: { trigger: svgRef.current, start: 'top 75%', toggleActions: 'play none none none' },
-              delay: 1.2,
-            })
-          }
         }
 
-        // Approach cards
-        if (approachRef.current) {
-          const cards = approachRef.current.querySelectorAll('.approach-card')
-          gsap.from(cards, {
+        if (compRef.current) {
+          gsap.from(compRef.current.querySelectorAll('.comp-anim'), {
+            y: 30, opacity: 0, duration: 0.6, stagger: 0.12, ease: 'power2.out',
+            scrollTrigger: { trigger: compRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+          })
+        }
+
+        if (capsRef.current) {
+          gsap.from(capsRef.current.querySelectorAll('.cap-card'), {
+            y: 30, opacity: 0, duration: 0.5, stagger: 0.12, ease: 'power2.out',
+            scrollTrigger: { trigger: capsRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+          })
+        }
+
+        if (statsRef.current) {
+          gsap.from(statsRef.current.querySelectorAll('.stat-item'), {
             y: 30, opacity: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out',
-            scrollTrigger: { trigger: approachRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+            scrollTrigger: { trigger: statsRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+          })
+        }
+
+        if (ctaRef.current) {
+          gsap.from(ctaRef.current, {
+            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
+            scrollTrigger: { trigger: ctaRef.current, start: 'top 90%', toggleActions: 'play none none none' },
           })
         }
       }, section)
@@ -107,151 +85,256 @@ export function WealthPage() {
     }
   }, [])
 
-  const CX = 250
-  const CY = 250
-  const R = 180
-
   return (
-    <section ref={sectionRef} className="relative bg-navy-deep min-h-screen pt-28 md:pt-36 pb-24 md:pb-[140px] px-4 md:px-6">
-      <div className="max-w-[1280px] mx-auto">
+    <section ref={sectionRef} className="relative min-h-screen" style={{ backgroundColor: '#0D1520' }}>
 
-        {/* ── Header ── */}
-        <div ref={headerRef} className="text-center mb-16 md:mb-24">
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-4">
-            {t('label')}
-          </span>
-          <h1 className="font-serif text-[28px] md:text-[44px] lg:text-[52px] font-semibold leading-[1.1] text-white mb-6">
-            {t('headline')}
+      {/* ════════════════════════════════════════════════════════
+          HERO
+          ════════════════════════════════════════════════════════ */}
+      <div ref={heroRef} className="min-h-[60vh] flex items-center justify-center px-4 md:px-6">
+        <div className="max-w-[750px] mx-auto text-center py-24 md:py-32">
+          <h1
+            className="hero-anim font-serif font-semibold text-white leading-tight"
+            style={{ fontSize: 'clamp(32px, 5vw, 48px)' }}
+          >
+            {t('headline1')}
           </h1>
-          <p className="font-sans text-[16px] md:text-[18px] font-light leading-[1.7] text-white/70 max-w-[750px] mx-auto mb-8">
+          <h1
+            className="hero-anim font-serif font-bold leading-tight mb-6"
+            style={{ fontSize: 'clamp(32px, 5vw, 48px)', color: '#C9912B' }}
+          >
+            {t('headline2')}
+          </h1>
+          <p
+            className="hero-anim font-sans font-light mx-auto"
+            style={{ fontSize: '17px', color: 'rgba(255,255,255,0.55)', maxWidth: '650px', lineHeight: '1.7' }}
+          >
             {t('subtitle')}
           </p>
-          <div className="h-[1.5px] w-16 bg-gold mx-auto" />
         </div>
+      </div>
 
-        {/* ── Circular Diagram ── */}
-        <div className="mb-20 md:mb-28">
-          <svg
-            ref={svgRef}
-            viewBox="0 0 500 500"
-            className="w-full max-w-[500px] mx-auto h-auto"
-            fill="none"
-          >
-            {/* Background ring */}
-            <circle cx={CX} cy={CY} r={R} stroke="white" strokeWidth="0.5" opacity="0.06" />
-
-            {/* Animated arc */}
-            <circle
-              className="cycle-arc"
-              cx={CX}
-              cy={CY}
-              r={R}
-              stroke="#C9912B"
-              strokeWidth="1.5"
-              opacity="0.4"
-              fill="none"
-              transform={`rotate(-90 ${CX} ${CY})`}
-            />
-
-            {/* Directional arrows along the circle */}
-            {CYCLE_KEYS.map((_, i) => {
-              const midAngle = ((i + 0.5) / CYCLE_KEYS.length) * Math.PI * 2 - Math.PI / 2
-              const ax = CX + (R + 0) * Math.cos(midAngle)
-              const ay = CY + (R + 0) * Math.sin(midAngle)
-              const tangent = midAngle + Math.PI / 2
-              return (
-                <polygon
-                  key={`arrow-${i}`}
-                  points={`${ax + 4 * Math.cos(tangent)},${ay + 4 * Math.sin(tangent)} ${ax - 4 * Math.cos(tangent)},${ay - 4 * Math.sin(tangent)} ${ax + 6 * Math.cos(tangent + 0.3)},${ay + 6 * Math.sin(tangent + 0.3)}`}
-                  fill="#C9912B"
-                  opacity="0.25"
-                />
-              )
-            })}
-
-            {/* 6 Nodes */}
-            {CYCLE_KEYS.map((key, i) => {
-              const pos = getNodePos(i, CYCLE_KEYS.length, CX, CY, R)
-              return (
-                <g key={key} className="cycle-node" style={{ transformOrigin: `${pos.x}px ${pos.y}px` }}>
-                  <circle cx={pos.x} cy={pos.y} r="32" fill="#0D1520" />
-                  <circle cx={pos.x} cy={pos.y} r="32" fill="#C9912B" opacity="0.1" stroke="#C9912B" strokeWidth="1" />
-                  <text
-                    x={pos.x}
-                    y={pos.y + 4}
-                    textAnchor="middle"
-                    fill="#C9912B"
-                    fontSize="9"
-                    fontFamily="DM Sans, sans-serif"
-                    fontWeight="600"
-                  >
-                    {t(`cycle.${key}.title`)}
-                  </text>
-                </g>
-              )
-            })}
-
-            {/* Center */}
-            <g className="cycle-center" style={{ transformOrigin: `${CX}px ${CY}px` }}>
-              <circle cx={CX} cy={CY} r="55" fill="#C9912B" opacity="0.08" />
-              <circle cx={CX} cy={CY} r="55" fill="none" stroke="#C9912B" strokeWidth="1.5" />
-              <text x={CX} y={CY - 6} textAnchor="middle" fill="white" fontSize="10" fontFamily="DM Sans, sans-serif" fontWeight="600">
-                {t('center')}
-              </text>
-              <line x1={CX - 15} y1={CY + 6} x2={CX + 15} y2={CY + 6} stroke="#C9912B" strokeWidth="0.5" opacity="0.4" />
-            </g>
-          </svg>
-
-          {/* Center description below */}
-          <p className="text-center font-sans text-[15px] md:text-base font-light leading-[1.7] text-white/60 max-w-[400px] mx-auto mt-6">
-            {t('centerSub')}
-          </p>
-        </div>
-
-        {/* ── Cycle step descriptions ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-20 md:mb-28">
-          {CYCLE_KEYS.map((key) => (
+      {/* ════════════════════════════════════════════════════════
+          BLOCCO 1 — IL CICLO
+          ════════════════════════════════════════════════════════ */}
+      <div className="px-4 md:px-6 py-20 md:py-28" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+        <div className="max-w-[500px] mx-auto">
+          <div ref={cycleRef} className="relative" style={{ width: '100%', paddingBottom: '100%' }}>
+            {/* Center label */}
             <div
-              key={key}
-              className="p-6 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-gold/20 transition-all duration-300"
+              className="cycle-seg absolute font-sans font-bold text-center"
+              style={{
+                top: '50%', left: '50%',
+                transform: 'translate(-50%, -50%)',
+                fontSize: '13px', color: '#C9912B',
+                maxWidth: '120px',
+              }}
             >
-              <h4 className="font-serif text-[17px] font-semibold text-gold leading-[1.2] mb-2">
-                {t(`cycle.${key}.title`)}
-              </h4>
-              <p className="font-sans text-[13px] md:text-[14px] font-light leading-[1.7] text-white/60">
-                {t(`cycle.${key}.desc`)}
-              </p>
+              {t('cycle.center')}
             </div>
-          ))}
-        </div>
 
-        {/* ── Approach ── */}
-        <div>
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-8">
-            {t('approachLabel')}
-          </span>
-          <div ref={approachRef} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {APPROACH_KEYS.map((key, i) => (
+            {/* 6 Segments */}
+            {CYCLE_KEYS.map((key, i) => {
+              const angle = CYCLE_ANGLES[i]
+              const rad = (angle * Math.PI) / 180
+              const radius = 38 // % of container
+              const cx = 50 + radius * Math.cos(rad)
+              const cy = 50 + radius * Math.sin(rad)
+
+              return (
+                <div
+                  key={key}
+                  className="cycle-seg absolute flex items-center justify-center text-center"
+                  style={{
+                    left: `${cx}%`, top: `${cy}%`,
+                    transform: 'translate(-50%, -50%)',
+                    width: '72px', height: '72px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(201,145,43,0.08)',
+                    border: '1px solid rgba(201,145,43,0.25)',
+                  }}
+                >
+                  <span className="font-sans font-bold" style={{ fontSize: '9px', color: '#C9912B', letterSpacing: '0.04em', lineHeight: '1.2' }}>
+                    {t(`cycle.${key}`)}
+                  </span>
+                </div>
+              )
+            })}
+
+            {/* Arrows SVG overlay */}
+            <svg
+              className="absolute inset-0 w-full h-full"
+              viewBox="0 0 400 400"
+              fill="none"
+            >
+              {CYCLE_KEYS.map((_, i) => {
+                const a1 = CYCLE_ANGLES[i]
+                const a2 = CYCLE_ANGLES[(i + 1) % 6]
+                const r = 152
+                const cx = 200
+                const cy = 200
+
+                const rad1 = ((a1 + 18) * Math.PI) / 180
+                const rad2 = ((a2 - 18) * Math.PI) / 180
+                const x1 = cx + r * Math.cos(rad1)
+                const y1 = cy + r * Math.sin(rad1)
+                const x2 = cx + r * Math.cos(rad2)
+                const y2 = cy + r * Math.sin(rad2)
+
+                return (
+                  <path
+                    key={`arc-${i}`}
+                    d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
+                    stroke="#C9912B"
+                    strokeWidth="1"
+                    opacity="0.3"
+                  />
+                )
+              })}
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════════════
+          BLOCCO 2 — CONFRONTO WM TRADIZIONALE vs MINERVA
+          ════════════════════════════════════════════════════════ */}
+      <div className="px-4 md:px-6 py-20 md:py-28" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+        <div ref={compRef} className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* WM Tradizionale */}
+          <div
+            className="comp-anim rounded-xl"
+            style={{
+              backgroundColor: 'rgba(231,76,60,0.04)',
+              border: '1px solid rgba(231,76,60,0.12)',
+              padding: '32px',
+            }}
+          >
+            <h3 className="font-sans font-bold uppercase tracking-wider mb-5" style={{ fontSize: '13px', color: 'rgba(231,76,60,0.7)' }}>
+              {t('compare.trad.title')}
+            </h3>
+            <ul className="space-y-3">
+              {TRAD_KEYS.map((key) => (
+                <li key={key} className="flex items-start gap-3">
+                  <span className="block mt-1.5 shrink-0" style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'rgba(231,76,60,0.3)' }} />
+                  <span className="font-sans font-light" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.6' }}>
+                    {t(`compare.trad.items.${key}`)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* WM Minerva */}
+          <div
+            className="comp-anim rounded-xl"
+            style={{
+              backgroundColor: 'rgba(201,145,43,0.06)',
+              border: '1px solid rgba(201,145,43,0.15)',
+              padding: '32px',
+            }}
+          >
+            <h3 className="font-sans font-bold uppercase tracking-wider mb-5" style={{ fontSize: '13px', color: '#C9912B' }}>
+              {t('compare.minerva.title')}
+            </h3>
+            <ul className="space-y-3">
+              {MINERVA_KEYS.map((key) => (
+                <li key={key} className="flex items-start gap-3">
+                  <span className="block mt-1.5 shrink-0" style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'rgba(201,145,43,0.5)' }} />
+                  <span className="font-sans font-light" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6' }}>
+                    {t(`compare.minerva.items.${key}`)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════════════
+          BLOCCO 3 — 6 CAPABILITY
+          ════════════════════════════════════════════════════════ */}
+      <div className="px-4 md:px-6 py-20 md:py-28" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+        <div ref={capsRef} className="max-w-[1100px] mx-auto">
+          <h2 className="font-serif font-semibold text-white mb-12" style={{ fontSize: '28px' }}>
+            {t('capsTitle')}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {CAP_KEYS.map((key, i) => (
               <div
                 key={key}
-                className="approach-card flex gap-5 p-6 md:p-8 rounded-xl bg-gold/[0.05] border border-gold/[0.1] hover:border-gold/25 transition-all duration-300"
+                className="cap-card"
+                style={{
+                  backgroundColor: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(201,145,43,0.12)',
+                  padding: '24px',
+                  borderRadius: '12px',
+                }}
               >
-                <div className="flex-shrink-0 pt-1">
-                  <ApproachIcon index={i} />
+                <div
+                  className="flex items-center justify-center rounded-full mb-3"
+                  style={{ width: '32px', height: '32px', border: '1.5px solid #C9912B' }}
+                >
+                  <span className="font-sans font-bold" style={{ fontSize: '13px', color: '#C9912B' }}>
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
                 </div>
-                <div>
-                  <h3 className="font-serif text-[18px] md:text-[20px] font-semibold text-white leading-[1.2] mb-2">
-                    {t(`approach.${key}.title`)}
-                  </h3>
-                  <p className="font-sans text-[14px] font-light leading-[1.7] text-white/65">
-                    {t(`approach.${key}.desc`)}
-                  </p>
-                </div>
+                <h3 className="font-serif font-semibold text-white mb-2" style={{ fontSize: '18px' }}>
+                  {t(`caps.${key}.title`)}
+                </h3>
+                <p className="font-sans font-light" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.6' }}>
+                  {t(`caps.${key}.desc`)}
+                </p>
               </div>
             ))}
           </div>
         </div>
+      </div>
 
+      {/* ════════════════════════════════════════════════════════
+          BLOCCO 4 — I NUMERI
+          ════════════════════════════════════════════════════════ */}
+      <div className="px-4 md:px-6 py-20 md:py-28" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+        <div ref={statsRef} className="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {STAT_KEYS.map((key) => (
+            <div key={key} className="stat-item text-center">
+              <span className="block font-serif font-bold mb-2" style={{ fontSize: '48px', color: '#C9912B', lineHeight: '1' }}>
+                {t(`stats.${key}.num`)}
+              </span>
+              <p className="font-sans font-light mb-1" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.55)' }}>
+                {t(`stats.${key}.desc`)}
+              </p>
+              <span className="font-sans" style={{ fontSize: '11px', color: 'rgba(255,255,255,0.25)' }}>
+                {t(`stats.${key}.source`)}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════════════
+          BLOCCO 5 — QUOTE + CTA
+          ════════════════════════════════════════════════════════ */}
+      <div ref={ctaRef} className="px-4 md:px-6 py-20 md:py-28 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+        <p
+          className="font-serif italic text-white mx-auto mb-10"
+          style={{ fontSize: 'clamp(18px, 3vw, 24px)', maxWidth: '700px', lineHeight: '1.5' }}
+        >
+          {t('quote')}
+        </p>
+        <Link
+          href="/contatti"
+          className="inline-flex items-center justify-center font-sans font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90"
+          style={{
+            fontSize: '13px',
+            backgroundColor: '#C9912B',
+            padding: '14px 32px',
+            borderRadius: '8px',
+            letterSpacing: '0.08em',
+          }}
+        >
+          {t('cta')}
+        </Link>
       </div>
     </section>
   )

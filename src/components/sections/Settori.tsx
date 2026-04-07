@@ -8,20 +8,24 @@ import { useTranslations } from 'next-intl'
    ════════════════════════════════════════ */
 
 const SECTORS = [
-  { key: 's01', img: '/images/settore-finanziari.jpg' },
-  { key: 's02', img: '/images/settore-consumo.jpg' },
-  { key: 's03', img: '/images/settore-aerospace.jpg' },
-  { key: 's04', img: '/images/settore-macchinari.jpg' },
-  { key: 's05', img: '/images/settore-chimica.jpg' },
-  { key: 's06', img: '/images/settore-tech.jpg' },
-  { key: 's07', img: '/images/settore-infrastrutture.jpg' },
-  { key: 's08', img: '/images/settore-metallurgica.jpg' },
-  { key: 's09', img: '/images/settore-oil.jpg' },
-  { key: 's10', img: '/images/settore-packaging.jpg' },
-  { key: 's11', img: '/images/settore-trasporti.jpg' },
-  { key: 's12', img: '/images/settore-utility.jpg' },
-  { key: 's13', img: '/images/settore-agri.jpg' },
-  { key: 's14', img: '/images/settore-pharma.jpg' },
+  { key: 's01', img: '/images/settore-financial.png', num: 1 },
+  { key: 's02', img: '/images/settore-largoconsumo.png', num: 2 },
+  { key: 's03', img: '/images/settore-aerospace.png', num: 3 },
+  { key: 's04', img: '/images/settore-industrial.png', num: 4 },
+  { key: 's05', img: '/images/settore-chemical.png', num: 5 },
+  { key: 's06', img: '/images/settore-tech.png', num: 6 },
+  { key: 's07', img: '/images/settore-infrastrutture.png', num: 7 },
+  { key: 's08', img: '/images/settore-metallurgia.png', num: 8 },
+  { key: 's09', img: '/images/settore-oilandgas.png', num: 9 },
+  { key: 's10', img: '/images/settore-packaging.png', num: 10 },
+  { key: 's11', img: '/images/settore-trasporti.png', num: 11 },
+  { key: 's12', img: '/images/settore-utility.png', num: 12 },
+  { key: 's13', img: '/images/settore-agribusiness.png', num: 13 },
+  { key: 's14', img: '/images/settore-pharma.png', num: 14 },
+  { key: 's15', img: '/images/settore-realestate.png', num: 0 },
+  { key: 's16', img: '/images/settore-entertainment.png', num: 0 },
+  { key: 's17', img: '/images/settore-sports.png', num: 0 },
+  { key: 's18', img: '/images/settore-luxury.png', num: 0 },
 ]
 
 // Masonry height pattern: tall/short alternating per row
@@ -95,7 +99,6 @@ function SectorCard({ num, img, t, sKey, desktopHeight, delay }: {
 }) {
   const [hovered, setHovered] = useState(false)
   const [imgError, setImgError] = useState(false)
-  const numStr = String(num).padStart(2, '0')
 
   return (
     <FadeIn
@@ -133,12 +136,6 @@ function SectorCard({ num, img, t, sKey, desktopHeight, delay }: {
           }}
         />
 
-        <div
-          className="absolute flex items-center justify-center rounded-full"
-          style={{ top: '20px', left: '20px', width: '28px', height: '28px', backgroundColor: '#C9912B' }}
-        >
-          <span className="font-sans text-[11px] font-bold text-white">{numStr}</span>
-        </div>
 
         <div className="absolute bottom-0 left-0 right-0" style={{ padding: '28px' }}>
           <h3
@@ -188,11 +185,10 @@ function PlayerCard({ pKey, num, t, delay }: {
   const numStr = String(num).padStart(2, '0')
 
   return (
-    <FadeIn delay={delay}>
+    <FadeIn delay={delay} className="h-full">
       <div
-        className="rounded-[20px] p-8 md:p-9 flex flex-col justify-between cursor-default"
+        className="rounded-[20px] p-8 md:p-9 flex flex-col justify-between cursor-default h-full"
         style={{
-          minHeight: '420px',
           background: hovered
             ? 'linear-gradient(180deg, rgba(201,145,43,0.1) 0%, #0D1520 100%)'
             : 'linear-gradient(180deg, rgba(201,145,43,0.06) 0%, #0D1520 100%)',
@@ -268,11 +264,11 @@ export function SettoriPage() {
             {SECTORS.map((sector, i) => (
               <SectorCard
                 key={sector.key}
-                num={i + 1}
+                num={sector.num}
                 img={sector.img}
                 t={t}
                 sKey={sector.key}
-                desktopHeight={HEIGHT_PATTERN[i]}
+                desktopHeight={320}
                 delay={i * 80}
               />
             ))}

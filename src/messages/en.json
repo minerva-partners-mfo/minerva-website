@@ -1,36 +1,129 @@
 {
   "meta": {
-    "home": { "title": "Minerva Partners: Multiclient Family Office", "desc": "Excellence without compromise. Wealth needs someone who sees it with the same care as those who built it." },
-    "hub": { "title": "Minerva Hub: The Direction", "desc": "The 4 core competencies of Minerva Partners: M&A, Real Estate, Strategy, Wealth Management." },
-    "ecosistema": { "title": "The Minerva Ecosystem", "desc": "A system of competencies assembled around the client: Hub, Partners and Friends." },
-    "ecosistemaPartners": { "title": "Partners: The Ecosystem", "desc": "8 areas of expertise activated when needed: Legal, Tax, Banking, Energy, Digital, Insurance, International, UHNWI." },
-    "ecosistemaFriends": { "title": "Friends: The Ecosystem", "desc": "Specialists, trusted advisors and the client as an active part of the team." },
-    "ecosistemaAdvisors": { "title": "Advisors: The Ecosystem", "desc": "How we collaborate with the client's trusted professionals." },
-    "soluzioni": { "title": "Unified Solutions", "desc": "One direction for all wealth dimensions: business, real estate, wealth, family, life." },
-    "abilitatori": { "title": "Enablers", "desc": "Deal board, reserved portal and active client engagement." },
-    "wealth": { "title": "Wealth Management", "desc": "Integrated wealth management with a single point of contact for every dimension." },
-    "codice": { "title": "The Minerva Code", "desc": "Ethical, Remuneration and Operational Code: the rules governing every relationship." },
-    "trasparenza": { "title": "Transparency", "desc": "Complete reporting, clear fees, independent audit and direct data access." },
-    "selezione": { "title": "Selection", "desc": "5 rigorous criteria for selecting every professional in the ecosystem." },
-    "eventi": { "title": "Events", "desc": "Exclusive meetings for clients, partners and friends of the Minerva ecosystem." },
-    "pointZero": { "title": "Point Zero", "desc": "The most exclusive club in the ecosystem. Invitation only. Hot Seat among peers." },
-    "nextGen": { "title": "Next Gen <> Gen Exit", "desc": "Generational transition has two protagonists. Minerva accompanies both." },
-    "strategia": { "title": "Strategy & Numbers", "desc": "Market numbers, benchmarks, operating model and Investment Committee." },
-    "management": { "title": "Management", "desc": "The founders and team of Minerva Partners." },
-    "pensiero": { "title": "The Minerva Thinking", "desc": "The vision and philosophy behind the Minerva Partners model." },
-    "contatti": { "title": "Contact", "desc": "Contact Minerva Partners. Via Roggia Vignola 9, 24047 Treviglio (BG)." },
-    "problema": { "title": "The Problem", "desc": "The traditional wealth management model is fragmented. No one sees the full picture." },
-    "comeFunziona": { "title": "How It Works", "desc": "How the Minerva system operates: from first analysis to ongoing management." },
-    "posizionamento": { "title": "Positioning", "desc": "Where Minerva Partners stands in the wealth advisory landscape." },
-    "azienda": { "title": "Business: M&A & Strategy", "desc": "M&A Advisory, Strategy Consulting, Business Valuation. Architects of extraordinary operations." },
-    "realEstate": { "title": "Real Estate Advisory", "desc": "Off-market real estate advisory, tax structuring, portfolio management." },
-    "finanza": { "title": "Financial Wealth", "desc": "Fee-only wealth management, banking optimization, asset protection." },
-    "famiglia": { "title": "The Family", "desc": "Generational transition, family governance, mediation and Next Gen." },
-    "passioni": { "title": "Passions & Lifestyle", "desc": "Collections, yachting, prestige properties, philanthropy." },
-    "futuro": { "title": "The Future", "desc": "Succession planning, trusts, wealth transfer, legacy." },
-    "settori": { "title": "Sectors & Players", "desc": "Sectors of expertise and players in the Minerva Partners ecosystem." },
-    "clubDeal": { "title": "Minerva Club Deal", "desc": "Co-investment in selected, structured operations reserved for ecosystem members." },
-    "perChi": { "title": "Who We Work For", "desc": "Minerva is not for everyone. Discover if we're the right people for you." }
+    "home": {
+      "title": "Minerva Partners: Multiclient Family Office",
+      "desc": "Excellence without compromise. Wealth needs someone who sees it with the same care as those who built it."
+    },
+    "hub": {
+      "title": "Minerva Hub: The Direction",
+      "desc": "The 4 core competencies of Minerva Partners: M&A, Real Estate, Strategy, Wealth Management."
+    },
+    "ecosistema": {
+      "title": "The Minerva Ecosystem",
+      "desc": "A system of competencies assembled around the client: Hub, Partners and Friends."
+    },
+    "ecosistemaPartners": {
+      "title": "Partners: The Ecosystem",
+      "desc": "8 areas of expertise activated when needed: Legal, Tax, Banking, Energy, Digital, Insurance, International, UHNWI."
+    },
+    "ecosistemaFriends": {
+      "title": "Friends: The Ecosystem",
+      "desc": "Specialists, trusted advisors and the client as an active part of the team."
+    },
+    "ecosistemaAdvisors": {
+      "title": "Advisors: The Ecosystem",
+      "desc": "How we collaborate with the client's trusted professionals."
+    },
+    "soluzioni": {
+      "title": "Unified Solutions",
+      "desc": "One direction for all wealth dimensions: business, real estate, wealth, family, life."
+    },
+    "abilitatori": {
+      "title": "Enablers",
+      "desc": "Deal board, reserved portal and active client engagement."
+    },
+    "wealth": {
+      "title": "Wealth Management",
+      "desc": "Integrated wealth management with a single point of contact for every dimension."
+    },
+    "codice": {
+      "title": "The Minerva Code",
+      "desc": "Ethical, Remuneration and Operational Code: the rules governing every relationship."
+    },
+    "trasparenza": {
+      "title": "Transparency",
+      "desc": "Complete reporting, clear fees, independent audit and direct data access."
+    },
+    "selezione": {
+      "title": "Selection",
+      "desc": "5 rigorous criteria for selecting every professional in the ecosystem."
+    },
+    "eventi": {
+      "title": "Events",
+      "desc": "Exclusive meetings for clients, partners and friends of the Minerva ecosystem."
+    },
+    "pointZero": {
+      "title": "Point Zero",
+      "desc": "The most exclusive club in the ecosystem. Invitation only. Hot Seat among peers."
+    },
+    "nextGen": {
+      "title": "Next Gen <> Gen Exit",
+      "desc": "Generational transition has two protagonists. Minerva accompanies both."
+    },
+    "strategia": {
+      "title": "Strategy & Numbers",
+      "desc": "Market numbers, benchmarks, operating model and Investment Committee."
+    },
+    "management": {
+      "title": "Management",
+      "desc": "The founders and team of Minerva Partners."
+    },
+    "pensiero": {
+      "title": "The Minerva Thinking",
+      "desc": "The vision and philosophy behind the Minerva Partners model."
+    },
+    "contatti": {
+      "title": "Contact",
+      "desc": "Contact Minerva Partners. Via Roggia Vignola 9, 24047 Treviglio (BG)."
+    },
+    "problema": {
+      "title": "The Problem",
+      "desc": "The traditional wealth management model is fragmented. No one sees the full picture."
+    },
+    "comeFunziona": {
+      "title": "How It Works",
+      "desc": "How the Minerva system operates: from first analysis to ongoing management."
+    },
+    "posizionamento": {
+      "title": "Positioning",
+      "desc": "Where Minerva Partners stands in the wealth advisory landscape."
+    },
+    "azienda": {
+      "title": "Business: M&A & Strategy",
+      "desc": "M&A Advisory, Strategy Consulting, Business Valuation. Architects of extraordinary operations."
+    },
+    "realEstate": {
+      "title": "Real Estate Advisory",
+      "desc": "Off-market real estate advisory, tax structuring, portfolio management."
+    },
+    "finanza": {
+      "title": "Financial Wealth",
+      "desc": "Fee-only wealth management, banking optimization, asset protection."
+    },
+    "famiglia": {
+      "title": "The Family",
+      "desc": "Generational transition, family governance, mediation and Next Gen."
+    },
+    "passioni": {
+      "title": "Passions & Lifestyle",
+      "desc": "Collections, yachting, prestige properties, philanthropy."
+    },
+    "futuro": {
+      "title": "The Future",
+      "desc": "Succession planning, trusts, wealth transfer, legacy."
+    },
+    "settori": {
+      "title": "Sectors & Players",
+      "desc": "Sectors of expertise and players in the Minerva Partners ecosystem."
+    },
+    "clubDeal": {
+      "title": "Minerva Club Deal",
+      "desc": "Co-investment in selected, structured operations reserved for ecosystem members."
+    },
+    "perChi": {
+      "title": "Who We Work For",
+      "desc": "Minerva is not for everyone. Discover if we're the right people for you."
+    }
   },
   "nav": {
     "groups": {
@@ -620,756 +713,6 @@
     }
   },
   "settori": {
-    "label": "Sectors & Players",
-    "headline": "The sectors we operate in and the players we serve",
-    "settoriLabel": "Sectors of specialization",
-    "sectors": {
-      "finanziari": "Financial Services",
-      "consumo": "Consumer Goods",
-      "aerospace": "Aerospace & Defense",
-      "macchinari": "Industrial Machinery",
-      "chimica": "Chemicals",
-      "tecnologia": "Technology",
-      "infrastrutture": "Infrastructure & Construction",
-      "metallurgica": "Metallurgical Industry",
-      "petrolio": "Oil & Gas",
-      "packaging": "Packaging",
-      "trasporti": "Transportation",
-      "utility": "Utilities & Renewables",
-      "agribusiness": "Agribusiness",
-      "sanita": "Healthcare & Pharma"
-    },
-    "playersLabel": "Players served",
-    "players": {
-      "famiglie": "Families",
-      "pe": "Private Equity Funds",
-      "pmi": "SMEs: Mid Cap",
-      "largeCap": "Large Cap",
-      "vc": "Venture Capital Funds",
-      "holding": "Holdings / Corporations"
-    }
-  },
-  "hub": {
-    "label": "Minerva Hub",
-    "headline": "We are the direction",
-    "subtitle": "Four pillars. One unified design that reads wealth as a system.",
-    "cards": {
-      "ma": {
-        "title": "M&A & Investments",
-        "cosa": "Acquisitions, disposals, aggregations, industrial alliances. Buy side and sell side. Capital and debt structuring. Approximately 50 deals closed successfully.",
-        "valore": "Every transaction is designed as a piece of the overall plan, not an isolated event. We protect value and create symmetry between parties."
-      },
-      "re": {
-        "title": "Real Estate Advisory",
-        "cosa": "Off-market real estate transactions, including the most complex. Yield, debt/equity, tax impact: all in one integrated design with the wealth.",
-        "valore": "We treat real estate as an integral part of wealth, not a separate compartment. Every asset is read in the context of the global strategy."
-      },
-      "st": {
-        "title": "Strategy Consulting",
-        "cosa": "Revenue, costs, margins: the levers that matter. Improved processes, optimised operations, objectives aligned across business, wealth and family.",
-        "valore": "We bring an external direction that sees what is hard to see from within. We align interests and create the conditions for clear decisions."
-      },
-      "wm": {
-        "title": "Wealth Management",
-        "cosa": "Portfolio, planning, family governance. Banks, insurance, vehicles: streamlined. Fee-only, 100% retrocession to the client.",
-        "valore": "We don't sell financial products. We design bespoke wealth architectures with total transparency and aligned interests."
-      }
-    },
-    "cosaLabel": "What we do",
-    "valoreLabel": "What value it brings",
-    "regiaLabel": "The convergence point",
-    "regia": "DIRECTION"
-  },
-  "ecosistema": {
-    "label": "The Minerva Ecosystem",
-    "headline": "An ecosystem of excellence, one direction",
-    "subtitle": "Every professional continues their own practice. But all sign the Minerva Code.",
-    "rings": {
-      "hub": "Minerva Hub",
-      "partners": "Selected Partners",
-      "partnersDesc": "Selected excellence, exclusive pre-emption",
-      "friends": "Friends",
-      "friendsDesc": "Specialised expertise, flexibility",
-      "advisors": "Advisors",
-      "advisorsDesc": "Qualified and discreet origination",
-      "client": "The Client",
-      "clientDesc": "The client can also be an active part of the ecosystem, if they choose"
-    },
-    "preview": {
-      "partners": {
-        "title": "Partners",
-        "desc": "Excellent, independent, selected, coordinated specialists."
-      },
-      "friends": {
-        "title": "Friends",
-        "desc": "Bearers of specialised expertise, connections and unconventional perspectives."
-      },
-      "advisors": {
-        "title": "Advisors",
-        "desc": "Qualified and discreet originators."
-      }
-    },
-    "cta": "Learn more"
-  },
-  "ecosistemaPartners": {
-    "label": "Selected Partners",
-    "headline": "Partner-as-a-Service",
-    "subtitle": "Excellent, independent, selected, coordinated specialists.",
-    "categories": {
-      "legal": { "title": "Legal Services", "desc": "Corporate law, contracts, litigation" },
-      "tax": { "title": "Business Consulting & Tax", "desc": "Ordinary and extraordinary taxation, transfer pricing" },
-      "banking": { "title": "Banking Services", "desc": "Corporate banking, structured finance" },
-      "insurance": { "title": "Risk & Insurance", "desc": "Risk management, asset coverage" },
-      "energy": { "title": "Energy Management", "desc": "Efficiency, energy transition" },
-      "digital": { "title": "Digital Services", "desc": "Digital transformation, cybersecurity" },
-      "international": { "title": "International Clients", "desc": "Cross-border, international taxation" },
-      "uhnwi": { "title": "UHNWI Services", "desc": "Dedicated services for large estates" }
-    },
-    "whyLabel": "Why become a Minerva Partner",
-    "why": {
-      "p1": "Exclusive pre-emption on Minerva clients in your area",
-      "p2": "Access to qualified and continuous deal flow",
-      "p3": "Trust ecosystem with clear processes",
-      "p4": "Recurring fees on operations you contribute to",
-      "p5": "Reputational protection: every operation is structured and tracked"
-    },
-    "slaLabel": "Standards & Accountability",
-    "sla": "Every Partner operates under defined SLAs and is evaluated with a quarterly scorecard. Quality, timelines and client satisfaction are measured and shared."
-  },
-  "ecosistemaFriends": {
-    "label": "Friends of Minerva",
-    "headline": "Expertise, connections, perspectives",
-    "subtitle": "Bearers of specialised expertise, connections and unconventional perspectives.",
-    "tripleLabel": "Triple Value",
-    "triple": {
-      "client": { "title": "For the Client", "desc": "Access to specialised expertise and solutions otherwise out of reach." },
-      "minerva": { "title": "For Minerva", "desc": "Unconventional perspectives and relationships that expand our reach." },
-      "friend": { "title": "For the Friend", "desc": "An ecosystem that turns conversations into concrete opportunities." }
-    },
-    "stepsLabel": "How to join",
-    "steps": {
-      "s1": { "title": "Referral", "desc": "An ecosystem member introduces you to Minerva." },
-      "s2": { "title": "Assessment", "desc": "We verify expertise, values and cultural compatibility." },
-      "s3": { "title": "Sign the Code", "desc": "You accept the Minerva Code and ecosystem rules." },
-      "s4": { "title": "Activation", "desc": "You join the network and start receiving opportunities." }
-    },
-    "whyLabel": "Why join",
-    "why": {
-      "p1": "Turn conversations into concrete opportunities",
-      "p2": "Referral fees on deals born from one's relationships",
-      "p3": "Access to a network of top-tier professionals",
-      "p4": "Visibility on real operations that educate and inspire",
-      "p5": "Opportunity to co-invest in Club Deals",
-      "p6": "An informal board of advisors for one's business"
-    }
-  },
-  "ecosistemaAdvisors": {
-    "label": "Advisors",
-    "headline": "Qualified and discreet originators",
-    "subtitle": "The network becomes value. Referrals become transactions.",
-    "flowLabel": "The operational flow",
-    "flow": {
-      "advisor": "Advisor",
-      "segnalazione": "Referral",
-      "hub": "Minerva Hub",
-      "execution": "Execution",
-      "risultato": "Result"
-    },
-    "whyLabel": "Why join",
-    "why": {
-      "p1": "Access to a board of pre-filtered, serious operations",
-      "p2": "Origination fees significantly above market average",
-      "p3": "No chasing deals: deals come to the advisor",
-      "p4": "Participation for prestige and network access",
-      "p5": "Opportunity to co-invest in deals",
-      "p6": "Visible track record that builds reputation"
-    }
-  },
-  "soluzioni": {
-    "label": "Unified Solutions",
-    "headline": "One direction. One wealth. One solution.",
-    "subtitle": "Every situation is unique. That's why we assemble diverse competencies into one coordinated, coherent design.",
-    "schemaLabel": "The brick schema",
-    "legend": {
-      "hub": "Minerva Hub: core competencies",
-      "partner": "Partners: selected specialists",
-      "friends": "Friends: on-demand expertise",
-      "bisogno": "As needed: activated when required"
-    },
-    "bricks": {
-      "ma": { "title": "M&A & Investments", "desc": "Extraordinary operations, acquisitions, disposals, industrial alliances. Buy side and sell side.", "type": "hub" },
-      "re": { "title": "Real Estate Advisory", "desc": "Enhancement, management and strategy for family and corporate real estate assets.", "type": "hub" },
-      "st": { "title": "Strategy Consulting", "desc": "Strategic vision for the family and business. Generational succession planning.", "type": "hub" },
-      "wm": { "title": "Wealth Management", "desc": "Investments, portfolios, wealth planning and succession. Beyond the transaction.", "type": "hub" },
-      "legal": { "title": "Legal Services", "desc": "Corporate law, contracts, litigation.", "type": "partner" },
-      "tax": { "title": "Business Consulting & Tax", "desc": "Ordinary and extraordinary taxation, transfer pricing.", "type": "partner" },
-      "banking": { "title": "Banking Services", "desc": "Corporate banking, structured finance.", "type": "partner" },
-      "insurance": { "title": "Risk & Insurance", "desc": "Risk management, asset coverage.", "type": "partner" },
-      "energy": { "title": "Energy Management", "desc": "Efficiency, energy transition.", "type": "partner" },
-      "digital": { "title": "Digital Services", "desc": "Digital transformation, cybersecurity.", "type": "partner" },
-      "international": { "title": "International Clients", "desc": "Cross-border, international taxation.", "type": "partner" },
-      "uhnwi": { "title": "UHNWI Services", "desc": "Dedicated services for large estates.", "type": "partner" },
-      "specialist": { "title": "Sector Specialists", "desc": "Vertical expertise activated through the Friends network.", "type": "friends" },
-      "advisor": { "title": "Client Advisors", "desc": "The client's trusted professionals, integrated into the team.", "type": "friends" },
-      "ondemand1": { "title": "Specific Expertise", "desc": "Activated as needed for complex operations.", "type": "bisogno" },
-      "ondemand2": { "title": "Extended Network", "desc": "Relationships and resources beyond the standard perimeter.", "type": "bisogno" }
-    },
-    "clientLabel": "The client's dual role",
-    "clientHeadline": "Recipient and active participant",
-    "clientText": "Our model assigns the client a dual role. On one hand, a recipient of strategic and wealth advisory; on the other, an active participant in an environment where opportunities, relationships and vision come together. A place conceived as a temple of opportunities, business and growth.",
-    "clientRole1": { "title": "Recipient", "desc": "Bespoke strategic and wealth advisory, with the certainty that every decision is made in the client's interest." },
-    "clientRole2": { "title": "Active participant", "desc": "Participation in an ecosystem of opportunities: club deals, exclusive events, strategic relationships and co-investments." }
-  },
-  "abilitatori": {
-    "label": "Value Enablers",
-    "headline": "Three tools that turn wealth into opportunity",
-    "subtitle": "Not just advisory. Concrete tools that put the client at the centre of the action.",
-    "bacheca": {
-      "label": "The Board",
-      "title": "Off-market deals, reserved and verified",
-      "desc": "An exclusive board of blind opportunities, M&A operations, real estate, club deals, accessible by invitation only. Every deal is pre-filtered, structured and presented anonymously until NDA signing.",
-      "teasers": {
-        "t1": { "sector": "Industrial Machinery", "size": "EV €25-40M", "ebitda": "EBITDA €3-8M", "type": "Majority sale", "status": "Mandate phase" },
-        "t2": { "sector": "Financial Services", "size": "EV €20-35M", "ebitda": "EBITDA €4-6M", "type": "Investor search", "status": "Due diligence" },
-        "t3": { "sector": "Real Estate", "size": "EV €30-60M", "ebitda": "Yield 5-7%", "type": "Club deal", "status": "Fundraising" }
-      },
-      "blind": "Details available after NDA"
-    },
-    "portale": {
-      "label": "The Portal",
-      "title": "The wealth dashboard",
-      "barTitle": "MINERVA PORTAL",
-      "desc": "A reserved portal to monitor wealth, sign digital NDAs, track operation progress and access matching with compatible opportunities.",
-      "features": {
-        "f1": "Real-time wealth dashboard",
-        "f2": "Digital NDAs with electronic signature",
-        "f3": "Active operations tracking",
-        "f4": "Automatic matching with opportunities",
-        "f5": "Centralised documents and reporting",
-        "f6": "Confidential communication with the team"
-      }
-    },
-    "coinvolgimento": {
-      "label": "Active Involvement of Everyone, Including the Client",
-      "title": "The active role in the ecosystem",
-      "desc": "It's not just Minerva that moves. Every stakeholder in the ecosystem can explore, contribute, originate, invest. Including the client, if they choose.",
-      "roles": {
-        "esplora": { "title": "Explore", "desc": "Access the board, evaluate opportunities, attend exclusive events and broaden the vision." },
-        "contribuisci": { "title": "Contribute", "desc": "Flag opportunities, introduce relationships, propose ideas. Every contribution generates value for the ecosystem." },
-        "investi": { "title": "Invest", "desc": "Participate in club deals, co-invest in selected operations, build an alternative portfolio." }
-      }
-    },
-    "whyLabel": "Why be an active client",
-    "why": {
-      "p1": "The operation is not \"burned\" in the market",
-      "p2": "Access to complementary expertise in one environment",
-      "p3": "Transparent fees: clarity on what is paid and to whom",
-      "p4": "Speed of execution: dedicated team",
-      "p5": "Club deal opportunities with verified investors",
-      "p6": "Be originator, investor, idea proposer",
-      "p7": "Participation in the Circle, Point Zero, NextGen for the next generations"
-    }
-  },
-  "wealth": {
-    "label": "Wealth Management",
-    "headline": "The deal is the beginning. The relationship is forever.",
-    "subtitle": "Beyond the transaction: a continuous journey of management, protection and growth of wealth.",
-    "center": "One single point of contact",
-    "centerSub": "who knows the story, the objectives, the profile of the client.",
-    "cycle": {
-      "exit": { "title": "Exit", "desc": "The conclusion of a transaction generates liquidity and opens new scenarios. Every exit is designed to maximise value." },
-      "liquidita": { "title": "Liquidity", "desc": "Liquidity is managed with discipline: capital protection, tax optimisation, cash flow planning." },
-      "wm": { "title": "WM Advice", "desc": "The wealth manager analyses the overall picture and defines the allocation strategy based on the client's objectives." },
-      "reinvestimento": { "title": "Reinvestment", "desc": "Capital is reinvested in a structured way: diversified asset classes, club deals, selected opportunities." },
-      "opportunita": { "title": "New opportunities", "desc": "The Minerva ecosystem generates a continuous flow of qualified opportunities, accessible exclusively." },
-      "crescita": { "title": "Growth", "desc": "Wealth grows organically and protected, creating the conditions for the next cycle." }
-    },
-    "approachLabel": "Our approach",
-    "approach": {
-      "a1": { "title": "Continuity", "desc": "We don't start from scratch with every operation. We know the client's story and build on what has already been achieved." },
-      "a2": { "title": "Integrated vision", "desc": "Financial, real estate, corporate and family wealth read as one unified system." },
-      "a3": { "title": "Transparency", "desc": "Clear fees, no conflicts of interest, total alignment with the client's objectives." },
-      "a4": { "title": "Protection", "desc": "Every decision is made to preserve first and grow second. Never the other way around." }
-    }
-  },
-  "codice": {
-    "label": "The Minerva Code",
-    "opening": "Your security and ours: operate and sleep peacefully.",
-    "headline": "Three codes. One rule: excellence without compromise.",
-    "subtitle": "Every professional signs the Minerva Code before operating. Three binding documents that define how we work, how value is distributed and how clients are protected.",
-    "firma": "Everyone signs before operating.",
-    "cards": {
-      "etico": {
-        "title": "Ethical Code",
-        "intro": "The non-negotiable principles that govern every relationship in the ecosystem.",
-        "points": {
-          "p1": { "title": "Absolute confidentiality", "desc": "Every piece of information is protected. No data is shared without the client's explicit authorisation." },
-          "p2": { "title": "Verifiable credibility", "desc": "Every professional is selected by track record, references and consistency between what they say and what they do." },
-          "p3": { "title": "Total transparency", "desc": "The client always knows who works for them, how much it costs and why. No hidden conflicts of interest." }
-        }
-      },
-      "remunerativo": {
-        "title": "Compensation Code",
-        "intro": "How value is distributed. Clear, documented, aligned.",
-        "points": {
-          "p1": { "title": "Waterfall structure", "desc": "The compensation flow follows a defined cascade: first the client, then those who generated value, then the platform." },
-          "p2": { "title": "Documented split", "desc": "Every allocation is written, signed and accessible. The client sees exactly who receives what." },
-          "p3": { "title": "Aligned interests", "desc": "Fees are structured to reward results, not activity. Those who generate value participate in value." }
-        }
-      },
-      "operativo": {
-        "title": "Operational Code",
-        "intro": "How we work. Processes, standards, accountability.",
-        "points": {
-          "p1": { "title": "Standardised processes", "desc": "Every operation follows a defined workflow: onboarding, due diligence, execution, reporting." },
-          "p2": { "title": "Binding SLAs", "desc": "Response times, deliverable quality and update frequency are measured and guaranteed." },
-          "p3": { "title": "Compliance checklist", "desc": "Before every operation, a checklist verifies that all requirements are met. No exceptions." }
-        }
-      }
-    },
-    "sanzioniLabel": "Sanctions system",
-    "sanzioniIntro": "The Code is not a decorative document. Those who fail to meet standards are sanctioned through a graduated and transparent system.",
-    "sanzioni": {
-      "s1": { "title": "Formal warning", "desc": "First documented report with request for compliance." },
-      "s2": { "title": "Temporary suspension", "desc": "Exclusion from new operations for a defined period." },
-      "s3": { "title": "Role review", "desc": "Reduction of responsibilities and access areas." },
-      "s4": { "title": "Permanent exclusion", "desc": "Definitive exit from the ecosystem. Irreversible." }
-    }
-  },
-  "trasparenza": {
-    "label": "Transparency",
-    "headline": "Trust is built with facts",
-    "subtitle": "Every aspect of the relationship is documented, traceable and verifiable. No grey areas.",
-    "blocks": {
-      "fee": {
-        "title": "Transparent fees",
-        "desc": "You know what you pay and who receives it. Every fee is documented, every split is visible. No hidden costs, no undisclosed commissions.",
-        "details": {
-          "d1": "Fee structure communicated before engagement",
-          "d2": "Split between Hub, Partner and Advisor always visible",
-          "d3": "No hidden kickbacks or double commissions",
-          "d4": "Periodic report with detailed costs incurred"
-        }
-      },
-      "audit": {
-        "title": "Audit trail",
-        "desc": "Every action is tracked. Who did what, when and why. An immutable record that protects the client and ensures accountability at all levels.",
-        "details": {
-          "d1": "Complete log of every interaction and decision",
-          "d2": "Timestamp and responsible party for every step",
-          "d3": "History accessible to the client at any time",
-          "d4": "Basis for the quarterly Partner scorecard"
-        }
-      },
-      "nda": {
-        "title": "Digital NDAs",
-        "desc": "Qualified electronic signature, automatic NDAs before any exchange of sensitive information. Your deal will never be burned. Discretion is a founding principle.",
-        "details": {
-          "d1": "NDA automatically generated before data access",
-          "d2": "Qualified electronic signature with legal validity",
-          "d3": "Controlled and revocable access at any time",
-          "d4": "Tracking of who viewed which documents"
-        }
-      },
-      "dichiarazione": {
-        "title": "Mandatory declaration",
-        "desc": "Every professional in the ecosystem declares conflicts of interest, prior relationships and potentially incompatible positions. Before operating, not after.",
-        "details": {
-          "d1": "Preventive declaration of conflicts of interest",
-          "d2": "Mapping of relationships with counterparties",
-          "d3": "Mandatory update with every new engagement",
-          "d4": "Independent verification by the Compliance Officer"
-        }
-      }
-    }
-  },
-  "selezione": {
-    "label": "Selection",
-    "headline": "Joining the ecosystem is not a right. It is a privilege to be earned.",
-    "subtitle": "We select people, not CVs. Every professional is evaluated for expertise, values and ability to contribute.",
-    "criteriLabel": "Selection criteria",
-    "criteri": {
-      "c1": { "title": "Verifiable track record", "desc": "Concrete, measurable, referenceable results. Credentials are not enough: facts are required." },
-      "c2": { "title": "Integrity and confidentiality", "desc": "Discretion is not optional. Those who enter the ecosystem protect information as if it were their own." },
-      "c3": { "title": "Complementarity", "desc": "We seek expertise that completes the mosaic, not duplicates it. Every entry must expand our reach." },
-      "c4": { "title": "Cultural alignment", "desc": "Sharing the values of the Minerva Code is not optional. It is the prerequisite for working together." },
-      "c5": { "title": "Willingness to contribute", "desc": "We don't seek spectators. We seek professionals who bring active value to the ecosystem." }
-    },
-    "funnelLabel": "The entry path",
-    "funnel": {
-      "s1": { "title": "Referral", "desc": "An ecosystem member introduces the candidate to Minerva. No unsolicited access." },
-      "s2": { "title": "Assessment", "desc": "Thorough verification of expertise, references, track record and cultural compatibility." },
-      "s3": { "title": "Invitation", "desc": "If the assessment is positive, the candidate receives a formal invitation to sign the Minerva Code." },
-      "s4": { "title": "Proposal", "desc": "Definition of role, areas of expertise and terms of collaboration." }
-    },
-    "exitHeadline": "Those who don't contribute, exit.",
-    "exitText": "The ecosystem is alive. Those who don't generate value, who don't meet standards, who aren't aligned with principles, are shown the door. No exceptions."
-  },
-  "eventi": {
-    "label": "Minerva Events",
-    "headline": "Where relationships become opportunities",
-    "subtitle": "8-10 events per year. Exclusive meetings between entrepreneurs, families and selected professionals.",
-    "tipologieLabel": "Event types",
-    "tipologie": {
-      "deal": {
-        "title": "Deal Night",
-        "freq": "3-4 times per year",
-        "desc": "Presentation of selected operations in a reserved format. Entrepreneurs, investors and advisors meet around concrete deals, already structured and ready for evaluation."
-      },
-      "fundraising": {
-        "title": "Fundraising Support",
-        "freq": "2-3 times per year",
-        "desc": "Sessions dedicated to entrepreneurs seeking capital. Structured pitches before qualified ecosystem investors, with support in preparation and follow-up."
-      },
-      "deep": {
-        "title": "Thematic Deep Dive",
-        "freq": "2-3 times per year",
-        "desc": "Deep dives on strategic topics: generational succession, family governance, international taxation, sector trends. Top-tier speakers, small groups."
-      },
-      "dinner": {
-        "title": "Networking Dinner",
-        "freq": "2-3 times per year",
-        "desc": "Reserved dinners in exclusive locations. No formal agenda: the value lies in the quality of conversations and the relationships that emerge spontaneously."
-      }
-    },
-    "calendarioLabel": "Annual calendar",
-    "mesi": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    "chiLabel": "Who participates",
-    "chi": {
-      "inner": "Minerva clients and families",
-      "middle": "Partners and ecosystem professionals",
-      "outer": "Selected guests and speakers"
-    }
-  },
-  "pointZero": {
-    "label": "Point Zero",
-    "headline": "Point Zero",
-    "subtitle": "The most exclusive club in the ecosystem. Invitation only. Where decisions take shape.",
-    "format": "6-8 meetings per year. Maximum 12-15 members.",
-    "hotSeatSvgTop": "HOT",
-    "hotSeatSvgBottom": "SEAT",
-    "hotSeatLabel": "The format: Hot Seat",
-    "hotSeatDesc": "One member sits at the centre. They present their situation, wealth, business, family. The others listen, question, challenge. No filters, no diplomacy. Only brutal honesty and expertise at the service of those brave enough to be exposed.",
-    "hotSeatNote": "Inspired by the Tiger 21 model",
-    "regoleLabel": "The 4 rules",
-    "regole": {
-      "r1": { "title": "Absolute confidentiality", "desc": "What is said in the room, stays in the room. No exceptions, no interpretations." },
-      "r2": { "title": "Active contribution", "desc": "Participants don't observe: they contribute. Every member brings experience, relationships and perspectives." },
-      "r3": { "title": "No selling", "desc": "No commercial pitches, no disguised sales. The space is dedicated to dialogue, not business development." },
-      "r4": { "title": "Brutal honesty", "desc": "The group's value lies in its ability to tell the truth. Even when it's uncomfortable. Especially when it's uncomfortable." }
-    },
-    "criteriLabel": "Admission criteria",
-    "criteri": {
-      "c1": "Direct invitation from an existing member or the Minerva team",
-      "c2": "Wealth and complexity sufficient to benefit from peer dialogue",
-      "c3": "Willingness to be exposed and receive direct feedback",
-      "c4": "Signature of the Minerva Code and respect of the 4 rules",
-      "c5": "Commitment to actively attend at least 70% of meetings"
-    },
-    "membriLabel": "Max 12-15 members",
-    "membriDesc": "The number is intentionally limited. Every voice matters, every relationship is deep. It's not a network: it's a circle of trust."
-  },
-  "nextGen": {
-    "label": "Next Gen <> Gen Exit",
-    "headline": "Next Gen <> Gen Exit",
-    "subtitle": "Generational transition has two protagonists. Not one.",
-    "intro": "Everyone talks about preparing the next generation. Nobody prepares those who need to let go. Generational transition is not an event: it's a two-way process. Those entering must learn to lead. Those exiting must learn to let go. Minerva accompanies both.",
-    "nextGen": {
-      "title": "NEXT GEN",
-      "sub": "Those entering",
-      "text": "Learn the language of wealth. Build skills, relationships and awareness before inheriting responsibility. Don't undergo the transition: lead it."
-    },
-    "genExit": {
-      "title": "GEN EXIT",
-      "sub": "Those exiting",
-      "text": "Letting go doesn't mean losing. It means transforming your role: from decision-maker to mentor, from operational to strategic. Planning the exit with the same care used to build the entry."
-    },
-    "dialogoQuote": "The <> in our name is not a symbol. It's a dialogue.",
-    "beneficiLabel": "Why it only works if it works for both",
-    "benefici": {
-      "b1": { "title": "Continuity without trauma", "desc": "The transition happens gradually, not in one day. Those entering are ready. Those exiting are at peace." },
-      "b2": { "title": "Skills that transfer", "desc": "Not just knowledge, relationships, values, vision. The things you can't learn in a master's programme." },
-      "b3": { "title": "Conflicts prevented", "desc": "Generational tensions are addressed before they become fractures. With professional facilitation." },
-      "b4": { "title": "Protected wealth", "desc": "70% of family businesses don't survive the second generation. The reason isn't financial: it's human." },
-      "b5": { "title": "Redefined roles", "desc": "The founder finds new meaning. The successor finds their own space. Nobody gets erased." },
-      "b6": { "title": "Shared decisions", "desc": "The most important choices are made together, in a structured context. Not at the dinner table on Christmas Eve." }
-    },
-    "livelliLabel": "The Next Gen path",
-    "livelli": {
-      "intro": { "title": "INTRO", "eta": "18-25 years", "desc": "First steps in understanding family wealth. Individual welcome session with Marco and Enrico. Basic workshops (2/year): reading a balance sheet, understanding investments. Networking with other next gens in the ecosystem." },
-      "develop": { "title": "DEVELOP", "eta": "23-30 years", "desc": "Building skills and network. Mentorship with senior entrepreneurs from the network. Observational participation in Minerva Circle (1-2 events/year). Project work: involvement in a real deal as analyst. University partnerships." },
-      "accelerate": { "title": "ACCELERATE", "eta": "28-35 years", "desc": "Preparation for family leadership. Seat at the table: active participation in family discussions. Board exposure: observer on boards of network companies. Investment track: opportunity to propose deals to the Club. Family governance: facilitated discussions with parents." }
-    },
-    "exitLabel": "And for those exiting?",
-    "exitSteps": {
-      "s1": { "title": "REDEFINITION", "eta": "60-65 years", "desc": "Analysis of current role. Mapping of transferable skills. Definition of new profile: mentor, investor, advisor, ambassador." },
-      "s2": { "title": "TRANSITION", "eta": "65-70 years", "desc": "Progressive support. Structured delegation. The founder remains present but in a different role, strategic, not operational." },
-      "s3": { "title": "NEW CHAPTER", "eta": "70+ years", "desc": "Wealth is in prepared hands. The founder is free to dedicate themselves to what matters: family, passions, legacy. It's not an ending: it's a transformation." }
-    },
-    "deepDiveLabel": "Two-way deep dives",
-    "deepDives": {
-      "d1": { "title": "Intergenerational Behavioural Finance", "desc": "How different generations perceive risk, return and time. Cognitive biases of the founder vs biases of the successor. Interactive workshop where parents and children discover how they think differently, and why it's an advantage, not a problem.", "freq": "2/year" },
-      "d2": { "title": "Family Governance Deep Dive", "desc": "Family constitution, family pacts, roles and boundaries. How to separate emotional dynamics from wealth decisions. With specialised external facilitator. Parents and children at the same table.", "freq": "2/year" },
-      "d3": { "title": "Mixed Deal Lab", "desc": "A real operation (in blind form) analysed together by senior and junior. The senior brings experience and intuition. The junior brings data, models and fresh eyes. The result: a better analysis than either would have produced alone.", "freq": "2-3/year" }
-    },
-    "partnershipLabel": "Partnerships",
-    "partnership": {
-      "nova": { "title": "NovaTalent", "desc": "The global network of top talent under 35 selected by merit. Top 3% with higher education." },
-      "uni": { "title": "Universities", "desc": "Bocconi, Politecnico, ESCP, INSEAD." }
-    },
-    "cta": "Contact us for the Next Gen <> Gen Exit programme"
-  },
-  "strategia": {
-    "label": "Strategy",
-    "headline": "The context we operate in",
-    "subtitle": "Numbers, models and processes that guide every decision.",
-    "numeriLabel": "Market numbers",
-    "counters": {
-      "global": { "desc": "Global wealth in transfer by 2048", "source": "Cerulli Associates 2024" },
-      "europe": { "desc": "Businesses transferred yearly in Europe, 150,000 at risk of closure", "source": "European Commission" },
-      "germany": { "desc": "Entrepreneurs over 60 in Germany: 1 in 3", "source": "KfW Research 2023" },
-      "italy": { "desc": "Of Italian companies are SMEs. 70% don't survive the second generation", "source": "ISTAT, AUB Observatory" },
-      "france": { "desc": "Of French companies are family-owned. Same fragilities, same urgency", "source": "Bpifrance" },
-      "wealth": { "desc": "Italian private wealth, third in Europe", "source": "Bank of Italy" }
-    },
-    "benchmarkLabel": "Benchmark: comparable models",
-    "clusters": {
-      "a": {
-        "title": "Global Federated Ecosystems",
-        "players": ["Wigmore Association", "WE Family Offices", "Wren Investment Office", "Stonehage Fleming", "Pathstone", "Cresset"]
-      },
-      "b": {
-        "title": "Private Investment & Co-Investment",
-        "players": ["Saranac Partners", "Connection Capital", "Long Angle", "TIGER 21", "R360"]
-      },
-      "c": {
-        "title": "Ecosystem Designers",
-        "players": ["DIFC Family Wealth Centre", "Family Office Exchange", "Institute for Private Investors"]
-      },
-      "d": {
-        "title": "Boutique Advisory",
-        "players": ["Kronos Advisory", "V&M Family Partners", "PFC Family Office"]
-      }
-    },
-    "benchmarkClosing": "Minerva is a rare hybrid combining Advisory + Deal + Community. Most platforms are only one of the three.",
-    "benchmarkSource": "Comparative analysis of 50 global platforms, filtered by independence, open ecosystem, services beyond asset allocation, network presence.",
-    "modelloLabel": "The operational model",
-    "modelloPhases": {
-      "p1": { "title": "Listen", "desc": "We understand the complexity: family, business, wealth, objectives. No solution before understanding." },
-      "p2": { "title": "Architecture", "desc": "We design the solution assembling the necessary competencies from the ecosystem." },
-      "p3": { "title": "Execution", "desc": "The dedicated team operates with defined SLAs, continuous reporting and accountability." },
-      "p4": { "title": "Monitoring", "desc": "Every operation is tracked, measured and evaluated. Quarterly scorecard for everyone." },
-      "p5": { "title": "Evolution", "desc": "Wealth changes, needs evolve. The model adapts continuously." }
-    },
-    "icLabel": "Investment Committee",
-    "icDesc": "An independent committee that evaluates every opportunity with rigour and discipline. Multidisciplinary composition, structured process.",
-    "icComposizione": {
-      "label": "Composition",
-      "members": {
-        "m1": "Managing Partner (Chair)",
-        "m2": "Head of M&A",
-        "m3": "Head of Wealth Management",
-        "m4": "Independent Advisor (external)",
-        "m5": "Compliance Officer"
-      }
-    },
-    "icFasiLabel": "The 6 phases of the decision process",
-    "icFasi": {
-      "f1": { "title": "Screening", "desc": "Preliminary assessment of the opportunity: sector, size, strategic fit." },
-      "f2": { "title": "Due Diligence", "desc": "In-depth analysis: financials, legal, commercial, management." },
-      "f3": { "title": "IC Evaluation", "desc": "Presentation to the Committee with recommendation and risk assessment." },
-      "f4": { "title": "Resolution", "desc": "Committee vote. Collegiate decision, documented and motivated." },
-      "f5": { "title": "Structuring", "desc": "Structure definition: SPV, governance, waterfall, timeline." },
-      "f6": { "title": "Execution", "desc": "Signing, closing, onboarding. Post-deal monitoring with periodic reporting." }
-    }
-  },
-  "clubDeal": {
-    "label": "Minerva Club Deal",
-    "headline": "Invest together, with people you know",
-    "subtitle": "Selected, structured and reserved operations. Accessible only to members of the Minerva ecosystem.",
-    "intro": "The Minerva Club Deal is the vehicle through which clients and ecosystem members can co-invest in private equity, real estate and special situations. Every deal is originated, filtered and structured by the Minerva team, with transparent governance and exclusive access.",
-    "processLabel": "The process",
-    "steps": {
-      "s1": { "title": "Origination", "desc": "The opportunity is identified by the team or the ecosystem network. Initial screening on sector, size and strategic fit." },
-      "s2": { "title": "Due Diligence", "desc": "In-depth analysis: financials, legal, commercial, management quality. The Minerva team coordinates all advisors involved." },
-      "s3": { "title": "Structuring", "desc": "Definition of the vehicle (SPV), governance, waterfall, minimum ticket, timeline. Complete documentation before fundraising." },
-      "s4": { "title": "Fundraising", "desc": "Blind presentation to qualified members. Digital NDA. Data room access. Subscription with electronic signature." },
-      "s5": { "title": "Management and reporting", "desc": "Continuous investment monitoring. Quarterly reporting. Exit strategy defined from the start." }
-    },
-    "vantaggiLabel": "Why participate",
-    "vantaggi": {
-      "v1": "Access to off-market deals not available on the market",
-      "v2": "Co-investment with verified entrepreneurs and professionals",
-      "v3": "Transparent governance: dedicated SPV, documented waterfall",
-      "v4": "Accessible tickets: participation even with contained amounts",
-      "v5": "Professional due diligence already performed by the team",
-      "v6": "Total alignment: Minerva invests in every deal"
-    },
-    "closing": "Every club deal is an opportunity built with the same care we bring to wealth management.",
-    "cta": "Discover opportunities"
-  },
-  "azienda": {
-    "hero": { "headline": "A business is not just an asset. It's the story of those who built it." },
-    "gold": {
-      "phrase": "We are not intermediaries: we are architects of operations.",
-      "subtext": "Every deal creates internal competition, because only those who close earn reputation and fees."
-    },
-    "ma": {
-      "title": "M&A Advisory",
-      "cards": {
-        "cessioni": { "title": "Disposals and business sales", "text": "Market preparation, pre-sale valorization, strategic and financial buyer selection, negotiation and closing." },
-        "acquisizioni": { "title": "Acquisitions and buy-side", "text": "Target search, screening, industrial and financial due diligence, offer structuring." },
-        "aggregazioni": { "title": "Aggregations and alliances", "text": "Growth through external lines, joint ventures, industrial alliances." },
-        "ristrutturazione": { "title": "Restructuring and turnaround", "text": "Capital interventions, debt renegotiation, operational reorganization." }
-      }
-    },
-    "capitale": { "title": "Capital Structuring", "text": "Search, evaluation and structuring of equity and/or debt. Private placement, fundraising, bridge financing." },
-    "valutazione": { "title": "Business Valuation", "text": "Multidisciplinary approach: DCF, multiples, real options, scenario analysis. Not a number: a defensible range with 3 scenarios." },
-    "clubdeal": { "title": "Club Deal*", "text": "When an operation is exceptional, we invest alongside the client with our own capital." },
-    "strategy": {
-      "title": "Strategy Consulting",
-      "cards": {
-        "analisi": { "title": "Strategic analysis and positioning", "text": "Competitive mapping, market analysis, definition of sustainable competitive advantage." },
-        "ottimizzazione": { "title": "Operational optimization", "text": "Process efficiency, cost reduction, operating margin improvement." },
-        "businessplan": { "title": "Business plan and preparation", "text": "Industrial plan for extraordinary operations, fundraising, listing." }
-      }
-    },
-    "stats": {
-      "operazioni": { "value": "~50", "label": "closed operations" },
-      "range": { "value": "€5M-€100M+", "label": "deal range" },
-      "settori": { "value": "14", "label": "sectors covered" }
-    },
-    "differentiator": "We don't accept mandates we can't close. We don't burn operations. And when we propose a deal to the Club, we invest first.*",
-    "disclaimer": "*Every co-investment operation is subject to prior validation by the Minerva Partners Investment Committee.",
-    "cta": "Let's talk about your business"
-  },
-  "realEstate": {
-    "hero": { "headline": "Real estate deserves the same care as business." },
-    "gold": {
-      "phrase": "Every property is an opportunity. Every operation is a project.",
-      "subtext": "We don't sell properties: we build real estate strategies integrated into the overall wealth."
-    },
-    "advisory": {
-      "title": "Real Estate Advisory",
-      "cards": {
-        "acquisizioni": { "title": "Off-market acquisitions", "text": "Search, selection and negotiation of real estate assets with privileged access to reserved deals." },
-        "vendite": { "title": "Sales and valorization", "text": "Market preparation, asset positioning, management of the disposal process." },
-        "fiscale": { "title": "Tax structuring", "text": "Optimization of real estate holding: vehicle companies, holdings, real estate trusts." },
-        "gestione": { "title": "Portfolio management", "text": "Property management, yield analysis, strategic portfolio rotation." }
-      }
-    },
-    "mix": { "title": "An integrated approach", "text": "Real estate is not a separate compartment: we integrate it into the overall wealth strategy, coordinating tax, succession and financial aspects." },
-    "clubdeal": { "title": "Real Estate Club Deal*", "text": "Selected operations in co-investment with our network of entrepreneurs and families." },
-    "examples": {
-      "title": "Types of operations",
-      "items": {
-        "palazzo": { "text": "Historic building in city center: acquisition, renovation and division with 7-9% target yield." },
-        "studio": { "text": "Mixed-use property: conversion from offices to premium residential in prime area." },
-        "ufficio": { "text": "Diversified real estate portfolio: tax optimization and strategic asset rotation." }
-      }
-    },
-    "differentiator": "We are not real estate agents. We are advisors who integrate real estate into the overall wealth vision.",
-    "disclaimer": "*Every co-investment operation is subject to prior validation by the Minerva Partners Investment Committee.",
-    "cta": "Let's talk about your real estate"
-  },
-  "finanza": {
-    "hero": { "headline": "Financial wealth is not managed: it is governed." },
-    "gold": {
-      "phrase": "Fee-only. No conflicts. Only your interest.",
-      "subtext": "We receive no retrocessions, sell no products, have no distribution agreements. Pure advisory only."
-    },
-    "servizi": {
-      "title": "Wealth Advisory",
-      "cards": {
-        "advisory": { "title": "Independent financial advisory", "text": "Analysis, selection and monitoring of investments without conflicts of interest. Fee-only." },
-        "bancario": { "title": "Banking optimization", "text": "Audit of banking conditions, cost renegotiation, relationship consolidation." },
-        "protezione": { "title": "Asset protection", "text": "Wealth protection structures: trusts, holdings, policies, segregation." },
-        "reporting": { "title": "Consolidated reporting", "text": "Single integrated view of all assets: financial, real estate, business, alternatives." },
-        "ottimizzazione": { "title": "Tax optimization", "text": "Investment tax planning, optimization of holding structures." }
-      }
-    },
-    "feeonly": { "title": "The Fee-Only model", "text": "Our remuneration is exclusively fee-based, agreed in advance and transparent. We receive no commissions from banks, asset managers or insurance companies. This eliminates all conflicts of interest and fully aligns our incentives with those of the client." },
-    "stats": {
-      "risparmio": { "value": "30-50%", "label": "average savings on banking costs" },
-      "banche": { "value": "12+", "label": "banks monitored" },
-      "clienti": { "value": "100%", "label": "clients on fee-only" }
-    },
-    "differentiator": "We don't manage money. We don't custody assets. We provide the independent direction that was missing between you and those managing your money.",
-    "cta": "Let's talk about your wealth"
-  },
-  "famiglia": {
-    "hero": { "headline": "Family is the most complex wealth. And the most important." },
-    "gold": {
-      "phrase": "Where wealth ends and family begins, our most important work starts.",
-      "subtext": "Generational transition is not an event: it's a process that requires years of preparation and expert direction."
-    },
-    "servizi": {
-      "title": "Family Advisory",
-      "cards": {
-        "passaggio": { "title": "Generational transition", "text": "Planning and accompanying the transfer of responsibilities, competencies and wealth to the next generation." },
-        "governance": { "title": "Family governance", "text": "Establishment and management of family council, values charter, internal regulations." },
-        "mediazione": { "title": "Family mediation", "text": "Management of relational dynamics, prevention and resolution of conflicts, dialogue facilitation." },
-        "nextgen": { "title": "Next Gen Program", "text": "Training, mentoring and preparation of the new generation for the role of responsible shareholder." },
-        "patti": { "title": "Family agreements", "text": "Drafting and negotiation of shareholder agreements, family agreements, entry and exit rules." },
-        "protezione": { "title": "Family protection", "text": "Trusts, policies, segregation structures to protect family wealth." }
-      }
-    },
-    "stats": {
-      "imprese": { "value": "85%", "label": "family businesses in Italy", "source": "Source: AIDAF" },
-      "passaggi": { "value": "30%", "label": "survive generational transition", "source": "Source: Family Business Review" },
-      "conflitti": { "value": "60%", "label": "of failures caused by family conflicts", "source": "Source: Harvard Business Review" },
-      "ricchezza": { "value": "70%", "label": "of wealth lost by the 2nd generation", "source": "Source: Williams Group" }
-    },
-    "differentiator": "We're not psychologists, but we know that behind every wealth decision there's a family dynamic. And we manage it.",
-    "cta": "Let's talk about your family"
-  },
-  "passioni": {
-    "hero": { "headline": "Passions are not a luxury. They are part of wealth." },
-    "gold": {
-      "phrase": "Every passion deserves the same care as an investment.",
-      "subtext": "Art, yachting, prestige properties, philanthropy: we manage what matters beyond numbers."
-    },
-    "servizi": {
-      "title": "Lifestyle Advisory",
-      "cards": {
-        "collezioni": { "title": "Collections and art", "text": "Advisory for acquisition, management and valorization of art collections, fine wines, vintage cars and valuables." },
-        "nautica": { "title": "Yachting and aviation", "text": "Purchase, management and tax optimization of yachts and aircraft. Dedicated holding structures." },
-        "proprieta": { "title": "Prestige properties", "text": "Search, acquisition and management of premium residences in Italy and abroad." },
-        "filantropia": { "title": "Structured philanthropy", "text": "Design of philanthropic initiatives, foundations, planned donations with tax optimization." },
-        "concierge": { "title": "Wealth concierge", "text": "A single point of reference for all needs related to lifestyle and personal wealth." }
-      }
-    },
-    "filosofia": { "title": "Our philosophy", "text": "Passions are not distractions from wealth: they are an integral part of it. We treat them with the same analytical rigor and care we reserve for financial and real estate investments." },
-    "differentiator": "We don't sell experiences. We help you live your passions as part of a conscious wealth strategy.",
-    "cta": "Let's talk about your passions"
-  },
-  "futuro": {
-    "hero": { "headline": "The future of wealth is built today." },
-    "gold": {
-      "phrase": "Planning the future is not pessimism: it's responsibility.",
-      "subtext": "Wealth that is not transferred with a strategy is dissipated. Every generation has a duty to prepare the next."
-    },
-    "servizi": {
-      "title": "Succession Planning",
-      "cards": {
-        "successione": { "title": "Succession planning", "text": "Analysis of current situation, heir mapping, definition of transfer strategy." },
-        "trust": { "title": "Trusts and fiduciaries", "text": "Establishment and management of trusts, fiduciary mandates, asset protection structures." },
-        "transfer": { "title": "Wealth transfer", "text": "Structured wealth transfer: donations, family agreements, intergenerational disposals." },
-        "legacy": { "title": "Legacy planning", "text": "Definition of value and material legacy. What you want to leave and how you want to be remembered." },
-        "fiscale": { "title": "Succession tax optimization", "text": "Planning to minimize the tax impact of generational transfer." }
-      }
-    },
-    "stats": {
-      "patrimonio": { "value": "$84 trillion", "label": "global transfer by 2045" },
-      "pianificazione": { "value": "67%", "label": "of UHNWIs without succession plan" },
-      "generazioni": { "value": "3", "label": "generations: the average wealth cycle" },
-      "strutture": { "value": "15+", "label": "legal structures available" }
-    },
-    "filosofia": { "title": "Our vision", "text": "Wealth transfer is not an event but a process that lasts years. We accompany it with direction that integrates legal, tax, financial and — above all — family aspects." },
-    "differentiator": "We don't prepare wills. We build bridges between generations, so wealth outlives those who created it.",
-    "cta": "Let's talk about your future"
-  },
-  "settori": {
     "hero": {
       "label": "OUR FIELD",
       "headline": "14 sectors. 7 types of players.",
@@ -1386,86 +729,110 @@
       "s01": {
         "title": "Financial Services",
         "short": "Financial",
-        "desc": "Banking, insurance, asset management, fintech.",
+        "desc": "Banking, insurance, asset management, fintech",
         "hover": "Multiples: 8-15x EBITDA. Strict regulation. Consolidation underway. Frequent cross-border deals."
       },
       "s02": {
         "title": "Consumer Goods",
         "short": "Consumer",
-        "desc": "Food, beverage, personal care, household.",
+        "desc": "Food, beverage, personal care, household",
         "hover": "Italian brands coveted globally. PE very active. Margins 8-15%. Complex supply chain."
       },
       "s03": {
         "title": "Aerospace & Defense",
         "short": "Aerospace",
-        "desc": "Components, systems, MRO, space economy.",
+        "desc": "Components, systems, MRO, space economy",
         "hover": "Strategic sector. Golden Power active. Premium multiples 12-20x. Institutional and government clients."
       },
       "s04": {
         "title": "Industrial Machinery",
         "short": "Machinery",
-        "desc": "Automation, packaging machines, CNC, robotics.",
+        "desc": "Automation, packaging machines, CNC, robotics",
         "hover": "Heart of industrial Made in Italy. EBITDA 10-18%. Export 60%+. German and Asian buyers active."
       },
       "s05": {
         "title": "Chemicals",
         "short": "Chemicals",
-        "desc": "Specialty chemicals, pharmaceuticals, cosmetics.",
+        "desc": "Specialty chemicals, pharmaceuticals, cosmetics",
         "hover": "High barriers to entry. Patents and know-how. Critical ESG compliance. Multiples 7-12x."
       },
       "s06": {
         "title": "Technology",
         "short": "Tech",
-        "desc": "Software, SaaS, cybersecurity, AI, digital services.",
+        "desc": "Software, SaaS, cybersecurity, AI, digital services",
         "hover": "20-40% YoY growth for the best. ARR-based valuation. Multiples 10-30x revenue. VC and PE very active."
       },
       "s07": {
         "title": "Infrastructure & Construction",
         "short": "Infrastructure",
-        "desc": "Major works, specialized construction, plant engineering.",
+        "desc": "Major works, specialized construction, plant engineering",
         "hover": "NRRP €200+ billion. Multi-year backlog. Consolidation needed. Margins 5-10%."
       },
       "s08": {
         "title": "Metallurgical Industry",
         "short": "Metallurgy",
-        "desc": "Steel, aluminum, foundries, specialized processing.",
+        "desc": "Steel, aluminum, foundries, specialized processing",
         "hover": "High cyclicality. Energy-intensive. Carbon price impact. Forced consolidation from ESG and costs."
       },
       "s09": {
         "title": "Oil & Gas",
         "short": "Oil & Gas",
-        "desc": "Upstream, midstream, downstream, services.",
+        "desc": "Upstream, midstream, downstream, services",
         "hover": "Energy transition underway. Stranded asset risk. But still enormous cashflows. Frequent corporate restructurings."
       },
       "s10": {
         "title": "Packaging",
         "short": "Packaging",
-        "desc": "Paper converting, plastics, glass, luxury packaging.",
+        "desc": "Paper converting, plastics, glass, luxury packaging",
         "hover": "Italy European leader. Margins 8-14%. PE consolidators very active. ESG driver (plastic-free)."
       },
       "s11": {
         "title": "Transportation",
         "short": "Transport",
-        "desc": "Logistics, shipping, intermodal, last-mile.",
+        "desc": "Logistics, shipping, intermodal, last-mile",
         "hover": "Container cost volatility. Digitalization. Rapid consolidation. Multiples 5-8x."
       },
       "s12": {
         "title": "Utilities & Renewables",
         "short": "Utilities",
-        "desc": "Energy, water, waste, solar, wind.",
+        "desc": "Energy, water, waste, solar, wind",
         "hover": "Renewables boom. Long-term PPAs. Multiples 8-14x for regulated assets. Critical permitting pipeline."
       },
       "s13": {
         "title": "Agribusiness",
         "short": "Agri",
-        "desc": "Wine, olive oil, livestock, agritech.",
+        "desc": "Wine, olive oil, livestock, agritech",
         "hover": "Unique Italian heritage. Critical generational transition. Land as real asset. Growing exports."
       },
       "s14": {
         "title": "Healthcare & Pharma",
         "short": "Pharma",
-        "desc": "Clinics, devices, biotech, distribution.",
+        "desc": "Clinics, devices, biotech, distribution",
         "hover": "Countercyclical resilience. Margins 15-25%. Clinic consolidation underway. PE very active."
+      },
+      "s15": {
+        "title": "Real Estate & Hospitality",
+        "short": "Real Estate",
+        "desc": "Real estate, development, asset management, hotel, resort",
+        "hover": "Core real assets for HNW. Yield 4–8%. Value tied to location and management. Strong institutional interest."
+      },
+      "s16": {
+        "title": "Media & Entertainment",
+        "short": "Media",
+        "desc": "Content, production, rights, streaming, digital media",
+        "hover": "Growing content demand. Scalable models. Variable margins 10–30%. Strong competition and hit-driven."
+      },
+      "s17": {
+        "title": "Sports",
+        "short": "Sports",
+        "desc": "Clubs, events, media rights, infrastructure, performance",
+        "hover": "Iconic and relational assets. Revenue from rights and sponsorship. Unstable margins. Growing fund interest."
+      },
+      "s18": {
+        "title": "Luxury & Fashion",
+        "short": "Luxury",
+        "desc": "Fashion, design, accessories, jewelry, high-end",
+        "hover": "Global brand heritage. Margins 20–35%. High pricing power. Strong strategic and PE appeal."
       }
     },
     "transition": {
@@ -1480,49 +847,49 @@
         "title": "Entrepreneurs",
         "short": "Entrepreneurs",
         "subtitle": "Those who built",
-        "desc": "The entrepreneur who dedicated 30, 40, 50 years to their company. Wealth grew with them: business, real estate, investments, family. But the system to manage all this hasn't kept pace. Too many advisors, no direction, postponed decisions. 67% of their wealth is locked in business equity.",
+        "desc": "The entrepreneur who dedicated decades to their company. Wealth grew with them: business, real estate, investments, family. But the system to manage all this hasn't kept pace. Too many advisors, no direction. 67% of their wealth is locked in business equity.",
         "services": "M&A advisory · Exit planning · Wealth structuring · Governance · Generational transition · Club Deal · Post-exit wealth management"
       },
       "p02": {
         "title": "Families",
         "short": "Families",
         "subtitle": "Those who protect and transmit",
-        "desc": "Families with multi-generational wealth: businesses, scattered properties, holdings, income. Often with multiple branches, multiple interests, multiple visions. Family governance is absent or informal. Decisions are made at the Christmas dinner table. 70% don't survive the second generation.",
+        "desc": "Families with multi-generational wealth: businesses, properties, holdings, income. Often with multiple branches, multiple interests, multiple visions. Family governance is absent or informal. Decisions are made at the Christmas dinner table. 70% don't survive the second generation.",
         "services": "Family governance · Family constitution · Mediation · Next Gen <> Gen Exit · Personal family office · Asset protection"
       },
       "p03": {
         "title": "Investment Funds",
         "short": "Funds",
         "subtitle": "Those who invest to grow",
-        "desc": "Private equity, venture capital, private debt funds. They seek qualified deal flow, off-market access, co-investment with aligned entrepreneurs. Italy has 207,000 mid-market SMEs: fertile ground for those who know where to look and who to work with.",
+        "desc": "Private equity, venture capital, private debt funds. They seek qualified deal flow, off-market access, co-investment with aligned entrepreneurs. Italy has 207,000 mid-market SMEs: fertile ground for those who know where to look and who to work with. Minerva is the bridge.",
         "services": "Deal origination · Buy-side advisory · Due diligence coordination · Club deal structuring · Co-investment · Exit strategy · Portfolio monitoring"
       },
       "p04": {
         "title": "Asset Managers (SGR)",
         "short": "SGR",
         "subtitle": "Those who manage for others",
-        "desc": "Asset management companies seeking alternative investment opportunities for their funds. Real estate, private equity, infrastructure. Minerva provides access to off-market deals and structuring of dedicated investment vehicles.",
+        "desc": "Asset management companies seeking alternative investment opportunities for their funds. Real estate, private equity, infrastructure. Minerva provides access to off-market deals, structuring of dedicated vehicles and qualified co-investment.",
         "services": "Deal sourcing · SPV structuring · Alternative operations advisory · Due diligence · Club deal participation · Qualified co-investment"
       },
       "p05": {
         "title": "Holdings",
         "short": "Holdings",
         "subtitle": "Those who coordinate and optimize",
-        "desc": "Family and industrial holdings managing portfolios of participations. Often grown over time without a unified strategy: opportunistic acquisitions, postponed disposals, unstructured governance. The holding's value is often less than the sum of its parts.",
+        "desc": "Family and industrial holdings managing portfolios of participations. Often grown without a unified strategy: opportunistic acquisitions, postponed disposals, unstructured governance. The holding's value is often less than the sum of its parts.",
         "services": "Portfolio strategy · Structure optimization · Disposals and acquisitions · Governance · Asset valuation · Corporate restructuring"
       },
       "p06": {
         "title": "Corporations",
         "short": "Corporations",
         "subtitle": "Those who operate and compete",
-        "desc": "Structured SpA and Srl facing extraordinary operations: M&A, capital raising, restructuring, financial partner entry. Management seeks an advisor who understands both the industrial and the financial and wealth side.",
+        "desc": "Structured SpA and Srl facing extraordinary operations: M&A, capital raising, restructuring, financial partner entry. Management seeks an advisor who understands both the industrial and the financial and wealth side. A single point of contact.",
         "services": "M&A sell-side and buy-side · Capital raising · Restructuring · Business plan · Fairness opinion · Post-deal integration · Negotiation support"
       },
       "p07": {
         "title": "Institutional Investors",
         "short": "Institutional",
         "subtitle": "Those seeking quality and governance",
-        "desc": "Banking foundations, pension funds, insurance companies, structured family offices. They seek co-investment in Italian mid-market deals with clear governance, defined tickets and a partner with skin in the game. Minerva provides direct access to deal flow with professional structuring.",
+        "desc": "Banking foundations, pension funds, insurance companies, structured family offices. They seek co-investment in Italian mid-market deals with clear governance, defined tickets and a partner with skin in the game. Direct access to deal flow with professional structuring.",
         "services": "Qualified deal flow · Club deal with IC validation · SPV governance · Institutional reporting · Aligned co-investment · Italian alternatives advisory"
       }
     },
@@ -1634,12 +1001,36 @@
     },
     "stats": {
       "title": "The numbers of our field",
-      "n1": { "value": "207,000", "label": "Mid-market SMEs in Italy (20-249 employees)", "source": "ISTAT 2025" },
-      "n2": { "value": "€3,500 bn", "label": "Total mid-market SME revenue", "source": "Eurostat 2025" },
-      "n3": { "value": "85%", "label": "Family-controlled", "source": "AUB Bocconi 2025" },
-      "n4": { "value": "600-900", "label": "Mid-market M&A deals per year in Italy", "source": "AIFI, Mergermarket 2025" },
-      "n5": { "value": "€40+ bn", "label": "Private debt AUM Italy, growing towards €80-100 billion by 2040", "source": "AIFI 2025" },
-      "n6": { "value": "48%", "label": "SMEs that will be foreign-owned by 2040", "source": "Minerva Partners Analysis" }
+      "n1": {
+        "value": "207,000",
+        "label": "Mid-market SMEs in Italy (20-249 employees)",
+        "source": "ISTAT 2025"
+      },
+      "n2": {
+        "value": "€3,500 bn",
+        "label": "Total mid-market SME revenue",
+        "source": "Eurostat 2025"
+      },
+      "n3": {
+        "value": "85%",
+        "label": "Family-controlled",
+        "source": "AUB Bocconi 2025"
+      },
+      "n4": {
+        "value": "600-900",
+        "label": "Mid-market M&A deals per year in Italy",
+        "source": "AIFI, Mergermarket 2025"
+      },
+      "n5": {
+        "value": "€40+ bn",
+        "label": "Private debt AUM Italy, growing towards €80-100 billion by 2040",
+        "source": "AIFI 2025"
+      },
+      "n6": {
+        "value": "48%",
+        "label": "SMEs that will be foreign-owned by 2040",
+        "source": "Minerva Partners Analysis"
+      }
     },
     "cta": {
       "line1": "Whatever the sector, whatever the role:",
@@ -1647,6 +1038,1607 @@
       "btn1": "OUR APPROACH",
       "btn2": "LET'S TALK"
     }
+  },
+  "hub": {
+    "label": "THE CORE",
+    "headline": "The team that holds everything together.",
+    "subtitle": "Four core competencies. One unified direction. What we do well, we do ourselves. For everything else, there are the Partners.",
+    "pyramid": {
+      "title": "Four services. One direction.",
+      "regia": "MINERVA DIRECTION",
+      "box01": {
+        "num": "01",
+        "title": "M&A & Investments",
+        "sub": "Buy · Sell · Merge · Grow"
+      },
+      "box02": {
+        "num": "02",
+        "title": "Real Estate Advisory",
+        "sub": "Acquire · Structure · Optimize"
+      },
+      "box03": {
+        "num": "03",
+        "title": "Strategy Consulting",
+        "sub": "Plan · Execute · Measure"
+      },
+      "box04": {
+        "num": "04",
+        "title": "Wealth Management",
+        "sub": "Protect · Grow · Transfer"
+      }
+    },
+    "s01": {
+      "num": "01",
+      "title": "M&A & Investments",
+      "subtitle": "Architects of transactions",
+      "desc": "We are not brokers. Every deal starts from a strategic question, not a mandate. From origination to closing, with a structured process validated by the Investment Committee.",
+      "caps": {
+        "c1": {
+          "title": "M&A Advisory",
+          "desc": "Sell-side, buy-side, merger, carve-out"
+        },
+        "c2": {
+          "title": "Deal Origination",
+          "desc": "Off-market, Minerva network, pre-auction"
+        },
+        "c3": {
+          "title": "Capital Raising",
+          "desc": "Equity, debt, mezzanine, bridge"
+        },
+        "c4": {
+          "title": "Club Deals",
+          "desc": "Structuring, SPV, governance, monitoring"
+        },
+        "c5": {
+          "title": "Valuation",
+          "desc": "DCF, multiples, LBO, scenario analysis"
+        },
+        "c6": {
+          "title": "Post-Deal",
+          "desc": "PMI, integration, exit strategy"
+        }
+      },
+      "funnel": {
+        "s1": "SOURCING",
+        "s2": "SCREENING",
+        "s3": "DUE DILIGENCE",
+        "s4": "IC VALIDATION",
+        "s5": "CLOSING"
+      },
+      "funnelNote": "~50 deals closed successfully"
+    },
+    "s02": {
+      "num": "02",
+      "title": "Real Estate Advisory",
+      "subtitle": "Off-market. Structured. Integrated.",
+      "desc": "The best deals are not on the market. We access opportunities that don't exist on portals. And we integrate them into the overall wealth.",
+      "caps": {
+        "c1": {
+          "title": "Off-Market Advisory",
+          "desc": "Private disposals, private portfolios"
+        },
+        "c2": {
+          "title": "Structuring",
+          "desc": "Tax, legal, SPV, holding"
+        },
+        "c3": {
+          "title": "Development",
+          "desc": "Value-add, conversion, hospitality"
+        },
+        "c4": {
+          "title": "Portfolio Mgmt",
+          "desc": "Yield vs opportunity cost"
+        },
+        "c5": {
+          "title": "RE Club Deal",
+          "desc": "Co-investment, accessible tickets"
+        }
+      },
+      "disclaimer": "Subject to IC validation",
+      "deals": {
+        "d1": {
+          "tag": "HOSPITALITY · COAST",
+          "desc": "5* resort, 120 beds. Private sale.",
+          "ev": "EV €25-40M"
+        },
+        "d2": {
+          "tag": "LOGISTICS · NORTH",
+          "desc": "12 units, yield 6.2%.",
+          "ev": "EV €45-60M"
+        },
+        "d3": {
+          "tag": "MIXED-USE · MILAN",
+          "desc": "Luxury conversion.",
+          "ev": "EV €18-25M"
+        }
+      }
+    },
+    "s03": {
+      "num": "03",
+      "title": "Strategy Consulting",
+      "subtitle": "The levers that matter.",
+      "desc": "Revenue, costs, margins, processes. Not theoretical consulting: hands-on intervention with measurable KPIs.",
+      "caps": {
+        "c1": {
+          "title": "Strategic Analysis",
+          "desc": "Positioning, competitiveness, market"
+        },
+        "c2": {
+          "title": "Optimization",
+          "desc": "Processes, supply chain, costs"
+        },
+        "c3": {
+          "title": "Business Plan",
+          "desc": "Pre-M&A, pre-fundraising, credible"
+        },
+        "c4": {
+          "title": "Alignment",
+          "desc": "Business + family + wealth objectives"
+        }
+      },
+      "bars": {
+        "b1": "REVENUE",
+        "b2": "COSTS",
+        "b3": "MARGINS",
+        "b4": "GROWTH"
+      },
+      "barsNote": "EBITDA from 8% to 14% — real case, food PMI"
+    },
+    "s04": {
+      "num": "04",
+      "title": "Wealth Management",
+      "subtitle": "The deal is the beginning. The relationship is forever.",
+      "desc": "We don't build portfolios. We build strategies. Fee-only, 100% retrocession. No products to push.",
+      "caps": {
+        "c1": {
+          "title": "Asset Allocation",
+          "desc": "Multi-asset, life objectives"
+        },
+        "c2": {
+          "title": "Streamlining",
+          "desc": "Banks, costs, rationalised relationships"
+        },
+        "c3": {
+          "title": "Planning",
+          "desc": "Succession, tax, trust"
+        },
+        "c4": {
+          "title": "Protection",
+          "desc": "Segregation, asset protection, risks"
+        },
+        "c5": {
+          "title": "Reporting",
+          "desc": "Consolidated, all banks, one report"
+        }
+      },
+      "cycle": {
+        "c1": "EXIT",
+        "c2": "LIQUIDITY",
+        "c3": "WM ADVICE",
+        "c4": "REINVESTMENT",
+        "c5": "NEW OPP.",
+        "c6": "GROWTH",
+        "center": "THE CYCLE"
+      },
+      "highlight": "80.6% of Italian advisory is commission-based. Ours is fee-only. 100% retrocession to the client.",
+      "highlightAccent": "100%"
+    },
+    "footer": {
+      "disclaimer": "Every co-investment operation and every Club Deal is subject to prior validation by the Minerva Partners Investment Committee.",
+      "cta1": "TALK TO THE TEAM",
+      "cta2": "DISCOVER THE ECOSYSTEM"
+    }
+  },
+  "ecosistema": {
+    "label": "THE SYSTEM",
+    "headline1": "It's not who you are.",
+    "headline2": "It's who you operate with.",
+    "subtitle": "The Minerva ecosystem is a confederation of independent excellences, coordinated by a single direction. Every member has signed the Code. Every connection generates value.",
+    "map": {
+      "center": "THE WEALTH",
+      "hub": "HUB",
+      "hubDesc": "4 core services",
+      "hubCta": "Discover →",
+      "partners": "PARTNERS",
+      "partnersDesc": "8 specialist areas",
+      "partnersCta": "Discover →",
+      "friends": "FRIENDS",
+      "friendsDesc": "Extended expertise",
+      "friendsCta": "Discover →",
+      "advisors": "ADVISORS",
+      "advisorsDesc": "Origination network",
+      "advisorsCta": "Discover →",
+      "hubNodes": {
+        "n1": "M&A",
+        "n2": "RE",
+        "n3": "Strategy",
+        "n4": "WM"
+      },
+      "partnerNodes": {
+        "n1": "Legal",
+        "n2": "Tax",
+        "n3": "Banking",
+        "n4": "Insurance",
+        "n5": "Energy",
+        "n6": "Digital",
+        "n7": "Intl",
+        "n8": "UHNWI"
+      },
+      "friendNodes": {
+        "n1": "Memory",
+        "n2": "Network",
+        "n3": "Specializ.",
+        "n4": "Niche",
+        "n5": "Cross",
+        "n6": "Advisory"
+      }
+    },
+    "why": {
+      "title": "Why it works",
+      "b1": {
+        "title": "A COMMON CODE",
+        "desc": "Every member signs the Minerva Code before operating. Excellence, transparency, confidentiality, independence, alignment. It's not decorative: it's the foundation.",
+        "num": "100%",
+        "numLabel": "of members have signed the Code"
+      },
+      "b2": {
+        "title": "A SINGLE DIRECTION",
+        "desc": "It's not a marketplace. It's a coordinated ecosystem. Minerva Hub orchestrates everything: who does what, when, how. The client has one single point of contact.",
+        "num": "1",
+        "numLabel": "point of reference"
+      },
+      "b3": {
+        "title": "SKIN IN THE GAME",
+        "desc": "When we propose a deal, we invest first. We don't ask for trust on words alone.",
+        "num": "€",
+        "numLabel": "our capital alongside yours"
+      }
+    },
+    "join": {
+      "title": "The ecosystem is open to those who share the values.",
+      "c1": {
+        "title": "ARE YOU A PROFESSIONAL?",
+        "desc": "Become a Partner. Keep your independence, access deal flow, qualified clients, co-investment.",
+        "cta": "Discover the Partner path →"
+      },
+      "c2": {
+        "title": "DO YOU HAVE NICHE EXPERTISE?",
+        "desc": "Become a Friend. Bring your specialisation, your network, your memory. The ecosystem grows with you.",
+        "cta": "Discover the Friends path →"
+      },
+      "c3": {
+        "title": "DO YOU ORIGINATE OPPORTUNITIES?",
+        "desc": "Become an Advisor. Refer deals, introduce clients. Your contribution is recognised with transparent fees.",
+        "cta": "Discover the Advisor path →"
+      },
+      "c4": {
+        "title": "ARE YOU AN ENTREPRENEUR / A FAMILY?",
+        "desc": "You're not just a client. You can be an originator, investor, proponent. The ecosystem grows because every member feeds it.",
+        "cta": "Let's talk →"
+      }
+    },
+    "ctaLine": "The first step is a conversation.",
+    "ctaBtn": "JOIN THE ECOSYSTEM"
+  },
+  "ecosistemaPartners": {
+    "headline": "Minerva Partners",
+    "subtitle": "Selected excellences. Independent. Coordinated.",
+    "aree": {
+      "a01": {
+        "title": "Legal Services",
+        "desc": "M&A contracts, due diligence, corporate litigation, international law."
+      },
+      "a02": {
+        "title": "Business Consulting & Tax",
+        "desc": "Tax structuring, transfer pricing, reorganisations, compliance."
+      },
+      "a03": {
+        "title": "Banking Services",
+        "desc": "Credit, trade finance, cash management, institutional relationships."
+      },
+      "a04": {
+        "title": "Risk & Insurance",
+        "desc": "Risk mapping, key-man, D&O, property, cyber insurance."
+      },
+      "a05": {
+        "title": "Energy Management",
+        "desc": "Energy optimisation, PPA, photovoltaic, carbon management."
+      },
+      "a06": {
+        "title": "Digital Services",
+        "desc": "Digital transformation, cybersecurity, data analytics, AI integration."
+      },
+      "a07": {
+        "title": "International Clients",
+        "desc": "Cross-border taxation, residency, foreign structuring."
+      },
+      "a08": {
+        "title": "UHNWI Services",
+        "desc": "Family office, trust, philanthropy, lifestyle management."
+      }
+    },
+    "whyTitle": "Why become a Partner",
+    "whyItems": {
+      "w1": {
+        "title": "PRE-EMPTION",
+        "desc": "Priority access to Minerva mandates."
+      },
+      "w2": {
+        "title": "DEAL FLOW",
+        "desc": "Qualified clients, already filtered by direction."
+      },
+      "w3": {
+        "title": "CO-INVESTMENT",
+        "desc": "Participation in Minerva Club Deals."
+      },
+      "w4": {
+        "title": "REPUTATION",
+        "desc": "The Minerva Code protects your reputation."
+      },
+      "w5": {
+        "title": "TRANSPARENT FEES",
+        "desc": "Clear and shared fee structure."
+      }
+    },
+    "howTitle": "How to join",
+    "steps": {
+      "s1": {
+        "title": "Application",
+        "desc": "Introduction by member or self-application"
+      },
+      "s2": {
+        "title": "Assessment",
+        "desc": "Background check, references, track record"
+      },
+      "s3": {
+        "title": "Code",
+        "desc": "Signing the Minerva Code and SLA"
+      },
+      "s4": {
+        "title": "Onboarding",
+        "desc": "Welcome session, portal access, first mandate within 90 days"
+      }
+    },
+    "cta": "BECOME A PARTNER"
+  },
+  "ecosistemaFriends": {
+    "headline": "Minerva Friends",
+    "subtitle": "The extended ecosystem.",
+    "motivi": {
+      "m1": {
+        "title": "MEMORY",
+        "desc": "The advisor who has known the family for 30 years. The memory of past decisions, mistakes, successes. We don't replace them: we integrate them."
+      },
+      "m2": {
+        "title": "NETWORK",
+        "desc": "The professional introduced by a Partner for a specific need. A cross-border lawyer for a deal, a tax specialist for a restructuring. Joins the ecosystem, brings value, stays available."
+      },
+      "m3": {
+        "title": "SPECIALISATION",
+        "desc": "The expert needed at that moment. Renewable energy, blockchain, art, yachting. Precise expertise, activated when needed."
+      }
+    },
+    "whyTitle": "Why become a Friend",
+    "whyItems": {
+      "w1": {
+        "title": "REFERRAL FEE",
+        "desc": "Every qualified introduction is recognised."
+      },
+      "w2": {
+        "title": "NETWORK",
+        "desc": "Access to the Minerva ecosystem and its members."
+      },
+      "w3": {
+        "title": "CO-INVESTMENT",
+        "desc": "Opportunity to participate in Club Deals."
+      },
+      "w4": {
+        "title": "VISIBILITY",
+        "desc": "Your name circulates among qualified entrepreneurs."
+      },
+      "w5": {
+        "title": "TRAINING",
+        "desc": "Access to events, workshops, deep dives."
+      },
+      "w6": {
+        "title": "CODE",
+        "desc": "The reputational protection of the Minerva brand."
+      }
+    },
+    "howTitle": "How to join",
+    "steps": {
+      "s1": {
+        "title": "Referral",
+        "desc": "An ecosystem member introduces you to Minerva."
+      },
+      "s2": {
+        "title": "Assessment",
+        "desc": "We verify expertise, values and compatibility."
+      },
+      "s3": {
+        "title": "Sign the Code",
+        "desc": "You accept the Minerva Code and ecosystem rules."
+      },
+      "s4": {
+        "title": "Activation",
+        "desc": "You join the network and start receiving opportunities."
+      }
+    },
+    "cta": "BECOME A FRIEND"
+  },
+  "ecosistemaAdvisors": {
+    "headline": "The Advisors",
+    "subtitle": "Qualified and discreet origination.",
+    "role": "The Advisor is not an operational consultant. They originate: referring opportunities, introducing qualified clients, connecting worlds. Their contribution is recognised with transparent and structured fees.",
+    "flow": {
+      "s1": "ADVISOR refers",
+      "s2": "MINERVA evaluates",
+      "s3": "IC approves",
+      "s4": "DEAL closes",
+      "s5": "ADVISOR receives fee"
+    },
+    "whyTitle": "Why become an Advisor",
+    "whyItems": {
+      "w1": {
+        "title": "ORIGINATION FEE",
+        "desc": "10-35% fee on qualified referrals."
+      },
+      "w2": {
+        "title": "ZERO EXECUTION",
+        "desc": "You refer, Minerva executes."
+      },
+      "w3": {
+        "title": "DEAL FLOW",
+        "desc": "Your referrals enter the IC pipeline."
+      },
+      "w4": {
+        "title": "TRACK RECORD",
+        "desc": "Your name associated with closed deals."
+      },
+      "w5": {
+        "title": "CO-INVESTMENT",
+        "desc": "Opportunity to invest in originated deals."
+      },
+      "w6": {
+        "title": "CONFIDENTIALITY",
+        "desc": "Minerva Code on every referral."
+      }
+    },
+    "howTitle": "How to join",
+    "steps": {
+      "s1": {
+        "title": "Application",
+        "desc": "Introduction by member or self-application"
+      },
+      "s2": {
+        "title": "Assessment",
+        "desc": "Background check, references, track record"
+      },
+      "s3": {
+        "title": "Code",
+        "desc": "Signing the Minerva Code and SLA"
+      },
+      "s4": {
+        "title": "Onboarding",
+        "desc": "Welcome session, portal access, first referral"
+      }
+    },
+    "cta": "BECOME AN ADVISOR"
+  },
+  "soluzioni": {
+    "headline": "An approach. Not a catalogue.",
+    "subtitle": "Every solution stems from the problem, not the product.",
+    "timelineTitle": "From problem to solution",
+    "steps": {
+      "s1": {
+        "title": "THE SITUATION",
+        "desc": "Every estate is different. Every family is different. We start by listening."
+      },
+      "s2": {
+        "title": "THE DIAGNOSIS",
+        "desc": "We map everything: business, real estate, finance, family, existing professionals. We identify problems and opportunities."
+      },
+      "s3": {
+        "title": "THE PLAN",
+        "desc": "A tailored intervention proposal. Who does what, when, at what cost. If it doesn’t convince, no commitment."
+      },
+      "s4": {
+        "title": "THE EXECUTION",
+        "desc": "Hub, Partners, Friends: each plays their part. Minerva coordinates. Periodic reports, clear governance."
+      },
+      "s5": {
+        "title": "THE REVIEW",
+        "desc": "Quarterly Council Meeting. Performance, strategy, governance. It’s not a service: it’s a relationship."
+      }
+    },
+    "casesTitle": "Every case is unique. Here are some examples.",
+    "caseLabels": {
+      "situazione": "Situation",
+      "soluzione": "Minerva Solution"
+    },
+    "cases": {
+      "c1": {
+        "title": "THE ENTREPRENEUR WHO SELLS",
+        "situazione": "Entrepreneur, 63 years old, machinery company, €25M revenue, no succession plan.",
+        "soluzione": "Multidisciplinary valuation → pre-sale preparation (12 months) → M&A sell-side process → closing at 8.5x multiple → post-exit wealth management → family governance to manage liquidity.",
+        "team": "Hub involved: M&A + WM. Partners: legal + tax. Duration: 24 months."
+      },
+      "c2": {
+        "title": "THE GROWING FAMILY",
+        "situazione": "Family with 3 branches, 8 properties, 2 companies, €40M estate, zero governance. Growing conflicts.",
+        "soluzione": "Complete estate diagnosis → family constitution → governance with Board → real estate rationalisation → Next Gen programme for 3 heirs → consolidated wealth management.",
+        "team": "Hub: Strategy + WM + RE. Partners: legal + tax. Friends: family mediator. Duration: 18 months + ongoing."
+      },
+      "c3": {
+        "title": "THE PROFESSIONAL WHO PLANS",
+        "situazione": "Surgeon, 55 years old, high income, 3 properties, scattered investments, zero succession planning. No time for anything.",
+        "soluzione": "Estate X-ray → banking consolidation (from 4 to 2 relationships, fees -40%) → holding structure → trust for protection → quarterly reporting.",
+        "team": "Hub: WM. Partners: tax + insurance. Duration: 6 months setup + ongoing."
+      }
+    },
+    "dual": {
+      "left": {
+        "label": "FOR THOSE WITH WEALTH:",
+        "desc": "One point of contact instead of 7. More results, less time, lower costs."
+      },
+      "right": {
+        "label": "FOR THOSE WHO WANT TO JOIN:",
+        "desc": "An ecosystem where your work is amplified. Deal flow, clients, co-investment."
+      }
+    },
+    "cta": "TELL US YOUR SITUATION"
+  },
+  "abilitatori": {
+    "headline": "The ecosystem’s tools.",
+    "subtitle": "It’s not just who we are. It’s what we make available.",
+    "bacheca": {
+      "title": "The Board",
+      "subtitle": "Off-market deals. Reserved. Filtered.",
+      "desc": "Transactions that don’t exist on the open market. Reserved disposals, private portfolios, pre-auction opportunities. Every entry is filtered by the Investment Committee. Access is reserved for ecosystem members.",
+      "deals": {
+        "d1": {
+          "tag": "MANUFACTURING · NORTH",
+          "desc": "Industrial group, EBITDA €5-10M",
+          "ev": "EV €40-70M",
+          "pill": "SEEKING PARTNER"
+        },
+        "d2": {
+          "tag": "HEALTHCARE · LOMBARDY",
+          "desc": "Private clinic, +15% YoY",
+          "ev": "EV €20-35M",
+          "pill": "STRUCTURING"
+        },
+        "d3": {
+          "tag": "FOOD · CENTRAL",
+          "desc": "Premium brand, 40% export",
+          "ev": "EV €15-25M",
+          "pill": "ORIGINATION"
+        }
+      }
+    },
+    "portale": {
+      "title": "The Portal",
+      "subtitle": "Dashboard. Digital NDAs. Tracking. Matching.",
+      "desc": "The ecosystem’s digital infrastructure. Each member accesses their own reserved portal: active deals, documents, performance, governance. Automatic NDAs, access tracking, intelligent matching between opportunities and profiles.",
+      "dash": {
+        "pipeline": {
+          "title": "Deal Pipeline"
+        },
+        "documenti": {
+          "title": "Documents"
+        },
+        "performance": {
+          "title": "Performance"
+        },
+        "governance": {
+          "title": "Governance"
+        }
+      }
+    },
+    "coinvolgimento": {
+      "title": "Active Involvement of Everyone, Including the Client",
+      "desc": "It’s not just Minerva that moves. Every ecosystem actor can explore, contribute, originate, invest.",
+      "roles": {
+        "r1": {
+          "title": "ORIGINATOR",
+          "desc": "Refer deals. Origination fee 10-35%."
+        },
+        "r2": {
+          "title": "INVESTOR",
+          "desc": "Club Deals from €500,000. IC validation."
+        },
+        "r3": {
+          "title": "PROPOSER",
+          "desc": "Propose ideas, explore sectors, participate."
+        },
+        "r4": {
+          "title": "CONNECTOR",
+          "desc": "Introduce professionals, families, opportunities."
+        }
+      }
+    },
+    "cta": "REQUEST PORTAL ACCESS"
+  },
+  "wealth": {
+    "headline1": "The deal is the beginning.",
+    "headline2": "The relationship is forever.",
+    "subtitle": "Wealth management is not an add-on service. It’s the reason everything else exists.",
+    "cycle": {
+      "center": "THE WEALTH CYCLE",
+      "exit": "EXIT",
+      "liquidita": "LIQUIDITY",
+      "wm": "WM ADVICE",
+      "reinvestimento": "REINVESTMENT",
+      "opportunita": "NEW OPP.",
+      "crescita": "GROWTH"
+    },
+    "compare": {
+      "trad": {
+        "title": "TRADITIONAL WM",
+        "items": {
+          "t1": "Products to push",
+          "t2": "Hidden retrocessions",
+          "t3": "Incomprehensible reports",
+          "t4": "No coordination with M&A/RE",
+          "t5": "The advisor changes every 2 years"
+        }
+      },
+      "minerva": {
+        "title": "MINERVA WM",
+        "items": {
+          "m1": "Fee-only",
+          "m2": "100% retrocession",
+          "m3": "Consolidated report",
+          "m4": "Integrated with M&A, RE, Strategy",
+          "m5": "One point of contact, forever"
+        }
+      }
+    },
+    "capsTitle": "What we do",
+    "caps": {
+      "c1": {
+        "title": "Strategic Asset Allocation",
+        "desc": "Life goals, not market trends. Liquid, illiquid, real assets."
+      },
+      "c2": {
+        "title": "Banking Optimisation",
+        "desc": "From 4 banks to 2. Fees reduced by 40%. The bank works for you."
+      },
+      "c3": {
+        "title": "Succession Planning",
+        "desc": "Trusts, pacts, donations, holdings. Integrated into a single design."
+      },
+      "c4": {
+        "title": "Asset Protection",
+        "desc": "Segregation, asset protection, managing invisible risks."
+      },
+      "c5": {
+        "title": "Consolidated Reporting",
+        "desc": "All positions, all banks, one report. Because you can’t manage what you can’t see."
+      },
+      "c6": {
+        "title": "Post-Exit Wealth Strategy",
+        "desc": "From liquidity to structured wealth. Diversification, protection, governance. The most important thing: don’t lose what you’ve earned."
+      }
+    },
+    "stats": {
+      "s1": {
+        "num": "80.6%",
+        "desc": "of advisory in Italy is commission-based",
+        "source": "AIPB"
+      },
+      "s2": {
+        "num": "100%",
+        "desc": "retrocessions returned to the client",
+        "source": "Minerva Code"
+      },
+      "s3": {
+        "num": "3-4",
+        "desc": "inefficiencies found on average per new client",
+        "source": ""
+      }
+    },
+    "quote": "We have no products. We have no conflicts. We have a fee, a plan and a report.",
+    "cta": "LET’S TALK"
+  },
+  "codice": {
+    "label": "The Minerva Code",
+    "opening": "Your security and ours: operate and sleep peacefully.",
+    "headline": "Three codes. One rule: excellence without compromise.",
+    "subtitle": "Every professional signs the Minerva Code before operating. Three binding documents that define how we work, how value is distributed and how clients are protected.",
+    "firma": "Everyone signs before operating.",
+    "cards": {
+      "etico": {
+        "title": "Ethical Code",
+        "intro": "The non-negotiable principles that govern every relationship in the ecosystem.",
+        "points": {
+          "p1": {
+            "title": "Absolute confidentiality",
+            "desc": "Every piece of information is protected. No data is shared without the client's explicit authorisation."
+          },
+          "p2": {
+            "title": "Verifiable credibility",
+            "desc": "Every professional is selected by track record, references and consistency between what they say and what they do."
+          },
+          "p3": {
+            "title": "Total transparency",
+            "desc": "The client always knows who works for them, how much it costs and why. No hidden conflicts of interest."
+          }
+        }
+      },
+      "remunerativo": {
+        "title": "Compensation Code",
+        "intro": "How value is distributed. Clear, documented, aligned.",
+        "points": {
+          "p1": {
+            "title": "Waterfall structure",
+            "desc": "The compensation flow follows a defined cascade: first the client, then those who generated value, then the platform."
+          },
+          "p2": {
+            "title": "Documented split",
+            "desc": "Every allocation is written, signed and accessible. The client sees exactly who receives what."
+          },
+          "p3": {
+            "title": "Aligned interests",
+            "desc": "Fees are structured to reward results, not activity. Those who generate value participate in value."
+          }
+        }
+      },
+      "operativo": {
+        "title": "Operational Code",
+        "intro": "How we work. Processes, standards, accountability.",
+        "points": {
+          "p1": {
+            "title": "Standardised processes",
+            "desc": "Every operation follows a defined workflow: onboarding, due diligence, execution, reporting."
+          },
+          "p2": {
+            "title": "Binding SLAs",
+            "desc": "Response times, deliverable quality and update frequency are measured and guaranteed."
+          },
+          "p3": {
+            "title": "Compliance checklist",
+            "desc": "Before every operation, a checklist verifies that all requirements are met. No exceptions."
+          }
+        }
+      }
+    },
+    "sanzioniLabel": "Sanctions system",
+    "sanzioniIntro": "The Code is not a decorative document. Those who fail to meet standards are sanctioned through a graduated and transparent system.",
+    "sanzioni": {
+      "s1": {
+        "title": "Formal warning",
+        "desc": "First documented report with request for compliance."
+      },
+      "s2": {
+        "title": "Temporary suspension",
+        "desc": "Exclusion from new operations for a defined period."
+      },
+      "s3": {
+        "title": "Role review",
+        "desc": "Reduction of responsibilities and access areas."
+      },
+      "s4": {
+        "title": "Permanent exclusion",
+        "desc": "Definitive exit from the ecosystem. Irreversible."
+      }
+    }
+  },
+  "trasparenza": {
+    "label": "Transparency",
+    "headline": "Trust is built with facts",
+    "subtitle": "Every aspect of the relationship is documented, traceable and verifiable. No grey areas.",
+    "blocks": {
+      "fee": {
+        "title": "Transparent fees",
+        "desc": "You know what you pay and who receives it. Every fee is documented, every split is visible. No hidden costs, no undisclosed commissions.",
+        "details": {
+          "d1": "Fee structure communicated before engagement",
+          "d2": "Split between Hub, Partner and Advisor always visible",
+          "d3": "No hidden kickbacks or double commissions",
+          "d4": "Periodic report with detailed costs incurred"
+        }
+      },
+      "audit": {
+        "title": "Audit trail",
+        "desc": "Every action is tracked. Who did what, when and why. An immutable record that protects the client and ensures accountability at all levels.",
+        "details": {
+          "d1": "Complete log of every interaction and decision",
+          "d2": "Timestamp and responsible party for every step",
+          "d3": "History accessible to the client at any time",
+          "d4": "Basis for the quarterly Partner scorecard"
+        }
+      },
+      "nda": {
+        "title": "Digital NDAs",
+        "desc": "Qualified electronic signature, automatic NDAs before any exchange of sensitive information. Your deal will never be burned. Discretion is a founding principle.",
+        "details": {
+          "d1": "NDA automatically generated before data access",
+          "d2": "Qualified electronic signature with legal validity",
+          "d3": "Controlled and revocable access at any time",
+          "d4": "Tracking of who viewed which documents"
+        }
+      },
+      "dichiarazione": {
+        "title": "Mandatory declaration",
+        "desc": "Every professional in the ecosystem declares conflicts of interest, prior relationships and potentially incompatible positions. Before operating, not after.",
+        "details": {
+          "d1": "Preventive declaration of conflicts of interest",
+          "d2": "Mapping of relationships with counterparties",
+          "d3": "Mandatory update with every new engagement",
+          "d4": "Independent verification by the Compliance Officer"
+        }
+      }
+    }
+  },
+  "selezione": {
+    "label": "Selection",
+    "headline": "Joining the ecosystem is not a right. It is a privilege to be earned.",
+    "subtitle": "We select people, not CVs. Every professional is evaluated for expertise, values and ability to contribute.",
+    "criteriLabel": "Selection criteria",
+    "criteri": {
+      "c1": {
+        "title": "Verifiable track record",
+        "desc": "Concrete, measurable, referenceable results. Credentials are not enough: facts are required."
+      },
+      "c2": {
+        "title": "Integrity and confidentiality",
+        "desc": "Discretion is not optional. Those who enter the ecosystem protect information as if it were their own."
+      },
+      "c3": {
+        "title": "Complementarity",
+        "desc": "We seek expertise that completes the mosaic, not duplicates it. Every entry must expand our reach."
+      },
+      "c4": {
+        "title": "Cultural alignment",
+        "desc": "Sharing the values of the Minerva Code is not optional. It is the prerequisite for working together."
+      },
+      "c5": {
+        "title": "Willingness to contribute",
+        "desc": "We don't seek spectators. We seek professionals who bring active value to the ecosystem."
+      }
+    },
+    "funnelLabel": "The entry path",
+    "funnel": {
+      "s1": {
+        "title": "Referral",
+        "desc": "An ecosystem member introduces the candidate to Minerva. No unsolicited access."
+      },
+      "s2": {
+        "title": "Assessment",
+        "desc": "Thorough verification of expertise, references, track record and cultural compatibility."
+      },
+      "s3": {
+        "title": "Invitation",
+        "desc": "If the assessment is positive, the candidate receives a formal invitation to sign the Minerva Code."
+      },
+      "s4": {
+        "title": "Proposal",
+        "desc": "Definition of role, areas of expertise and terms of collaboration."
+      }
+    },
+    "exitHeadline": "Those who don't contribute, exit.",
+    "exitText": "The ecosystem is alive. Those who don't generate value, who don't meet standards, who aren't aligned with principles, are shown the door. No exceptions."
+  },
+  "eventi": {
+    "label": "Minerva Events",
+    "headline": "Where relationships become opportunities",
+    "subtitle": "8-10 events per year. Exclusive meetings between entrepreneurs, families and selected professionals.",
+    "tipologieLabel": "Event types",
+    "tipologie": {
+      "deal": {
+        "title": "Deal Night",
+        "freq": "3-4 times per year",
+        "desc": "Presentation of selected operations in a reserved format. Entrepreneurs, investors and advisors meet around concrete deals, already structured and ready for evaluation."
+      },
+      "fundraising": {
+        "title": "Fundraising Support",
+        "freq": "2-3 times per year",
+        "desc": "Sessions dedicated to entrepreneurs seeking capital. Structured pitches before qualified ecosystem investors, with support in preparation and follow-up."
+      },
+      "deep": {
+        "title": "Thematic Deep Dive",
+        "freq": "2-3 times per year",
+        "desc": "Deep dives on strategic topics: generational succession, family governance, international taxation, sector trends. Top-tier speakers, small groups."
+      },
+      "dinner": {
+        "title": "Networking Dinner",
+        "freq": "2-3 times per year",
+        "desc": "Reserved dinners in exclusive locations. No formal agenda: the value lies in the quality of conversations and the relationships that emerge spontaneously."
+      }
+    },
+    "calendarioLabel": "Annual calendar",
+    "mesi": [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ],
+    "chiLabel": "Who participates",
+    "chi": {
+      "inner": "Minerva clients and families",
+      "middle": "Partners and ecosystem professionals",
+      "outer": "Selected guests and speakers"
+    }
+  },
+  "pointZero": {
+    "label": "Point Zero",
+    "headline": "Point Zero",
+    "subtitle": "The most exclusive club in the ecosystem. Invitation only. Where decisions take shape.",
+    "format": "6-8 meetings per year. Maximum 12-15 members.",
+    "hotSeatSvgTop": "HOT",
+    "hotSeatSvgBottom": "SEAT",
+    "hotSeatLabel": "The format: Hot Seat",
+    "hotSeatDesc": "One member sits at the centre. They present their situation, wealth, business, family. The others listen, question, challenge. No filters, no diplomacy. Only brutal honesty and expertise at the service of those brave enough to be exposed.",
+    "hotSeatNote": "Inspired by the Tiger 21 model",
+    "regoleLabel": "The 4 rules",
+    "regole": {
+      "r1": {
+        "title": "Absolute confidentiality",
+        "desc": "What is said in the room, stays in the room. No exceptions, no interpretations."
+      },
+      "r2": {
+        "title": "Active contribution",
+        "desc": "Participants don't observe: they contribute. Every member brings experience, relationships and perspectives."
+      },
+      "r3": {
+        "title": "No selling",
+        "desc": "No commercial pitches, no disguised sales. The space is dedicated to dialogue, not business development."
+      },
+      "r4": {
+        "title": "Brutal honesty",
+        "desc": "The group's value lies in its ability to tell the truth. Even when it's uncomfortable. Especially when it's uncomfortable."
+      }
+    },
+    "criteriLabel": "Admission criteria",
+    "criteri": {
+      "c1": "Direct invitation from an existing member or the Minerva team",
+      "c2": "Wealth and complexity sufficient to benefit from peer dialogue",
+      "c3": "Willingness to be exposed and receive direct feedback",
+      "c4": "Signature of the Minerva Code and respect of the 4 rules",
+      "c5": "Commitment to actively attend at least 70% of meetings"
+    },
+    "membriLabel": "Max 12-15 members",
+    "membriDesc": "The number is intentionally limited. Every voice matters, every relationship is deep. It's not a network: it's a circle of trust."
+  },
+  "nextGen": {
+    "label": "Next Gen <> Gen Exit",
+    "headline": "Next Gen <> Gen Exit",
+    "subtitle": "Generational transition has two protagonists. Not one.",
+    "intro": "Everyone talks about preparing the next generation. Nobody prepares those who need to let go. Generational transition is not an event: it's a two-way process. Those entering must learn to lead. Those exiting must learn to let go. Minerva accompanies both.",
+    "nextGen": {
+      "title": "NEXT GEN",
+      "sub": "Those entering",
+      "text": "Learn the language of wealth. Build skills, relationships and awareness before inheriting responsibility. Don't undergo the transition: lead it."
+    },
+    "genExit": {
+      "title": "GEN EXIT",
+      "sub": "Those exiting",
+      "text": "Letting go doesn't mean losing. It means transforming your role: from decision-maker to mentor, from operational to strategic. Planning the exit with the same care used to build the entry."
+    },
+    "dialogoQuote": "The <> in our name is not a symbol. It's a dialogue.",
+    "beneficiLabel": "Why it only works if it works for both",
+    "benefici": {
+      "b1": {
+        "title": "Continuity without trauma",
+        "desc": "The transition happens gradually, not in one day. Those entering are ready. Those exiting are at peace."
+      },
+      "b2": {
+        "title": "Skills that transfer",
+        "desc": "Not just knowledge, relationships, values, vision. The things you can't learn in a master's programme."
+      },
+      "b3": {
+        "title": "Conflicts prevented",
+        "desc": "Generational tensions are addressed before they become fractures. With professional facilitation."
+      },
+      "b4": {
+        "title": "Protected wealth",
+        "desc": "70% of family businesses don't survive the second generation. The reason isn't financial: it's human."
+      },
+      "b5": {
+        "title": "Redefined roles",
+        "desc": "The founder finds new meaning. The successor finds their own space. Nobody gets erased."
+      },
+      "b6": {
+        "title": "Shared decisions",
+        "desc": "The most important choices are made together, in a structured context. Not at the dinner table on Christmas Eve."
+      }
+    },
+    "livelliLabel": "The Next Gen path",
+    "livelli": {
+      "intro": {
+        "title": "INTRO",
+        "eta": "18-25 years",
+        "desc": "First steps in understanding family wealth. Individual welcome session with Marco and Enrico. Basic workshops (2/year): reading a balance sheet, understanding investments. Networking with other next gens in the ecosystem."
+      },
+      "develop": {
+        "title": "DEVELOP",
+        "eta": "23-30 years",
+        "desc": "Building skills and network. Mentorship with senior entrepreneurs from the network. Observational participation in Minerva Circle (1-2 events/year). Project work: involvement in a real deal as analyst. University partnerships."
+      },
+      "accelerate": {
+        "title": "ACCELERATE",
+        "eta": "28-35 years",
+        "desc": "Preparation for family leadership. Seat at the table: active participation in family discussions. Board exposure: observer on boards of network companies. Investment track: opportunity to propose deals to the Club. Family governance: facilitated discussions with parents."
+      }
+    },
+    "exitLabel": "And for those exiting?",
+    "exitSteps": {
+      "s1": {
+        "title": "REDEFINITION",
+        "eta": "60-65 years",
+        "desc": "Analysis of current role. Mapping of transferable skills. Definition of new profile: mentor, investor, advisor, ambassador."
+      },
+      "s2": {
+        "title": "TRANSITION",
+        "eta": "65-70 years",
+        "desc": "Progressive support. Structured delegation. The founder remains present but in a different role, strategic, not operational."
+      },
+      "s3": {
+        "title": "NEW CHAPTER",
+        "eta": "70+ years",
+        "desc": "Wealth is in prepared hands. The founder is free to dedicate themselves to what matters: family, passions, legacy. It's not an ending: it's a transformation."
+      }
+    },
+    "deepDiveLabel": "Two-way deep dives",
+    "deepDives": {
+      "d1": {
+        "title": "Intergenerational Behavioural Finance",
+        "desc": "How different generations perceive risk, return and time. Cognitive biases of the founder vs biases of the successor. Interactive workshop where parents and children discover how they think differently, and why it's an advantage, not a problem.",
+        "freq": "2/year"
+      },
+      "d2": {
+        "title": "Family Governance Deep Dive",
+        "desc": "Family constitution, family pacts, roles and boundaries. How to separate emotional dynamics from wealth decisions. With specialised external facilitator. Parents and children at the same table.",
+        "freq": "2/year"
+      },
+      "d3": {
+        "title": "Mixed Deal Lab",
+        "desc": "A real operation (in blind form) analysed together by senior and junior. The senior brings experience and intuition. The junior brings data, models and fresh eyes. The result: a better analysis than either would have produced alone.",
+        "freq": "2-3/year"
+      }
+    },
+    "partnershipLabel": "Partnerships",
+    "partnership": {
+      "nova": {
+        "title": "NovaTalent",
+        "desc": "The global network of top talent under 35 selected by merit. Top 3% with higher education."
+      },
+      "uni": {
+        "title": "Universities",
+        "desc": "Bocconi, Politecnico, ESCP, INSEAD."
+      }
+    },
+    "cta": "Contact us for the Next Gen <> Gen Exit programme"
+  },
+  "strategia": {
+    "label": "Strategy",
+    "headline": "The context we operate in",
+    "subtitle": "Numbers, models and processes that guide every decision.",
+    "numeriLabel": "Market numbers",
+    "counters": {
+      "global": {
+        "desc": "Global wealth in transfer by 2048",
+        "source": "Cerulli Associates 2024"
+      },
+      "europe": {
+        "desc": "Businesses transferred yearly in Europe, 150,000 at risk of closure",
+        "source": "European Commission"
+      },
+      "germany": {
+        "desc": "Entrepreneurs over 60 in Germany: 1 in 3",
+        "source": "KfW Research 2023"
+      },
+      "italy": {
+        "desc": "Of Italian companies are SMEs. 70% don't survive the second generation",
+        "source": "ISTAT, AUB Observatory"
+      },
+      "france": {
+        "desc": "Of French companies are family-owned. Same fragilities, same urgency",
+        "source": "Bpifrance"
+      },
+      "wealth": {
+        "desc": "Italian private wealth, third in Europe",
+        "source": "Bank of Italy"
+      }
+    },
+    "benchmarkLabel": "Benchmark: comparable models",
+    "clusters": {
+      "a": {
+        "title": "Global Federated Ecosystems",
+        "players": [
+          "Wigmore Association",
+          "WE Family Offices",
+          "Wren Investment Office",
+          "Stonehage Fleming",
+          "Pathstone",
+          "Cresset"
+        ]
+      },
+      "b": {
+        "title": "Private Investment & Co-Investment",
+        "players": [
+          "Saranac Partners",
+          "Connection Capital",
+          "Long Angle",
+          "TIGER 21",
+          "R360"
+        ]
+      },
+      "c": {
+        "title": "Ecosystem Designers",
+        "players": [
+          "DIFC Family Wealth Centre",
+          "Family Office Exchange",
+          "Institute for Private Investors"
+        ]
+      },
+      "d": {
+        "title": "Boutique Advisory",
+        "players": [
+          "Kronos Advisory",
+          "V&M Family Partners",
+          "PFC Family Office"
+        ]
+      }
+    },
+    "benchmarkClosing": "Minerva is a rare hybrid combining Advisory + Deal + Community. Most platforms are only one of the three.",
+    "benchmarkSource": "Comparative analysis of 50 global platforms, filtered by independence, open ecosystem, services beyond asset allocation, network presence.",
+    "modelloLabel": "The operational model",
+    "modelloPhases": {
+      "p1": {
+        "title": "Listen",
+        "desc": "We understand the complexity: family, business, wealth, objectives. No solution before understanding."
+      },
+      "p2": {
+        "title": "Architecture",
+        "desc": "We design the solution assembling the necessary competencies from the ecosystem."
+      },
+      "p3": {
+        "title": "Execution",
+        "desc": "The dedicated team operates with defined SLAs, continuous reporting and accountability."
+      },
+      "p4": {
+        "title": "Monitoring",
+        "desc": "Every operation is tracked, measured and evaluated. Quarterly scorecard for everyone."
+      },
+      "p5": {
+        "title": "Evolution",
+        "desc": "Wealth changes, needs evolve. The model adapts continuously."
+      }
+    },
+    "icLabel": "Investment Committee",
+    "icDesc": "An independent committee that evaluates every opportunity with rigour and discipline. Multidisciplinary composition, structured process.",
+    "icComposizione": {
+      "label": "Composition",
+      "members": {
+        "m1": "Managing Partner (Chair)",
+        "m2": "Head of M&A",
+        "m3": "Head of Wealth Management",
+        "m4": "Independent Advisor (external)",
+        "m5": "Compliance Officer"
+      }
+    },
+    "icFasiLabel": "The 6 phases of the decision process",
+    "icFasi": {
+      "f1": {
+        "title": "Screening",
+        "desc": "Preliminary assessment of the opportunity: sector, size, strategic fit."
+      },
+      "f2": {
+        "title": "Due Diligence",
+        "desc": "In-depth analysis: financials, legal, commercial, management."
+      },
+      "f3": {
+        "title": "IC Evaluation",
+        "desc": "Presentation to the Committee with recommendation and risk assessment."
+      },
+      "f4": {
+        "title": "Resolution",
+        "desc": "Committee vote. Collegiate decision, documented and motivated."
+      },
+      "f5": {
+        "title": "Structuring",
+        "desc": "Structure definition: SPV, governance, waterfall, timeline."
+      },
+      "f6": {
+        "title": "Execution",
+        "desc": "Signing, closing, onboarding. Post-deal monitoring with periodic reporting."
+      }
+    }
+  },
+  "clubDeal": {
+    "label": "Minerva Club Deal",
+    "headline": "Invest together, with people you know",
+    "subtitle": "Selected, structured and reserved operations. Accessible only to members of the Minerva ecosystem.",
+    "intro": "The Minerva Club Deal is the vehicle through which clients and ecosystem members can co-invest in private equity, real estate and special situations. Every deal is originated, filtered and structured by the Minerva team, with transparent governance and exclusive access.",
+    "processLabel": "The process",
+    "steps": {
+      "s1": {
+        "title": "Origination",
+        "desc": "The opportunity is identified by the team or the ecosystem network. Initial screening on sector, size and strategic fit."
+      },
+      "s2": {
+        "title": "Due Diligence",
+        "desc": "In-depth analysis: financials, legal, commercial, management quality. The Minerva team coordinates all advisors involved."
+      },
+      "s3": {
+        "title": "Structuring",
+        "desc": "Definition of the vehicle (SPV), governance, waterfall, minimum ticket, timeline. Complete documentation before fundraising."
+      },
+      "s4": {
+        "title": "Fundraising",
+        "desc": "Blind presentation to qualified members. Digital NDA. Data room access. Subscription with electronic signature."
+      },
+      "s5": {
+        "title": "Management and reporting",
+        "desc": "Continuous investment monitoring. Quarterly reporting. Exit strategy defined from the start."
+      }
+    },
+    "vantaggiLabel": "Why participate",
+    "vantaggi": {
+      "v1": "Access to off-market deals not available on the market",
+      "v2": "Co-investment with verified entrepreneurs and professionals",
+      "v3": "Transparent governance: dedicated SPV, documented waterfall",
+      "v4": "Accessible tickets: participation even with contained amounts",
+      "v5": "Professional due diligence already performed by the team",
+      "v6": "Total alignment: Minerva invests in every deal"
+    },
+    "closing": "Every club deal is an opportunity built with the same care we bring to wealth management.",
+    "cta": "Discover opportunities"
+  },
+  "azienda": {
+    "hero": {
+      "headline": "A business is not just an asset. It's the story of those who built it."
+    },
+    "gold": {
+      "phrase": "We are not intermediaries: we are architects of operations.",
+      "subtext": "Every deal creates internal competition, because only those who close earn reputation and fees."
+    },
+    "ma": {
+      "title": "M&A Advisory",
+      "cards": {
+        "cessioni": {
+          "title": "Disposals and business sales",
+          "text": "Market preparation, pre-sale valorization, strategic and financial buyer selection, negotiation and closing."
+        },
+        "acquisizioni": {
+          "title": "Acquisitions and buy-side",
+          "text": "Target search, screening, industrial and financial due diligence, offer structuring."
+        },
+        "aggregazioni": {
+          "title": "Aggregations and alliances",
+          "text": "Growth through external lines, joint ventures, industrial alliances."
+        },
+        "ristrutturazione": {
+          "title": "Restructuring and turnaround",
+          "text": "Capital interventions, debt renegotiation, operational reorganization."
+        }
+      }
+    },
+    "capitale": {
+      "title": "Capital Structuring",
+      "text": "Search, evaluation and structuring of equity and/or debt. Private placement, fundraising, bridge financing."
+    },
+    "valutazione": {
+      "title": "Business Valuation",
+      "text": "Multidisciplinary approach: DCF, multiples, real options, scenario analysis. Not a number: a defensible range with 3 scenarios."
+    },
+    "clubdeal": {
+      "title": "Club Deal*",
+      "text": "When an operation is exceptional, we invest alongside the client with our own capital."
+    },
+    "strategy": {
+      "title": "Strategy Consulting",
+      "cards": {
+        "analisi": {
+          "title": "Strategic analysis and positioning",
+          "text": "Competitive mapping, market analysis, definition of sustainable competitive advantage."
+        },
+        "ottimizzazione": {
+          "title": "Operational optimization",
+          "text": "Process efficiency, cost reduction, operating margin improvement."
+        },
+        "businessplan": {
+          "title": "Business plan and preparation",
+          "text": "Industrial plan for extraordinary operations, fundraising, listing."
+        }
+      }
+    },
+    "stats": {
+      "operazioni": {
+        "value": "~50",
+        "label": "closed operations"
+      },
+      "range": {
+        "value": "€5M-€100M+",
+        "label": "deal range"
+      },
+      "settori": {
+        "value": "14",
+        "label": "sectors covered"
+      }
+    },
+    "differentiator": "We don't accept mandates we can't close. We don't burn operations. And when we propose a deal to the Club, we invest first.*",
+    "disclaimer": "*Every co-investment operation is subject to prior validation by the Minerva Partners Investment Committee.",
+    "cta": "Let's talk about your business"
+  },
+  "realEstate": {
+    "hero": {
+      "headline": "Real estate deserves the same care as business."
+    },
+    "gold": {
+      "phrase": "Every property is an opportunity. Every operation is a project.",
+      "subtext": "We don't sell properties: we build real estate strategies integrated into the overall wealth."
+    },
+    "advisory": {
+      "title": "Real Estate Advisory",
+      "cards": {
+        "acquisizioni": {
+          "title": "Off-market acquisitions",
+          "text": "Search, selection and negotiation of real estate assets with privileged access to reserved deals."
+        },
+        "vendite": {
+          "title": "Sales and valorization",
+          "text": "Market preparation, asset positioning, management of the disposal process."
+        },
+        "fiscale": {
+          "title": "Tax structuring",
+          "text": "Optimization of real estate holding: vehicle companies, holdings, real estate trusts."
+        },
+        "gestione": {
+          "title": "Portfolio management",
+          "text": "Property management, yield analysis, strategic portfolio rotation."
+        }
+      }
+    },
+    "mix": {
+      "title": "An integrated approach",
+      "text": "Real estate is not a separate compartment: we integrate it into the overall wealth strategy, coordinating tax, succession and financial aspects."
+    },
+    "clubdeal": {
+      "title": "Real Estate Club Deal*",
+      "text": "Selected operations in co-investment with our network of entrepreneurs and families."
+    },
+    "examples": {
+      "title": "Types of operations",
+      "items": {
+        "palazzo": {
+          "text": "Historic building in city center: acquisition, renovation and division with 7-9% target yield."
+        },
+        "studio": {
+          "text": "Mixed-use property: conversion from offices to premium residential in prime area."
+        },
+        "ufficio": {
+          "text": "Diversified real estate portfolio: tax optimization and strategic asset rotation."
+        }
+      }
+    },
+    "differentiator": "We are not real estate agents. We are advisors who integrate real estate into the overall wealth vision.",
+    "disclaimer": "*Every co-investment operation is subject to prior validation by the Minerva Partners Investment Committee.",
+    "cta": "Let's talk about your real estate"
+  },
+  "finanza": {
+    "hero": {
+      "headline": "Financial wealth is not managed: it is governed."
+    },
+    "gold": {
+      "phrase": "Fee-only. No conflicts. Only your interest.",
+      "subtext": "We receive no retrocessions, sell no products, have no distribution agreements. Pure advisory only."
+    },
+    "servizi": {
+      "title": "Wealth Advisory",
+      "cards": {
+        "advisory": {
+          "title": "Independent financial advisory",
+          "text": "Analysis, selection and monitoring of investments without conflicts of interest. Fee-only."
+        },
+        "bancario": {
+          "title": "Banking optimization",
+          "text": "Audit of banking conditions, cost renegotiation, relationship consolidation."
+        },
+        "protezione": {
+          "title": "Asset protection",
+          "text": "Wealth protection structures: trusts, holdings, policies, segregation."
+        },
+        "reporting": {
+          "title": "Consolidated reporting",
+          "text": "Single integrated view of all assets: financial, real estate, business, alternatives."
+        },
+        "ottimizzazione": {
+          "title": "Tax optimization",
+          "text": "Investment tax planning, optimization of holding structures."
+        }
+      }
+    },
+    "feeonly": {
+      "title": "The Fee-Only model",
+      "text": "Our remuneration is exclusively fee-based, agreed in advance and transparent. We receive no commissions from banks, asset managers or insurance companies. This eliminates all conflicts of interest and fully aligns our incentives with those of the client."
+    },
+    "stats": {
+      "risparmio": {
+        "value": "30-50%",
+        "label": "average savings on banking costs"
+      },
+      "banche": {
+        "value": "12+",
+        "label": "banks monitored"
+      },
+      "clienti": {
+        "value": "100%",
+        "label": "clients on fee-only"
+      }
+    },
+    "differentiator": "We don't manage money. We don't custody assets. We provide the independent direction that was missing between you and those managing your money.",
+    "cta": "Let's talk about your wealth"
+  },
+  "famiglia": {
+    "hero": {
+      "headline": "Family is the most complex wealth. And the most important."
+    },
+    "gold": {
+      "phrase": "Where wealth ends and family begins, our most important work starts.",
+      "subtext": "Generational transition is not an event: it's a process that requires years of preparation and expert direction."
+    },
+    "servizi": {
+      "title": "Family Advisory",
+      "cards": {
+        "passaggio": {
+          "title": "Generational transition",
+          "text": "Planning and accompanying the transfer of responsibilities, competencies and wealth to the next generation."
+        },
+        "governance": {
+          "title": "Family governance",
+          "text": "Establishment and management of family council, values charter, internal regulations."
+        },
+        "mediazione": {
+          "title": "Family mediation",
+          "text": "Management of relational dynamics, prevention and resolution of conflicts, dialogue facilitation."
+        },
+        "nextgen": {
+          "title": "Next Gen Program",
+          "text": "Training, mentoring and preparation of the new generation for the role of responsible shareholder."
+        },
+        "patti": {
+          "title": "Family agreements",
+          "text": "Drafting and negotiation of shareholder agreements, family agreements, entry and exit rules."
+        },
+        "protezione": {
+          "title": "Family protection",
+          "text": "Trusts, policies, segregation structures to protect family wealth."
+        }
+      }
+    },
+    "stats": {
+      "imprese": {
+        "value": "85%",
+        "label": "family businesses in Italy",
+        "source": "Source: AIDAF"
+      },
+      "passaggi": {
+        "value": "30%",
+        "label": "survive generational transition",
+        "source": "Source: Family Business Review"
+      },
+      "conflitti": {
+        "value": "60%",
+        "label": "of failures caused by family conflicts",
+        "source": "Source: Harvard Business Review"
+      },
+      "ricchezza": {
+        "value": "70%",
+        "label": "of wealth lost by the 2nd generation",
+        "source": "Source: Williams Group"
+      }
+    },
+    "differentiator": "We're not psychologists, but we know that behind every wealth decision there's a family dynamic. And we manage it.",
+    "cta": "Let's talk about your family"
+  },
+  "passioni": {
+    "hero": {
+      "headline": "Passions are not a luxury. They are part of wealth."
+    },
+    "gold": {
+      "phrase": "Every passion deserves the same care as an investment.",
+      "subtext": "Art, yachting, prestige properties, philanthropy: we manage what matters beyond numbers."
+    },
+    "servizi": {
+      "title": "Lifestyle Advisory",
+      "cards": {
+        "collezioni": {
+          "title": "Collections and art",
+          "text": "Advisory for acquisition, management and valorization of art collections, fine wines, vintage cars and valuables."
+        },
+        "nautica": {
+          "title": "Yachting and aviation",
+          "text": "Purchase, management and tax optimization of yachts and aircraft. Dedicated holding structures."
+        },
+        "proprieta": {
+          "title": "Prestige properties",
+          "text": "Search, acquisition and management of premium residences in Italy and abroad."
+        },
+        "filantropia": {
+          "title": "Structured philanthropy",
+          "text": "Design of philanthropic initiatives, foundations, planned donations with tax optimization."
+        },
+        "concierge": {
+          "title": "Wealth concierge",
+          "text": "A single point of reference for all needs related to lifestyle and personal wealth."
+        }
+      }
+    },
+    "filosofia": {
+      "title": "Our philosophy",
+      "text": "Passions are not distractions from wealth: they are an integral part of it. We treat them with the same analytical rigor and care we reserve for financial and real estate investments."
+    },
+    "differentiator": "We don't sell experiences. We help you live your passions as part of a conscious wealth strategy.",
+    "cta": "Let's talk about your passions"
+  },
+  "futuro": {
+    "hero": {
+      "headline": "The future of wealth is built today."
+    },
+    "gold": {
+      "phrase": "Planning the future is not pessimism: it's responsibility.",
+      "subtext": "Wealth that is not transferred with a strategy is dissipated. Every generation has a duty to prepare the next."
+    },
+    "servizi": {
+      "title": "Succession Planning",
+      "cards": {
+        "successione": {
+          "title": "Succession planning",
+          "text": "Analysis of current situation, heir mapping, definition of transfer strategy."
+        },
+        "trust": {
+          "title": "Trusts and fiduciaries",
+          "text": "Establishment and management of trusts, fiduciary mandates, asset protection structures."
+        },
+        "transfer": {
+          "title": "Wealth transfer",
+          "text": "Structured wealth transfer: donations, family agreements, intergenerational disposals."
+        },
+        "legacy": {
+          "title": "Legacy planning",
+          "text": "Definition of value and material legacy. What you want to leave and how you want to be remembered."
+        },
+        "fiscale": {
+          "title": "Succession tax optimization",
+          "text": "Planning to minimize the tax impact of generational transfer."
+        }
+      }
+    },
+    "stats": {
+      "patrimonio": {
+        "value": "$84 trillion",
+        "label": "global transfer by 2045"
+      },
+      "pianificazione": {
+        "value": "67%",
+        "label": "of UHNWIs without succession plan"
+      },
+      "generazioni": {
+        "value": "3",
+        "label": "generations: the average wealth cycle"
+      },
+      "strutture": {
+        "value": "15+",
+        "label": "legal structures available"
+      }
+    },
+    "filosofia": {
+      "title": "Our vision",
+      "text": "Wealth transfer is not an event but a process that lasts years. We accompany it with direction that integrates legal, tax, financial and — above all — family aspects."
+    },
+    "differentiator": "We don't prepare wills. We build bridges between generations, so wealth outlives those who created it.",
+    "cta": "Let's talk about your future"
   },
   "footer": {
     "privacy": "Privacy",

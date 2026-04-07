@@ -1,186 +1,165 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
-import { gsap } from '@/lib/gsap'
-import { onIdle } from '@/lib/idle'
+import { useRef, useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
-const FLOW_STEPS = ['advisor', 'segnalazione', 'hub', 'execution', 'risultato'] as const
-const WHY_KEYS = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6'] as const
+/* ── FadeIn helper (IntersectionObserver) ── */
+function FadeIn({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setTimeout(() => setVisible(true), delay); obs.disconnect() }
+    }, { threshold: 0.15 })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [delay])
+  return (
+    <div ref={ref} className={className} style={{
+      opacity: visible ? 1 : 0,
+      transform: visible ? 'translateY(0)' : 'translateY(30px)',
+      transition: `opacity 0.8s ease ${delay}ms, transform 0.8s ease ${delay}ms`,
+    }}>{children}</div>
+  )
+}
+
+/* ── Constants ── */
+const FLOW_KEYS = ['s1', 's2', 's3', 's4', 's5'] as const
+const WHY_KEYS = ['w1', 'w2', 'w3', 'w4', 'w5', 'w6'] as const
+const STEP_KEYS = ['s1', 's2', 's3', 's4'] as const
 
 export function EcosistemaAdvisorsPage() {
   const t = useTranslations('ecosistemaAdvisors')
-  const sectionRef = useRef<HTMLElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const flowSvgRef = useRef<SVGSVGElement>(null)
-  const whyRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-
-    let ctx: ReturnType<typeof gsap.context> | undefined
-    const cancelIdle = onIdle(() => {
-      if (!sectionRef.current) return
-      ctx = gsap.context(() => {
-        if (headerRef.current) {
-          gsap.from(headerRef.current, {
-            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: headerRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-
-        if (flowSvgRef.current) {
-          // Arrows draw in
-          const arrows = flowSvgRef.current.querySelectorAll('.flow-arrow')
-          arrows.forEach((arrow) => {
-            const el = arrow as SVGLineElement
-            const length = el.getTotalLength?.() || 100
-            gsap.set(el, { strokeDasharray: length, strokeDashoffset: length })
-            gsap.to(el, {
-              strokeDashoffset: 0, duration: 0.8, ease: 'power2.inOut',
-              scrollTrigger: { trigger: flowSvgRef.current, start: 'top 80%', toggleActions: 'play none none none' },
-            })
-          })
-
-          // Nodes scale in
-          const nodes = flowSvgRef.current.querySelectorAll('.flow-node')
-          gsap.from(nodes, {
-            scale: 0, opacity: 0, duration: 0.5, stagger: 0.15, ease: 'back.out(1.7)',
-            scrollTrigger: { trigger: flowSvgRef.current, start: 'top 80%', toggleActions: 'play none none none' },
-          })
-        }
-
-        if (whyRef.current) {
-          const items = whyRef.current.querySelectorAll('.why-item')
-          gsap.from(items, {
-            y: 20, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
-            scrollTrigger: { trigger: whyRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-      }, section)
-    })
-
-    return () => {
-      cancelIdle()
-      ctx?.revert()
-    }
-  }, [])
-
-  // Layout positions for 5 flow nodes (horizontal)
-  const positions = [
-    { cx: 80, cy: 60 },
-    { cx: 230, cy: 60 },
-    { cx: 380, cy: 60 },
-    { cx: 530, cy: 60 },
-    { cx: 680, cy: 60 },
-  ]
 
   return (
-    <section ref={sectionRef} className="relative bg-navy-deep min-h-screen pt-28 md:pt-36 pb-24 md:pb-[140px] px-4 md:px-6">
+    <section className="relative bg-[#0D1520] min-h-screen pt-[160px] pb-24 md:pb-[140px] px-4 md:px-6">
       <div className="max-w-[1280px] mx-auto">
 
-        {/* Header */}
-        <div ref={headerRef} className="text-center mb-16 md:mb-24">
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-4">
-            {t('label')}
-          </span>
+        {/* ── HERO ── */}
+        <FadeIn className="text-center mb-20 md:mb-28">
           <h1 className="font-serif text-[32px] md:text-[48px] font-semibold leading-[1.15] text-white mb-6">
             {t('headline')}
           </h1>
-          <p className="font-sans text-[16px] md:text-[18px] font-light leading-[1.7] text-white/70 max-w-[700px] mx-auto mb-8">
+          <p className="font-serif text-[20px] md:text-[24px] font-normal leading-[1.4] text-[#C9912B]">
             {t('subtitle')}
           </p>
-          <div className="h-[1.5px] w-16 bg-gold mx-auto" />
-        </div>
+        </FadeIn>
+
+        {/* ── BLOCK 1 — THE ROLE ── */}
+        <FadeIn className="mb-12 md:mb-16">
+          <p className="font-sans text-[17px] font-light leading-[1.8] text-white/65 max-w-[900px] mx-auto text-center">
+            {t('role')}
+          </p>
+        </FadeIn>
 
         {/* Flow Diagram */}
-        <div className="mb-20 md:mb-28">
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-10">
-            {t('flowLabel')}
-          </span>
-
-          <svg ref={flowSvgRef} viewBox="0 0 760 120" className="w-full h-auto max-w-[760px] mx-auto">
-            {/* Connecting arrows */}
-            {positions.slice(0, -1).map((pos, i) => (
-              <line
-                key={`arrow-${i}`}
-                className="flow-arrow"
-                x1={pos.cx + 35}
-                y1={pos.cy}
-                x2={positions[i + 1].cx - 35}
-                y2={positions[i + 1].cy}
-                stroke="#C9912B"
-                strokeWidth="1.5"
-                opacity="0.5"
-                markerEnd="url(#arrowhead)"
-              />
-            ))}
-
-            {/* Arrowhead marker */}
-            <defs>
-              <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-                <polygon points="0 0, 8 3, 0 6" fill="#C9912B" opacity="0.5" />
-              </marker>
-            </defs>
-
-            {/* Nodes */}
-            {FLOW_STEPS.map((key, i) => {
-              const pos = positions[i]
-              const isHub = key === 'hub'
-              return (
-                <g key={key} className="flow-node" style={{ transformOrigin: `${pos.cx}px ${pos.cy}px` }}>
-                  <circle
-                    cx={pos.cx}
-                    cy={pos.cy}
-                    r={isHub ? 35 : 28}
-                    fill={isHub ? '#C9912B' : 'none'}
-                    opacity={isHub ? 0.15 : 1}
-                    stroke="#C9912B"
-                    strokeWidth={isHub ? 1.5 : 1}
-                  />
-                  {!isHub && (
-                    <circle cx={pos.cx} cy={pos.cy} r="28" fill="#C9912B" opacity="0.06" />
-                  )}
-                  <text
-                    x={pos.cx}
-                    y={pos.cy + 4}
-                    textAnchor="middle"
-                    fill={isHub ? '#C9912B' : 'white'}
-                    fontSize={isHub ? '10' : '9'}
-                    fontFamily="DM Sans, sans-serif"
-                    fontWeight={isHub ? '700' : '500'}
-                    opacity={isHub ? 1 : 0.6}
-                  >
+        <FadeIn className="mb-20 md:mb-28">
+          {/* Desktop: horizontal */}
+          <div className="hidden md:flex items-center justify-center gap-0">
+            {FLOW_KEYS.map((key, i) => (
+              <div key={key} className="flex items-center">
+                {/* Circle */}
+                <div className="w-[80px] h-[80px] rounded-full border border-[#C9912B] flex items-center justify-center text-center px-1">
+                  <span className="font-sans text-[11px] font-medium leading-[1.3] text-white">
                     {t(`flow.${key}`)}
-                  </text>
-                </g>
-              )
-            })}
-          </svg>
-        </div>
-
-        {/* Why join */}
-        <div>
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-8">
-            {t('whyLabel')}
-          </span>
-          <div ref={whyRef} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {WHY_KEYS.map((key) => (
-              <div
-                key={key}
-                className="why-item flex items-start gap-3 p-5 rounded-lg bg-white/[0.03] border border-white/[0.06]"
-              >
-                <svg className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                <p className="font-sans text-[14px] md:text-[15px] font-light leading-[1.7] text-white/80">
-                  {t(`why.${key}`)}
-                </p>
+                  </span>
+                </div>
+                {/* Arrow between circles */}
+                {i < FLOW_KEYS.length - 1 && (
+                  <div className="flex items-center mx-2">
+                    <div className="w-8 h-px bg-[#C9912B]/50" />
+                    <svg className="w-2.5 h-2.5 text-[#C9912B]/50 -ml-px" viewBox="0 0 10 10" fill="currentColor">
+                      <polygon points="0,0 10,5 0,10" />
+                    </svg>
+                  </div>
+                )}
               </div>
             ))}
           </div>
-        </div>
+
+          {/* Mobile: vertical */}
+          <div className="flex md:hidden flex-col items-center gap-0">
+            {FLOW_KEYS.map((key, i) => (
+              <div key={key} className="flex flex-col items-center">
+                {/* Circle */}
+                <div className="w-[80px] h-[80px] rounded-full border border-[#C9912B] flex items-center justify-center text-center px-1">
+                  <span className="font-sans text-[11px] font-medium leading-[1.3] text-white">
+                    {t(`flow.${key}`)}
+                  </span>
+                </div>
+                {/* Arrow between circles */}
+                {i < FLOW_KEYS.length - 1 && (
+                  <div className="flex flex-col items-center my-2">
+                    <div className="w-px h-6 bg-[#C9912B]/50" />
+                    <svg className="w-2.5 h-2.5 text-[#C9912B]/50 -mt-px" viewBox="0 0 10 10" fill="currentColor">
+                      <polygon points="0,0 10,0 5,10" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* ── BLOCK 2 — WHY (6 items) ── */}
+        <FadeIn className="mb-20 md:mb-28">
+          <h2 className="font-serif text-[24px] md:text-[28px] font-semibold text-white mb-10">
+            {t('whyTitle')}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {WHY_KEYS.map((key, i) => (
+              <FadeIn key={key} delay={i * 80}>
+                <div className="bg-white/[0.03] p-6 rounded-xl h-full">
+                  <h4 className="font-sans text-[14px] font-bold text-[#C9912B] mb-2">
+                    {t(`whyItems.${key}.title`)}
+                  </h4>
+                  <p className="font-sans text-[14px] font-light leading-[1.7] text-white/60">
+                    {t(`whyItems.${key}.desc`)}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* ── BLOCK 3 — HOW TO JOIN (Timeline) ── */}
+        <FadeIn className="mb-20 md:mb-28">
+          <h2 className="font-serif text-[24px] md:text-[28px] font-semibold text-white mb-10">
+            {t('howTitle')}
+          </h2>
+          <div className="relative pl-10 md:pl-14">
+            {/* Vertical gold line */}
+            <div className="absolute left-[15px] md:left-[23px] top-0 bottom-0 w-px bg-[#C9912B]/25" />
+
+            {STEP_KEYS.map((key, i) => (
+              <FadeIn key={key} delay={i * 150} className="relative mb-10 last:mb-0">
+                {/* Numbered circle */}
+                <div className="absolute -left-10 md:-left-14 top-1 w-8 h-8 rounded-full border-2 border-[#C9912B]/40 bg-[#C9912B]/10 flex items-center justify-center">
+                  <span className="font-sans text-[11px] font-bold text-[#C9912B]">{i + 1}</span>
+                </div>
+                <h4 className="font-serif text-[18px] md:text-[20px] font-semibold text-white mb-2">
+                  {t(`steps.${key}.title`)}
+                </h4>
+                <p className="font-sans text-[14px] md:text-[15px] font-light leading-[1.7] text-white/65">
+                  {t(`steps.${key}.desc`)}
+                </p>
+              </FadeIn>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* ── CTA ── */}
+        <FadeIn className="text-center">
+          <Link
+            href="/contatti"
+            className="inline-block bg-[#C9912B] text-white font-sans text-[15px] font-semibold tracking-wide px-10 py-4 rounded-lg hover:bg-[#b07f24] transition-colors duration-300"
+          >
+            {t('cta')}
+          </Link>
+        </FadeIn>
 
       </div>
     </section>

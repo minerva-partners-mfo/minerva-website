@@ -1,166 +1,132 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
-import { gsap } from '@/lib/gsap'
-import { onIdle } from '@/lib/idle'
+import { useRef, useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
-const CATEGORIES = [
-  { key: 'legal', icon: 'scale' },
-  { key: 'tax', icon: 'calculator' },
-  { key: 'banking', icon: 'bank' },
-  { key: 'insurance', icon: 'shield' },
-  { key: 'energy', icon: 'bolt' },
-  { key: 'digital', icon: 'chip' },
-  { key: 'international', icon: 'globe' },
-  { key: 'uhnwi', icon: 'diamond' },
-] as const
-
-const WHY_KEYS = ['p1', 'p2', 'p3', 'p4', 'p5'] as const
-
-function CatIcon({ type }: { type: string }) {
-  const cls = 'w-8 h-8 text-gold'
-  switch (type) {
-    case 'scale':
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 3v18M3 7l4.5 9h9L21 7" /><circle cx="7.5" cy="16" r="2.5" /><circle cx="16.5" cy="16" r="2.5" /></svg>)
-    case 'calculator':
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><rect x="4" y="2" width="16" height="20" rx="2" /><path d="M8 6h8M8 10h2M14 10h2M8 14h2M14 14h2M8 18h2M14 18h2" /></svg>)
-    case 'bank':
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M3 21h18M3 10h18M12 3l9 7H3l9-7zM5 10v8M9 10v8M15 10v8M19 10v8" /></svg>)
-    case 'shield':
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" /><path d="M9 12l2 2 4-4" /></svg>)
-    case 'bolt':
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>)
-    case 'chip':
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><rect x="6" y="6" width="12" height="12" rx="1" /><path d="M9 1v5M15 1v5M9 18v5M15 18v5M1 9h5M1 15h5M18 9h5M18 15h5" /></svg>)
-    case 'globe':
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="12" cy="12" r="10" /><ellipse cx="12" cy="12" rx="4" ry="10" /><path d="M2 12h20" /></svg>)
-    case 'diamond':
-      return (<svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M6 3h12l4 7-10 12L2 10l4-7zM2 10h20M12 22l4-12M12 22l-4-12M8 3l-2 7M16 3l2 7" /></svg>)
-    default:
-      return null
-  }
+/* ── FadeIn helper (IntersectionObserver) ── */
+function FadeIn({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setTimeout(() => setVisible(true), delay); obs.disconnect() }
+    }, { threshold: 0.15 })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [delay])
+  return (
+    <div ref={ref} className={className} style={{
+      opacity: visible ? 1 : 0,
+      transform: visible ? 'translateY(0)' : 'translateY(30px)',
+      transition: `opacity 0.8s ease ${delay}ms, transform 0.8s ease ${delay}ms`,
+    }}>{children}</div>
+  )
 }
+
+/* ── Constants ── */
+const AREA_KEYS = ['a01', 'a02', 'a03', 'a04', 'a05', 'a06', 'a07', 'a08'] as const
+const WHY_KEYS = ['w1', 'w2', 'w3', 'w4', 'w5'] as const
+const STEP_KEYS = ['s1', 's2', 's3', 's4'] as const
 
 export function EcosistemaPartnersPage() {
   const t = useTranslations('ecosistemaPartners')
-  const sectionRef = useRef<HTMLElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const gridRef = useRef<HTMLDivElement>(null)
-  const whyRef = useRef<HTMLDivElement>(null)
-  const slaRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-
-    let ctx: ReturnType<typeof gsap.context> | undefined
-    const cancelIdle = onIdle(() => {
-      if (!sectionRef.current) return
-      ctx = gsap.context(() => {
-        if (headerRef.current) {
-          gsap.from(headerRef.current, {
-            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: headerRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-        if (gridRef.current) {
-          const cards = gridRef.current.querySelectorAll('.partner-cat')
-          gsap.from(cards, {
-            y: 30, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out',
-            scrollTrigger: { trigger: gridRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-        if (whyRef.current) {
-          gsap.from(whyRef.current, {
-            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: whyRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-        if (slaRef.current) {
-          gsap.from(slaRef.current, {
-            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: slaRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-      }, section)
-    })
-
-    return () => {
-      cancelIdle()
-      ctx?.revert()
-    }
-  }, [])
 
   return (
-    <section ref={sectionRef} className="relative bg-navy-deep min-h-screen pt-28 md:pt-36 pb-24 md:pb-[140px] px-4 md:px-6">
+    <section className="relative bg-[#0D1520] min-h-screen pt-[160px] pb-24 md:pb-[140px] px-4 md:px-6">
       <div className="max-w-[1280px] mx-auto">
 
-        {/* Header */}
-        <div ref={headerRef} className="text-center mb-16 md:mb-24">
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-4">
-            {t('label')}
-          </span>
+        {/* ── HERO ── */}
+        <FadeIn className="text-center mb-20 md:mb-28">
           <h1 className="font-serif text-[32px] md:text-[48px] font-semibold leading-[1.15] text-white mb-6">
             {t('headline')}
           </h1>
-          <p className="font-sans text-[16px] md:text-[18px] font-light leading-[1.7] text-white/70 max-w-[700px] mx-auto mb-8">
+          <p className="font-serif text-[20px] md:text-[24px] font-normal leading-[1.4] text-[#C9912B]">
             {t('subtitle')}
           </p>
-          <div className="h-[1.5px] w-16 bg-gold mx-auto" />
-        </div>
+        </FadeIn>
 
-        {/* 8 Category Cards */}
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20 md:mb-28">
-          {CATEGORIES.map((cat) => (
-            <div
-              key={cat.key}
-              className="partner-cat p-6 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-gold/20 transition-all duration-300"
-            >
-              <div className="mb-4">
-                <CatIcon type={cat.icon} />
-              </div>
-              <h3 className="font-serif text-[17px] font-semibold text-white leading-[1.2] mb-2">
-                {t(`categories.${cat.key}.title`)}
-              </h3>
-              <p className="font-sans text-[13px] font-light leading-[1.6] text-white/60">
-                {t(`categories.${cat.key}.desc`)}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Why become a Partner */}
-        <div ref={whyRef} className="mb-20 md:mb-28">
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-8">
-            {t('whyLabel')}
-          </span>
-          <div className="space-y-4">
-            {WHY_KEYS.map((key, i) => (
-              <div
-                key={key}
-                className="flex items-start gap-4 p-5 rounded-lg bg-white/[0.03] border border-white/[0.06]"
-              >
-                <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center font-sans text-[13px] font-semibold text-gold">
-                  {i + 1}
-                </span>
-                <p className="font-sans text-[15px] font-light leading-[1.7] text-white/80 pt-1">
-                  {t(`why.${key}`)}
-                </p>
-              </div>
+        {/* ── BLOCK 1 — 8 AREAS ── */}
+        <div className="mb-20 md:mb-28">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {AREA_KEYS.map((key, i) => (
+              <FadeIn key={key} delay={i * 80}>
+                <div className="border-l-[3px] border-[#C9912B] pl-5 py-4">
+                  <div className="w-[28px] h-[28px] rounded-full border border-[#C9912B] flex items-center justify-center mb-3">
+                    <span className="font-sans text-[11px] font-bold text-[#C9912B]">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-[20px] font-semibold text-white leading-[1.2] mb-2">
+                    {t(`aree.${key}.title`)}
+                  </h3>
+                  <p className="font-sans text-[14px] font-light leading-[1.7] text-white/60">
+                    {t(`aree.${key}.desc`)}
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
 
-        {/* SLA & Scorecard */}
-        <div ref={slaRef} className="p-8 md:p-10 rounded-xl bg-gold/[0.06] border border-gold/[0.15]">
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-4">
-            {t('slaLabel')}
-          </span>
-          <p className="font-sans text-[15px] md:text-base font-light leading-[1.8] text-white/70">
-            {t('sla')}
-          </p>
-        </div>
+        {/* ── BLOCK 2 — WHY BECOME PARTNER ── */}
+        <FadeIn className="mb-20 md:mb-28">
+          <h2 className="font-serif text-[24px] md:text-[28px] font-semibold text-white mb-10">
+            {t('whyTitle')}
+          </h2>
+          <div className="space-y-4">
+            {WHY_KEYS.map((key, i) => (
+              <FadeIn key={key} delay={i * 100}>
+                <div className="bg-white/[0.03] p-6 rounded-xl">
+                  <h4 className="font-sans text-[14px] font-bold text-[#C9912B] mb-2">
+                    {t(`whyItems.${key}.title`)}
+                  </h4>
+                  <p className="font-sans text-[14px] font-light leading-[1.7] text-white/60">
+                    {t(`whyItems.${key}.desc`)}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* ── BLOCK 3 — HOW TO JOIN (Timeline) ── */}
+        <FadeIn className="mb-20 md:mb-28">
+          <h2 className="font-serif text-[24px] md:text-[28px] font-semibold text-white mb-10">
+            {t('howTitle')}
+          </h2>
+          <div className="relative pl-10 md:pl-14">
+            {/* Vertical gold line */}
+            <div className="absolute left-[15px] md:left-[23px] top-0 bottom-0 w-px bg-[#C9912B]/25" />
+
+            {STEP_KEYS.map((key, i) => (
+              <FadeIn key={key} delay={i * 150} className="relative mb-10 last:mb-0">
+                {/* Numbered circle */}
+                <div className="absolute -left-10 md:-left-14 top-1 w-8 h-8 rounded-full border-2 border-[#C9912B]/40 bg-[#C9912B]/10 flex items-center justify-center">
+                  <span className="font-sans text-[11px] font-bold text-[#C9912B]">{i + 1}</span>
+                </div>
+                <h4 className="font-serif text-[18px] md:text-[20px] font-semibold text-white mb-2">
+                  {t(`steps.${key}.title`)}
+                </h4>
+                <p className="font-sans text-[14px] md:text-[15px] font-light leading-[1.7] text-white/65">
+                  {t(`steps.${key}.desc`)}
+                </p>
+              </FadeIn>
+            ))}
+          </div>
+        </FadeIn>
+
+        {/* ── CTA ── */}
+        <FadeIn className="text-center">
+          <Link
+            href="/contatti"
+            className="inline-block bg-[#C9912B] text-white font-sans text-[15px] font-semibold tracking-wide px-10 py-4 rounded-lg hover:bg-[#b07f24] transition-colors duration-300"
+          >
+            {t('cta')}
+          </Link>
+        </FadeIn>
 
       </div>
     </section>

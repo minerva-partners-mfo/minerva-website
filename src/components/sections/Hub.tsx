@@ -1,65 +1,83 @@
 'use client'
 
 import { useRef, useEffect } from 'react'
-import Image from 'next/image'
+import { Link } from '@/i18n/navigation'
 import { gsap } from '@/lib/gsap'
 import { onIdle } from '@/lib/idle'
 import { useTranslations } from 'next-intl'
 
-const CARDS = [
-  { key: 'ma', icon: 'handshake', variant: 'gold' },
-  { key: 're', icon: 'building', variant: 'navy' },
-  { key: 'st', icon: 'compass', variant: 'navy' },
-  { key: 'wm', icon: 'shield', variant: 'gold' },
-] as const
+/* ── Constants ── */
 
-function CardIcon({ type }: { type: string }) {
-  const cls = 'w-10 h-10 md:w-12 md:h-12'
-  switch (type) {
-    case 'handshake':
-      return (
-        <svg className={cls} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M6 24l8-8 6 4 8-8 8 4 6-6" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M14 32l-8 4v-12" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M34 32l8 4v-12" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M18 28l3 3 6-6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )
-    case 'building':
-      return (
-        <svg className={cls} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <rect x="8" y="6" width="14" height="36" rx="1" />
-          <rect x="26" y="16" width="14" height="26" rx="1" />
-          <path d="M13 12h4M13 18h4M13 24h4M13 30h4M31 22h4M31 28h4M31 34h4" strokeLinecap="round" />
-        </svg>
-      )
-    case 'compass':
-      return (
-        <svg className={cls} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <circle cx="24" cy="24" r="18" />
-          <polygon points="20,28 16,32 24,18 28,20 32,16 24,30" fill="currentColor" opacity="0.15" stroke="none" />
-          <path d="M20 28l-4 4 8-14 4 2 4-4-8 14-4-2z" />
-        </svg>
-      )
-    case 'shield':
-      return (
-        <svg className={cls} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M24 4L6 12v12c0 11.1 7.8 21.4 18 24 10.2-2.6 18-12.9 18-24V12L24 4z" />
-          <path d="M17 24l5 5 9-10" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      )
-    default:
-      return null
-  }
+const PYRAMID_BOXES = ['box01', 'box02', 'box03', 'box04'] as const
+
+const S01_CAPS = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] as const
+const S01_FUNNEL = ['s1', 's2', 's3', 's4', 's5'] as const
+const FUNNEL_WIDTHS = ['100%', '80%', '60%', '40%', '20%']
+
+const S02_CAPS = ['c1', 'c2', 'c3', 'c4', 'c5'] as const
+const S02_DEALS = ['d1', 'd2', 'd3'] as const
+const DEAL_GRADIENTS = [
+  'linear-gradient(135deg, #1A2744, #2E3A6E)',
+  'linear-gradient(135deg, #1A2744, #1A3A2A)',
+  'linear-gradient(135deg, #1A2744, #3A2250)',
+]
+
+const S03_CAPS = ['c1', 'c2', 'c3', 'c4'] as const
+const S03_BARS = ['b1', 'b2', 'b3', 'b4'] as const
+const BAR_WIDTHS = ['60%', '80%', '45%', '70%']
+const BAR_COLORS = [
+  'rgba(201,145,43,0.4)',
+  'rgba(231,76,60,0.2)',
+  'rgba(201,145,43,0.6)',
+  'rgba(201,145,43,0.8)',
+]
+
+const S04_CAPS = ['c1', 'c2', 'c3', 'c4', 'c5'] as const
+const CYCLE_KEYS = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] as const
+const CYCLE_ANGLES = [270, 330, 30, 90, 150, 210] // clock: 12h, 2h, 4h, 6h, 8h, 10h
+
+/* ── Subcomponents ── */
+
+function GoldCircle({ num }: { num: string }) {
+  return (
+    <span
+      className="inline-flex items-center justify-center w-8 h-8 rounded-full border-2 font-sans text-[13px] font-bold"
+      style={{ borderColor: '#C9912B', color: '#C9912B' }}
+    >
+      {num}
+    </span>
+  )
 }
+
+function MiniCard({ title, desc }: { title: string; desc: string }) {
+  return (
+    <div
+      className="bg-white/[0.02] rounded-lg"
+      style={{ padding: '12px 16px', borderLeft: '2px solid rgba(201,145,43,0.3)' }}
+    >
+      <p className="font-sans text-[13px] font-bold text-white/80 leading-tight">{title}</p>
+      <p className="font-sans text-[12px] text-white/50 leading-snug mt-1">{desc}</p>
+    </div>
+  )
+}
+
+/* ── Main Component ── */
 
 export function HubPage() {
   const t = useTranslations('hub')
+
   const sectionRef = useRef<HTMLElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const cardsRef = useRef<HTMLDivElement>(null)
-  const infraRef = useRef<HTMLDivElement>(null)
-  const svgRef = useRef<SVGSVGElement>(null)
+  const heroRef = useRef<HTMLDivElement>(null)
+  const pyramidRef = useRef<HTMLDivElement>(null)
+  const pyramidSvgRef = useRef<SVGSVGElement>(null)
+  const s01Ref = useRef<HTMLDivElement>(null)
+  const s01FunnelRef = useRef<HTMLDivElement>(null)
+  const s02Ref = useRef<HTMLDivElement>(null)
+  const s03Ref = useRef<HTMLDivElement>(null)
+  const s03BarsRef = useRef<HTMLDivElement>(null)
+  const s04Ref = useRef<HTMLDivElement>(null)
+  const s04CycleRef = useRef<HTMLDivElement>(null)
+  const footerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -69,60 +87,107 @@ export function HubPage() {
     const cancelIdle = onIdle(() => {
       if (!sectionRef.current) return
       ctx = gsap.context(() => {
-        // Header
-        if (headerRef.current) {
-          gsap.from(headerRef.current, {
-            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: headerRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+        /* ── Hero ── */
+        if (heroRef.current) {
+          gsap.from(heroRef.current.querySelectorAll('.hero-anim'), {
+            y: 40, opacity: 0, duration: 0.8, stagger: 0.15, ease: 'power2.out',
+            scrollTrigger: { trigger: heroRef.current, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
 
-        // Cards stagger
-        if (cardsRef.current) {
-          const cards = cardsRef.current.querySelectorAll('.hub-card')
-          gsap.from(cards, {
-            y: 50, opacity: 0, duration: 0.7, stagger: 0.15, ease: 'power2.out',
-            scrollTrigger: { trigger: cardsRef.current, start: 'top 80%', toggleActions: 'play none none none' },
-          })
-        }
+        /* ── Pyramid ── */
+        if (pyramidRef.current) {
+          const regia = pyramidRef.current.querySelector('.pyramid-regia')
+          const boxes = pyramidRef.current.querySelectorAll('.pyramid-box')
 
-        // Infographic label
-        if (infraRef.current) {
-          gsap.from(infraRef.current, {
-            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: infraRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-
-        // SVG lines draw-in
-        if (svgRef.current) {
-          const lines = svgRef.current.querySelectorAll('.regia-line')
-          lines.forEach((line) => {
-            const el = line as SVGLineElement | SVGPathElement
-            const length = el.getTotalLength?.() || 200
-            gsap.set(el, { strokeDasharray: length, strokeDashoffset: length })
-            gsap.to(el, {
-              strokeDashoffset: 0, duration: 1.2, ease: 'power2.inOut',
-              scrollTrigger: { trigger: svgRef.current, start: 'top 80%', toggleActions: 'play none none none' },
-            })
-          })
-
-          // Icons fade in
-          const icons = svgRef.current.querySelectorAll('.regia-icon')
-          gsap.from(icons, {
-            scale: 0, opacity: 0, duration: 0.5, stagger: 0.12, ease: 'back.out(1.7)',
-            scrollTrigger: { trigger: svgRef.current, start: 'top 80%', toggleActions: 'play none none none' },
-          })
-
-          // Center pulse
-          const center = svgRef.current.querySelector('.regia-center')
-          if (center) {
-            gsap.from(center, {
-              scale: 0, opacity: 0, duration: 0.6, ease: 'back.out(2)',
-              scrollTrigger: { trigger: svgRef.current, start: 'top 80%', toggleActions: 'play none none none' },
-              delay: 0.8,
+          if (regia) {
+            gsap.from(regia, {
+              y: 30, opacity: 0, duration: 0.7, ease: 'power2.out',
+              scrollTrigger: { trigger: pyramidRef.current, start: 'top 80%', toggleActions: 'play none none none' },
             })
           }
+
+          // SVG lines draw
+          if (pyramidSvgRef.current) {
+            const lines = pyramidSvgRef.current.querySelectorAll('.pyr-line')
+            lines.forEach((line) => {
+              const el = line as SVGLineElement
+              const length = el.getTotalLength?.() || 200
+              gsap.set(el, { strokeDasharray: length, strokeDashoffset: length })
+              gsap.to(el, {
+                strokeDashoffset: 0, duration: 0.8, ease: 'power2.inOut',
+                scrollTrigger: { trigger: pyramidRef.current, start: 'top 80%', toggleActions: 'play none none none' },
+                delay: 0.4,
+              })
+            })
+          }
+
+          gsap.from(boxes, {
+            y: 40, opacity: 0, duration: 0.6, stagger: 0.2, ease: 'power2.out',
+            scrollTrigger: { trigger: pyramidRef.current, start: 'top 80%', toggleActions: 'play none none none' },
+            delay: 0.8,
+          })
+        }
+
+        /* ── Service 01 ── */
+        if (s01Ref.current) {
+          gsap.from(s01Ref.current.querySelectorAll('.s01-anim'), {
+            y: 40, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out',
+            scrollTrigger: { trigger: s01Ref.current, start: 'top 80%', toggleActions: 'play none none none' },
+          })
+        }
+        if (s01FunnelRef.current) {
+          gsap.from(s01FunnelRef.current.querySelectorAll('.funnel-step'), {
+            y: -30, opacity: 0, duration: 0.5, stagger: 0.2, ease: 'power2.out',
+            scrollTrigger: { trigger: s01FunnelRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+          })
+        }
+
+        /* ── Service 02 ── */
+        if (s02Ref.current) {
+          gsap.from(s02Ref.current.querySelectorAll('.s02-anim'), {
+            y: 40, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out',
+            scrollTrigger: { trigger: s02Ref.current, start: 'top 80%', toggleActions: 'play none none none' },
+          })
+        }
+
+        /* ── Service 03 ── */
+        if (s03Ref.current) {
+          gsap.from(s03Ref.current.querySelectorAll('.s03-anim'), {
+            y: 40, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out',
+            scrollTrigger: { trigger: s03Ref.current, start: 'top 80%', toggleActions: 'play none none none' },
+          })
+        }
+        if (s03BarsRef.current) {
+          const bars = s03BarsRef.current.querySelectorAll('.bar-fill')
+          bars.forEach((bar) => {
+            gsap.from(bar, {
+              width: 0, duration: 1, ease: 'power2.out',
+              scrollTrigger: { trigger: s03BarsRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+            })
+          })
+        }
+
+        /* ── Service 04 ── */
+        if (s04Ref.current) {
+          gsap.from(s04Ref.current.querySelectorAll('.s04-anim'), {
+            y: 40, opacity: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out',
+            scrollTrigger: { trigger: s04Ref.current, start: 'top 80%', toggleActions: 'play none none none' },
+          })
+        }
+        if (s04CycleRef.current) {
+          gsap.from(s04CycleRef.current.querySelectorAll('.cycle-seg'), {
+            scale: 0, opacity: 0, duration: 0.5, stagger: 0.15, ease: 'back.out(1.7)',
+            scrollTrigger: { trigger: s04CycleRef.current, start: 'top 85%', toggleActions: 'play none none none' },
+          })
+        }
+
+        /* ── Footer CTA ── */
+        if (footerRef.current) {
+          gsap.from(footerRef.current, {
+            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
+            scrollTrigger: { trigger: footerRef.current, start: 'top 90%', toggleActions: 'play none none none' },
+          })
         }
       }, section)
     })
@@ -134,157 +199,539 @@ export function HubPage() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative bg-navy-deep min-h-screen">
+    <section ref={sectionRef} className="relative min-h-screen" style={{ backgroundColor: '#0D1520' }}>
 
-      {/* ── Hero image band ── */}
-      <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
-        <Image
-          src="/images/img6.png"
-          alt=""
-          fill
-          className="object-cover"
-          quality={80}
-          priority
+      {/* ════════════════════════════════════════════════════════
+          SECTION 1 — HERO
+          ════════════════════════════════════════════════════════ */}
+      <div
+        className="relative flex items-end justify-center overflow-hidden"
+        style={{
+          height: '60vh',
+          background: 'linear-gradient(to bottom, #1A2744, rgba(201,145,43,0.08))',
+        }}
+      >
+        {/* Overlays */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(26,39,68,0.5)' }} />
+        <div
+          className="absolute bottom-0 left-0 right-0"
+          style={{
+            height: '200px',
+            background: 'linear-gradient(to bottom, transparent, #0D1520)',
+          }}
         />
-        <div className="absolute inset-0 bg-navy-deep/60" />
-        <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-gradient-to-b from-transparent to-[#0D1520]" />
-      </div>
 
-      {/* ── Header ── */}
-      <div className="px-4 md:px-6 -mt-20 md:-mt-28 relative z-10">
-        <div ref={headerRef} className="max-w-[1280px] mx-auto text-center mb-16 md:mb-24">
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-4">
+        <div ref={heroRef} className="relative z-10 text-center px-4 pb-12 md:pb-16 max-w-[800px] mx-auto">
+          <span
+            className="hero-anim block font-sans uppercase font-semibold tracking-widest mb-4"
+            style={{ fontSize: '12px', color: '#C9912B' }}
+          >
             {t('label')}
           </span>
-          <h1 className="font-serif text-[32px] md:text-[48px] lg:text-[56px] font-semibold leading-[1.1] text-white mb-6">
+          <h1
+            className="hero-anim font-serif font-semibold text-white leading-tight mb-5"
+            style={{ fontSize: 'clamp(32px, 5vw, 48px)' }}
+          >
             {t('headline')}
           </h1>
-          <p className="font-sans text-[16px] md:text-[18px] font-light leading-[1.7] text-white/70 max-w-[750px] mx-auto mb-8">
+          <p
+            className="hero-anim font-sans font-light mx-auto"
+            style={{ fontSize: '17px', color: 'rgba(255,255,255,0.55)', maxWidth: '650px', lineHeight: '1.7' }}
+          >
             {t('subtitle')}
           </p>
-          <div className="h-[1.5px] w-16 bg-gold mx-auto" />
         </div>
       </div>
 
-      {/* ── 4 Cards 2×2 ── */}
-      <div className="px-4 md:px-6 pb-20 md:pb-28">
-        <div ref={cardsRef} className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-          {CARDS.map((card) => {
-            const isGold = card.variant === 'gold'
-            return (
-              <div
-                key={card.key}
-                className={`hub-card relative border-l-[3px] border-l-gold rounded-xl p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.3)] ${
-                  isGold
-                    ? 'bg-gold/[0.08] border border-gold/[0.15] border-l-gold'
-                    : 'bg-white/[0.05] border border-white/[0.12] border-l-gold'
-                }`}
-              >
-                <div className={`mb-6 ${isGold ? 'text-gold' : 'text-gold'}`}>
-                  <CardIcon type={card.icon} />
-                </div>
-                <h3 className="font-serif text-[22px] md:text-[26px] font-semibold text-white leading-[1.2] mb-5">
-                  {t(`cards.${card.key}.title`)}
-                </h3>
+      {/* ════════════════════════════════════════════════════════
+          SECTION 2 — PYRAMID
+          ════════════════════════════════════════════════════════ */}
+      <div className="px-4 md:px-6 py-20 md:py-28" style={{ backgroundColor: '#0D1520' }}>
+        <div ref={pyramidRef} className="max-w-[960px] mx-auto">
+          <h2
+            className="font-serif font-semibold text-white text-center mb-12"
+            style={{ fontSize: '32px' }}
+          >
+            {t('pyramid.title')}
+          </h2>
 
-                <div className="mb-4">
-                  <span className="block font-sans text-[10px] font-semibold tracking-[0.2em] uppercase text-gold/70 mb-2">
-                    {t('cosaLabel')}
-                  </span>
-                  <p className="font-sans text-[14px] md:text-[15px] font-light leading-[1.7] text-white/70">
-                    {t(`cards.${card.key}.cosa`)}
-                  </p>
-                </div>
-
-                <div>
-                  <span className="block font-sans text-[10px] font-semibold tracking-[0.2em] uppercase text-gold/70 mb-2">
-                    {t('valoreLabel')}
-                  </span>
-                  <p className="font-sans text-[14px] md:text-[15px] font-light leading-[1.7] text-white/70">
-                    {t(`cards.${card.key}.valore`)}
-                  </p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-
-      {/* ── Infographic: 4 icons → REGIA ── */}
-      <div className="px-4 md:px-6 pb-24 md:pb-[140px]">
-        <div className="max-w-[1100px] mx-auto">
-          <div ref={infraRef} className="text-center mb-12">
-            <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-4">
-              {t('regiaLabel')}
-            </span>
+          {/* REGIA box */}
+          <div className="flex justify-center mb-8">
+            <div
+              className="pyramid-regia text-center"
+              style={{
+                border: '2px solid #C9912B',
+                backgroundColor: 'rgba(201,145,43,0.08)',
+                borderRadius: '12px',
+                padding: '20px 40px',
+              }}
+            >
+              <span className="font-serif font-bold" style={{ fontSize: '22px', color: '#C9912B' }}>
+                {t('pyramid.regia')}
+              </span>
+            </div>
           </div>
 
-          {/* SVG Diagram */}
-          <div className="relative">
-            {/* Background image subtle */}
-            <div className="absolute inset-0 opacity-[0.03] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/room.jpg"
-                alt=""
-                fill
-                className="object-cover"
-                quality={60}
-                loading="lazy"
-              />
-            </div>
-
+          {/* SVG connecting lines */}
+          <div className="flex justify-center mb-4">
             <svg
-              ref={svgRef}
-              viewBox="0 0 600 380"
-              className="w-full max-w-[650px] mx-auto h-auto"
+              ref={pyramidSvgRef}
+              viewBox="0 0 800 60"
+              className="w-full max-w-[800px]"
+              style={{ height: '60px' }}
               fill="none"
             >
-              {/* REGIA at top — dominant element */}
-              <g className="regia-center" transform="translate(300, 65)">
-                <circle cx="0" cy="0" r="55" fill="#C9912B" opacity="0.15" />
-                <circle cx="0" cy="0" r="55" fill="none" stroke="#C9912B" strokeWidth="2" />
-                <circle cx="0" cy="0" r="48" fill="none" stroke="#C9912B" strokeWidth="1" opacity="0.4" />
-                <text x="0" y="5" textAnchor="middle" fill="#C9912B" fontSize="16" fontFamily="DM Sans, sans-serif" fontWeight="700" letterSpacing="0.15em">
-                  {t('regia')}
-                </text>
-              </g>
-
-              {/* Lines converging UPWARD to REGIA — inverted pyramid */}
-              <line className="regia-line" x1="75" y1="310" x2="265" y2="110" stroke="#C9912B" strokeWidth="1.2" opacity="0.35" />
-              <line className="regia-line" x1="225" y1="310" x2="285" y2="110" stroke="#C9912B" strokeWidth="1.2" opacity="0.35" />
-              <line className="regia-line" x1="375" y1="310" x2="315" y2="110" stroke="#C9912B" strokeWidth="1.2" opacity="0.35" />
-              <line className="regia-line" x1="525" y1="310" x2="335" y2="110" stroke="#C9912B" strokeWidth="1.2" opacity="0.35" />
-
-              {/* 4 service nodes at the bottom — spread horizontally */}
-              {/* M&A */}
-              <g className="regia-icon" transform="translate(75, 310)">
-                <circle cx="0" cy="0" r="36" fill="#C9912B" opacity="0.1" stroke="#C9912B" strokeWidth="1" />
-                <text x="0" y="-4" textAnchor="middle" fill="#C9912B" fontSize="10" fontFamily="Playfair Display, serif" fontWeight="600">M&amp;A</text>
-                <text x="0" y="10" textAnchor="middle" fill="white" fontSize="7" fontFamily="DM Sans, sans-serif" opacity="0.5">&amp; Investments</text>
-              </g>
-
-              {/* Real Estate */}
-              <g className="regia-icon" transform="translate(225, 310)">
-                <circle cx="0" cy="0" r="36" fill="#C9912B" opacity="0.1" stroke="#C9912B" strokeWidth="1" />
-                <text x="0" y="-4" textAnchor="middle" fill="#C9912B" fontSize="9" fontFamily="Playfair Display, serif" fontWeight="600">Real Estate</text>
-                <text x="0" y="10" textAnchor="middle" fill="white" fontSize="7" fontFamily="DM Sans, sans-serif" opacity="0.5">Advisory</text>
-              </g>
-
-              {/* Strategy */}
-              <g className="regia-icon" transform="translate(375, 310)">
-                <circle cx="0" cy="0" r="36" fill="#C9912B" opacity="0.1" stroke="#C9912B" strokeWidth="1" />
-                <text x="0" y="-4" textAnchor="middle" fill="#C9912B" fontSize="9" fontFamily="Playfair Display, serif" fontWeight="600">Strategy</text>
-                <text x="0" y="10" textAnchor="middle" fill="white" fontSize="7" fontFamily="DM Sans, sans-serif" opacity="0.5">Consulting</text>
-              </g>
-
-              {/* Wealth Management */}
-              <g className="regia-icon" transform="translate(525, 310)">
-                <circle cx="0" cy="0" r="36" fill="#C9912B" opacity="0.1" stroke="#C9912B" strokeWidth="1" />
-                <text x="0" y="-4" textAnchor="middle" fill="#C9912B" fontSize="9" fontFamily="Playfair Display, serif" fontWeight="600">Wealth</text>
-                <text x="0" y="10" textAnchor="middle" fill="white" fontSize="7" fontFamily="DM Sans, sans-serif" opacity="0.5">Management</text>
-              </g>
+              {/* Lines from center top to 4 bottom positions */}
+              <line className="pyr-line" x1="400" y1="0" x2="100" y2="60" stroke="#C9912B" strokeWidth="1.2" opacity="0.2" />
+              <line className="pyr-line" x1="400" y1="0" x2="300" y2="60" stroke="#C9912B" strokeWidth="1.2" opacity="0.2" />
+              <line className="pyr-line" x1="400" y1="0" x2="500" y2="60" stroke="#C9912B" strokeWidth="1.2" opacity="0.2" />
+              <line className="pyr-line" x1="400" y1="0" x2="700" y2="60" stroke="#C9912B" strokeWidth="1.2" opacity="0.2" />
             </svg>
           </div>
+
+          {/* 4 Boxes */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {PYRAMID_BOXES.map((key) => (
+              <div
+                key={key}
+                className="pyramid-box text-center"
+                style={{
+                  backgroundColor: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(201,145,43,0.15)',
+                  borderRadius: '12px',
+                  padding: '24px',
+                }}
+              >
+                <span
+                  className="inline-flex items-center justify-center rounded-full font-sans font-bold mb-3"
+                  style={{
+                    width: '32px',
+                    height: '32px',
+                    fontSize: '13px',
+                    color: '#C9912B',
+                    border: '1.5px solid #C9912B',
+                  }}
+                >
+                  {t(`pyramid.${key}.num`)}
+                </span>
+                <h3 className="font-serif font-semibold text-white mb-1" style={{ fontSize: '20px' }}>
+                  {t(`pyramid.${key}.title`)}
+                </h3>
+                <p className="font-sans" style={{ fontSize: '12px', color: '#C9912B' }}>
+                  {t(`pyramid.${key}.sub`)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════════════
+          SECTION 3 — 4 SERVICES IN DETAIL
+          ════════════════════════════════════════════════════════ */}
+
+      {/* ── SERVICE 01 — M&A (text left, funnel right) ── */}
+      <div
+        ref={s01Ref}
+        className="px-4 md:px-6 py-16 md:py-24"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+      >
+        <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16">
+          {/* Text 55% */}
+          <div className="lg:w-[55%]">
+            <div className="s01-anim mb-4">
+              <GoldCircle num="01" />
+            </div>
+            <h3 className="s01-anim font-serif font-semibold text-white mb-2" style={{ fontSize: '36px' }}>
+              {t('s01.title')}
+            </h3>
+            <p className="s01-anim font-sans mb-4" style={{ fontSize: '16px', color: '#C9912B' }}>
+              {t('s01.subtitle')}
+            </p>
+            <p
+              className="s01-anim font-sans font-light mb-8"
+              style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.7' }}
+            >
+              {t('s01.desc')}
+            </p>
+
+            {/* 6 mini-cards 2x3 */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {S01_CAPS.map((c) => (
+                <div key={c} className="s01-anim">
+                  <MiniCard title={t(`s01.caps.${c}.title`)} desc={t(`s01.caps.${c}.desc`)} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Visual 45% — Funnel */}
+          <div className="lg:w-[45%] flex flex-col items-center justify-center" ref={s01FunnelRef}>
+            <div className="w-full max-w-[380px] space-y-3">
+              {S01_FUNNEL.map((s, i) => (
+                <div
+                  key={s}
+                  className="funnel-step flex items-center justify-center rounded-lg font-sans font-bold text-white"
+                  style={{
+                    width: FUNNEL_WIDTHS[i],
+                    height: '48px',
+                    fontSize: '13px',
+                    background: 'linear-gradient(135deg, #C9912B, #9A6F1E)',
+                    borderRadius: '8px',
+                    margin: '0 auto',
+                    letterSpacing: '0.06em',
+                  }}
+                >
+                  {t(`s01.funnel.${s}`)}
+                </div>
+              ))}
+            </div>
+            <p className="font-sans mt-4 text-center" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)' }}>
+              {t('s01.funnelNote')}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ── SERVICE 02 — Real Estate (INVERTED: visual left, text right) ── */}
+      <div
+        ref={s02Ref}
+        className="px-4 md:px-6 py-16 md:py-24"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+      >
+        <div className="max-w-[1280px] mx-auto flex flex-col-reverse lg:flex-row gap-10 lg:gap-16">
+          {/* Visual 45% — Deal Cards */}
+          <div className="lg:w-[45%] flex flex-col gap-4 justify-center">
+            {S02_DEALS.map((d, i) => (
+              <div
+                key={d}
+                className="s02-anim rounded-xl"
+                style={{
+                  background: DEAL_GRADIENTS[i],
+                  padding: '24px',
+                }}
+              >
+                <span
+                  className="inline-block font-sans font-bold uppercase tracking-wider mb-2"
+                  style={{ fontSize: '10px', color: '#C9912B' }}
+                >
+                  {t(`s02.deals.${d}.tag`)}
+                </span>
+                <p
+                  className="font-sans font-light mb-2"
+                  style={{ fontSize: '14px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6' }}
+                >
+                  {t(`s02.deals.${d}.desc`)}
+                </p>
+                <p className="font-serif font-semibold text-white" style={{ fontSize: '18px' }}>
+                  {t(`s02.deals.${d}.ev`)}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Text 55% */}
+          <div className="lg:w-[55%]">
+            <div className="s02-anim mb-4">
+              <GoldCircle num="02" />
+            </div>
+            <h3 className="s02-anim font-serif font-semibold text-white mb-2" style={{ fontSize: '36px' }}>
+              {t('s02.title')}
+            </h3>
+            <p className="s02-anim font-sans mb-4" style={{ fontSize: '16px', color: '#C9912B' }}>
+              {t('s02.subtitle')}
+            </p>
+            <p
+              className="s02-anim font-sans font-light mb-8"
+              style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.7' }}
+            >
+              {t('s02.desc')}
+            </p>
+
+            {/* 5 mini-cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {S02_CAPS.map((c) => (
+                <div key={c} className="s02-anim">
+                  <MiniCard title={t(`s02.caps.${c}.title`)} desc={t(`s02.caps.${c}.desc`)} />
+                </div>
+              ))}
+            </div>
+
+            {/* Disclaimer */}
+            <p
+              className="s02-anim font-sans italic"
+              style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)' }}
+            >
+              {t('s02.disclaimer')}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ── SERVICE 03 — Strategy (text left, bars right) ── */}
+      <div
+        ref={s03Ref}
+        className="px-4 md:px-6 py-16 md:py-24"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+      >
+        <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16">
+          {/* Text 55% */}
+          <div className="lg:w-[55%]">
+            <div className="s03-anim mb-4">
+              <GoldCircle num="03" />
+            </div>
+            <h3 className="s03-anim font-serif font-semibold text-white mb-2" style={{ fontSize: '36px' }}>
+              {t('s03.title')}
+            </h3>
+            <p className="s03-anim font-sans mb-4" style={{ fontSize: '16px', color: '#C9912B' }}>
+              {t('s03.subtitle')}
+            </p>
+            <p
+              className="s03-anim font-sans font-light mb-8"
+              style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.7' }}
+            >
+              {t('s03.desc')}
+            </p>
+
+            {/* 4 mini-cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {S03_CAPS.map((c) => (
+                <div key={c} className="s03-anim">
+                  <MiniCard title={t(`s03.caps.${c}.title`)} desc={t(`s03.caps.${c}.desc`)} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Visual 45% — Horizontal Bars */}
+          <div className="lg:w-[45%] flex flex-col justify-center" ref={s03BarsRef}>
+            <div className="space-y-4 w-full">
+              {S03_BARS.map((b, i) => (
+                <div key={b}>
+                  <p className="font-sans font-bold text-white/60 mb-1" style={{ fontSize: '12px', letterSpacing: '0.08em' }}>
+                    {t(`s03.bars.${b}`)}
+                  </p>
+                  <div
+                    className="rounded-md overflow-hidden"
+                    style={{ height: '28px', backgroundColor: 'rgba(255,255,255,0.04)' }}
+                  >
+                    <div
+                      className="bar-fill h-full rounded-md"
+                      style={{
+                        width: BAR_WIDTHS[i],
+                        backgroundColor: BAR_COLORS[i],
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="font-sans mt-5" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)' }}>
+              {t('s03.barsNote')}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ── SERVICE 04 — Wealth Management (INVERTED: cycle left, text right) ── */}
+      <div
+        ref={s04Ref}
+        className="px-4 md:px-6 py-16 md:py-24"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+      >
+        <div className="max-w-[1280px] mx-auto flex flex-col-reverse lg:flex-row gap-10 lg:gap-16">
+          {/* Visual 45% — Circular Diagram */}
+          <div className="lg:w-[45%] flex items-center justify-center" ref={s04CycleRef}>
+            <div className="relative" style={{ width: '300px', height: '300px' }}>
+              {/* Center label */}
+              <div
+                className="cycle-seg absolute font-sans font-bold text-center"
+                style={{
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  fontSize: '14px',
+                  color: '#C9912B',
+                }}
+              >
+                {t('s04.cycle.center')}
+              </div>
+
+              {/* 6 Segments */}
+              {CYCLE_KEYS.map((key, i) => {
+                const angle = CYCLE_ANGLES[i]
+                const rad = (angle * Math.PI) / 180
+                const radius = 120
+                const x = 150 + radius * Math.cos(rad)
+                const y = 150 + radius * Math.sin(rad)
+
+                return (
+                  <div
+                    key={key}
+                    className="cycle-seg absolute flex items-center justify-center text-center"
+                    style={{
+                      left: `${x}px`,
+                      top: `${y}px`,
+                      transform: 'translate(-50%, -50%)',
+                      width: '72px',
+                      height: '72px',
+                      borderRadius: '50%',
+                      backgroundColor: 'rgba(201,145,43,0.08)',
+                      border: '1px solid rgba(201,145,43,0.25)',
+                    }}
+                  >
+                    <span className="font-sans font-bold" style={{ fontSize: '9px', color: '#C9912B', letterSpacing: '0.04em', lineHeight: '1.2' }}>
+                      {t(`s04.cycle.${key}`)}
+                    </span>
+                  </div>
+                )
+              })}
+
+              {/* Arrows between segments (clockwise arcs via SVG) */}
+              <svg
+                className="absolute inset-0"
+                width="300"
+                height="300"
+                viewBox="0 0 300 300"
+                fill="none"
+              >
+                {CYCLE_KEYS.map((_, i) => {
+                  const a1 = CYCLE_ANGLES[i]
+                  const a2 = CYCLE_ANGLES[(i + 1) % 6]
+                  const midAngle = a1 + ((a2 - a1 + 360) % 360) / 2
+                  const rad1 = ((a1 + (a2 > a1 ? 15 : 20)) * Math.PI) / 180
+                  const rad2 = ((a2 - (a2 > a1 ? 15 : 20)) * Math.PI) / 180
+                  const r = 120
+                  const x1 = 150 + r * Math.cos(rad1)
+                  const y1 = 150 + r * Math.sin(rad1)
+                  const x2 = 150 + r * Math.cos(rad2)
+                  const y2 = 150 + r * Math.sin(rad2)
+
+                  // Arrow head direction
+                  const arrowRad = rad2
+                  const arrowLen = 6
+                  const ax = x2 - arrowLen * Math.cos(arrowRad - 0.5)
+                  const ay = y2 - arrowLen * Math.sin(arrowRad - 0.5)
+                  const bx = x2 - arrowLen * Math.cos(arrowRad + 0.5)
+                  const by = y2 - arrowLen * Math.sin(arrowRad + 0.5)
+
+                  return (
+                    <g key={`arrow-${i}`}>
+                      <path
+                        d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
+                        stroke="#C9912B"
+                        strokeWidth="1"
+                        opacity="0.3"
+                        fill="none"
+                      />
+                      <polygon
+                        points={`${x2},${y2} ${ax},${ay} ${bx},${by}`}
+                        fill="#C9912B"
+                        opacity="0.3"
+                      />
+                    </g>
+                  )
+                })}
+              </svg>
+            </div>
+          </div>
+
+          {/* Text 55% */}
+          <div className="lg:w-[55%]">
+            <div className="s04-anim mb-4">
+              <GoldCircle num="04" />
+            </div>
+            <h3 className="s04-anim font-serif font-semibold text-white mb-2" style={{ fontSize: '36px' }}>
+              {t('s04.title')}
+            </h3>
+            <p className="s04-anim font-sans mb-4" style={{ fontSize: '16px', color: '#C9912B' }}>
+              {t('s04.subtitle')}
+            </p>
+            <p
+              className="s04-anim font-sans font-light mb-8"
+              style={{ fontSize: '16px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.7' }}
+            >
+              {t('s04.desc')}
+            </p>
+
+            {/* 5 mini-cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+              {S04_CAPS.map((c) => (
+                <div key={c} className="s04-anim">
+                  <MiniCard title={t(`s04.caps.${c}.title`)} desc={t(`s04.caps.${c}.desc`)} />
+                </div>
+              ))}
+            </div>
+
+            {/* Highlight box */}
+            <div
+              className="s04-anim"
+              style={{
+                backgroundColor: 'rgba(201,145,43,0.08)',
+                padding: '16px',
+                borderRadius: '8px',
+              }}
+            >
+              <p className="font-sans font-light" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6' }}>
+                {t('s04.highlight').split(t('s04.highlightAccent')).map((part, i, arr) =>
+                  i < arr.length - 1 ? (
+                    <span key={i}>
+                      {part}
+                      <span style={{ color: '#C9912B', fontWeight: 700 }}>{t('s04.highlightAccent')}</span>
+                    </span>
+                  ) : (
+                    <span key={i}>{part}</span>
+                  )
+                )}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════════════
+          SECTION 4 — FOOTER CTA
+          ════════════════════════════════════════════════════════ */}
+      <div
+        ref={footerRef}
+        className="px-4 md:px-6 py-16 md:py-24 text-center"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+      >
+        <p
+          className="font-sans italic mb-10 max-w-[700px] mx-auto"
+          style={{ fontSize: '12px', color: 'rgba(255,255,255,0.25)' }}
+        >
+          {t('footer.disclaimer')}
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="/contatti"
+            className="inline-flex items-center justify-center font-sans font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90"
+            style={{
+              fontSize: '13px',
+              backgroundColor: '#C9912B',
+              padding: '14px 32px',
+              borderRadius: '8px',
+              letterSpacing: '0.08em',
+            }}
+          >
+            {t('footer.cta1')}
+          </Link>
+          <Link
+            href="/ecosistema"
+            className="inline-flex items-center justify-center font-sans font-bold uppercase tracking-wider transition-opacity hover:opacity-90"
+            style={{
+              fontSize: '13px',
+              color: '#C9912B',
+              border: '2px solid #C9912B',
+              padding: '14px 32px',
+              borderRadius: '8px',
+              letterSpacing: '0.08em',
+            }}
+          >
+            {t('footer.cta2')}
+          </Link>
         </div>
       </div>
     </section>
