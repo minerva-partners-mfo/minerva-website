@@ -14,16 +14,6 @@ const FLOW = [
   "Obiettivo: trasformare le scelte in valore, e il valore in patrimonio.",
 ]
 
-const VERITAS_LETTERS = [
-  { letter: 'V', word: 'Valore' },
-  { letter: 'E', word: 'Etica' },
-  { letter: 'R', word: 'Riservatezza' },
-  { letter: 'I', word: 'Indipendenza' },
-  { letter: 'T', word: 'Trasparenza' },
-  { letter: 'A', word: 'Allineamento' },
-  { letter: 'S', word: 'Selezione' },
-]
-
 function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
@@ -45,85 +35,132 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 
 function Arrow() {
   return (
-    <FadeUp className="flex justify-center" delay={100}>
-      <svg width="2" height="80" viewBox="0 0 2 80" className="my-10 md:my-14">
-        <line x1="1" y1="0" x2="1" y2="80" stroke="#C9912B" strokeWidth="1.2" strokeOpacity="0.7" />
+    <div className="flex justify-center my-8 md:my-10">
+      <svg width="2" height="56" viewBox="0 0 2 56">
+        <line x1="1" y1="0" x2="1" y2="56" stroke="#C9912B" strokeWidth="1.2" strokeOpacity="0.7" />
       </svg>
-    </FadeUp>
+    </div>
   )
+}
+
+/* Visual blocks aligned to flow steps (8 entries, one per step) */
+function Visual({ step }: { step: number }) {
+  // 0,1 → number 5-7 ; 2,3 → impact phrase ; 4 → image ; 5,6 → 3 words ; 7 → final phrase
+  if (step === 0) {
+    return (
+      <FadeUp>
+        <div className="text-center md:text-left">
+          <span className="font-serif font-bold leading-none block" style={{ fontSize: 'clamp(5rem, 10vw, 9rem)', color: '#C9912B' }}>5–7</span>
+          <p className="font-sans text-[14px] md:text-[15px] mt-4 max-w-[360px]" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            professionisti brillanti che oggi non si parlano. Minerva li mette allo stesso tavolo.
+          </p>
+        </div>
+      </FadeUp>
+    )
+  }
+  if (step === 2) {
+    return (
+      <FadeUp>
+        <p className="font-serif font-bold leading-[1.2]" style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', color: '#C9912B' }}>
+          Non il miglior compromesso.<br />Il miglior risultato possibile.
+        </p>
+      </FadeUp>
+    )
+  }
+  if (step === 4) {
+    return (
+      <FadeUp>
+        <div className="relative rounded-xl overflow-hidden" style={{ aspectRatio: '4/3' }}>
+          <img src="/images/img9.webp" alt="Professionisti al tavolo" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(13,21,32,0.35)' }} />
+        </div>
+      </FadeUp>
+    )
+  }
+  if (step === 5) {
+    return (
+      <FadeUp>
+        <div className="space-y-3">
+          {[
+            { w: 'ANALISI', o: 0.3 },
+            { w: 'EXECUTION', o: 0.6 },
+            { w: 'COORDINAMENTO', o: 1.0 },
+          ].map((x) => (
+            <p key={x.w} className="font-serif font-bold leading-none" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#C9912B', opacity: x.o }}>
+              {x.w}
+            </p>
+          ))}
+        </div>
+      </FadeUp>
+    )
+  }
+  if (step === 7) {
+    return (
+      <FadeUp>
+        <p className="font-serif text-white leading-[1.3]" style={{ fontSize: 'clamp(1.6rem, 2.6vw, 2rem)' }}>
+          Ogni elemento esiste già. L&apos;integrazione no.
+        </p>
+      </FadeUp>
+    )
+  }
+  return null
 }
 
 export function ComeFunzionaPage() {
   return (
-    <div className="bg-[#0D1520]">
-
-      {/* HERO con sfondo tavolo */}
-      <section className="relative pt-24 md:pt-28 pb-16 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/tavolo.png')" }} />
-        <div className="absolute inset-0 bg-[#0D1520]/75" />
-        <div className="absolute inset-x-0 bottom-0 h-[140px] bg-gradient-to-t from-[#0D1520] to-transparent" />
-        <div className="relative z-10 px-6 max-w-[1100px] mx-auto text-center">
-          <p className="font-sans text-[12px] uppercase tracking-[0.25em] mb-4" style={{ color: 'rgba(201,145,43,0.8)' }}>IL MODELLO MINERVA</p>
-          <h1 className="font-serif text-[40px] md:text-[60px] text-white leading-[1.1]">Come Funziona Minerva</h1>
-        </div>
-      </section>
-
-      {/* FLUSSO VERTICALE */}
-      <section className="px-6 py-20 md:py-28">
-        <div className="max-w-[820px] mx-auto text-center">
-          {FLOW.map((line, i) => (
-            <div key={i}>
-              <FadeUp>
-                <p className="font-serif text-white leading-[1.4]" style={{ fontSize: 'clamp(1.5rem, 2.6vw, 2rem)' }}>
-                  {line}
-                </p>
-              </FadeUp>
-              {i < FLOW.length - 1 && <Arrow />}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SEPARATORE img66 */}
-      <section className="relative" style={{ height: '50vh', minHeight: 340 }}>
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/img66.png')" }} />
-        <div className="absolute inset-0 bg-[#0D1520]/55" />
-        <div className="absolute inset-x-0 top-0 h-[120px] bg-gradient-to-b from-[#0D1520] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-[120px] bg-gradient-to-t from-[#0D1520] to-transparent" />
-      </section>
-
-      {/* VERITAS minimal */}
-      <section className="px-6 py-24 md:py-32">
-        <div className="max-w-[820px] mx-auto">
+    <div className="bg-[#0D1520] min-h-screen">
+      <section className="px-6 pt-24 md:pt-28 pb-20 md:pb-28">
+        <div className="max-w-[1200px] mx-auto">
           <FadeUp>
-            <h2 className="font-serif text-[32px] md:text-[42px] text-white text-center mb-4">Il Codice VERITAS</h2>
-            <p className="font-sans text-[15px] md:text-[16px] text-center mx-auto mb-16" style={{ color: 'rgba(255,255,255,0.55)', maxWidth: 600 }}>
-              Sette principi. Sette lettere. Un codice che governa ogni relazione.
-            </p>
+            <p className="font-sans text-[12px] uppercase tracking-[0.25em] mb-4 text-center md:text-left" style={{ color: 'rgba(201,145,43,0.8)' }}>IL MODELLO MINERVA</p>
+            <h1 className="font-serif text-[36px] md:text-[52px] text-white leading-[1.1] text-center md:text-left mb-16 md:mb-20">Come Funziona Minerva</h1>
           </FadeUp>
-          <div className="space-y-6 md:space-y-8">
-            {VERITAS_LETTERS.map((v, i) => (
-              <FadeUp key={v.letter} delay={i * 80}>
-                <div className="flex items-baseline gap-6 md:gap-10 justify-start md:justify-center">
-                  <span className="font-serif font-bold leading-none flex-shrink-0" style={{ fontSize: 'clamp(3.5rem, 6vw, 5rem)', color: '#C9912B', minWidth: '4rem' }}>{v.letter}</span>
-                  <span className="font-serif" style={{ fontSize: 'clamp(1.4rem, 2.2vw, 1.8rem)', color: 'rgba(255,255,255,0.9)' }}>{v.word}</span>
-                </div>
-              </FadeUp>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="bg-[#0D1520] text-center" style={{ padding: '60px 24px 100px' }}>
-        <p className="font-sans text-[17px] mb-10" style={{ color: 'rgba(255,255,255,0.5)' }}>Il primo passo è una conversazione.</p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/contatti" className="font-sans text-[14px] font-bold text-white rounded-lg transition-colors hover:opacity-90" style={{ backgroundColor: '#C9912B', padding: '16px 40px' }}>
-            PARLIAMONE
-          </Link>
-          <Link href="/problema" className="font-sans text-[14px] rounded-lg transition-all duration-300 hover:bg-white/5" style={{ color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.2)', padding: '16px 40px' }}>
-            TORNA AL PROBLEMA
-          </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            {/* LEFT — flow */}
+            <div>
+              {FLOW.map((line, i) => (
+                <div key={i}>
+                  <FadeUp>
+                    <p className="font-serif text-white leading-[1.45]" style={{ fontSize: 'clamp(1.15rem, 1.7vw, 1.35rem)' }}>
+                      {line}
+                    </p>
+                  </FadeUp>
+                  {i < FLOW.length - 1 && <Arrow />}
+                </div>
+              ))}
+            </div>
+
+            {/* RIGHT — visuals */}
+            <div className="hidden md:block relative">
+              {FLOW.map((_, i) => (
+                <div key={i} className="flex items-center" style={{ minHeight: 'calc(1.4em * 1.45 + 56px + 80px)' }}>
+                  <Visual step={i} />
+                </div>
+              ))}
+            </div>
+
+            {/* RIGHT mobile — stacked at bottom */}
+            <div className="md:hidden space-y-16">
+              {[0, 2, 4, 5, 7].map((s) => (
+                <div key={s}>
+                  <Visual step={s} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-24 md:mt-32 text-center">
+            <p className="font-sans text-[17px] mb-10" style={{ color: 'rgba(255,255,255,0.5)' }}>Il primo passo è una conversazione.</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/contatti" className="font-sans text-[14px] font-bold text-white rounded-lg transition-colors hover:opacity-90" style={{ backgroundColor: '#C9912B', padding: '16px 40px' }}>
+                PARLIAMONE
+              </Link>
+              <Link href="/problema" className="font-sans text-[14px] rounded-lg transition-all duration-300 hover:bg-white/5" style={{ color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.2)', padding: '16px 40px' }}>
+                TORNA AL PROBLEMA
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
