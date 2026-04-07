@@ -101,6 +101,8 @@ export function CodicePage() {
       <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
         <Image src="/images/img1.png" alt="" fill className="object-cover" quality={80} priority />
         <div className="absolute inset-0 bg-navy-deep/60" />
+        {/* Fade-out into body */}
+        <div className="absolute inset-x-0 bottom-0 h-[260px] bg-gradient-to-t from-navy-deep via-navy-deep/80 to-transparent pointer-events-none" />
       </div>
 
       {/* Header */}
@@ -193,42 +195,50 @@ export function CodicePage() {
             {t('sanzioniIntro')}
           </p>
 
-          <div ref={sanzioniRef} className="relative pl-10 md:pl-14">
-            {/* Vertical gradient line */}
-            <div className="absolute left-[15px] md:left-[23px] top-0 bottom-0 w-px bg-gradient-to-b from-gold/20 via-gold/40 to-red-500/60" />
+          <div ref={sanzioniRef} className="relative">
+            {/* Centered horizontal row of numbered circles */}
+            <div className="relative max-w-[760px] mx-auto mb-12">
+              {/* Horizontal gradient line through circles */}
+              <div className="absolute top-1/2 left-[6%] right-[6%] h-px -translate-y-1/2 bg-gradient-to-r from-gold/30 via-gold/50 to-red-500/60" />
+              <div className="relative grid grid-cols-4 justify-items-center">
+                {SANZIONE_KEYS.map((_, i) => {
+                  const severity = i / (SANZIONE_KEYS.length - 1)
+                  const dotColor = severity < 0.5
+                    ? 'bg-navy-deep border-gold/50 text-gold'
+                    : severity < 0.75
+                      ? 'bg-navy-deep border-gold text-gold'
+                      : 'bg-navy-deep border-red-500/70 text-red-400'
+                  return (
+                    <div key={i} className={`sanzione-step w-12 h-12 md:w-14 md:h-14 rounded-full border-2 flex items-center justify-center ${dotColor}`}>
+                      <span className="font-serif text-[18px] md:text-[20px] font-bold">{i + 1}</span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
 
-            {SANZIONE_KEYS.map((key, i) => {
-              const severity = i / (SANZIONE_KEYS.length - 1) // 0 to 1
-              const dotColor = severity < 0.5
-                ? 'bg-gold/20 border-gold/40'
-                : severity < 0.75
-                  ? 'bg-gold/30 border-gold/50'
-                  : 'bg-red-500/20 border-red-500/50'
-
-              return (
-                <div key={key} className="sanzione-step relative mb-8 last:mb-0">
-                  {/* Dot */}
-                  <div className={`absolute -left-10 md:-left-14 top-1 w-6 h-6 rounded-full border-2 flex items-center justify-center ${dotColor}`}>
-                    <span className="font-sans text-[10px] font-bold text-white/70">{i + 1}</span>
-                  </div>
-
-                  <div className={`p-5 rounded-lg border transition-all duration-300 ${
+            {/* Cards row */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-5 max-w-[1100px] mx-auto">
+              {SANZIONE_KEYS.map((key, i) => (
+                <div
+                  key={key}
+                  className={`sanzione-step p-5 rounded-lg border transition-all duration-300 ${
                     i === SANZIONE_KEYS.length - 1
                       ? 'bg-red-500/[0.04] border-red-500/[0.15]'
                       : 'bg-white/[0.03] border-white/[0.06]'
+                  }`}
+                >
+                  <h4 className={`font-serif text-[16px] md:text-[18px] font-semibold leading-[1.2] mb-2 text-center ${
+                    i === SANZIONE_KEYS.length - 1 ? 'text-red-400/80' : 'text-white/90'
                   }`}>
-                    <h4 className={`font-serif text-[17px] md:text-[19px] font-semibold leading-[1.2] mb-2 ${
-                      i === SANZIONE_KEYS.length - 1 ? 'text-red-400/80' : 'text-white/90'
-                    }`}>
-                      {t(`sanzioni.${key}.title`)}
-                    </h4>
-                    <p className="font-sans text-[13px] md:text-[14px] font-light leading-[1.7] text-white/60">
-                      {t(`sanzioni.${key}.desc`)}
-                    </p>
-                  </div>
+                    {t(`sanzioni.${key}.title`)}
+                  </h4>
+                  <p className="font-sans text-[13px] font-light leading-[1.7] text-white/60 text-center">
+                    {t(`sanzioni.${key}.desc`)}
+                  </p>
                 </div>
-              )
-            })}
+              ))}
+            </div>
           </div>
         </div>
       </div>
