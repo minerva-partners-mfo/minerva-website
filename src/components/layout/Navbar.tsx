@@ -57,6 +57,7 @@ export function Navbar() {
   const locale = useLocale()
   const pathname = usePathname()
   const otherLocale = locale === 'it' ? 'en' : 'it'
+  const isHome = pathname === '/'
   const [scrolled, setScrolled] = useState(false)
   const [openGroup, setOpenGroup] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -97,6 +98,8 @@ export function Navbar() {
     setMobileOpen(false)
     setMobileExpanded(null)
   }, [])
+
+  if (isHome) return null
 
   return (
     <>

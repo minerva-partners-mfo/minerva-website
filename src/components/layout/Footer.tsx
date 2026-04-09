@@ -2,9 +2,13 @@
 
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import { usePathname } from '@/i18n/navigation'
 
 export function Footer() {
   const t = useTranslations('footer')
+  const pathname = usePathname()
+
+  if (pathname === '/') return null
 
   return (
     <footer className="py-12 md:py-16 px-4 md:px-6" style={{ backgroundColor: '#0D1520' }}>
