@@ -11,7 +11,7 @@ export function Footer() {
   if (pathname === '/') return null
 
   return (
-    <footer className="py-12 md:py-16 px-4 md:px-6" style={{ backgroundColor: '#1A2744' }}>
+    <footer className="py-12 md:py-16 px-4 md:px-6" style={{ backgroundColor: '#131E33' }}>
       <div className="max-w-[1100px] mx-auto">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10">
           <Image

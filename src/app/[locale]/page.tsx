@@ -252,7 +252,7 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════ FOOTER ════════════════ */}
-      <footer className="ft-outer" style={{ background: '#1A2744', padding: '30px 80px 18px', width: '100%' }}>
+      <footer className="ft-outer" style={{ background: '#131E33', padding: '30px 80px 18px', width: '100%' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div className="ft-inner" style={{ display: 'flex', justifyContent: 'space-between' }}>
             {/* Left */}
