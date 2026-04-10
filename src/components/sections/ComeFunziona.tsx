@@ -3,15 +3,15 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from '@/i18n/navigation'
 
-const FLOW: { text: string; href: string }[] = [
-  { text: "Tutto parte da un'esigenza concreta.", href: '/problema' },
-  { text: "Minerva la analizza nel contesto complessivo del cliente.", href: '/soluzioni' },
-  { text: "Definisce uno schema di gioco e individua le competenze necessarie.", href: '/soluzioni' },
-  { text: "Attiva le persone giuste — selezionate e vincolate dal Codice Minerva.", href: '/codice' },
-  { text: "Il cliente è parte attiva del processo.", href: '/ecosistema' },
-  { text: "Minerva agisce ed esegue, anche direttamente quando necessario.", href: '/hub' },
-  { text: "Coordina le decisioni nel tempo, in modo coerente e trasparente.", href: '/veritas' },
-  { text: "Obiettivo: trasformare le scelte in valore, e il valore in patrimonio.", href: '/next-gen' },
+const FLOW: { text: string; href: string; bg: string }[] = [
+  { text: "Tutto parte da un'esigenza concreta.", href: '/problema', bg: '/images/time.jpg' },
+  { text: "Minerva la analizza nel contesto complessivo del cliente.", href: '/soluzioni', bg: '/images/img9.webp' },
+  { text: "Definisce uno schema di gioco e individua le competenze necessarie.", href: '/soluzioni', bg: '/images/strategy.webp' },
+  { text: "Attiva le persone giuste — selezionate e vincolate dal Codice Minerva.", href: '/codice', bg: '/images/room.jpg' },
+  { text: "Il cliente è parte attiva del processo.", href: '/ecosistema', bg: '/images/img11.jpg' },
+  { text: "Minerva agisce ed esegue, anche direttamente quando necessario.", href: '/hub', bg: '/images/img3.png' },
+  { text: "Coordina le decisioni nel tempo, in modo coerente e trasparente.", href: '/veritas', bg: '/images/img8.png' },
+  { text: "Obiettivo: trasformare le scelte in valore, e il valore in patrimonio.", href: '/next-gen', bg: '/images/img5.webp' },
 ]
 
 function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -35,9 +35,9 @@ function FadeUp({ children, delay = 0, className = '' }: { children: React.React
 
 function Arrow() {
   return (
-    <div className="flex justify-center my-8 md:my-10">
-      <svg width="2" height="56" viewBox="0 0 2 56">
-        <line x1="1" y1="0" x2="1" y2="56" stroke="#C9912B" strokeWidth="1.2" strokeOpacity="0.7" />
+    <div className="flex justify-center my-4 md:my-6">
+      <svg width="2" height="40" viewBox="0 0 2 40">
+        <line x1="1" y1="0" x2="1" y2="40" stroke="#C9912B" strokeWidth="1.2" strokeOpacity="0.7" />
       </svg>
     </div>
   )
@@ -58,29 +58,51 @@ export function ComeFunzionaPage() {
 
           {FLOW.map((step, i) => (
             <div key={i}>
-              {/* Eredità image just before final step */}
-              {i === FLOW.length - 1 && (
-                <FadeUp className="my-12 md:my-16">
-                  <div className="relative rounded-xl overflow-hidden mx-auto" style={{ aspectRatio: '16/9', maxWidth: 720 }}>
-                    <img src="/images/img5.webp" alt="Eredità" className="absolute inset-0 w-full h-full object-cover" />
-                    <div className="absolute inset-0" style={{ backgroundColor: 'rgba(13,21,32,0.35)' }} />
-                  </div>
-                </FadeUp>
-              )}
               <FadeUp>
-                <Link
-                  href={step.href}
-                  className="block text-center group"
-                >
-                  <p
-                    className="font-serif text-white leading-[1.45] transition-colors group-hover:text-[#C9912B]"
-                    style={{ fontSize: 'clamp(1.3rem, 2vw, 1.7rem)' }}
+                <Link href={step.href} className="block group">
+                  <div
+                    style={{
+                      position: 'relative',
+                      minHeight: 250,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      overflow: 'hidden',
+                      borderRadius: 12,
+                    }}
                   >
-                    {step.text}
-                  </p>
-                  <span className="font-sans text-[11px] uppercase tracking-[0.18em] mt-3 inline-block opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#C9912B' }}>
-                    Scopri →
-                  </span>
+                    {/* Background image */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        backgroundImage: `url('${step.bg}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        opacity: 0.12,
+                      }}
+                    />
+                    {/* Gradient overlay to blend edges into navy */}
+                    <div
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'linear-gradient(to bottom, #0D1520 0%, transparent 20%, transparent 80%, #0D1520 100%)',
+                      }}
+                    />
+                    {/* Text */}
+                    <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: '40px 24px' }}>
+                      <p
+                        className="font-serif text-white leading-[1.45] transition-colors group-hover:text-[#C9912B]"
+                        style={{ fontSize: 'clamp(1.3rem, 2vw, 1.7rem)' }}
+                      >
+                        {step.text}
+                      </p>
+                      <span className="font-sans text-[11px] uppercase tracking-[0.18em] mt-3 inline-block opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#C9912B' }}>
+                        Scopri →
+                      </span>
+                    </div>
+                  </div>
                 </Link>
               </FadeUp>
               {i < FLOW.length - 1 && <Arrow />}
