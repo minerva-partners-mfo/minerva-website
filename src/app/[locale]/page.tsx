@@ -27,14 +27,14 @@ const FACE_CENTERS: [number, number, number, number, number, number][] = [
 ]
 
 export default function HomePage() {
-  const canvasRef = useRef<HTMLDivElement>(null)
+  const mountRef = useRef<HTMLDivElement>(null)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    const container = canvasRef.current
+    const container = mountRef.current
     if (!container) return
 
     const w = container.clientWidth
@@ -50,8 +50,12 @@ export default function HomePage() {
     camera.position.set(0, 0, 6)
 
     scene.add(new THREE.AmbientLight(0xffffff, 0.5))
-    const d1 = new THREE.DirectionalLight(0xffffff, 0.8); d1.position.set(5, 5, 5); scene.add(d1)
-    const d2 = new THREE.DirectionalLight(0xffffff, 0.3); d2.position.set(-3, -3, 3); scene.add(d2)
+    const dir1 = new THREE.DirectionalLight(0xffffff, 0.8)
+    dir1.position.set(5, 5, 5)
+    scene.add(dir1)
+    const dir2 = new THREE.DirectionalLight(0xffffff, 0.3)
+    dir2.position.set(-3, -3, 3)
+    scene.add(dir2)
 
     const group = new THREE.Group()
     scene.add(group)
@@ -64,38 +68,42 @@ export default function HomePage() {
     for (let x = -1; x <= 1; x++)
       for (let y = -1; y <= 1; y++)
         for (let z = -1; z <= 1; z++) {
-          const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); group.add(m)
-          const l = new THREE.LineSegments(edgeGeo, edgeMat); l.position.set(x, y, z); group.add(l)
+          const mesh = new THREE.Mesh(geo, mat)
+          mesh.position.set(x, y, z)
+          group.add(mesh)
+          const lines = new THREE.LineSegments(edgeGeo, edgeMat)
+          lines.position.set(x, y, z)
+          group.add(lines)
         }
 
     const loader = new THREE.TextureLoader()
     loader.load('/images/logoPNG.png', (texture) => {
-      const pg = new THREE.PlaneGeometry(0.45, 0.45)
+      const planeGeo = new THREE.PlaneGeometry(0.45, 0.45)
       FACE_CENTERS.forEach(([px, py, pz, rx, ry, rz]) => {
-        const pm = new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: 0.25, color: 0xc5a35a })
-        const plane = new THREE.Mesh(pg, pm)
+        const planeMat = new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: 0.25, color: 0xc5a35a })
+        const plane = new THREE.Mesh(planeGeo, planeMat)
         plane.position.set(px + px * 0.431, py + py * 0.431, pz + pz * 0.431)
         plane.rotation.set(rx, ry, rz)
         group.add(plane)
       })
     })
 
-    let baseRotY = 0, animId = 0, mouseX = 0, mouseY = 0, curMX = 0, curMY = 0
+    let baseRotY = 0, animId = 0, mouseX = 0, mouseY = 0, currentMX = 0, currentMY = 0
 
-    const onMouse = (e: MouseEvent) => {
+    const onMouseMove = (e: MouseEvent) => {
       mouseX = (e.clientX / window.innerWidth - 0.5) * 2
       mouseY = (e.clientY / window.innerHeight - 0.5) * 2
     }
-    window.addEventListener('mousemove', onMouse)
+    window.addEventListener('mousemove', onMouseMove)
 
     const animate = () => {
       animId = requestAnimationFrame(animate)
       const t = Date.now()
       baseRotY += 0.003
-      curMX += (mouseX - curMX) * 0.03
-      curMY += (mouseY - curMY) * 0.03
-      group.rotation.y = baseRotY + curMX * 0.4
-      group.rotation.x = Math.sin(t * 0.0003) * 0.15 - curMY * 0.3
+      currentMX += (mouseX - currentMX) * 0.03
+      currentMY += (mouseY - currentMY) * 0.03
+      group.rotation.y = baseRotY + currentMX * 0.4
+      group.rotation.x = Math.sin(t * 0.0003) * 0.15 - currentMY * 0.3
       group.position.y = Math.sin(t * 0.0008) * 0.12
       renderer.render(scene, camera)
     }
@@ -103,7 +111,7 @@ export default function HomePage() {
 
     return () => {
       cancelAnimationFrame(animId)
-      window.removeEventListener('mousemove', onMouse)
+      window.removeEventListener('mousemove', onMouseMove)
       renderer.dispose(); geo.dispose(); mat.dispose(); edgeMat.dispose(); edgeGeo.dispose()
       if (container.contains(renderer.domElement)) container.removeChild(renderer.domElement)
     }
@@ -121,101 +129,171 @@ export default function HomePage() {
   }, [email, password, loading])
 
   return (
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: '#0D1520', overflow: 'hidden' }}>
+    <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
-        .lp-in {
-          width:240px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08);
-          border-radius:5px; padding:10px 12px; color:#fff; font-family:'Lora',serif; font-size:0.7rem;
-          outline:none; transition:border-color .3s; box-sizing:border-box;
+
+        .lp-input {
+          width: 280px;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.08);
+          border-radius: 6px;
+          padding: 13px 16px;
+          color: #fff;
+          font-family: 'Lora', serif;
+          font-size: 0.85rem;
+          outline: none;
+          transition: border-color .3s;
+          box-sizing: border-box;
         }
-        .lp-in::placeholder{color:rgba(255,255,255,0.18)}
-        .lp-in:focus{border-color:rgba(197,163,90,0.4)}
-        .lp-bt {
-          width:240px; background:rgba(197,163,90,0.08); border:1px solid rgba(197,163,90,0.2);
-          border-radius:5px; padding:10px; color:#c5a35a; font-family:'Lora',serif; font-size:0.55rem;
-          text-transform:uppercase; letter-spacing:0.2em; cursor:pointer; transition:all .3s; box-sizing:border-box;
+        .lp-input::placeholder { color: rgba(255,255,255,0.2); }
+        .lp-input:focus { border-color: rgba(197,163,90,0.4); }
+
+        .lp-btn {
+          width: 280px;
+          background: rgba(197,163,90,0.08);
+          border: 1px solid rgba(197,163,90,0.2);
+          border-radius: 6px;
+          padding: 13px;
+          color: #c5a35a;
+          font-family: 'Lora', serif;
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          cursor: pointer;
+          transition: all .3s;
+          box-sizing: border-box;
         }
-        .lp-bt:hover:not(:disabled){background:rgba(197,163,90,0.15);border-color:rgba(197,163,90,0.4)}
-        .lp-bt:disabled{cursor:wait;opacity:.4}
-        .ft-lk{font-family:'Lora',serif;font-size:0.45rem;color:rgba(197,163,90,0.25);text-decoration:none;transition:color .3s}
-        .ft-lk:hover{color:#c5a35a}
-        @media(max-width:768px){
-          .hero-main{flex-direction:column!important}
-          .hero-cube{width:250px!important;height:250px!important}
-          .hero-right{padding:20px!important}
-          .ft-cols{display:none!important}
-          .ft-bottom{flex-direction:column!important;gap:6px!important;align-items:flex-start!important}
+        .lp-btn:hover:not(:disabled) {
+          background: rgba(197,163,90,0.15);
+          border-color: rgba(197,163,90,0.4);
+        }
+        .lp-btn:disabled { cursor: wait; opacity: .45; }
+
+        .ft-legal {
+          font-family: 'Lora', serif;
+          font-size: 0.7rem;
+          color: rgba(197,163,90,0.3);
+          text-decoration: none;
+          transition: color .3s;
+        }
+        .ft-legal:hover { color: #c5a35a; }
+
+        @media (max-width: 900px) {
+          .hero-row { flex-direction: column !important; }
+          .hero-col-left { min-height: auto !important; }
+          .hero-col-right { min-height: auto !important; padding: 30px 20px !important; }
+          .cube-mount { width: 280px !important; height: 280px !important; }
+          .ft-outer   { padding: 40px 24px 24px !important; }
+          .ft-inner   { flex-direction: column !important; gap: 32px !important; }
+          .ft-cols    { flex-wrap: wrap !important; gap: 24px 32px !important; }
+          .ft-col     { min-width: 120px; }
         }
       `}</style>
 
-      {/* ══ MAIN: two columns ══ */}
-      <div className="hero-main" style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+      {/* ════════════════ HERO — two columns ════════════════ */}
+      <section style={{ background: '#0D1520', position: 'relative', zIndex: 9999 }}>
+        <div
+          className="hero-row"
+          style={{
+            display: 'flex',
+            maxWidth: 1100,
+            margin: '0 auto',
+            minHeight: '70vh',
+          }}
+        >
+          {/* Left — Cube centered */}
+          <div
+            className="hero-col-left"
+            style={{
+              flex: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minHeight: '70vh',
+            }}
+          >
+            <div ref={mountRef} className="cube-mount" style={{ width: 400, height: 400 }} />
+          </div>
 
-        {/* Left — Cube */}
-        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div ref={canvasRef} className="hero-cube" style={{ width: 350, height: 350 }} />
+          {/* Right — Logo + form centered */}
+          <div
+            className="hero-col-right"
+            style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minHeight: '70vh',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/logoPNG.png" alt="Minerva Partners" width={260} style={{ opacity: 0.95, height: 'auto', marginBottom: 30 }} />
+
+            <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
+              <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" autoComplete="email" className="lp-input" />
+              <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" autoComplete="current-password" className="lp-input" />
+              <button type="submit" disabled={loading} className="lp-btn">
+                {loading ? '...' : 'Accedi'}
+              </button>
+              {error && (
+                <p style={{ color: '#ef4444', fontSize: '0.7rem', fontFamily: "'Lora', serif", marginTop: 4 }}>{error}</p>
+              )}
+            </form>
+          </div>
         </div>
+      </section>
 
-        {/* Right — Logo + text + form */}
-        <div className="hero-right" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/logoPNG.png" alt="Minerva" width={45} height={45} style={{ opacity: 0.9 }} />
-          <p style={{ fontFamily: "'Lora',serif", color: '#fff', fontSize: '1.1rem', fontWeight: 400, letterSpacing: '0.25em', textTransform: 'uppercase', margin: '10px 0 0', textAlign: 'center' }}>
-            Minerva Partners
-          </p>
-          <p style={{ fontFamily: "'Lora',serif", fontStyle: 'italic', color: '#c5a35a', fontSize: '0.65rem', margin: '4px 0 0', textAlign: 'center' }}>
-            L&apos;eccellenza senza compromessi
-          </p>
-          <p style={{ fontFamily: "'Lora',serif", color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', margin: '20px 0 0', textAlign: 'center' }}>
-            Il meglio per te, solo quando serve.
-          </p>
-          <p style={{ fontFamily: "'Lora',serif", color: 'rgba(255,255,255,0.35)', fontSize: '0.75rem', margin: '3px 0 0', textAlign: 'center' }}>
-            Sia a livello di risorse che di possibilità.
-          </p>
+      {/* ════════════════ FOOTER ════════════════ */}
+      <footer className="ft-outer" style={{ background: '#080c14', padding: '30px 80px 18px', width: '100%' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div className="ft-inner" style={{ display: 'flex', justifyContent: 'space-between' }}>
+            {/* Left */}
+            <div style={{ width: 220, flexShrink: 0 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logoPNG.png" alt="Minerva Partners" width={44} height={44} style={{ opacity: 0.5 }} />
+              <p style={{ fontFamily: "'Lora', serif", fontSize: '0.85rem', color: 'rgba(255,255,255,0.3)', marginTop: 12 }}>
+                Minerva Partners S.r.l.
+              </p>
+              <p style={{ fontFamily: "'Lora', serif", fontSize: '0.7rem', color: 'rgba(255,255,255,0.15)', marginTop: 4 }}>
+                &copy; 2026 Minerva Partners
+              </p>
+            </div>
 
-          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 25, gap: 8 }}>
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" autoComplete="email" className="lp-in" />
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" autoComplete="current-password" className="lp-in" />
-            <button type="submit" disabled={loading} className="lp-bt">{loading ? '...' : 'Accedi'}</button>
-            {error && <p style={{ color: '#ef4444', fontSize: '0.55rem', fontFamily: "'Lora',serif", marginTop: 2 }}>{error}</p>}
-          </form>
-        </div>
-      </div>
-
-      {/* ══ FOOTER ══ */}
-      <footer style={{ background: '#080c14', padding: '20px 50px 12px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexShrink: 0 }}>
-        {/* Left */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/logoPNG.png" alt="M" width={20} height={20} style={{ opacity: 0.4 }} />
-          <span style={{ fontFamily: "'Lora',serif", fontSize: '0.55rem', color: 'rgba(255,255,255,0.2)' }}>Minerva Partners S.r.l.</span>
-          <span style={{ fontFamily: "'Lora',serif", fontSize: '0.5rem', color: 'rgba(255,255,255,0.1)' }}>&copy; 2026</span>
-        </div>
-        {/* Columns */}
-        <div className="ft-cols" style={{ display: 'flex', gap: 35 }}>
-          {COLS.map(col => (
-            <div key={col.title}>
-              <p style={{ fontFamily: "'Lora',serif", fontSize: '0.55rem', color: 'rgba(255,255,255,0.4)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6, marginTop: 0 }}>{col.title}</p>
-              {col.items.map(item => (
-                <div key={item} style={{ fontFamily: "'Lora',serif", fontSize: '0.5rem', color: 'rgba(255,255,255,0.15)', lineHeight: 1.8, cursor: 'default' }}>{item}</div>
+            {/* Columns */}
+            <div className="ft-cols" style={{ display: 'flex', gap: 50 }}>
+              {COLS.map(col => (
+                <div key={col.title} className="ft-col">
+                  <p style={{ fontFamily: "'Lora', serif", fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14, marginTop: 0 }}>
+                    {col.title}
+                  </p>
+                  {col.items.map(item => (
+                    <div key={item} style={{ fontFamily: "'Lora', serif", fontSize: '0.75rem', color: 'rgba(255,255,255,0.22)', lineHeight: 2.2, cursor: 'default' }}>
+                      {item}
+                    </div>
+                  ))}
+                </div>
               ))}
             </div>
-          ))}
+          </div>
+
+          <hr style={{ border: 0, borderTop: '1px solid rgba(255,255,255,0.04)', marginTop: 20 }} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginTop: 10 }}>
+            <p style={{ margin: 0 }}>
+              <a href="#" className="ft-legal">Privacy</a>
+              <span style={{ color: 'rgba(255,255,255,0.1)', margin: '0 8px', fontSize: '0.55rem' }}>&bull;</span>
+              <a href="#" className="ft-legal">Copyright</a>
+            </p>
+            <p style={{ fontFamily: "'Lora', serif", fontSize: '0.5rem', color: 'rgba(255,255,255,0.07)', lineHeight: 1.6, maxWidth: 550, textAlign: 'right', margin: 0 }}>
+              The content on this website is provided for informational purposes. Minerva Partners
+              operates with care, discipline and rigor, but does not guarantee that the information
+              is always complete, accurate or suitable for every specific situation. Any decision
+              based on such information remains the sole responsibility of the user.
+            </p>
+          </div>
         </div>
       </footer>
-
-      {/* ══ BOTTOM BAR ══ */}
-      <div className="ft-bottom" style={{ background: '#080c14', padding: '0 50px 10px', borderTop: '1px solid rgba(255,255,255,0.03)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexShrink: 0 }}>
-        <span style={{ paddingTop: 8 }}>
-          <a href="#" className="ft-lk">Privacy</a>
-          <span style={{ color: 'rgba(255,255,255,0.08)', margin: '0 6px', fontSize: '0.4rem' }}>&bull;</span>
-          <a href="#" className="ft-lk">Copyright</a>
-        </span>
-        <p style={{ fontFamily: "'Lora',serif", fontSize: '0.4rem', color: 'rgba(255,255,255,0.05)', maxWidth: 600, textAlign: 'right', margin: 0, paddingTop: 8 }}>
-          The content on this website is provided for informational purposes. Minerva Partners operates with care, discipline and rigor, but does not guarantee that the information is always complete, accurate or suitable for every specific situation.
-        </p>
-      </div>
-    </div>
+    </>
   )
 }
