@@ -18,7 +18,7 @@ export function PointZeroPage() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/logo.png"
+        src="/images/logo-gold.svg"
         alt="Minerva Partners"
         width={220}
         style={{ height: 'auto', mixBlendMode: 'multiply' }}
