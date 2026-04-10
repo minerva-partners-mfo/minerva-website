@@ -124,7 +124,7 @@ export default function HomePage() {
     try {
       const { error: err } = await supabase.auth.signInWithPassword({ email: email.trim(), password: password.trim() })
       if (err) { setError('Credenziali non valide.'); setLoading(false); return }
-      window.location.href = '/portal'
+      window.location.href = '/it/come-funziona'
     } catch { setError('Errore di connessione.'); setLoading(false) }
   }, [email, password, loading])
 
