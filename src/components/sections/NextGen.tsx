@@ -80,7 +80,9 @@ export function NextGenPage() {
       <div className="px-4 md:px-6 pb-8 md:pb-12">
         <div className="max-w-[1280px] mx-auto">
           <p className="font-sans text-[15px] md:text-base font-light leading-[1.8] text-white/65 mb-10">
-            {t('intro')}
+            {t('intro').split('Chi entra deve imparare').map((part, i) =>
+              i === 0 ? <span key={i}>{part}<br />Chi entra deve imparare</span> : <span key={i}>{part}</span>
+            )}
           </p>
 
           <div ref={dualRef} className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
@@ -116,7 +118,7 @@ export function NextGenPage() {
             <p className="font-serif italic text-gold/80 leading-[1.5]" style={{ fontSize: '1.3rem' }}>
               {t('dialogoQuote')}
             </p>
-            <p className="font-sans text-white" style={{ fontSize: '0.9rem', fontWeight: 400, marginTop: 40, textAlign: 'center' }}>
+            <p className="font-sans text-white" style={{ fontSize: '1.15rem', fontWeight: 400, marginTop: 40, textAlign: 'center' }}>
               Contattaci per il programma
             </p>
           </div>
