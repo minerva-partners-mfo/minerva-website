@@ -1,7 +1,6 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { MinervaLogo } from '@/components/MinervaLogo'
 
 export function PointZeroPage() {
   const t = useTranslations('pointZeroSimple')
@@ -17,7 +16,13 @@ export function PointZeroPage() {
         justifyContent: 'center',
       }}
     >
-      <MinervaLogo width={220} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/logoPNG.png"
+        alt="Minerva Partners"
+        width={220}
+        style={{ height: 'auto', mixBlendMode: 'multiply' }}
+      />
       <p
         style={{
           fontFamily: "'Playfair Display', Georgia, serif",

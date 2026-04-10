@@ -48,15 +48,15 @@ export function ComeFunzionaPage() {
   const t = useTranslations('flow')
 
   return (
-    <div className="bg-[#0D1520] min-h-screen relative">
-      <p style={{ position: 'absolute', top: 80, left: 20, fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)', fontStyle: 'italic', fontFamily: "'Lora', Georgia, serif", zIndex: 10 }}>
-        {t('hint')}
-      </p>
+    <div className="bg-[#0D1520] min-h-screen">
       <section className="px-6 pt-24 md:pt-28 pb-20 md:pb-28">
         <div className="max-w-[820px] mx-auto">
           <FadeUp>
             <p className="font-sans text-[12px] uppercase tracking-[0.25em] mb-4 text-center" style={{ color: 'rgba(201,145,43,0.8)' }}>{t('label')}</p>
-            <h1 className="font-serif text-[36px] md:text-[52px] text-white leading-[1.1] text-center mb-16 md:mb-20">{t('title')}</h1>
+            <h1 className="font-serif text-[36px] md:text-[52px] text-white leading-[1.1] text-center mb-4">{t('title')}</h1>
+            <p className="text-center mb-16 md:mb-20" style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', fontStyle: 'italic', fontFamily: "'Lora', Georgia, serif" }}>
+              {t('hint')}
+            </p>
           </FadeUp>
 
           {FLOW_META.map((step, i) => (
