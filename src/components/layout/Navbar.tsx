@@ -121,6 +121,7 @@ export function Navbar() {
               width={140}
               height={38}
               className="h-9 w-auto object-contain"
+              style={{ mixBlendMode: 'screen' }}
               priority
             />
           </Link>
@@ -177,6 +178,13 @@ export function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
+            <Link
+              href="/"
+              className="hidden lg:block font-sans text-[10px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:border-[#c5a35a]"
+              style={{ color: '#c5a35a', border: '1px solid rgba(197,163,90,0.3)', padding: '6px 16px', background: 'transparent', borderRadius: 4 }}
+            >
+              Minerva Board
+            </Link>
             <Link
               href={pathname}
               locale={otherLocale}

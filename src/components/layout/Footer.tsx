@@ -22,7 +22,7 @@ export function Footer() {
               width={320}
               height={88}
               className="h-20 w-auto object-contain"
-              style={{ opacity: 1 }}
+              style={{ opacity: 1, mixBlendMode: 'screen' }}
               loading="lazy"
             />
           </div>

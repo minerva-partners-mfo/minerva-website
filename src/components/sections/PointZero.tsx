@@ -17,7 +17,7 @@ export function PointZeroPage() {
         src="/images/logo.png"
         alt="Minerva Partners"
         width={180}
-        style={{ opacity: 0.85, height: 'auto' }}
+        style={{ opacity: 0.85, height: 'auto', mixBlendMode: 'screen' }}
       />
       <p
         style={{
