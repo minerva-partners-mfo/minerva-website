@@ -17,11 +17,13 @@ export function PointZeroPage() {
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/images/logo-gold.svg" alt="" width={140} style={{ height: 'auto' }} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/logo-gold.svg"
+        src="/images/Progetto senza titolo (4).svg"
         alt="Minerva Partners"
-        width={220}
-        style={{ height: 'auto', mixBlendMode: 'multiply' }}
+        width={260}
+        style={{ height: 'auto', marginTop: 10, filter: 'sepia(1) saturate(3) hue-rotate(10deg) brightness(0.85)' }}
       />
       <p
         style={{

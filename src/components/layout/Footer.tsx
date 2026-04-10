@@ -15,13 +15,22 @@ export function Footer() {
       <div className="max-w-[1100px] mx-auto">
         {/* Top row */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10">
-          <div className="flex flex-col items-center md:items-start gap-3">
+          <div className="flex flex-col items-center md:items-start gap-2">
             <Image
               src="/images/logo-gold.svg"
+              alt=""
+              width={80}
+              height={80}
+              className="h-16 w-auto object-contain"
+              loading="lazy"
+            />
+            <Image
+              src="/images/Progetto senza titolo (4).svg"
               alt="Minerva Partners"
-              width={320}
-              height={88}
-              className="h-20 w-auto object-contain"
+              width={200}
+              height={44}
+              className="h-10 w-auto object-contain"
+              style={{ filter: 'sepia(1) saturate(3) hue-rotate(10deg) brightness(0.85)' }}
               loading="lazy"
             />
           </div>

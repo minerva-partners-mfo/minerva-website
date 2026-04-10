@@ -231,8 +231,12 @@ export default function HomePage() {
               minHeight: '70vh',
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo-gold.svg" alt="Minerva Partners" width={260} style={{ height: 'auto', marginBottom: 30 }} />
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 30 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo-gold.svg" alt="" width={120} style={{ height: 'auto' }} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/Progetto senza titolo (4).svg" alt="Minerva Partners" width={240} style={{ height: 'auto', marginTop: 8, filter: 'sepia(1) saturate(3) hue-rotate(10deg) brightness(0.85)' }} />
+            </div>
 
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
               <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" autoComplete="email" className="lp-input" />
@@ -258,7 +262,7 @@ export default function HomePage() {
             {/* Left */}
             <div style={{ width: 220, flexShrink: 0 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/logo-gold.svg" alt="M" width={44} height={44} style={{ opacity: 0.5 }} />
+              <img src="/images/logo-gold.svg" alt="M" width={30} height={30} style={{ opacity: 0.5 }} />
               <p style={{ fontFamily: "'Lora', serif", fontSize: '0.85rem', color: 'rgba(255,255,255,0.3)', marginTop: 12 }}>
                 Minerva Partners S.r.l.
               </p>

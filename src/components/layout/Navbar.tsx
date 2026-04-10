@@ -113,14 +113,23 @@ export function Navbar() {
       >
         <div className="max-w-[1200px] mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-[72px]">
 
-          {/* Logo */}
-          <Link href="/" className="relative flex items-center shrink-0" onClick={closeMobile}>
+          {/* Logo: temple icon + text */}
+          <Link href="/" className="relative flex items-center gap-2 shrink-0" onClick={closeMobile}>
             <Image
               src="/images/logo-gold.svg"
+              alt=""
+              width={36}
+              height={36}
+              className="h-8 w-auto object-contain"
+              priority
+            />
+            <Image
+              src="/images/Progetto senza titolo (4).svg"
               alt="Minerva Partners"
-              width={140}
-              height={38}
-              className="h-9 w-auto object-contain"
+              width={120}
+              height={28}
+              className="h-7 w-auto object-contain"
+              style={{ filter: 'sepia(1) saturate(3) hue-rotate(10deg) brightness(0.85)' }}
               priority
             />
           </Link>
