@@ -8,9 +8,9 @@ import { useTranslations } from 'next-intl'
 /* ── Constants ── */
 const STEP_KEYS = ['s1', 's2', 's3', 's4', 's5'] as const
 const CASE_GRADIENTS = [
-  'linear-gradient(135deg, #2C2C2E 0%, #5A5A5C 50%, #E5E5E7 100%)',
-  'linear-gradient(135deg, #1A2744 0%, #2E5090 60%, #C9912B 100%)',
-  'linear-gradient(135deg, #1A2744 0%, #B8860B 55%, #C9912B 100%)',
+  'linear-gradient(135deg, #E8ECF0 0%, #F5F7FA 100%)',
+  'linear-gradient(135deg, #F5ECD7 0%, #FBF8F0 100%)',
+  'linear-gradient(135deg, #E0E4EA 0%, #F0F2F5 100%)',
 ]
 
 const PHASES = [
@@ -224,29 +224,29 @@ export function SoluzioniPage() {
             {CASES.map((c, i) => (
               <div
                 key={i}
-                className="case-card rounded-xl"
-                style={{ background: CASE_GRADIENTS[i], padding: '40px 36px' }}
+                className="case-card"
+                style={{ background: CASE_GRADIENTS[i], padding: '40px 36px', borderRadius: 8, boxShadow: '0 2px 16px rgba(0,0,0,0.08)' }}
               >
-                <h3 className="font-serif font-semibold text-white mb-8" style={{ fontSize: '24px' }}>
+                <h3 className="font-serif font-semibold mb-8" style={{ fontSize: '24px', color: '#1A2744' }}>
                   {c.title}
                 </h3>
                 <div className="space-y-6">
                   {PHASES.map((p) => (
                     <div key={p.key}>
-                      <span className="font-sans font-bold uppercase tracking-[0.15em] block mb-2" style={{ fontSize: '11px', color: '#C9912B' }}>
+                      <span className="font-sans font-bold uppercase tracking-[0.15em] block mb-2" style={{ fontSize: '11px', color: '#c5a35a' }}>
                         {p.label}
                       </span>
-                      <p className="font-serif" style={{ fontSize: '17px', color: 'rgba(255,255,255,0.9)', lineHeight: '1.55' }}>
+                      <p className="font-serif" style={{ fontSize: '17px', color: '#2A3A54', lineHeight: '1.55' }}>
                         {c.phases[p.key]}
                       </p>
                     </div>
                   ))}
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 pt-8" style={{ borderTop: '1px solid rgba(201,145,43,0.18)' }}>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10 pt-8" style={{ borderTop: '1px solid rgba(197,163,90,0.25)' }}>
                   {c.stats.map((s, si) => (
                     <div key={si}>
-                      <span className="font-serif font-bold block leading-none" style={{ fontSize: 'clamp(28px, 3vw, 38px)', color: '#C9912B' }}>{s.num}</span>
-                      <p className="font-sans mt-2" style={{ fontSize: '12px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.45' }}>{s.label}</p>
+                      <span className="font-serif font-bold block leading-none" style={{ fontSize: 'clamp(28px, 3vw, 38px)', color: '#c5a35a' }}>{s.num}</span>
+                      <p className="font-sans mt-2" style={{ fontSize: '12px', color: '#2A3A54', lineHeight: '1.45' }}>{s.label}</p>
                     </div>
                   ))}
                 </div>

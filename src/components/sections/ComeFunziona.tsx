@@ -79,7 +79,7 @@ export function ComeFunzionaPage() {
                         backgroundImage: `url('${step.bg}')`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
-                        opacity: 0.12,
+                        opacity: 0.35,
                       }}
                     />
                     {/* Gradient overlay to blend edges into navy */}
@@ -87,14 +87,14 @@ export function ComeFunzionaPage() {
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        background: 'linear-gradient(to bottom, #0D1520 0%, transparent 20%, transparent 80%, #0D1520 100%)',
+                        background: 'linear-gradient(to bottom, #0D1520 0%, transparent 5%, transparent 95%, #0D1520 100%)',
                       }}
                     />
                     {/* Text */}
                     <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: '40px 24px' }}>
                       <p
                         className="font-serif text-white leading-[1.45] transition-colors group-hover:text-[#C9912B]"
-                        style={{ fontSize: 'clamp(1.3rem, 2vw, 1.7rem)' }}
+                        style={{ fontSize: 'clamp(1.3rem, 2vw, 1.7rem)', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
                       >
                         {step.text}
                       </p>
