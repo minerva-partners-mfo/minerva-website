@@ -17,12 +17,11 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10">
           <div className="flex flex-col items-center md:items-start gap-3">
             <Image
-              src="/images/logoPNG.png"
+              src="/images/logo-gold.svg"
               alt="Minerva Partners"
               width={320}
               height={88}
               className="h-20 w-auto object-contain"
-              style={{ mixBlendMode: 'multiply' }}
               loading="lazy"
             />
           </div>

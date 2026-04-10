@@ -116,12 +116,11 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="relative flex items-center shrink-0" onClick={closeMobile}>
             <Image
-              src="/images/logoPNG.png"
+              src="/images/logo-gold.svg"
               alt="Minerva Partners"
               width={140}
               height={38}
               className="h-9 w-auto object-contain"
-              style={{ mixBlendMode: 'multiply' }}
               priority
             />
           </Link>
