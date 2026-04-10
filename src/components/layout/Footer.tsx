@@ -15,7 +15,7 @@ export function Footer() {
       <div className="max-w-[1100px] mx-auto">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10">
           <Image
-            src="/images/Progetto senza titolo (1).png"
+            src="/images/logo-minerva.png"
             alt="Minerva Partners"
             width={280}
             height={78}

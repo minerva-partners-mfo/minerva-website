@@ -17,7 +17,7 @@ export function PointZeroPage() {
       }}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/Progetto senza titolo (1).png" alt="Minerva Partners" width={320} style={{ height: 'auto' }} />
+      <img src="/images/logo-minerva.png" alt="Minerva Partners" width={320} style={{ height: 'auto' }} />
       <p
         style={{
           fontFamily: "'Playfair Display', Georgia, serif",

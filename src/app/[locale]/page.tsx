@@ -232,7 +232,7 @@ export default function HomePage() {
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/Progetto senza titolo (1).png" alt="Minerva Partners" width={280} style={{ height: 'auto', marginBottom: 30 }} />
+            <img src="/images/logo-minerva.png" alt="Minerva Partners" width={280} style={{ height: 'auto', marginBottom: 30 }} />
 
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
               <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" autoComplete="email" className="lp-input" />
@@ -258,7 +258,7 @@ export default function HomePage() {
             {/* Left */}
             <div style={{ width: 220, flexShrink: 0 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/Progetto senza titolo (1).png" alt="M" width={30} style={{ height: 'auto', opacity: 0.8 }} />
+              <img src="/images/logo-minerva.png" alt="M" width={30} style={{ height: 'auto', opacity: 0.8 }} />
               <p style={{ fontFamily: "'Lora', serif", fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', marginTop: 12 }}>
                 Minerva Partners S.r.l.
               </p>

@@ -116,7 +116,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="relative flex items-center shrink-0" onClick={closeMobile}>
             <Image
-              src="/images/Progetto senza titolo (1).png"
+              src="/images/logo-minerva.png"
               alt="Minerva Partners"
               width={160}
               height={44}
