@@ -77,7 +77,7 @@ export default function HomePage() {
         }
 
     const loader = new THREE.TextureLoader()
-    loader.load('/images/logoPNG.png', (texture) => {
+    loader.load('/images/logo.png', (texture) => {
       const planeGeo = new THREE.PlaneGeometry(0.45, 0.45)
       FACE_CENTERS.forEach(([px, py, pz, rx, ry, rz]) => {
         const planeMat = new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: 0.25, color: 0xc5a35a })
@@ -229,7 +229,7 @@ export default function HomePage() {
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logoPNG.png" alt="Minerva Partners" width={260} style={{ opacity: 0.95, height: 'auto', marginBottom: 30 }} />
+            <img src="/images/logo.png" alt="Minerva Partners" width={260} style={{ opacity: 0.95, height: 'auto', marginBottom: 30 }} />
 
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
               <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" autoComplete="email" className="lp-input" />
@@ -255,7 +255,7 @@ export default function HomePage() {
             {/* Left */}
             <div style={{ width: 220, flexShrink: 0 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/logoPNG.png" alt="Minerva Partners" width={44} height={44} style={{ opacity: 0.5 }} />
+              <img src="/images/logo.png" alt="Minerva Partners" width={44} height={44} style={{ opacity: 0.5 }} />
               <p style={{ fontFamily: "'Lora', serif", fontSize: '0.85rem', color: 'rgba(255,255,255,0.3)', marginTop: 12 }}>
                 Minerva Partners S.r.l.
               </p>

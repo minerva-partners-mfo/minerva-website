@@ -54,7 +54,9 @@
       "Bash(timeout 8 bash -c 'until curl -s http://localhost:3000/it | head -c 200 | grep -q \"html\"; do sleep 1; done; echo \"OK\"')",
       "Bash(vercel whoami:*)",
       "Bash(grep -n \"href.*contatti\\\\|onClick.*contatti\" /c/minerva-website/src/components/sections/*.tsx)",
-      "Bash(grep -n \"PARLIAMONE\\\\|ENTRA\\\\|Parliamone\\\\|Entra\\\\|Scopri\" /c/minerva-website/src/components/sections/*.tsx)"
+      "Bash(grep -n \"PARLIAMONE\\\\|ENTRA\\\\|Parliamone\\\\|Entra\\\\|Scopri\" /c/minerva-website/src/components/sections/*.tsx)",
+      "WebFetch(domain:minerva-website-xi.vercel.app)",
+      "Bash(grep -E '\\\\.\\(png|jpg|jpeg|webp\\)$')"
     ]
   },
   "enableAllProjectMcpServers": true,
