@@ -644,10 +644,10 @@ export function ProblemaPage() {
     <div className="bg-[#0D1520]">
 
       {/* ═══════ S1: HERO ═══════ */}
-      <section className="relative pt-24 md:pt-28 min-h-[90vh] flex flex-col md:flex-row">
+      <section className="relative pt-24 md:pt-28 min-h-[90vh] flex items-center">
         <div className="absolute inset-0 bg-cover bg-center z-0" style={{ backgroundImage: "url('/images/image44.png')" }} />
         <div className="absolute inset-0 z-0" style={{ backgroundColor: 'rgba(13,21,32,0.75)' }} />
-        <div className="relative z-10 w-full md:w-[45%] flex items-center justify-center px-8 md:px-16 py-16 md:py-0">
+        <div className="relative z-10 w-full flex items-center justify-center px-8 md:px-16 py-16 md:py-0">
           <div style={{ maxWidth: 500 }}>
             <h1 className="font-serif text-[36px] md:text-[44px] text-white leading-[1.3]">Quando il sistema cambia,</h1>
             <p className="font-serif text-[36px] md:text-[44px] font-bold leading-[1.3] mt-1" style={{ color: '#C9912B' }}>anche tu devi evolvere.</p>
@@ -656,27 +656,12 @@ export function ProblemaPage() {
             </p>
           </div>
         </div>
-        <div className="relative z-10 w-full md:w-[55%] grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-8 self-center">
-          {[
-            { num: '$124 trilioni', desc: 'di ricchezza in trasferimento entro il 2048' },
-            { num: '70%', desc: 'delle aziende familiari non sopravvive al primo passaggio generazionale' },
-            { num: '81%', desc: 'degli eredi cambia consulente entro 1-2 anni dall\u2019eredit\u00E0' },
-            { num: '80,6%', desc: 'della consulenza in Italia \u00E8 basata su retrocessioni, non fee trasparenti' },
-          ].map((s, i) => (
-            <FadeIn key={i} delay={i * 150}>
-              <div className="rounded-xl h-full flex flex-col justify-center" style={{ backgroundColor: '#1A2744', border: '1px solid rgba(201,145,43,0.15)', padding: '32px 28px', minHeight: 180 }}>
-                <span className="font-serif font-bold block leading-none" style={{ fontSize: 44, color: '#C9912B' }}>{s.num}</span>
-                <p className="font-sans text-[14px] mt-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>{s.desc}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
       </section>
 
       {/* ═══════ S2: DATI ═══════ */}
       <section className="px-6 bg-[#0D1520]" style={{ padding: '100px 24px' }}>
         <div className="max-w-[1200px] mx-auto">
-          <h2 className="font-serif text-[32px] text-white mb-12">I numeri di un sistema che cambia</h2>
+          <h2 className="text-[32px] text-white mb-12" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>I numeri di un sistema che cambia</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-14">
             {DATA_ITEMS.map((item, i) => (
               <div key={i} className="relative px-5 md:px-8">
@@ -691,171 +676,6 @@ export function ProblemaPage() {
         </div>
       </section>
 
-      {/* ═══════ S3: CONFRONTO PASSATO vs OGGI ═══════ */}
-      <section className="py-20 md:py-28 px-6">
-        <div className="max-w-[1100px] mx-auto">
-
-          {/* Headers */}
-          <div className="grid grid-cols-1 md:grid-cols-2 mb-14">
-            <div className="pr-6 md:pr-10 md:border-r pb-6 md:pb-0" style={{ borderColor: 'rgba(201,145,43,0.15)' }}>
-              <span className="font-serif text-[40px] md:text-[48px] block" style={{ color: 'rgba(255,255,255,0.4)' }}>IERI</span>
-              <span className="font-sans text-[18px] block mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>Il modello che ha creato ricchezza</span>
-            </div>
-            <div className="pl-0 md:pl-10">
-              <span className="font-serif text-[40px] md:text-[48px] font-bold block" style={{ color: '#C9912B' }}>OGGI E NEL BREVE PERIODO</span>
-              <span className="font-sans text-[18px] block mt-2" style={{ color: 'rgba(201,145,43,0.5)' }}>Il modello che deve proteggerla</span>
-            </div>
-          </div>
-
-          {/* Row 1 — Geoeconomia */}
-          <ConfrontoRow
-            num="01"
-            leftTitle="MERCATI LOCALI"
-            leftText="L'imprenditore conosceva i suoi clienti per nome. L'esportazione era un'eccezione (15% PIL). I concorrenti erano nella stessa provincia. I fornitori a un'ora di macchina."
-            rightTitle="COMPETIZIONE GLOBALE"
-            rightText="Il 40% delle PMI è orientata all'esportazione. Catene di fornitura interrotte 3-6 mesi all'anno. Costi spedizione da €2.000 a €15.000 per container con 10 giorni di preavviso. Prezzo carbonio UE da €80 a €150+ per tonnellata. Il 29% delle PMI è già controllato da stranieri. Sarà il 48-55% nel 2040."
-            rightSource="Eurostat, ISTAT, EU ETS 2025"
-          />
-
-          {/* Row 2 — Margini e patrimonio */}
-          <ConfrontoRow
-            num="02"
-            leftTitle="MARGINI ALTI, PATRIMONIO SEMPLICE"
-            leftText="Margini EBITDA 12-18%. L'azienda generava cassa. Il patrimonio era l'azienda stessa. Il conto corrente bastava. Nessuna commistione da gestire perché c'era solo l'azienda."
-            rightTitle="MARGINI COMPRESSI, PATRIMONIO COMPLESSO"
-            rightText="EBITDA medio PMI: 7,2% oggi, verso il 2,5% nel 2040. Clima (2-3pp), conformità normativa (2-4pp), costi strutturali (2-3pp) erodono tutto. Nel frattempo il patrimonio si è ramificato: azienda, immobili, finanza, partecipazioni, polizze, previdenza. Ma i flussi aziendali e quelli personali restano mescolati. Nessuno li separa, nessuno li ottimizza come sistema."
-            rightSource="AUB Bocconi, AIPB 2025"
-          />
-
-          {/* Row 3 — Servizi e intermediari */}
-          <ConfrontoRow
-            num="03"
-            leftTitle="LA BANCA E IL COMMERCIALISTA"
-            leftText="Due interlocutori. La banca dava il credito. Il commercialista faceva il bilancio. Fine. Costi contenuti, tempo dedicato: quasi zero. L'imprenditore gestiva l'azienda, il resto si gestiva da solo."
-            rightTitle="5-7 PROFESSIONISTI, ZERO COORDINAMENTO"
-            rightText="Commercialista, avvocato, private banker, assicuratore, consulente immobiliare, notaio, fiscalista. Ognuno bravo nel suo campo. Ma si parlano tra loro? Sanno cosa fa l'altro? Il risultato:"
-            rightSource="AIPB, ABI 2025"
-            rightExtra={
-              <div className="mt-5 space-y-3">
-                {[
-                  { tag: '+ COSTI', text: 'Due due-diligence per la stessa operazione. Tre pareri legali per lo stesso problema.' },
-                  { tag: '+ TEMPO', text: "L'imprenditore diventa il coordinatore involontario. Tempo tolto all'azienda, alla famiglia, a sé stesso." },
-                  { tag: '+ DISTRAZIONI', text: 'Decisioni incoerenti. Gap assicurativi. Fiscalità non ottimizzata. Successione rimandata.' },
-                ].map((b, i) => (
-                  <div key={i} className="rounded-lg" style={{ backgroundColor: 'rgba(231,76,60,0.08)', borderLeft: '2px solid #E74C3C', padding: '12px 16px' }}>
-                    <span className="font-sans text-[16px] font-bold block" style={{ color: '#E74C3C' }}>{b.tag}</span>
-                    <span className="font-sans text-[12px] block mt-1" style={{ color: 'rgba(255,255,255,0.5)' }}>{b.text}</span>
-                  </div>
-                ))}
-                <p className="font-sans text-[14px] italic mt-4" style={{ color: 'rgba(255,255,255,0.5)', borderLeft: '2px solid #C9912B', paddingLeft: 16 }}>
-                  E questo incide sul resto del patrimonio: immobili non ottimizzati, investimenti frammentati, rischi non mappati, famiglia non preparata.
-                </p>
-              </div>
-            }
-          />
-
-          {/* Row 4 — Competizione per talenti */}
-          <ConfrontoRow
-            num="04"
-            leftTitle="MANODOPERA ABBONDANTE"
-            leftText="L'Italia aveva 56 milioni di abitanti in crescita. Trovare lavoratori non era un problema. Le competenze si trasmettevano in azienda."
-            rightTitle="CARENZA DI COMPETENZE ESTREMA"
-            rightText="30-40% dei ruoli nelle PMI manifatturiere resterà scoperto entro il 2027-2030. I baby boomer vanno in pensione. La GenZ ha il 48% di incidenza di ansia o depressione. Formare un operaio specializzato costa €20.000-40.000 e richiede 2-3 anni. Trovare un tornitore CNC sotto i 30 anni è quasi impossibile."
-            rightSource="Confindustria, Eurostat 2025"
-          />
-
-          {/* Row 5 — Regolamentazione */}
-          <ConfrontoRow
-            num="05"
-            leftTitle="POCHE REGOLE, MOLTA LIBERTÀ"
-            leftText="Normative semplici. La burocrazia esisteva ma non bloccava. Si poteva costruire rapidamente."
-            rightTitle="TSUNAMI REGOLATORIO"
-            rightText="8 regolamenti UE simultanei tra 2025 e 2027: CSRD, AI Act, NIS2, EUDR, GDPR, Cyber Resilience Act, EU Data Act, REACH. Costo medio per PMI: €170.000-555.000 all'anno. Media: €250.000. Cumulativo in 5 anni: €1.250.000. Capitale che esce dall'innovazione per entrare nella conformità."
-            rightSource="EU Commission, OECD 2025"
-          />
-
-          {/* Row 6 — Macro */}
-          <ConfrontoRow
-            num="06"
-            leftTitle="STABILITÀ"
-            leftText="Inflazione alta ma prevedibile. Cambi fissi. Geopolitica bipolare ma stabile. L'imprenditore pianificava a 10 anni."
-            rightTitle="VOLATILITÀ PERMANENTE"
-            rightText="Tassi da 0% a 4-5% in 18 mesi. Inflazione 5-8% (2022-2024). Guerre commerciali, sanzioni, rilocalizzazione. Il 32% delle aziende italiane ha già riavvicinato la produzione nel 2024. Il 45% lo farà nel 2025. L'esportazione italiana perde quote verso Est Europa e Nord Africa."
-            rightSource="Confindustria, SACE 2025"
-          />
-
-          {/* CONCLUSIONE */}
-          <div className="text-center" style={{ padding: '60px 0' }}>
-            <FadeIn>
-              <p className="font-sans text-[20px]" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                Tutto questo ha portato a una situazione
-              </p>
-            </FadeIn>
-            <ScaleIn delay={300}>
-              <p className="font-serif text-[48px] md:text-[56px] font-bold mt-4" style={{ color: '#E74C3C' }}>
-                INSOSTENIBILE
-              </p>
-            </ScaleIn>
-            <FadeIn delay={600}>
-              <p className="font-sans text-[16px] mt-8 mx-auto" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: 700 }}>
-                Per gestire questa complessità l&apos;imprenditore si ritrova con 5-7 professionisti che non si parlano.
-                Costa di più, ci vuole più tempo, genera più distrazioni.
-                E nel frattempo il patrimonio, quello per cui ha lavorato una vita, resta frammentato.
-              </p>
-            </FadeIn>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ═══════ S5: LE 207.000 PMI ═══════ */}
-      <section className="px-6 bg-[#0D1520]" style={{ padding: '80px 24px' }}>
-        <div className="max-w-[1100px] mx-auto">
-          <FadeIn>
-            <h2 className="font-serif text-[30px] md:text-[36px] text-white">Oggi ci sono circa 207.000 PMI di medie dimensioni in Italia.</h2>
-            <p className="font-sans text-[14px] mt-2" style={{ color: 'rgba(255,255,255,0.3)' }}>(PMI con 20-249 dipendenti)</p>
-            <p className="font-sans text-[11px] mt-1" style={{ color: 'rgba(255,255,255,0.2)' }}>Fonte: ISTAT, Eurostat, Cerved 2025</p>
-            <p className="font-sans text-[17px] mt-4 mb-10" style={{ color: 'rgba(255,255,255,0.55)' }}>{'\u20AC'}3.500 miliardi di fatturato complessivo. L&apos;85% è a controllo familiare.</p>
-          </FadeIn>
-
-          <div style={{ width: '100%', height: 350 }}>
-            <ResponsiveContainer>
-              <ComposedChart data={PMI_FATE}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
-                <XAxis dataKey="year" tick={{ fill: 'rgba(255,255,255,0.4)', fontSize: 11 }} />
-                <YAxis yAxisId="left" tick={{ fill: 'rgba(255,255,255,0.4)', fontSize: 11 }} label={{ value: 'Migliaia PMI', angle: -90, position: 'insideLeft', style: { fill: 'rgba(255,255,255,0.3)', fontSize: 10 } }} />
-                <YAxis yAxisId="right" orientation="right" tick={{ fill: 'rgba(255,255,255,0.4)', fontSize: 11 }} label={{ value: '%', angle: 90, position: 'insideRight', style: { fill: 'rgba(255,255,255,0.3)', fontSize: 10 } }} domain={[0, 60]} />
-                <Tooltip content={<ChartTooltip />} />
-                <Legend wrapperStyle={{ fontSize: 11, color: 'rgba(255,255,255,0.5)' }} />
-                <Bar yAxisId="left" dataKey="italiane" stackId="a" fill="rgba(255,255,255,0.55)" name="Italiane indipendenti" />
-                <Bar yAxisId="left" dataKey="foreign" stackId="a" fill="rgba(255,255,255,0.15)" name="Controllate da stranieri" />
-                <Line yAxisId="right" type="monotone" dataKey="ebitda" stroke="rgba(255,255,255,0.5)" strokeWidth={2} strokeDasharray="6 3" dot={false} name="EBITDA %" />
-                <Line yAxisId="right" type="monotone" dataKey="foreignPct" stroke="#E74C3C" strokeWidth={2} dot={false} name="Controllo estero %" />
-              </ComposedChart>
-            </ResponsiveContainer>
-          </div>
-
-          {/* Big counter + arrow + 1 su 4 */}
-          <div ref={bigCountRef} className="text-center mt-16">
-            <AnimatedCounter target={52000} className="font-serif font-bold block leading-none" style={{ fontSize: 72, color: '#E74C3C' }} />
-            <p className="font-sans text-[18px] md:text-[20px] mt-4" style={{ color: 'rgba(255,255,255,0.65)' }}>
-              PMI su 207.000 chiuderanno o saranno vendute forzatamente entro il 2040.
-            </p>
-
-            {/* Animated arrow */}
-            <div className="my-8 flex justify-center">
-              <svg width="24" height="60" viewBox="0 0 24 60" style={{ animation: 'arrowBounce 2s ease-in-out infinite' }}>
-                <path d="M12 0 L12 52 M4 44 L12 52 L20 44" stroke="#C9912B" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <style>{`@keyframes arrowBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(10px); } }`}</style>
-
-            <div className="transition-all duration-700" style={{ opacity: oneInFourVisible ? 1 : 0, transform: oneInFourVisible ? 'scale(1)' : 'scale(0.6)' }}>
-              <span className="font-serif font-bold block leading-none" style={{ fontSize: 96, color: '#E74C3C' }}>1 su 4</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ═══════ S6: FLIP CARDS ═══════ */}
       <section className="py-16 px-6">
@@ -869,32 +689,6 @@ export function ProblemaPage() {
         </div>
       </section>
 
-      {/* ═══════ S7: FRASE FINALE ═══════ */}
-      <section className="relative px-6" style={{ padding: '120px 24px' }}>
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/img39.png')" }} />
-        <div className="absolute inset-0 bg-[#0D1520]/60" />
-        <div className="relative z-10 max-w-[800px] mx-auto text-center">
-          <FadeIn>
-            <p className="font-serif text-[30px] md:text-[36px] text-white leading-[1.4]">
-              Oggi serve costruire modelli che preservino nel tempo la qualità della vita,
-            </p>
-          </FadeIn>
-          <FadeIn delay={800}>
-            <p className="font-serif text-[30px] md:text-[36px] font-bold leading-[1.4] mt-2" style={{ color: '#C9912B' }}>
-              per noi e per chi verrà dopo.
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ═══════ S8: CTA ═══════ */}
-      <section className="bg-[#0D1520] text-center" style={{ padding: '80px 24px' }}>
-        <p className="font-sans text-[18px] mb-10" style={{ color: 'rgba(255,255,255,0.55)' }}>Se questo è il problema, serve un approccio diverso.</p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/come-funziona" className="font-sans text-[14px] font-bold text-white rounded-lg transition-colors hover:opacity-90" style={{ backgroundColor: '#C9912B', padding: '16px 40px' }}>SCOPRI MINERVA</Link>
-          <Link href="/contatti" className="font-sans text-[14px] rounded-lg transition-all duration-300 hover:bg-[#C9912B] hover:text-white" style={{ color: '#C9912B', border: '1px solid #C9912B', padding: '16px 40px' }}>PARLA CON NOI</Link>
-        </div>
-      </section>
     </div>
   )
 }

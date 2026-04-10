@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef, useEffect } from 'react'
-import { Link } from '@/i18n/navigation'
 import { gsap } from '@/lib/gsap'
 import { onIdle } from '@/lib/idle'
 import { useTranslations } from 'next-intl'
@@ -81,7 +80,6 @@ export function SoluzioniPage() {
   const timelineRef = useRef<HTMLDivElement>(null)
   const casesRef = useRef<HTMLDivElement>(null)
   const dualRef = useRef<HTMLDivElement>(null)
-  const ctaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -130,13 +128,6 @@ export function SoluzioniPage() {
           })
         }
 
-        /* CTA */
-        if (ctaRef.current) {
-          gsap.from(ctaRef.current, {
-            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: ctaRef.current, start: 'top 90%', toggleActions: 'play none none none' },
-          })
-        }
       }, section)
     })
 
@@ -305,24 +296,6 @@ export function SoluzioniPage() {
         </div>
       </div>
 
-      {/* ════════════════════════════════════════════════════════
-          CTA
-          ════════════════════════════════════════════════════════ */}
-      <div ref={ctaRef} className="px-4 md:px-6 py-20 md:py-28 text-center" style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}>
-        <Link
-          href="/contatti"
-          className="inline-flex items-center justify-center font-sans font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90"
-          style={{
-            fontSize: '13px',
-            backgroundColor: '#C9912B',
-            padding: '14px 32px',
-            borderRadius: '8px',
-            letterSpacing: '0.08em',
-          }}
-        >
-          {t('cta')}
-        </Link>
-      </div>
     </section>
   )
 }

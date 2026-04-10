@@ -4,7 +4,6 @@ import { useRef, useEffect } from 'react'
 import { gsap } from '@/lib/gsap'
 import { onIdle } from '@/lib/idle'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
 
 const STEP_KEYS = ['s1', 's2', 's3', 's4', 's5'] as const
 const VANTAGGIO_KEYS = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6'] as const
@@ -15,7 +14,6 @@ export function ClubDealPage() {
   const headerRef = useRef<HTMLDivElement>(null)
   const stepsRef = useRef<HTMLDivElement>(null)
   const vantaggiRef = useRef<HTMLDivElement>(null)
-  const ctaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -43,12 +41,6 @@ export function ClubDealPage() {
           gsap.from(items, {
             y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out',
             scrollTrigger: { trigger: vantaggiRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-        if (ctaRef.current) {
-          gsap.from(ctaRef.current, {
-            y: 30, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: ctaRef.current, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
       }, section)
@@ -136,21 +128,6 @@ export function ClubDealPage() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div ref={ctaRef} className="text-center">
-          <p className="font-serif text-[20px] md:text-[24px] font-semibold leading-[1.4] text-gold italic mb-8">
-            {t('closing')}
-          </p>
-          <Link
-            href="/contatti"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-navy-deep font-sans text-[11px] font-bold tracking-[0.2em] uppercase rounded-full hover:bg-gold-light hover:shadow-[0_0_20px_rgba(201,145,43,0.3)] transition-all duration-300"
-          >
-            {t('cta')}
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
 
       </div>
     </section>

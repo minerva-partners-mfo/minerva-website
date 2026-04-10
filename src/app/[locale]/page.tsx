@@ -14,7 +14,7 @@ const COLS = [
   { title: 'Servizi', items: ['Soluzioni', 'Minerva Hub', 'Ecosistema', 'Abilitatori'] },
   { title: 'Fiducia', items: ['Il Codice', 'VERITAS', 'Trasparenza', 'Selezione'] },
   { title: 'Network', items: ['Eventi', 'Point Zero', 'Club Deal', 'Next Gen'] },
-  { title: 'Chi Siamo', items: ['Il Pensiero', 'Strategia', 'Management', 'Contatti'] },
+  { title: 'Chi Siamo', items: ['Il Pensiero', 'Management', 'Contatti'] },
 ]
 
 const FACE_CENTERS: [number, number, number, number, number, number][] = [
@@ -241,6 +241,9 @@ export default function HomePage() {
                 <p style={{ color: '#ef4444', fontSize: '0.7rem', fontFamily: "'Lora', serif", marginTop: 4 }}>{error}</p>
               )}
             </form>
+            <p style={{ fontFamily: "'Lora', serif", fontSize: '0.6rem', color: 'rgba(255,255,255,0.2)', marginTop: 20, fontStyle: 'italic' }}>
+              Sei stato introdotto?
+            </p>
           </div>
         </div>
       </section>

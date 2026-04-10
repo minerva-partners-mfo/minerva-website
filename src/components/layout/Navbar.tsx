@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
-import { Link, usePathname } from '@/i18n/navigation'
+import { Link, usePathname, useRouter } from '@/i18n/navigation'
 
 const NAV_GROUPS = [
   {
@@ -45,7 +45,6 @@ const NAV_GROUPS = [
     key: 'chiSiamo',
     items: [
       { key: 'pensiero', href: '/pensiero' },
-      { key: 'strategia', href: '/strategia' },
       { key: 'management', href: '/management' },
       { key: 'contatti', href: '/contatti' },
     ],
@@ -57,6 +56,7 @@ export function Navbar() {
   const locale = useLocale()
   const pathname = usePathname()
   const otherLocale = locale === 'it' ? 'en' : 'it'
+  const router = useRouter()
   const isHome = pathname === '/'
   const [scrolled, setScrolled] = useState(false)
   const [openGroup, setOpenGroup] = useState<string | null>(null)
@@ -135,6 +135,7 @@ export function Navbar() {
                 onMouseLeave={handleGroupLeave}
               >
                 <button
+                  onClick={() => { if (group.key === 'modello') { router.push('/come-funziona'); setOpenGroup(null) } }}
                   className={`relative px-3.5 py-2 font-sans text-[11px] font-semibold tracking-[0.12em] uppercase transition-colors duration-300 ${
                     openGroup === group.key ? 'text-[#C9912B]' : 'text-white hover:text-[#C9912B]'
                   }`}
@@ -184,12 +185,6 @@ export function Navbar() {
               {t('langSwitch')}
             </Link>
 
-            <Link
-              href="/contatti"
-              className="hidden lg:block px-5 py-2 bg-[#C9912B] text-[#0D1520] font-sans text-[10px] font-bold tracking-[0.15em] uppercase rounded-full hover:bg-[#D4A94E] hover:shadow-[0_0_20px_rgba(201,145,43,0.3)] transition-all duration-300"
-            >
-              {t('cta')}
-            </Link>
 
             <button
               className="lg:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-[5px]"
@@ -233,11 +228,6 @@ export function Navbar() {
               </div>
             </div>
           ))}
-          <div className="mt-8">
-            <Link href="/contatti" className="block text-center px-6 py-3.5 bg-[#C9912B] text-[#0D1520] font-sans text-[11px] font-bold tracking-[0.15em] uppercase rounded-md" onClick={closeMobile}>
-              {t('cta')}
-            </Link>
-          </div>
           <div className="mt-4 flex justify-center">
             <Link href={pathname} locale={otherLocale} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 font-sans text-[11px] font-semibold tracking-wider text-white/80 hover:text-white hover:border-[#C9912B]/30 transition-all duration-300" onClick={closeMobile}>
               <span className="w-1.5 h-1.5 rounded-full bg-[#C9912B]/50" />

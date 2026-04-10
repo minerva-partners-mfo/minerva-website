@@ -5,7 +5,7 @@ import { Link } from '@/i18n/navigation'
 
 const FLOW: { text: string; href: string }[] = [
   { text: "Tutto parte da un'esigenza concreta.", href: '/problema' },
-  { text: "Minerva la analizza nel contesto complessivo del cliente.", href: '/strategia' },
+  { text: "Minerva la analizza nel contesto complessivo del cliente.", href: '/soluzioni' },
   { text: "Definisce uno schema di gioco e individua le competenze necessarie.", href: '/soluzioni' },
   { text: "Attiva le persone giuste — selezionate e vincolate dal Codice Minerva.", href: '/codice' },
   { text: "Il cliente è parte attiva del processo.", href: '/ecosistema' },
@@ -45,7 +45,10 @@ function Arrow() {
 
 export function ComeFunzionaPage() {
   return (
-    <div className="bg-[#0D1520] min-h-screen">
+    <div className="bg-[#0D1520] min-h-screen relative">
+      <p style={{ position: 'absolute', top: 80, left: 20, fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)', fontStyle: 'italic', fontFamily: "'Lora', Georgia, serif", zIndex: 10 }}>
+        clicca sulla frase per approfondire
+      </p>
       <section className="px-6 pt-24 md:pt-28 pb-20 md:pb-28">
         <div className="max-w-[820px] mx-auto">
           <FadeUp>
@@ -84,17 +87,6 @@ export function ComeFunzionaPage() {
             </div>
           ))}
 
-          <div className="mt-24 md:mt-32 text-center">
-            <p className="font-sans text-[17px] mb-10" style={{ color: 'rgba(255,255,255,0.5)' }}>Il primo passo è una conversazione.</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contatti" className="font-sans text-[14px] font-bold text-white rounded-lg transition-colors hover:opacity-90" style={{ backgroundColor: '#C9912B', padding: '16px 40px' }}>
-                PARLIAMONE
-              </Link>
-              <Link href="/problema" className="font-sans text-[14px] rounded-lg transition-all duration-300 hover:bg-white/5" style={{ color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.2)', padding: '16px 40px' }}>
-                TORNA AL PROBLEMA
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
     </div>

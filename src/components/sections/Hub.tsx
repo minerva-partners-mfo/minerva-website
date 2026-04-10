@@ -714,20 +714,7 @@ export function HubPage() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/contatti"
-            className="inline-flex items-center justify-center font-sans font-bold uppercase tracking-wider text-white transition-opacity hover:opacity-90"
-            style={{
-              fontSize: '13px',
-              backgroundColor: '#C9912B',
-              padding: '14px 32px',
-              borderRadius: '8px',
-              letterSpacing: '0.08em',
-            }}
-          >
-            {t('footer.cta1')}
-          </Link>
-          <Link
+<Link
             href="/ecosistema"
             className="inline-flex items-center justify-center font-sans font-bold uppercase tracking-wider transition-opacity hover:opacity-90"
             style={{

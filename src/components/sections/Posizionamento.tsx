@@ -447,14 +447,12 @@ export function PosizionamentoPage() {
               <span className="font-sans text-[11px] uppercase block mb-5" style={{ color: '#C9912B', letterSpacing: '0.15em' }}>SE HAI COSTRUITO</span>
               <p className="font-serif text-[24px] md:text-[28px] text-white leading-[1.4]">Il tuo patrimonio merita un sistema, non un altro consulente.</p>
               <p className="font-sans text-[14px] mt-4" style={{ color: 'rgba(255,255,255,0.45)' }}>Ci sono piattaforme che gestiscono soldi. Ci sono boutique che fanno deal. Ci sono club che fanno networking. Minerva fa tutte e tre le cose, coordinate.</p>
-              <Link href="/contatti" className="font-sans text-[14px] inline-block mt-5 transition-opacity hover:opacity-80" style={{ color: '#C9912B' }}>Parliamone &rarr;</Link>
             </FadeIn>
             <div className="h-[1px] md:hidden" style={{ backgroundColor: 'rgba(201,145,43,0.1)' }} />
             <FadeIn delay={500} className="flex-1 md:pl-12">
               <span className="font-sans text-[11px] uppercase block mb-5" style={{ color: '#C9912B', letterSpacing: '0.15em' }}>SE VUOI CRESCERE</span>
               <p className="font-serif text-[24px] md:text-[28px] text-white leading-[1.4]">Il tuo valore merita un ecosistema, non un altro cliente.</p>
               <p className="font-sans text-[14px] mt-4" style={{ color: 'rgba(255,255,255,0.45)' }}>Ci sono network che promettono lead. Ci sono piattaforme che vendono contatti. Minerva offre deal flow qualificato, co-investimento e un codice che protegge la tua reputazione.</p>
-              <Link href="/contatti" className="font-sans text-[14px] inline-block mt-5 transition-opacity hover:opacity-80" style={{ color: '#C9912B' }}>Entra nell&apos;ecosistema &rarr;</Link>
             </FadeIn>
           </div>
         </div>

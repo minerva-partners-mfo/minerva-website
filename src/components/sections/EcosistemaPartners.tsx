@@ -2,7 +2,6 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
 
 /* ── FadeIn helper (IntersectionObserver) ── */
 function FadeIn({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -118,15 +117,6 @@ export function EcosistemaPartnersPage() {
           </div>
         </FadeIn>
 
-        {/* ── CTA ── */}
-        <FadeIn className="text-center">
-          <Link
-            href="/contatti"
-            className="inline-block bg-[#C9912B] text-white font-sans text-[15px] font-semibold tracking-wide px-10 py-4 rounded-lg hover:bg-[#b07f24] transition-colors duration-300"
-          >
-            {t('cta')}
-          </Link>
-        </FadeIn>
 
       </div>
     </section>

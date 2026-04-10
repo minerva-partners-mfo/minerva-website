@@ -234,46 +234,6 @@ export function EventiPage() {
         </div>
       </div>
 
-      {/* ── Chi partecipa — 3 concentric circles ── */}
-      <div className="px-4 md:px-6 pb-24 md:pb-[140px]">
-        <div className="max-w-[900px] mx-auto">
-          <span className="block text-center font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-10">
-            {t('chiLabel')}
-          </span>
-
-          <div className="relative">
-            {/* Background image */}
-            <div className="absolute inset-0 opacity-[0.03] rounded-2xl overflow-hidden">
-              <Image src="/images/img10.png" alt="" fill className="object-cover" quality={50} loading="lazy" />
-            </div>
-
-            <svg
-              ref={chiRef}
-              viewBox="0 0 500 500"
-              className="w-full max-w-[500px] mx-auto h-auto"
-              fill="none"
-            >
-              {/* Outer — Ospiti */}
-              <circle className="chi-ring" cx="250" cy="250" r="220" fill="#C9912B" fillOpacity="0.03" stroke="#C9912B" strokeWidth="0.5" strokeOpacity="0.4" style={{ transformOrigin: '250px 250px' }} />
-              <text className="chi-ring" x="250" y="48" textAnchor="middle" fill="white" fontSize="10" fontFamily="DM Sans, sans-serif" opacity="0.35" style={{ transformOrigin: '250px 48px' }}>
-                {t('chi.outer')}
-              </text>
-
-              {/* Middle — Partner */}
-              <circle className="chi-ring" cx="250" cy="250" r="150" fill="#C9912B" fillOpacity="0.05" stroke="#C9912B" strokeWidth="0.8" strokeOpacity="0.5" style={{ transformOrigin: '250px 250px' }} />
-              <text className="chi-ring" x="250" y="118" textAnchor="middle" fill="#C9912B" fontSize="10" fontFamily="DM Sans, sans-serif" opacity="0.6" style={{ transformOrigin: '250px 118px' }}>
-                {t('chi.middle')}
-              </text>
-
-              {/* Inner — Clienti */}
-              <circle className="chi-ring" cx="250" cy="250" r="70" fill="#C9912B" opacity="0.1" stroke="#C9912B" strokeWidth="1.2" style={{ transformOrigin: '250px 250px' }} />
-              <text className="chi-ring" x="250" y="248" textAnchor="middle" fill="white" fontSize="10" fontFamily="DM Sans, sans-serif" fontWeight="600" style={{ transformOrigin: '250px 248px' }}>
-                {t('chi.inner')}
-              </text>
-            </svg>
-          </div>
-        </div>
-      </div>
     </section>
   )
 }

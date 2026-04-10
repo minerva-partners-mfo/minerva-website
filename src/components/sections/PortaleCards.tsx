@@ -3,7 +3,6 @@
 import { useRef, useLayoutEffect } from 'react'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
 
 const CARDS = [
   { key: 'hospitality', image: '/images/card1.png' },
@@ -94,14 +93,6 @@ export function PortaleCards() {
         <p className="font-sans text-[13px] text-white/50">
           {t('note')}
         </p>
-        <div className="mt-4">
-          <Link
-            href="/contatti"
-            className="inline-flex items-center gap-2 font-sans text-sm text-[#C9912B] hover:text-[#D4A94E] transition-colors"
-          >
-            {t('cta')} <span>→</span>
-          </Link>
-        </div>
       </div>
     </section>
   )

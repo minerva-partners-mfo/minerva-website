@@ -91,15 +91,6 @@ export function PerChiPage() {
       })}
 
       {/* CTA */}
-      <section className="py-20 px-6 text-center">
-        <p className="font-serif text-[22px] md:text-[26px] font-semibold mb-4" style={{ color: '#C9912B' }}>Si riconosce in uno di questi profili?</p>
-        <p className="font-sans text-[15px] mb-8" style={{ color: 'rgba(255,255,255,0.6)' }}>
-          Il primo passo è una conversazione riservata. Senza impegno, senza fretta.
-        </p>
-        <Link href="/contatti" className="inline-flex items-center gap-2 font-sans text-[14px] px-8 py-3 rounded-full transition-all duration-300 hover:bg-[#C9912B] hover:text-white" style={{ color: '#C9912B', border: '1px solid #C9912B' }}>
-          Parliamone <span>→</span>
-        </Link>
-      </section>
     </div>
   )
 }

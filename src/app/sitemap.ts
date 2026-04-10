@@ -16,7 +16,6 @@ const pages = [
   '/eventi',
   '/point-zero',
   '/next-gen',
-  '/strategia',
   '/management',
   '/pensiero',
   '/contatti',

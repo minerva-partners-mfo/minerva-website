@@ -1,0 +1,390 @@
+"use client";
+
+import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { RoundedBox, Environment, Float, ContactShadows, Html } from "@react-three/drei";
+import { motion, AnimatePresence } from "framer-motion";
+import * as THREE from "three";
+
+type EntryState = "idle" | "focus" | "submitting" | "error" | "success" | "redirecting";
+
+type AccessResponse = {
+  ok: boolean;
+  next?: string;
+  error?: string;
+};
+
+type ColumnSpec = {
+  key: string;
+  width: number;
+  height: number;
+  depth: number;
+  initial: [number, number, number];
+  final: [number, number, number];
+  initialRotation: [number, number, number];
+};
+
+const BRAND = {
+  navy: "#0f1829",
+  gold: "#C5A059",
+  white: "#F7F4EE",
+  glow: "#E0C58A",
+  bgTop: "#0b1120",
+  bgBottom: "#030712",
+};
+
+const COLUMNS: ColumnSpec[] = [
+  {
+    key: "a",
+    width: 0.42,
+    height: 2.8,
+    depth: 0.18,
+    initial: [-1.9, 0.15, 0.65],
+    final: [-1.05, 0, 0],
+    initialRotation: [0.15, -0.55, 0.04],
+  },
+  {
+    key: "b",
+    width: 0.42,
+    height: 2.2,
+    depth: 0.18,
+    initial: [-0.45, -0.2, -0.45],
+    final: [-0.35, 0, 0],
+    initialRotation: [-0.1, 0.35, -0.03],
+  },
+  {
+    key: "c",
+    width: 0.42,
+    height: 2.2,
+    depth: 0.18,
+    initial: [0.55, 0.22, 0.5],
+    final: [0.35, 0, 0],
+    initialRotation: [0.08, -0.28, 0.03],
+  },
+  {
+    key: "d",
+    width: 0.42,
+    height: 2.8,
+    depth: 0.18,
+    initial: [1.95, -0.1, -0.6],
+    final: [1.05, 0, 0],
+    initialRotation: [-0.14, 0.5, -0.04],
+  },
+];
+
+function damp(current: number, target: number, lambda: number, dt: number) {
+  return THREE.MathUtils.damp(current, target, lambda, dt);
+}
+
+function lerpColor(from: THREE.Color, to: THREE.Color, t: number) {
+  return from.clone().lerp(to, t);
+}
+
+function MinervaColumns({ state, onSuccessComplete }: { state: EntryState; onSuccessComplete: () => void }) {
+  const groupRef = useRef<THREE.Group>(null);
+  const meshRefs = useRef<(THREE.Mesh | null)[]>([]);
+  const [successLatched, setSuccessLatched] = useState(false);
+  const [successTimerStarted, setSuccessTimerStarted] = useState(false);
+
+  const navyColor = useMemo(() => new THREE.Color(BRAND.navy), []);
+  const goldColor = useMemo(() => new THREE.Color(BRAND.gold), []);
+
+  useEffect(() => {
+    if (state !== "success") {
+      setSuccessLatched(false);
+      setSuccessTimerStarted(false);
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (state === "success" && !successTimerStarted) {
+      setSuccessTimerStarted(true);
+      const id = window.setTimeout(() => {
+        setSuccessLatched(true);
+        onSuccessComplete();
+      }, 1400);
+      return () => window.clearTimeout(id);
+    }
+  }, [state, successTimerStarted, onSuccessComplete]);
+
+  useFrame((_, dt) => {
+    const group = groupRef.current;
+    if (!group) return;
+
+    const idleLike = state === "idle" || state === "focus" || state === "error" || state === "submitting";
+
+    const groupTargetYRotation = state === "idle" ? group.rotation.y + dt * 0.18 : group.rotation.y;
+    if (state === "idle") {
+      group.rotation.y = groupTargetYRotation;
+    } else {
+      group.rotation.y = damp(group.rotation.y, 0, 5.5, dt);
+    }
+
+    group.rotation.x = damp(group.rotation.x, state === "focus" || state === "submitting" ? -0.04 : 0, 5, dt);
+    group.position.y = damp(
+      group.position.y,
+      state === "idle" ? Math.sin(performance.now() * 0.0012) * 0.05 : 0,
+      4,
+      dt,
+    );
+
+    COLUMNS.forEach((col, i) => {
+      const mesh = meshRefs.current[i];
+      if (!mesh) return;
+
+      const material = mesh.material as THREE.MeshPhysicalMaterial;
+
+      const targetPos = state === "success"
+        ? col.final
+        : state === "focus" || state === "submitting"
+          ? [col.initial[0] * 0.68, col.initial[1] * 0.4, col.initial[2] * 0.45]
+          : state === "error"
+            ? [col.initial[0] * 0.78, col.initial[1] * 0.45, col.initial[2] * 0.55 + (i % 2 === 0 ? 0.08 : -0.08)]
+            : col.initial;
+
+      mesh.position.x = damp(mesh.position.x, targetPos[0], state === "success" ? 6.5 : 4.2, dt);
+      mesh.position.y = damp(mesh.position.y, targetPos[1], state === "success" ? 6.5 : 4.2, dt);
+      mesh.position.z = damp(mesh.position.z, targetPos[2], state === "success" ? 6.5 : 4.2, dt);
+
+      const targetRot = state === "success"
+        ? [0, 0, 0]
+        : state === "focus" || state === "submitting"
+          ? [col.initialRotation[0] * 0.3, col.initialRotation[1] * 0.25, col.initialRotation[2] * 0.2]
+          : state === "error"
+            ? [col.initialRotation[0] * 0.25, col.initialRotation[1] * 0.2 + (i % 2 === 0 ? 0.08 : -0.08), col.initialRotation[2] * 0.2]
+            : col.initialRotation;
+
+      mesh.rotation.x = damp(mesh.rotation.x, targetRot[0], state === "success" ? 7 : 4.6, dt);
+      mesh.rotation.y = damp(mesh.rotation.y, targetRot[1], state === "success" ? 7 : 4.6, dt);
+      mesh.rotation.z = damp(mesh.rotation.z, targetRot[2], state === "success" ? 7 : 4.6, dt);
+
+      const colorTarget = state === "success" ? goldColor : navyColor;
+      const mix = state === "success" ? 0.12 : 0.08;
+      material.color.copy(lerpColor(material.color, colorTarget, mix));
+      material.emissive.copy(state === "success" ? new THREE.Color(BRAND.glow).multiplyScalar(0.1) : new THREE.Color("#000000"));
+      material.roughness = damp(material.roughness, state === "success" ? 0.28 : 0.42, 4.4, dt);
+      material.metalness = damp(material.metalness, state === "success" ? 0.9 : 0.72, 4.4, dt);
+
+      if (idleLike) {
+        const pulse = 1 + Math.sin(performance.now() * 0.0015 + i) * 0.007;
+        mesh.scale.setScalar(damp(mesh.scale.x, pulse, 4, dt));
+      } else {
+        mesh.scale.setScalar(damp(mesh.scale.x, 1, 5, dt));
+      }
+    });
+  });
+
+  return (
+    <group ref={groupRef}>
+      {COLUMNS.map((col, i) => (
+        <RoundedBox
+          key={col.key}
+          ref={(node) => {
+            meshRefs.current[i] = node;
+          }}
+          args={[col.width, col.height, col.depth]}
+          radius={0.05}
+          smoothness={6}
+          position={col.initial}
+          rotation={col.initialRotation}
+          castShadow
+          receiveShadow
+        >
+          <meshPhysicalMaterial
+            color={BRAND.navy}
+            metalness={0.72}
+            roughness={0.42}
+            clearcoat={1}
+            clearcoatRoughness={0.18}
+          />
+        </RoundedBox>
+      ))}
+
+      {successLatched && (
+        <Html center position={[0, -2.2, 0.2]}>
+          <div className="pointer-events-none select-none text-center">
+            <div className="text-[10px] uppercase tracking-[0.4em] text-[#c5a059]/80">Minerva Partners</div>
+          </div>
+        </Html>
+      )}
+    </group>
+  );
+}
+
+function Scene({ state, onSuccessComplete }: { state: EntryState; onSuccessComplete: () => void }) {
+  return (
+    <>
+      <color attach="background" args={[BRAND.bgBottom]} />
+      <fog attach="fog" args={[BRAND.bgBottom, 8, 18]} />
+
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[4, 6, 4]} intensity={2.2} color={BRAND.white} castShadow />
+      <directionalLight position={[-3, 2, -4]} intensity={1.1} color={BRAND.gold} />
+      <spotLight position={[0, 5, 6]} angle={0.45} penumbra={0.7} intensity={18} color="#fff7e6" />
+
+      <Suspense fallback={null}>
+        <Float speed={1.1} rotationIntensity={0.12} floatIntensity={0.12} enabled={state === "idle"}>
+          <MinervaColumns state={state} onSuccessComplete={onSuccessComplete} />
+        </Float>
+        <Environment preset="city" />
+      </Suspense>
+
+      <ContactShadows position={[0, -2.25, 0]} opacity={0.35} scale={10} blur={2.5} far={4.5} />
+    </>
+  );
+}
+
+function Overlay({
+  email,
+  setEmail,
+  state,
+  error,
+  onSubmit,
+}: {
+  email: string;
+  setEmail: (value: string) => void;
+  state: EntryState;
+  error: string | null;
+  onSubmit: (e: React.FormEvent) => void;
+}) {
+  const isBusy = state === "submitting" || state === "redirecting";
+
+  return (
+    <div className="absolute inset-0 z-10 flex items-center justify-center px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="w-full max-w-md rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+      >
+        <div className="mb-6">
+          <div className="mb-2 text-[11px] uppercase tracking-[0.38em] text-[#c5a059]/80">Reserved access</div>
+          <h1 className="text-2xl font-medium tracking-tight text-white">Enter Minerva</h1>
+          <p className="mt-2 text-sm leading-6 text-white/65">
+            Authorized access is enabled only for approved email addresses.
+          </p>
+        </div>
+
+        <form onSubmit={onSubmit} className="space-y-4">
+          <label className="block">
+            <span className="mb-2 block text-xs uppercase tracking-[0.28em] text-white/50">Email</span>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="name@company.com"
+              autoComplete="email"
+              className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-base text-white outline-none transition placeholder:text-white/25 focus:border-[#c5a059]/45"
+              disabled={isBusy}
+              required
+            />
+          </label>
+
+          <button
+            type="submit"
+            disabled={isBusy}
+            className="w-full rounded-2xl border border-[#c5a059]/30 bg-[#c5a059]/12 px-4 py-3 text-sm font-medium tracking-[0.2em] text-[#f5e6c6] transition hover:bg-[#c5a059]/18 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {state === "submitting" ? "VERIFYING" : state === "redirecting" ? "ENTERING" : "CONTINUE"}
+          </button>
+        </form>
+
+        <AnimatePresence mode="wait">
+          {error ? (
+            <motion.div
+              key={error}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              className="mt-4 rounded-2xl border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-200"
+            >
+              {error}
+            </motion.div>
+          ) : state === "success" || state === "redirecting" ? (
+            <motion.div
+              key="success"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              className="mt-4 rounded-2xl border border-[#c5a059]/20 bg-[#c5a059]/10 px-4 py-3 text-sm text-[#f2dfb5]"
+            >
+              Access verified. Preparing the portal.
+            </motion.div>
+          ) : (
+            <div className="mt-4 text-xs tracking-[0.18em] text-white/35">Traditional sign-in can stay as a secondary fallback link.</div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </div>
+  );
+}
+
+export default function MinervaEntryScene() {
+  const [email, setEmail] = useState("");
+  const [state, setState] = useState<EntryState>("idle");
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (email && state === "idle") setState("focus");
+    if (!email && state === "focus") setState("idle");
+  }, [email, state]);
+
+  const submitAccess = async (value: string): Promise<AccessResponse> => {
+    const response = await fetch("/api/access", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: value }),
+    });
+
+    if (!response.ok) {
+      return { ok: false, error: "Unable to verify access right now." };
+    }
+
+    return response.json();
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setState("submitting");
+
+    const result = await submitAccess(email.trim().toLowerCase());
+
+    if (!result.ok) {
+      setState("error");
+      setError(result.error ?? "Access denied.");
+      window.setTimeout(() => setState("focus"), 900);
+      return;
+    }
+
+    setState("success");
+  };
+
+  const handleSuccessComplete = () => {
+    setState("redirecting");
+    window.setTimeout(() => {
+      window.location.href = "/portal";
+    }, 700);
+  };
+
+  return (
+    <div className="relative h-screen w-full overflow-hidden bg-[radial-gradient(circle_at_top,_#0f1829_0%,_#030712_60%)]">
+      <Canvas
+        shadows
+        dpr={[1, 1.5]}
+        camera={{ position: [0, 0.25, 7.5], fov: 34 }}
+        gl={{ antialias: true, alpha: false }}
+      >
+        <Scene state={state} onSuccessComplete={handleSuccessComplete} />
+      </Canvas>
+
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_35%,_rgba(0,0,0,0.38)_100%)]" />
+
+      <Overlay email={email} setEmail={setEmail} state={state} error={error} onSubmit={handleSubmit} />
+
+      <div className="pointer-events-none absolute left-6 top-6 z-10 text-[11px] uppercase tracking-[0.42em] text-white/40">
+        Minerva Partners
+      </div>
+    </div>
+  );
+}
