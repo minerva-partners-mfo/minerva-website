@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import { useTranslations } from 'next-intl'
+import { MinervaLogo } from '@/components/MinervaLogo'
 import * as THREE from 'three'
 
 const supabase = createClient(
@@ -230,8 +231,7 @@ export default function HomePage() {
               minHeight: '70vh',
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo.png" alt="Minerva Partners" width={260} style={{ opacity: 0.95, height: 'auto', marginBottom: 30, mixBlendMode: 'screen' }} />
+            <MinervaLogo width={260} style={{ marginBottom: 30 }} />
 
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
               <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" autoComplete="email" className="lp-input" />
@@ -256,8 +256,7 @@ export default function HomePage() {
           <div className="ft-inner" style={{ display: 'flex', justifyContent: 'space-between' }}>
             {/* Left */}
             <div style={{ width: 220, flexShrink: 0 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/logo.png" alt="Minerva Partners" width={44} height={44} style={{ opacity: 0.5, mixBlendMode: 'screen' }} />
+              <MinervaLogo width={44} showText={false} color="rgba(197,163,90,0.5)" />
               <p style={{ fontFamily: "'Lora', serif", fontSize: '0.85rem', color: 'rgba(255,255,255,0.3)', marginTop: 12 }}>
                 Minerva Partners S.r.l.
               </p>

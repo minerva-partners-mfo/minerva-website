@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
-import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
+import { MinervaLogo } from '@/components/MinervaLogo'
 import { Link, usePathname, useRouter } from '@/i18n/navigation'
 
 const NAV_GROUPS = [
@@ -113,17 +113,9 @@ export function Navbar() {
       >
         <div className="max-w-[1200px] mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-[72px]">
 
-          {/* Logo — image only, no text */}
+          {/* Logo — inline SVG, fully transparent */}
           <Link href="/" className="relative flex items-center shrink-0" onClick={closeMobile}>
-            <Image
-              src="/images/logo.png"
-              alt="Minerva Partners"
-              width={140}
-              height={38}
-              className="h-9 w-auto object-contain"
-              style={{ mixBlendMode: 'screen' }}
-              priority
-            />
+            <MinervaLogo width={130} showText={false} />
           </Link>
 
           {/* Desktop Nav */}

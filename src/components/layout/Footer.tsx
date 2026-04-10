@@ -1,8 +1,8 @@
 'use client'
 
-import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { usePathname } from '@/i18n/navigation'
+import { MinervaLogo } from '@/components/MinervaLogo'
 
 export function Footer() {
   const t = useTranslations('footer')
@@ -16,15 +16,7 @@ export function Footer() {
         {/* Top row */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-10">
           <div className="flex flex-col items-center md:items-start gap-3">
-            <Image
-              src="/images/logo.png"
-              alt="Minerva Partners"
-              width={320}
-              height={88}
-              className="h-20 w-auto object-contain"
-              style={{ opacity: 1, mixBlendMode: 'screen' }}
-              loading="lazy"
-            />
+            <MinervaLogo width={260} />
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
