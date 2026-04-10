@@ -119,7 +119,7 @@ export function NextGenPage() {
               {t('dialogoQuote')}
             </p>
             <p className="font-sans text-white" style={{ fontSize: '1.15rem', fontWeight: 400, marginTop: 40, textAlign: 'center' }}>
-              Contattaci per il programma
+              {t('contactShort')}
             </p>
           </div>
         </div>

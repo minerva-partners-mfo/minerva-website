@@ -1,6 +1,10 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 export function PointZeroPage() {
+  const t = useTranslations('pointZeroSimple')
+
   return (
     <section
       style={{
@@ -29,7 +33,7 @@ export function PointZeroPage() {
           marginTop: 28,
         }}
       >
-        Dove tutto prende vita
+        {t('tagline')}
       </p>
     </section>
   )

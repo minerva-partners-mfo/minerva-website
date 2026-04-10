@@ -2,16 +2,17 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { Link } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 
-const FLOW: { text: string; href: string; bg: string }[] = [
-  { text: "Tutto parte da un'esigenza concreta.", href: '/problema', bg: '/images/time.jpg' },
-  { text: "Minerva la analizza nel contesto complessivo del cliente.", href: '/soluzioni', bg: '/images/img9.webp' },
-  { text: "Definisce uno schema di gioco e individua le competenze necessarie.", href: '/soluzioni', bg: '/images/strategy.webp' },
-  { text: "Attiva le persone giuste — selezionate e vincolate dal Codice Minerva.", href: '/codice', bg: '/images/room.jpg' },
-  { text: "Il cliente è parte attiva del processo.", href: '/ecosistema', bg: '/images/img11.jpg' },
-  { text: "Minerva agisce ed esegue, anche direttamente quando necessario.", href: '/hub', bg: '/images/img3.png' },
-  { text: "Coordina le decisioni nel tempo, in modo coerente e trasparente.", href: '/veritas', bg: '/images/img8.png' },
-  { text: "Obiettivo: trasformare le scelte in valore, e il valore in patrimonio.", href: '/next-gen', bg: '/images/img5.webp' },
+const FLOW_META: { key: string; href: string; bg: string }[] = [
+  { key: 's1', href: '/problema', bg: '/images/time.jpg' },
+  { key: 's2', href: '/soluzioni', bg: '/images/img9.webp' },
+  { key: 's3', href: '/soluzioni', bg: '/images/strategy.webp' },
+  { key: 's4', href: '/codice', bg: '/images/room.jpg' },
+  { key: 's5', href: '/ecosistema', bg: '/images/img11.jpg' },
+  { key: 's6', href: '/hub', bg: '/images/img3.png' },
+  { key: 's7', href: '/veritas', bg: '/images/img8.png' },
+  { key: 's8', href: '/next-gen', bg: '/images/img5.webp' },
 ]
 
 function FadeUp({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -44,19 +45,21 @@ function Arrow() {
 }
 
 export function ComeFunzionaPage() {
+  const t = useTranslations('flow')
+
   return (
     <div className="bg-[#0D1520] min-h-screen relative">
       <p style={{ position: 'absolute', top: 80, left: 20, fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)', fontStyle: 'italic', fontFamily: "'Lora', Georgia, serif", zIndex: 10 }}>
-        clicca sulla frase per approfondire
+        {t('hint')}
       </p>
       <section className="px-6 pt-24 md:pt-28 pb-20 md:pb-28">
         <div className="max-w-[820px] mx-auto">
           <FadeUp>
-            <p className="font-sans text-[12px] uppercase tracking-[0.25em] mb-4 text-center" style={{ color: 'rgba(201,145,43,0.8)' }}>IL MODELLO MINERVA</p>
-            <h1 className="font-serif text-[36px] md:text-[52px] text-white leading-[1.1] text-center mb-16 md:mb-20">Come Funziona Minerva</h1>
+            <p className="font-sans text-[12px] uppercase tracking-[0.25em] mb-4 text-center" style={{ color: 'rgba(201,145,43,0.8)' }}>{t('label')}</p>
+            <h1 className="font-serif text-[36px] md:text-[52px] text-white leading-[1.1] text-center mb-16 md:mb-20">{t('title')}</h1>
           </FadeUp>
 
-          {FLOW.map((step, i) => (
+          {FLOW_META.map((step, i) => (
             <div key={i}>
               <FadeUp>
                 <Link href={step.href} className="block group">
@@ -71,7 +74,6 @@ export function ComeFunzionaPage() {
                       borderRadius: 12,
                     }}
                   >
-                    {/* Background image */}
                     <div
                       style={{
                         position: 'absolute',
@@ -82,7 +84,6 @@ export function ComeFunzionaPage() {
                         opacity: 0.35,
                       }}
                     />
-                    {/* Gradient overlay to blend edges into navy */}
                     <div
                       style={{
                         position: 'absolute',
@@ -90,22 +91,21 @@ export function ComeFunzionaPage() {
                         background: 'linear-gradient(to bottom, #0D1520 0%, transparent 5%, transparent 95%, #0D1520 100%)',
                       }}
                     />
-                    {/* Text */}
                     <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: '40px 24px' }}>
                       <p
                         className="font-serif text-white leading-[1.45] transition-colors group-hover:text-[#C9912B]"
                         style={{ fontSize: 'clamp(1.3rem, 2vw, 1.7rem)', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}
                       >
-                        {step.text}
+                        {t(step.key)}
                       </p>
                       <span className="font-sans text-[11px] uppercase tracking-[0.18em] mt-3 inline-block opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#C9912B' }}>
-                        Scopri →
+                        {t('discover')}
                       </span>
                     </div>
                   </div>
                 </Link>
               </FadeUp>
-              {i < FLOW.length - 1 && <Arrow />}
+              {i < FLOW_META.length - 1 && <Arrow />}
             </div>
           ))}
 

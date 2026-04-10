@@ -183,7 +183,7 @@ export function Navbar() {
               className="hidden lg:block font-sans text-[10px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:border-[#c5a35a]"
               style={{ color: '#c5a35a', border: '1px solid rgba(197,163,90,0.3)', padding: '6px 16px', background: 'transparent', borderRadius: 4 }}
             >
-              Minerva Board
+              {t('minervaBoard')}
             </Link>
             <Link
               href={pathname}

@@ -156,6 +156,7 @@
       "contatti": "Contatti"
     },
     "cta": "Area Riservata",
+    "minervaBoard": "Minerva Board",
     "menuLabel": "Menu",
     "langSwitch": "EN"
   },
@@ -2116,7 +2117,8 @@
         "desc": "Bocconi, Politecnico, ESCP, INSEAD."
       }
     },
-    "cta": "Contattaci per il programma Next Gen <> Gen Exit"
+    "cta": "Contattaci per il programma Next Gen <> Gen Exit",
+    "contactShort": "Contattaci per il programma"
   },
   "strategia": {
     "label": "Strategia",
@@ -2642,5 +2644,27 @@
   "footer": {
     "privacy": "Privacy",
     "disclaimer": "Disclaimer"
+  },
+  "flow": {
+    "label": "IL MODELLO MINERVA",
+    "title": "Come Funziona Minerva",
+    "hint": "clicca sulla frase per approfondire",
+    "discover": "Scopri →",
+    "s1": "Tutto parte da un'esigenza concreta.",
+    "s2": "Minerva la analizza nel contesto complessivo del cliente.",
+    "s3": "Definisce uno schema di gioco e individua le competenze necessarie.",
+    "s4": "Attiva le persone giuste — selezionate e vincolate dal Codice Minerva.",
+    "s5": "Il cliente è parte attiva del processo.",
+    "s6": "Minerva agisce ed esegue, anche direttamente quando necessario.",
+    "s7": "Coordina le decisioni nel tempo, in modo coerente e trasparente.",
+    "s8": "Obiettivo: trasformare le scelte in valore, e il valore in patrimonio."
+  },
+  "pointZeroSimple": {
+    "tagline": "Dove tutto prende vita"
+  },
+  "homepage": {
+    "login": "Accedi",
+    "introduced": "Sei stato introdotto?",
+    "minervaBoard": "Minerva Board"
   }
 }

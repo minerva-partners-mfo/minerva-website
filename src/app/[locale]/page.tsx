@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { createClient } from '@supabase/supabase-js'
+import { useTranslations } from 'next-intl'
 import * as THREE from 'three'
 
 const supabase = createClient(
@@ -27,6 +28,7 @@ const FACE_CENTERS: [number, number, number, number, number, number][] = [
 ]
 
 export default function HomePage() {
+  const ht = useTranslations('homepage')
   const mountRef = useRef<HTMLDivElement>(null)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -235,14 +237,14 @@ export default function HomePage() {
               <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" autoComplete="email" className="lp-input" />
               <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" autoComplete="current-password" className="lp-input" />
               <button type="submit" disabled={loading} className="lp-btn">
-                {loading ? '...' : 'Accedi'}
+                {loading ? '...' : ht('login')}
               </button>
               {error && (
                 <p style={{ color: '#ef4444', fontSize: '0.7rem', fontFamily: "'Lora', serif", marginTop: 4 }}>{error}</p>
               )}
             </form>
             <p style={{ fontFamily: "'Lora', serif", fontSize: '0.6rem', color: 'rgba(255,255,255,0.2)', marginTop: 20, fontStyle: 'italic' }}>
-              Sei stato introdotto?
+              {ht('introduced')}
             </p>
           </div>
         </div>

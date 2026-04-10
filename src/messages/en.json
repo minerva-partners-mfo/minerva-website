@@ -156,6 +156,7 @@
       "contatti": "Contact"
     },
     "cta": "Client Portal",
+    "minervaBoard": "Minerva Board",
     "menuLabel": "Menu",
     "langSwitch": "IT"
   },
@@ -2116,7 +2117,8 @@
         "desc": "Bocconi, Politecnico, ESCP, INSEAD."
       }
     },
-    "cta": "Contact us for the Next Gen <> Gen Exit programme"
+    "cta": "Contact us for the Next Gen <> Gen Exit programme",
+    "contactShort": "Contact us for the program"
   },
   "strategia": {
     "label": "Strategy",
@@ -2642,5 +2644,27 @@
   "footer": {
     "privacy": "Privacy",
     "disclaimer": "Disclaimer"
+  },
+  "flow": {
+    "label": "THE MINERVA MODEL",
+    "title": "How Minerva Works",
+    "hint": "click on a phrase to learn more",
+    "discover": "Discover →",
+    "s1": "It all starts from a concrete need.",
+    "s2": "Minerva analyzes it within the client's full context.",
+    "s3": "Defines a game plan and identifies the necessary competencies.",
+    "s4": "Activates the right people — selected and bound by the Minerva Code.",
+    "s5": "The client is an active part of the process.",
+    "s6": "Minerva acts and executes, even directly when necessary.",
+    "s7": "Coordinates decisions over time, consistently and transparently.",
+    "s8": "Goal: transform choices into value, and value into legacy."
+  },
+  "pointZeroSimple": {
+    "tagline": "Where everything comes alive"
+  },
+  "homepage": {
+    "login": "Login",
+    "introduced": "Have you been introduced?",
+    "minervaBoard": "Minerva Board"
   }
 }
