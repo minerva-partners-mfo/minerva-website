@@ -5,12 +5,7 @@ import Image from 'next/image'
 import { gsap } from '@/lib/gsap'
 import { onIdle } from '@/lib/idle'
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
 
-const BENEFICI_KEYS = ['b1', 'b2', 'b3', 'b4', 'b5', 'b6'] as const
-const LIVELLI_KEYS = ['intro', 'develop', 'accelerate'] as const
-const EXIT_KEYS = ['s1', 's2', 's3'] as const
-const DEEP_KEYS = ['d1', 'd2', 'd3'] as const
 
 export function NextGenPage() {
   const t = useTranslations('nextGen')
@@ -18,11 +13,6 @@ export function NextGenPage() {
   const headerRef = useRef<HTMLDivElement>(null)
   const dualRef = useRef<HTMLDivElement>(null)
   const quoteRef = useRef<HTMLDivElement>(null)
-  const beneficiRef = useRef<HTMLDivElement>(null)
-  const livelliRef = useRef<HTMLDivElement>(null)
-  const exitRef = useRef<HTMLDivElement>(null)
-  const deepRef = useRef<HTMLDivElement>(null)
-  const partnerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const section = sectionRef.current
@@ -49,40 +39,6 @@ export function NextGenPage() {
           gsap.from(quoteRef.current, {
             opacity: 0, duration: 1, ease: 'power2.out',
             scrollTrigger: { trigger: quoteRef.current, start: 'top 90%', toggleActions: 'play none none none' },
-          })
-        }
-        if (beneficiRef.current) {
-          const cards = beneficiRef.current.querySelectorAll('.beneficio-card')
-          gsap.from(cards, {
-            y: 30, opacity: 0, duration: 0.5, stagger: 0.1, ease: 'power2.out',
-            scrollTrigger: { trigger: beneficiRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-        if (livelliRef.current) {
-          const steps = livelliRef.current.querySelectorAll('.livello-step')
-          gsap.from(steps, {
-            x: -40, opacity: 0, duration: 0.6, stagger: 0.2, ease: 'power2.out',
-            scrollTrigger: { trigger: livelliRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-        if (exitRef.current) {
-          const steps = exitRef.current.querySelectorAll('.exit-step')
-          gsap.from(steps, {
-            y: 30, opacity: 0, duration: 0.6, stagger: 0.2, ease: 'power2.out',
-            scrollTrigger: { trigger: exitRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-        if (deepRef.current) {
-          const cards = deepRef.current.querySelectorAll('.deep-card')
-          gsap.from(cards, {
-            y: 30, opacity: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out',
-            scrollTrigger: { trigger: deepRef.current, start: 'top 85%', toggleActions: 'play none none none' },
-          })
-        }
-        if (partnerRef.current) {
-          gsap.from(partnerRef.current, {
-            y: 40, opacity: 0, duration: 0.8, ease: 'power2.out',
-            scrollTrigger: { trigger: partnerRef.current, start: 'top 85%', toggleActions: 'play none none none' },
           })
         }
       }, section)
@@ -123,7 +79,7 @@ export function NextGenPage() {
       {/* ═══ BLOCCO 1: Il Doppio Approccio ═══ */}
       <div className="px-4 md:px-6 pb-8 md:pb-12">
         <div className="max-w-[1280px] mx-auto">
-          <p className="font-sans text-[15px] md:text-base font-light leading-[1.8] text-white/65 max-w-[900px] mb-10">
+          <p className="font-sans text-[15px] md:text-base font-light leading-[1.8] text-white/65 mb-10">
             {t('intro')}
           </p>
 
@@ -156,77 +112,13 @@ export function NextGenPage() {
           </div>
 
           {/* Quote */}
-          <div ref={quoteRef} className="text-center py-6">
-            <p className="font-serif text-[18px] md:text-[22px] italic text-gold/80 leading-[1.5]">
+          <div ref={quoteRef} className="text-center py-10">
+            <p className="font-serif italic text-gold/80 leading-[1.5]" style={{ fontSize: '1.3rem' }}>
               {t('dialogoQuote')}
             </p>
-          </div>
-        </div>
-      </div>
-
-      {/* ═══ BLOCCO 2: Benefici ═══ */}
-      <div className="px-4 md:px-6 pb-24 md:pb-32">
-        <div className="max-w-[1280px] mx-auto">
-          <h2 className="font-serif text-[24px] md:text-[36px] font-semibold leading-[1.15] text-white mb-10">
-            {t('beneficiLabel')}
-          </h2>
-
-          <div ref={beneficiRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {BENEFICI_KEYS.map((key) => (
-              <div
-                key={key}
-                className="beneficio-card p-6 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-gold/20 transition-all duration-300"
-              >
-                <h3 className="font-serif text-[17px] md:text-[19px] font-semibold text-gold leading-[1.2] mb-3">
-                  {t(`benefici.${key}.title`)}
-                </h3>
-                <p className="font-sans text-[13px] md:text-[14px] font-light leading-[1.7] text-white/60">
-                  {t(`benefici.${key}.desc`)}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ═══ BLOCCO 3: I 3 Livelli Next Gen ═══ */}
-      <div className="px-4 md:px-6 pb-24 md:pb-32">
-        <div className="max-w-[1280px] mx-auto">
-          <span className="block font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.25em] uppercase text-gold mb-10">
-            {t('livelliLabel')}
-          </span>
-
-          {/* Horizontal path */}
-          <div ref={livelliRef} className="relative">
-            {/* Connecting line (desktop) */}
-            <div className="hidden md:block absolute top-[52px] left-0 right-0 h-px bg-gold/15" />
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {LIVELLI_KEYS.map((key, i) => (
-                <div key={key} className="livello-step relative">
-                  {/* Step number */}
-                  <div className="flex items-center gap-3 mb-5">
-                    <span className="w-10 h-10 rounded-full bg-gold/10 border-2 border-gold/30 flex items-center justify-center font-sans text-[14px] font-bold text-gold relative z-10">
-                      {i + 1}
-                    </span>
-                    <div>
-                      <span className="block font-sans text-[12px] font-bold tracking-[0.15em] text-gold">
-                        {t(`livelli.${key}.title`)}
-                      </span>
-                      <span className="block font-sans text-[11px] text-white/50">
-                        {t(`livelli.${key}.eta`)}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-6 rounded-xl bg-gold/[0.05] border border-gold/[0.1]">
-                    <p className="font-sans text-[13px] md:text-[14px] font-light leading-[1.7] text-white/65">
-                      {t(`livelli.${key}.desc`)}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <p className="font-sans text-white" style={{ fontSize: '0.9rem', fontWeight: 400, marginTop: 40, textAlign: 'center' }}>
+              Contattaci per il programma
+            </p>
           </div>
         </div>
       </div>
