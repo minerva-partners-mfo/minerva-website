@@ -252,17 +252,17 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════ FOOTER ════════════════ */}
-      <footer className="ft-outer" style={{ background: '#080c14', padding: '30px 80px 18px', width: '100%' }}>
+      <footer className="ft-outer" style={{ background: '#1A2744', padding: '30px 80px 18px', width: '100%' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div className="ft-inner" style={{ display: 'flex', justifyContent: 'space-between' }}>
             {/* Left */}
             <div style={{ width: 220, flexShrink: 0 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/logo_vero.png" alt="M" width={30} style={{ height: 'auto', opacity: 0.5 }} />
-              <p style={{ fontFamily: "'Lora', serif", fontSize: '0.85rem', color: 'rgba(255,255,255,0.3)', marginTop: 12 }}>
+              <img src="/images/logo_vero.png" alt="M" width={30} style={{ height: 'auto', opacity: 0.8 }} />
+              <p style={{ fontFamily: "'Lora', serif", fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', marginTop: 12 }}>
                 Minerva Partners S.r.l.
               </p>
-              <p style={{ fontFamily: "'Lora', serif", fontSize: '0.7rem', color: 'rgba(255,255,255,0.15)', marginTop: 4 }}>
+              <p style={{ fontFamily: "'Lora', serif", fontSize: '0.7rem', color: 'rgba(255,255,255,0.45)', marginTop: 4 }}>
                 &copy; 2026 Minerva Partners
               </p>
             </div>
@@ -271,11 +271,11 @@ export default function HomePage() {
             <div className="ft-cols" style={{ display: 'flex', gap: 50 }}>
               {COLS.map(col => (
                 <div key={col.title} className="ft-col">
-                  <p style={{ fontFamily: "'Lora', serif", fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14, marginTop: 0 }}>
+                  <p style={{ fontFamily: "'Lora', serif", fontSize: '0.8rem', color: 'rgba(255,255,255,0.8)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14, marginTop: 0 }}>
                     {col.title}
                   </p>
                   {col.items.map(item => (
-                    <div key={item} style={{ fontFamily: "'Lora', serif", fontSize: '0.75rem', color: 'rgba(255,255,255,0.22)', lineHeight: 2.2, cursor: 'default' }}>
+                    <div key={item} style={{ fontFamily: "'Lora', serif", fontSize: '0.75rem', color: 'rgba(255,255,255,0.55)', lineHeight: 2.2, cursor: 'default' }}>
                       {item}
                     </div>
                   ))}
@@ -284,14 +284,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <hr style={{ border: 0, borderTop: '1px solid rgba(255,255,255,0.04)', marginTop: 20 }} />
+          <hr style={{ border: 0, borderTop: '1px solid rgba(255,255,255,0.12)', marginTop: 20 }} />
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginTop: 10 }}>
             <p style={{ margin: 0 }}>
               <a href="#" className="ft-legal">Privacy</a>
-              <span style={{ color: 'rgba(255,255,255,0.1)', margin: '0 8px', fontSize: '0.55rem' }}>&bull;</span>
+              <span style={{ color: 'rgba(255,255,255,0.3)', margin: '0 8px', fontSize: '0.55rem' }}>&bull;</span>
               <a href="#" className="ft-legal">Copyright</a>
             </p>
-            <p style={{ fontFamily: "'Lora', serif", fontSize: '0.5rem', color: 'rgba(255,255,255,0.07)', lineHeight: 1.6, maxWidth: 550, textAlign: 'right', margin: 0 }}>
+            <p style={{ fontFamily: "'Lora', serif", fontSize: '0.5rem', color: 'rgba(255,255,255,0.3)', lineHeight: 1.6, maxWidth: 550, textAlign: 'right', margin: 0 }}>
               The content on this website is provided for informational purposes. Minerva Partners
               operates with care, discipline and rigor, but does not guarantee that the information
               is always complete, accurate or suitable for every specific situation. Any decision
