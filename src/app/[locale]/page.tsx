@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import { useTranslations, useLocale } from 'next-intl'
+import { MinervaLogo } from '@/components/MinervaLogo'
 import * as THREE from 'three'
 
 const supabase = createClient(
@@ -231,11 +232,8 @@ export default function HomePage() {
               minHeight: '70vh',
             }}
           >
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 30 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/logo-gold.svg" alt="" width={120} style={{ height: 'auto' }} />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/Progetto senza titolo (4).svg" alt="Minerva Partners" width={240} style={{ height: 'auto', marginTop: 8, filter: 'sepia(1) saturate(3) hue-rotate(10deg) brightness(0.85)' }} />
+            <div style={{ marginBottom: 30 }}>
+              <MinervaLogo width={280} />
             </div>
 
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
@@ -261,8 +259,7 @@ export default function HomePage() {
           <div className="ft-inner" style={{ display: 'flex', justifyContent: 'space-between' }}>
             {/* Left */}
             <div style={{ width: 220, flexShrink: 0 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/logo-gold.svg" alt="M" width={30} height={30} style={{ opacity: 0.5 }} />
+              <MinervaLogo width={30} iconOnly color="rgba(197,163,90,0.5)" />
               <p style={{ fontFamily: "'Lora', serif", fontSize: '0.85rem', color: 'rgba(255,255,255,0.3)', marginTop: 12 }}>
                 Minerva Partners S.r.l.
               </p>
