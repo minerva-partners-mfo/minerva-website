@@ -177,13 +177,15 @@ export function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <Link
-              href="/"
+            <a
+              href="https://minervapartners.it/login"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden lg:block font-sans text-[10px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:border-[#c5a35a]"
               style={{ color: '#c5a35a', border: '1px solid rgba(197,163,90,0.3)', padding: '6px 16px', background: 'transparent', borderRadius: 4 }}
             >
               {t('minervaBoard')}
-            </Link>
+            </a>
             <Link
               href={pathname}
               locale={otherLocale}
@@ -235,7 +237,17 @@ export function Navbar() {
               </div>
             </div>
           ))}
-          <div className="mt-4 flex justify-center">
+          <div className="mt-4 flex flex-col items-center gap-3">
+            <a
+              href="https://minervapartners.it/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded font-sans text-[11px] font-semibold tracking-[0.1em] uppercase transition-all duration-300"
+              style={{ color: '#c5a35a', border: '1px solid rgba(197,163,90,0.3)' }}
+              onClick={closeMobile}
+            >
+              {t('minervaBoard')}
+            </a>
             <Link href={pathname} locale={otherLocale} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 font-sans text-[11px] font-semibold tracking-wider text-white/80 hover:text-white hover:border-[#C9912B]/30 transition-all duration-300" onClick={closeMobile}>
               <span className="w-1.5 h-1.5 rounded-full bg-[#C9912B]/50" />
               {t('langSwitch')}
