@@ -1,422 +1,320 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useTranslations } from 'next-intl'
-import { RevealSection } from './RevealSection'
-import Image from 'next/image'
+import { useState, useRef } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 
-type Step = 'select' | 'form' | 'confirm'
-type Mode = 'independent' | 'invite' | null
+type FormStep = 'choice' | 'form' | 'sent'
 
-export function CTASection() {
-  const t = useTranslations('landing.cta')
-  const [modalOpen, setModalOpen] = useState(false)
-  const [step, setStep] = useState<Step>('select')
-  const [mode, setMode] = useState<Mode>(null)
-  const [submitted, setSubmitted] = useState(false)
-
-  const openModal = () => {
-    setModalOpen(true)
-    setStep('select')
-    setMode(null)
-    setSubmitted(false)
-  }
-
-  const closeModal = () => {
-    setModalOpen(false)
-  }
-
-  const selectMode = (m: Mode) => {
-    setMode(m)
-    setStep('form')
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-    setStep('confirm')
-  }
-
-  const inputStyle: React.CSSProperties = {
-    background: '#0a1e2e',
-    border: '0.5px solid rgba(197,160,89,0.20)',
-    borderRadius: 10,
-    padding: '12px 14px',
-    color: 'white',
-    fontFamily: 'var(--font-dm-sans)',
-    fontSize: 13,
-    outline: 'none',
-    width: '100%',
-    boxSizing: 'border-box',
-  }
-
-  const labelStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-dm-sans)',
-    fontSize: 10,
-    color: 'rgba(255,255,255,0.50)',
-    textTransform: 'uppercase',
-    letterSpacing: '0.05em',
-    marginBottom: 6,
-    display: 'block',
-  }
+export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
+  modalOpen: boolean
+  onOpenModal: () => void
+  onCloseModal: () => void
+}) {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
     <>
       <section
-        id="cta-section"
-        className="relative px-6 text-center"
-        style={{
-          paddingTop: 60,
-          paddingBottom: 100,
-          background: '#0f1829',
-        }}
+        ref={ref}
+        className="relative py-24 md:py-32 px-6"
+        style={{ background: '#0f1829' }}
       >
-        <RevealSection>
-          {/* Pulsing CTA button */}
-          <motion.button
-            onClick={openModal}
-            className="cursor-pointer"
-            animate={{
-              boxShadow: [
-                '0 0 20px rgba(197,160,89,0.1)',
-                '0 0 40px rgba(197,160,89,0.2)',
-                '0 0 20px rgba(197,160,89,0.1)',
-              ],
-            }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        <motion.div
+          className="flex flex-col items-center text-center"
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+        >
+          <button
+            onClick={onOpenModal}
             style={{
-              background: 'transparent',
-              border: '1px solid #C5A059',
-              color: '#C5A059',
-              padding: '18px 56px',
-              borderRadius: 10,
-              fontFamily: 'var(--font-cormorant)',
-              fontSize: 16,
+              fontFamily: 'var(--font-dm-sans)',
+              fontSize: 18,
               fontWeight: 600,
-              letterSpacing: '0.1em',
+              color: '#0a0f1c',
+              letterSpacing: '0.06em',
+              padding: '20px 64px',
+              background: 'linear-gradient(135deg, #C5A059, #d4af61, #C5A059)',
+              border: 'none',
+              borderRadius: 6,
+              cursor: 'pointer',
+              transition: 'all 0.4s',
+              boxShadow: '0 4px 30px rgba(197, 160, 89, 0.2)',
             }}
-            whileHover={{
-              backgroundColor: '#C5A059',
-              color: '#0f1829',
-              y: -2,
-              boxShadow: '0 10px 40px rgba(197,160,89,0.3)',
-            }}
+            className="hover:shadow-[0_8px_40px_rgba(197,160,89,0.35)] hover:scale-[1.02] active:scale-[0.98]"
           >
-            {t('button')}
-          </motion.button>
-
+            Richiedi l&apos;accesso
+          </button>
           <p
-            className="mt-5"
+            className="mt-6"
             style={{
               fontFamily: 'var(--font-cormorant)',
               fontStyle: 'italic',
-              fontSize: 12,
-              color: 'rgba(255,255,255,0.50)',
-              letterSpacing: '0.08em',
+              fontSize: 16,
+              color: 'rgba(255,255,255,0.5)',
+              letterSpacing: '0.04em',
+              margin: '24px 0 0',
             }}
           >
-            {t('tagline')}
+            L&apos;eccellenza senza compromessi
           </p>
-        </RevealSection>
+        </motion.div>
       </section>
 
       {/* Modal */}
       <AnimatePresence>
-        {modalOpen && (
-          <motion.div
-            className="fixed inset-0 z-[1000] flex items-center justify-center p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {/* Overlay */}
-            <div
-              className="absolute inset-0"
-              style={{
-                background: 'rgba(0,5,15,0.85)',
-                backdropFilter: 'blur(12px)',
-              }}
-              onClick={closeModal}
-            />
-
-            {/* Modal box */}
-            <motion.div
-              className="relative w-[92%] max-w-[480px] overflow-y-auto"
-              style={{
-                maxHeight: '90vh',
-                background: 'linear-gradient(135deg, #0f1829, #061a28)',
-                border: '0.5px solid #C5A059',
-                borderRadius: 20,
-                padding: '40px 32px',
-                boxShadow: '0 40px 80px rgba(0,0,0,0.6)',
-              }}
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
-            >
-              {/* Header */}
-              <div className="flex flex-col items-center mb-8">
-                <Image
-                  src="/images/logo-minerva.png"
-                  alt="Minerva Partners"
-                  width={120}
-                  height={60}
-                  className="h-10 w-auto object-contain"
-                />
-                <h2
-                  className="mt-4"
-                  style={{
-                    fontFamily: 'var(--font-cormorant)',
-                    fontSize: 22,
-                    fontWeight: 500,
-                    color: 'rgba(255,255,255,0.88)',
-                    margin: 0,
-                  }}
-                >
-                  {t('modal.title')}
-                </h2>
-                {step === 'select' && (
-                  <p
-                    className="mt-2"
-                    style={{
-                      fontFamily: 'var(--font-dm-sans)',
-                      fontSize: 12,
-                      color: 'rgba(255,255,255,0.50)',
-                    }}
-                  >
-                    {t('modal.selectMode')}
-                  </p>
-                )}
-              </div>
-
-              {/* Step 1: Select */}
-              {step === 'select' && (
-                <div className="flex flex-col gap-3">
-                  <button
-                    className="text-left cursor-pointer transition-all duration-300"
-                    onClick={() => selectMode('independent')}
-                    style={{
-                      background: '#0a1e2e',
-                      border: '0.5px solid rgba(197,160,89,0.20)',
-                      borderRadius: 12,
-                      padding: '18px 20px',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = '#C5A059'
-                      e.currentTarget.style.boxShadow = '0 0 30px rgba(197,160,89,0.12)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(197,160,89,0.20)'
-                      e.currentTarget.style.boxShadow = 'none'
-                    }}
-                  >
-                    <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 17, color: 'rgba(255,255,255,0.88)', fontWeight: 500, margin: 0 }}>
-                      {t('modal.independentTitle')}
-                    </p>
-                    <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 12, color: 'rgba(255,255,255,0.50)', margin: '4px 0 0' }}>
-                      {t('modal.independentDesc')}
-                    </p>
-                  </button>
-                  <button
-                    className="text-left cursor-pointer transition-all duration-300"
-                    onClick={() => selectMode('invite')}
-                    style={{
-                      background: '#0a1e2e',
-                      border: '0.5px solid rgba(197,160,89,0.20)',
-                      borderRadius: 12,
-                      padding: '18px 20px',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = '#C5A059'
-                      e.currentTarget.style.boxShadow = '0 0 30px rgba(197,160,89,0.12)'
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(197,160,89,0.20)'
-                      e.currentTarget.style.boxShadow = 'none'
-                    }}
-                  >
-                    <p style={{ fontFamily: 'var(--font-cormorant)', fontSize: 17, color: 'rgba(255,255,255,0.88)', fontWeight: 500, margin: 0 }}>
-                      {t('modal.inviteTitle')}
-                    </p>
-                    <p style={{ fontFamily: 'var(--font-dm-sans)', fontSize: 12, color: 'rgba(255,255,255,0.50)', margin: '4px 0 0' }}>
-                      {t('modal.inviteDesc')}
-                    </p>
-                  </button>
-                </div>
-              )}
-
-              {/* Step 2: Form */}
-              {step === 'form' && (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                  {mode === 'invite' && (
-                    <div>
-                      <label style={labelStyle}>{t('modal.referralLabel')}</label>
-                      <textarea
-                        placeholder={t('modal.referralPlaceholder')}
-                        rows={2}
-                        style={{
-                          ...inputStyle,
-                          resize: 'none',
-                        }}
-                        onFocus={(e) => (e.currentTarget.style.borderColor = '#C5A059')}
-                        onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(197,160,89,0.20)')}
-                      />
-                    </div>
-                  )}
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label style={labelStyle}>{t('modal.firstName')}</label>
-                      <input
-                        type="text"
-                        required
-                        style={inputStyle}
-                        onFocus={(e) => (e.currentTarget.style.borderColor = '#C5A059')}
-                        onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(197,160,89,0.20)')}
-                      />
-                    </div>
-                    <div>
-                      <label style={labelStyle}>{t('modal.lastName')}</label>
-                      <input
-                        type="text"
-                        required
-                        style={inputStyle}
-                        onFocus={(e) => (e.currentTarget.style.borderColor = '#C5A059')}
-                        onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(197,160,89,0.20)')}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label style={labelStyle}>Email</label>
-                    <input
-                      type="email"
-                      required
-                      style={inputStyle}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = '#C5A059')}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(197,160,89,0.20)')}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={labelStyle}>{t('modal.phone')}</label>
-                    <input
-                      type="tel"
-                      style={inputStyle}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = '#C5A059')}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(197,160,89,0.20)')}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={labelStyle}>{t('modal.role')}</label>
-                    <input
-                      type="text"
-                      placeholder={t('modal.rolePlaceholder')}
-                      style={inputStyle}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = '#C5A059')}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(197,160,89,0.20)')}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="mt-2 cursor-pointer transition-all duration-300"
-                    style={{
-                      background: 'linear-gradient(135deg, #C5A059, #D4AF37)',
-                      color: '#0f1829',
-                      borderRadius: 10,
-                      padding: 14,
-                      border: 'none',
-                      fontFamily: 'var(--font-cormorant)',
-                      fontSize: 15,
-                      fontWeight: 600,
-                      letterSpacing: '0.05em',
-                      boxShadow: '0 4px 20px rgba(197,160,89,0.3)',
-                      width: '100%',
-                    }}
-                  >
-                    {t('modal.submit')}
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setStep('select')}
-                    className="cursor-pointer"
-                    style={{
-                      background: 'transparent',
-                      border: 'none',
-                      fontFamily: 'var(--font-dm-sans)',
-                      fontSize: 13,
-                      color: 'rgba(255,255,255,0.50)',
-                      padding: '8px 0',
-                    }}
-                  >
-                    ← {t('modal.back')}
-                  </button>
-                </form>
-              )}
-
-              {/* Step 3: Confirmation */}
-              {step === 'confirm' && (
-                <div className="flex flex-col items-center text-center gap-4">
-                  <div
-                    className="flex items-center justify-center"
-                    style={{
-                      width: 56,
-                      height: 56,
-                      borderRadius: '50%',
-                      border: '1.5px solid #C5A059',
-                      color: '#C5A059',
-                      fontSize: 24,
-                    }}
-                  >
-                    ✓
-                  </div>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-cormorant)',
-                      fontSize: 24,
-                      fontWeight: 500,
-                      color: 'rgba(255,255,255,0.88)',
-                      margin: 0,
-                    }}
-                  >
-                    {t('modal.confirmTitle')}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-dm-sans)',
-                      fontSize: 14,
-                      color: 'rgba(255,255,255,0.50)',
-                    }}
-                  >
-                    {t('modal.confirmDesc')}
-                  </p>
-                  <button
-                    onClick={closeModal}
-                    className="mt-4 cursor-pointer transition-all duration-300"
-                    style={{
-                      background: 'transparent',
-                      border: '0.5px solid rgba(197,160,89,0.20)',
-                      color: 'rgba(255,255,255,0.70)',
-                      borderRadius: 10,
-                      padding: '12px 40px',
-                      fontFamily: 'var(--font-dm-sans)',
-                      fontSize: 13,
-                    }}
-                  >
-                    {t('modal.close')}
-                  </button>
-                </div>
-              )}
-            </motion.div>
-          </motion.div>
-        )}
+        {modalOpen && <AccessModal onClose={onCloseModal} />}
       </AnimatePresence>
     </>
+  )
+}
+
+function AccessModal({ onClose }: { onClose: () => void }) {
+  const [step, setStep] = useState<FormStep>('choice')
+  const [viaInvite, setViaInvite] = useState(false)
+  const [inviteNote, setInviteNote] = useState('')
+  const [form, setForm] = useState({
+    nome: '', cognome: '', email: '', telefono: '', ruolo: '',
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log('Richiesta accesso:', {
+      tipo: viaInvite ? 'Tramite invito' : 'Richiesta indipendente',
+      inviteNote: viaInvite ? inviteNote : null,
+      ...form,
+    })
+    setStep('sent')
+  }
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%',
+    padding: '12px 16px',
+    fontFamily: 'var(--font-dm-sans)',
+    fontSize: 14,
+    color: 'rgba(255,255,255,0.9)',
+    background: 'rgba(255,255,255,0.04)',
+    border: '1px solid rgba(197,160,89,0.15)',
+    borderRadius: 6,
+    outline: 'none',
+    transition: 'border-color 0.3s',
+  }
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[100] flex items-center justify-center px-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'rgba(10, 15, 28, 0.92)', backdropFilter: 'blur(12px)' }}
+        onClick={onClose}
+      />
+
+      {/* Modal body */}
+      <motion.div
+        className="relative w-full max-w-[480px] rounded-xl overflow-hidden"
+        style={{
+          background: 'linear-gradient(180deg, #101c2e, #0a1220)',
+          border: '1px solid rgba(197,160,89,0.12)',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+        }}
+        initial={{ scale: 0.95, y: 20 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.95, y: 20 }}
+        transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 pt-6 pb-2">
+          <h3
+            style={{
+              fontFamily: 'var(--font-cormorant)',
+              fontSize: 22,
+              fontWeight: 600,
+              color: 'rgba(255,255,255,0.9)',
+              margin: 0,
+            }}
+          >
+            {step === 'sent' ? 'Grazie' : 'Richiedi l\'accesso'}
+          </h3>
+          <button
+            onClick={onClose}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'rgba(255,255,255,0.3)',
+              fontSize: 20,
+              cursor: 'pointer',
+              padding: 4,
+            }}
+          >
+            &#10005;
+          </button>
+        </div>
+
+        <div className="px-6 pb-6">
+          {/* Step: choice */}
+          {step === 'choice' && (
+            <div className="space-y-3 mt-4">
+              <button
+                onClick={() => { setViaInvite(false); setStep('form') }}
+                className="w-full text-left px-5 py-4 rounded-lg transition-all duration-300 hover:border-[rgba(197,160,89,0.35)]"
+                style={{
+                  fontFamily: 'var(--font-dm-sans)',
+                  fontSize: 14,
+                  color: 'rgba(255,255,255,0.8)',
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(197,160,89,0.12)',
+                }}
+              >
+                Richiesta indipendente
+              </button>
+              <button
+                onClick={() => { setViaInvite(true); setStep('form') }}
+                className="w-full text-left px-5 py-4 rounded-lg transition-all duration-300 hover:border-[rgba(197,160,89,0.35)]"
+                style={{
+                  fontFamily: 'var(--font-dm-sans)',
+                  fontSize: 14,
+                  color: 'rgba(255,255,255,0.8)',
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(197,160,89,0.12)',
+                }}
+              >
+                Tramite invito
+              </button>
+            </div>
+          )}
+
+          {/* Step: form */}
+          {step === 'form' && (
+            <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+              {viaInvite && (
+                <div>
+                  <label
+                    style={{
+                      fontFamily: 'var(--font-dm-sans)',
+                      fontSize: 11,
+                      color: '#C5A059',
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      display: 'block',
+                      marginBottom: 6,
+                    }}
+                  >
+                    Persona, evento o opportunit&agrave;
+                  </label>
+                  <textarea
+                    value={inviteNote}
+                    onChange={(e) => setInviteNote(e.target.value)}
+                    rows={3}
+                    style={{ ...inputStyle, resize: 'vertical' }}
+                    placeholder="Descrivi il contatto o l'evento..."
+                  />
+                </div>
+              )}
+
+              <div className="grid grid-cols-2 gap-3">
+                <input
+                  required
+                  placeholder="Nome"
+                  value={form.nome}
+                  onChange={(e) => setForm({ ...form, nome: e.target.value })}
+                  style={inputStyle}
+                />
+                <input
+                  required
+                  placeholder="Cognome"
+                  value={form.cognome}
+                  onChange={(e) => setForm({ ...form, cognome: e.target.value })}
+                  style={inputStyle}
+                />
+              </div>
+
+              <input
+                required
+                type="email"
+                placeholder="Email"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                style={inputStyle}
+              />
+              <input
+                placeholder="Telefono"
+                value={form.telefono}
+                onChange={(e) => setForm({ ...form, telefono: e.target.value })}
+                style={inputStyle}
+              />
+              <input
+                placeholder="Ruolo / Attivit&agrave;"
+                value={form.ruolo}
+                onChange={(e) => setForm({ ...form, ruolo: e.target.value })}
+                style={inputStyle}
+              />
+
+              <button
+                type="submit"
+                className="w-full hover:brightness-110 active:scale-[0.98]"
+                style={{
+                  fontFamily: 'var(--font-dm-sans)',
+                  fontSize: 14,
+                  fontWeight: 600,
+                  color: '#0a0f1c',
+                  padding: '14px',
+                  background: 'linear-gradient(135deg, #C5A059, #d4af61)',
+                  border: 'none',
+                  borderRadius: 6,
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  marginTop: 8,
+                }}
+              >
+                Invia richiesta
+              </button>
+            </form>
+          )}
+
+          {/* Step: sent */}
+          {step === 'sent' && (
+            <div className="text-center py-8">
+              <p
+                style={{
+                  fontFamily: 'var(--font-cormorant)',
+                  fontStyle: 'italic',
+                  fontSize: 18,
+                  color: 'rgba(255,255,255,0.75)',
+                  lineHeight: 1.6,
+                  margin: 0,
+                }}
+              >
+                La tua richiesta &egrave; stata inviata.<br />
+                Ti contatteremo a breve.
+              </p>
+              <button
+                onClick={onClose}
+                className="mt-6"
+                style={{
+                  fontFamily: 'var(--font-dm-sans)',
+                  fontSize: 13,
+                  color: '#C5A059',
+                  background: 'none',
+                  border: '1px solid rgba(197,160,89,0.25)',
+                  borderRadius: 6,
+                  padding: '10px 28px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                }}
+              >
+                Chiudi
+              </button>
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
   )
 }
