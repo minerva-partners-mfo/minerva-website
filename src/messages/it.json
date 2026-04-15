@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Minerva Partners: Multiclient Family Office",
-      "desc": "Eccellenza senza compromessi. Il patrimonio ha bisogno di qualcuno che lo guardi con lo stesso sguardo di chi lo ha costruito."
+      "desc": "Il patrimonio ha bisogno di qualcuno che lo guardi con lo stesso sguardo di chi lo ha costruito."
     },
     "hub": {
       "title": "Minerva Hub: La Regia",
@@ -1182,7 +1182,7 @@
         "b3": "MARGINI",
         "b4": "CRESCITA"
       },
-      "barsNote": "EBITDA da 8% a 14% — caso reale, PMI alimentare"
+      "barsNote": "EBITDA da 8% a 14%, caso reale, PMI alimentare"
     },
     "s04": {
       "num": "04",
@@ -1744,7 +1744,7 @@
   "codice": {
     "label": "Il Codice Minerva",
     "opening": "La tua e la nostra sicurezza: operare e dormire tranquilli.",
-    "headline": "Tre codici. Una sola regola: eccellenza senza compromessi.",
+    "headline": "Tre codici. Una sola regola: nessun compromesso.",
     "subtitle": "Ogni professionista sottoscrive il Codice Minerva prima di operare. Tre documenti vincolanti che definiscono come si lavora, come si distribuisce il valore e come si proteggono i clienti.",
     "firma": "Tutti firmano prima di operare.",
     "cards": {
@@ -2636,7 +2636,7 @@
     },
     "filosofia": {
       "title": "La nostra visione",
-      "text": "Il trasferimento della ricchezza non è un evento ma un processo che dura anni. Lo accompagniamo con una regia che integra aspetti legali, fiscali, finanziari e — soprattutto — familiari."
+      "text": "Il trasferimento della ricchezza non è un evento ma un processo che dura anni. Lo accompagniamo con una regia che integra aspetti legali, fiscali, finanziari e , soprattutto , familiari."
     },
     "differentiator": "Non prepariamo testamenti. Costruiamo ponti tra generazioni, perché la ricchezza sopravviva a chi l'ha creata.",
     "cta": "Parliamo del tuo futuro"
@@ -2653,7 +2653,7 @@
     "s1": "Tutto parte da un'esigenza concreta.",
     "s2": "Minerva la analizza nel contesto complessivo del cliente.",
     "s3": "Definisce uno schema di gioco e individua le competenze necessarie.",
-    "s4": "Attiva le persone giuste — selezionate e vincolate dal Codice Minerva.",
+    "s4": "Attiva le persone giuste, selezionate e vincolate dal Codice Minerva.",
     "s5": "Il cliente è parte attiva del processo.",
     "s6": "Minerva agisce ed esegue, anche direttamente quando necessario.",
     "s7": "Coordina le decisioni nel tempo, in modo coerente e trasparente.",
@@ -2666,5 +2666,86 @@
     "login": "Accedi",
     "introduced": "Sei stato introdotto?",
     "minervaBoard": "Minerva Board"
+  },
+  "landing": {
+    "nav": {
+      "access": "ACCEDI"
+    },
+    "hero": {
+      "title": "Il Patrimonio evolve solo quando viene visto nella sua interezza",
+      "subtitle": "MULTICLIENT FAMILY OFFICE"
+    },
+    "cards": {
+      "sectionTitle": "SOLUZIONI SU MISURA, SENZA LIMITI",
+      "ma": {
+        "title": "M&A & Investments",
+        "subtitle": "Architetti di operazioni",
+        "text": "Deal origination off-market, capital raising, strutturazione club deal. True Value Assessment: il vero valore della tua azienda, voce per voce. Due Diligence accelerata. Valutazione con comparables di mercato."
+      },
+      "realEstate": {
+        "title": "Real Estate Advisory",
+        "subtitle": "Opportunità fuori dai portali",
+        "text": "Value-add residenziale e hospitality, asset trophy, conversioni. Analisi comparativa automatica, portfolio aggregato, scenario analysis per sviluppo. Dati catastali e rendimenti in tempo reale."
+      },
+      "strategy": {
+        "title": "Strategy Consulting",
+        "subtitle": "Visione che diventa azione",
+        "text": "Business and Review Plan, Value Creation, Internazionalizzazione, Advisory M&A, allineamento famiglia-azienda. Competitive intelligence continua su mercati e settori."
+      },
+      "wealth": {
+        "title": "Wealth Management",
+        "subtitle": "Fee-only pura",
+        "text": "Asset allocation strategica, private markets, protezione risk/liquidity. Nessuna retrocessione. Indipendenza totale nelle scelte di allocazione. Il Cruscotto della Serenità: non numeri, ma risposte."
+      },
+      "family": {
+        "title": "Family Advisory",
+        "subtitle": "Governance strutturata",
+        "text": "Patti di famiglia, Family Office as-a-service, trust e architettura societaria complessa. 360° Assessment con 3 soluzioni concrete, impatti quantificati su ogni sfera della famiglia."
+      },
+      "passion": {
+        "title": "Passion Assets",
+        "subtitle": "Emozioni protette",
+        "text": "Collectibles, luxury, vintage. Supporto nella protezione e nella valorizzazione, lifestyle management e concierge. Monitoraggio aste internazionali e valutazioni."
+      },
+      "nextgen": {
+        "title": "NextGen ↔ GenExit",
+        "subtitle": "Il futuro è già qui",
+        "text": "Non solo un passaggio di testimone. Per chi esce: 5 scenari di seconda vita, perché 'dopo' può essere il capitolo più bello. Per chi entra: Readiness Assessment, gap analysis, piano di crescita. Il Deep Dive è il rito di passaggio."
+      }
+    },
+    "manifesto": {
+      "quote1": "Nasciamo come confederazione di eccellenze, dove ognuno si impegna nei confronti dell'altro e del cliente, nell'offrire diversi scenari, sostenibili e duraturi.",
+      "principlesLabel": "I NOSTRI PRINCIPI",
+      "quote2": "Non siamo una banca, non siamo un fondo, non siamo una boutique: siamo <span style=\"color:#C5A059;font-weight:500\">abilitatori di valore</span> e di relazioni attraverso l'intelligenza collettiva condivisa.",
+      "quote2raw": "Non siamo una banca, non siamo un fondo, non siamo una boutique: siamo abilitatori di valore e di relazioni attraverso l'intelligenza collettiva condivisa."
+    },
+    "cta": {
+      "button": "Richiedi l'accesso",
+      "tagline": "L'eccellenza senza compromessi",
+      "modal": {
+        "title": "Richiedi l'accesso",
+        "selectMode": "Seleziona la modalità",
+        "independentTitle": "Richiesta indipendente",
+        "independentDesc": "Vuoi conoscere Minerva Partners o proporre una collaborazione",
+        "inviteTitle": "Tramite invito",
+        "inviteDesc": "Sei stato invitato da una persona, a un evento, o per un'opportunità",
+        "referralLabel": "Chi ti ha invitato o come ci hai conosciuto",
+        "referralPlaceholder": "Persona, evento, opportunità...",
+        "firstName": "Nome",
+        "lastName": "Cognome",
+        "phone": "Telefono",
+        "role": "Ruolo / Attività",
+        "rolePlaceholder": "Es. Imprenditore, Commercialista, Advisor...",
+        "submit": "Invia richiesta",
+        "back": "Indietro",
+        "confirmTitle": "Richiesta inviata",
+        "confirmDesc": "Riceverai un riscontro entro 48 ore.",
+        "close": "Chiudi"
+      }
+    },
+    "footer": {
+      "privacy": "Privacy Policy",
+      "cookie": "Cookie Policy"
+    }
   }
 }

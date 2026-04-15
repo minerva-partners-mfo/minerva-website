@@ -21,9 +21,18 @@
   --color-cream: #F8F6F1;
   --color-cream-dark: #EDE9E0;
 
+  /* Landing palette */
+  --color-ln-navy: #0f1829;
+  --color-ln-navy-dark: #0a0f1c;
+  --color-ln-navy-card: #0a1e2e;
+  --color-ln-navy-card-hover: #0d2a3d;
+  --color-ln-gold: #C5A059;
+  --color-ln-gold-bright: #D4AF37;
+
   /* Fonts */
   --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-sans: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  --font-cormorant: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
 }
 
 /* ═══════════════════════════════════════════

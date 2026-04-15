@@ -2,10 +2,10 @@
   "meta": {
     "home": {
       "title": "Minerva Partners: Multiclient Family Office",
-      "desc": "Excellence without compromise. Wealth needs someone who sees it with the same care as those who built it."
+      "desc": "Wealth needs someone who sees it with the same care as those who built it."
     },
     "hub": {
-      "title": "Minerva Hub: The Direction",
+      "title": "Minerva Hub: The Core",
       "desc": "The 4 core competencies of Minerva Partners: M&A, Real Estate, Strategy, Wealth Management."
     },
     "ecosistema": {
@@ -26,7 +26,7 @@
     },
     "soluzioni": {
       "title": "Unified Solutions",
-      "desc": "One direction for all wealth dimensions: business, real estate, wealth, family, life."
+      "desc": "One integrated oversight for every dimension of wealth: business, real estate, investments, family, life."
     },
     "abilitatori": {
       "title": "Enablers",
@@ -86,7 +86,7 @@
     },
     "posizionamento": {
       "title": "Positioning",
-      "desc": "Where Minerva Partners stands in the wealth advisory landscape."
+      "desc": "Where Minerva Partners stands in the world of wealth advisory."
     },
     "azienda": {
       "title": "Business: M&A & Strategy",
@@ -171,12 +171,12 @@
     }
   },
   "loStatement": {
-    "text": "Minerva Partners is not just a Family Office.\nIt is the ecosystem where excellence converges,\nthat together can offer you the best solution\nfor your wealth.",
+    "text": "Minerva Partners is more than a Family Office.\nIt is the ecosystem where the best minds converge,\nthat together can offer you the finest solution for your wealth.",
     "imageCaption": "An ecosystem of professionals who share competencies, relationships and the satisfaction of an excellent result."
   },
   "imageEcosistema": {
     "line1": "Minerva Partners is not just a Family Office.",
-    "line2": "It is the ecosystem where excellence converges, that together can offer you the best solution for your wealth.",
+    "line2": "It is the ecosystem where the best minds converge, that together can offer you the finest solution for your wealth.",
     "line3": "Professionals who have accepted a code of confidentiality and transparency. Who share competencies, relationships and the satisfaction of an excellent result."
   },
   "homeEcosistema": {
@@ -188,7 +188,7 @@
       },
       "2": {
         "title": "MINERVA HUB",
-        "text": "The operational direction. M&A & Investments, Real Estate Advisory, Strategy Consulting, Wealth Management. What we do well, we do ourselves.",
+        "text": "The operational core. M&A & Investments, Real Estate Advisory, Strategy Consulting, Wealth Management. What we do well, we do ourselves.",
         "link": "Discover the Hub →"
       },
       "3": {
@@ -389,7 +389,7 @@
       "londra": {
         "location": "LONDON",
         "title": "The speed of decisions.",
-        "text": "Workgroups in days, not months. A digital portal that accelerates every phase. Because in today's world, those who decide first decide best."
+        "text": "Workgroups in days, not months. A digital portal that accelerates every phase. Because those who decide first decide best."
       },
       "italia": {
         "location": "ITALY",
@@ -399,7 +399,7 @@
       "singapore": {
         "location": "SINGAPORE",
         "title": "The global vision.",
-        "text": "Italian competencies with international opportunities. Global capital with Italian excellence. A bridge between worlds that rarely speak to each other."
+        "text": "Italian competencies with international reach. Global capital with Italian quality. A bridge between worlds that operates with discretion."
       }
     },
     "ispirazioni": {
@@ -429,7 +429,7 @@
         "stonehage": {
           "name": "Stonehage Fleming",
           "tag": "UK/Global, 2014",
-          "text": "The benchmark for comprehensive services. Inspired the completeness of our ecosystem."
+          "text": "The benchmark for full-spectrum services. Inspired the breadth of our ecosystem."
         },
         "cresset": {
           "name": "Cresset",
@@ -448,12 +448,12 @@
   },
   "comeFunziona": {
     "label": "HOW IT WORKS",
-    "headline": "The direction that was missing.",
-    "subtitle": "A system that assembles around the wealth. Not a catalog of services, but an integrated bespoke solution.",
+    "headline": "The oversight that was missing.",
+    "subtitle": "A system that assembles around your wealth. Not a catalogue of services, but an integrated solution built for you.",
     "blocco1": {
       "label": "THE UNIFIED MODEL",
-      "text": "Minerva doesn't sell individual services. It designs integrated bespoke solutions. Each solution is made of \"bricks\": some pre-established (Hub), others activated as needed (Partners, Friends). The direction is unique.",
-      "regia": "MINERVA DIRECTION",
+      "text": "Minerva doesn't sell individual services. It designs integrated solutions. Each solution is made of \"bricks\": some pre-established (Hub), others activated as needed (Partners, Friends). The oversight is unified.",
+      "regia": "MINERVA OVERSIGHT",
       "hub": {
         "ma": "M&A",
         "re": "Real Estate",
@@ -531,7 +531,7 @@
     },
     "blocco4": {
       "label": "THE CODE AND VERITAS",
-      "text": "Every professional signs the Minerva Code before operating. Three documents: Ethical, Remunerative, Operational. The decision filter: VERITAS.",
+      "text": "Every professional signs the Minerva Code before operating. Three documents: Ethical, Compensation, Operational. The decision filter: VERITAS.",
       "veritas": {
         "v": "Value",
         "e": "Ethics",
@@ -619,7 +619,7 @@
       "label": "ACT 3: THE DISSATISFACTION",
       "text": "The result? Dissatisfaction. Sometimes explicit, badly managed operations, fragmented wealth, traumatic generational transitions. Sometimes latent, that feeling that things are not in their place, that one could do better, that no one is looking at the full picture. That voice that says: 'My wealth deserves more.'",
       "cosaFare": "What to do?",
-      "answer": "Minerva Partners is not just a Family Office. It is the direction for the wealth.",
+      "answer": "Minerva Partners is more than a Family Office. It is the oversight your wealth deserves.",
       "cta": "Discover how it works"
     }
   },
@@ -631,7 +631,7 @@
       "architettura": {
         "title": "THE ARCHITECTURE",
         "paragraphs": [
-          "At the center exists the hub: four directives representing our distinctive competencies, **M&A, real estate, strategy consulting and wealth management**, integrated into a single design that reads wealth as a system.",
+          "At the center exists the hub: four pillars representing our distinctive competencies, **M&A, real estate, strategy consulting and wealth management**, integrated into a single design that reads wealth as a system.",
           "Around the hub, Partners are activated with their most relevant verticals: legal, tax, industrial, energy, insurance, international, and the Friends, bearers of specialist skills, connections and unconventional perspectives.",
           "The goal is not to offer services, but to outline each time **the best solution for that family**, at that moment, along that trajectory."
         ]
@@ -646,7 +646,7 @@
       "codice": {
         "title": "THE MINERVA CODE",
         "paragraphs": [
-          "To ensure coherence, the **Minerva Code** exists: ethical, remunerative and operational, defining how we work together, how value is distributed and how conflicts are managed."
+          "To ensure coherence, the **Minerva Code** exists: ethical, compensation-related and operational, defining how we work together, how value is distributed and how conflicts are managed."
         ]
       },
       "skin": {
@@ -666,7 +666,7 @@
     },
     "quote": "Wealth deserves the same care as those who built it.",
     "closing": [
-      "Minerva is a shapeable structure: you will enter a system that learns, adapts and grows with you. Making better opportunities, more evolved conversations and more conscious trajectories possible.",
+      "Minerva is an adaptive structure: you will enter a system that learns, adapts and grows with you. Making better opportunities, more evolved conversations and more conscious trajectories possible.",
       "Our work is not measured in completed transactions, but in the quality of choices that become possible over time.",
       "And it is on this that we build every relationship."
     ],
@@ -847,7 +847,7 @@
         "title": "Entrepreneurs",
         "short": "Entrepreneurs",
         "subtitle": "Those who built",
-        "desc": "The entrepreneur who dedicated decades to their company. Wealth grew with them: business, real estate, investments, family. But the system to manage all this hasn't kept pace. Too many advisors, no direction. 67% of their wealth is locked in business equity.",
+        "desc": "The entrepreneur who dedicated decades to their company. Wealth grew with them: business, real estate, investments, family. But the system to manage all this hasn't kept pace. Too many advisors, no oversight. 67% of their wealth is locked in business equity.",
         "services": "M&A advisory · Exit planning · Wealth structuring · Governance · Generational transition · Club Deal · Post-exit wealth management"
       },
       "p02": {
@@ -1034,7 +1034,7 @@
     },
     "cta": {
       "line1": "Whatever the sector, whatever the role:",
-      "line2": "wealth deserves direction.",
+      "line2": "wealth deserves proper oversight.",
       "btn1": "OUR APPROACH",
       "btn2": "LET'S TALK"
     }
@@ -1042,9 +1042,9 @@
   "hub": {
     "label": "THE CORE",
     "headline": "The team that holds everything together.",
-    "subtitle": "Four core competencies. One unified direction. What we do well, we do ourselves. For everything else, there are the Partners.",
+    "subtitle": "Four core competencies. One unified team. What we do well, we do ourselves. For everything else, there are the Partners.",
     "pyramid": {
-      "title": "Four services. One direction.",
+      "title": "Four services. One team.",
       "regia": "MINERVA HUB",
       "box01": {
         "num": "01",
@@ -1182,7 +1182,7 @@
         "b3": "MARGINS",
         "b4": "GROWTH"
       },
-      "barsNote": "EBITDA from 8% to 14% — real case, food PMI"
+      "barsNote": "EBITDA from 8% to 14%, real case, food SME"
     },
     "s04": {
       "num": "04",
@@ -1233,7 +1233,7 @@
     "label": "THE SYSTEM",
     "headline1": "Not à-la-carte solutions,",
     "headline2": "but infinite combinations",
-    "subtitle": "The Minerva ecosystem is a confederation of independent excellences, coordinated by a single direction. Every member has signed the Code. Every connection generates value.",
+    "subtitle": "The Minerva ecosystem is a confederation of independent specialists, coordinated by a single team. Every member has a role, a code, and a shared interest.",
     "map": {
       "center": "THE WEALTH",
       "hub": "HUB",
@@ -1277,12 +1277,12 @@
       "title": "Why it works",
       "b1": {
         "title": "A COMMON CODE",
-        "desc": "Every member signs the Minerva Code before operating. Excellence, transparency, confidentiality, independence, alignment. It's not decorative: it's the foundation.",
+        "desc": "Every member signs the Minerva Code before operating. Quality, transparency, confidentiality, independence, alignment of interests.",
         "num": "100%",
         "numLabel": "of members have signed the Code"
       },
       "b2": {
-        "title": "A SINGLE DIRECTION",
+        "title": "ONE COORDINATED TEAM",
         "desc": "It's not a marketplace. It's a coordinated ecosystem. Minerva Hub orchestrates everything: who does what, when, how. The client has one single point of contact.",
         "num": "1",
         "numLabel": "point of reference"
@@ -1322,7 +1322,7 @@
   },
   "ecosistemaPartners": {
     "headline": "Minerva Partners",
-    "subtitle": "Selected excellences. Independent. Coordinated.",
+    "subtitle": "Selected specialists. Independent. Coordinated.",
     "aree": {
       "a01": {
         "title": "Legal Services",
@@ -1365,7 +1365,7 @@
       },
       "w2": {
         "title": "DEAL FLOW",
-        "desc": "Qualified clients, already filtered by direction."
+        "desc": "Qualified clients, already vetted by Minerva."
       },
       "w3": {
         "title": "CO-INVESTMENT",
@@ -1540,7 +1540,7 @@
       },
       "s3": {
         "title": "THE PLAN",
-        "desc": "A tailored intervention proposal. Who does what, when, at what cost. If it doesn’t convince, no commitment."
+        "desc": "A proposal built around you. Who does what, when, at what cost. If it doesn't convince, no commitment."
       },
       "s4": {
         "title": "THE EXECUTION",
@@ -1637,7 +1637,7 @@
     },
     "coinvolgimento": {
       "title": "Active Involvement of Everyone, Including the Client",
-      "desc": "It’s not just Minerva that moves. Every ecosystem actor can explore, contribute, originate, invest.",
+      "desc": "Minerva isn't the only one that moves. Every ecosystem member can explore, contribute, originate, invest.",
       "roles": {
         "r1": {
           "title": "ORIGINATOR",
@@ -1744,7 +1744,7 @@
   "codice": {
     "label": "The Minerva Code",
     "opening": "Your security and ours: operate and sleep peacefully.",
-    "headline": "Three codes. One rule: excellence without compromise.",
+    "headline": "Three codes. One rule: no compromise.",
     "subtitle": "Every professional signs the Minerva Code before operating. Three binding documents that define how we work, how value is distributed and how clients are protected.",
     "firma": "Everyone signs before operating.",
     "cards": {
@@ -2478,7 +2478,7 @@
         "label": "clients on fee-only"
       }
     },
-    "differentiator": "We don't manage money. We don't custody assets. We provide the independent direction that was missing between you and those managing your money.",
+    "differentiator": "We don't manage money. We don't custody assets. We provide the independent oversight that was missing between you and the market.",
     "cta": "Let's talk about your wealth"
   },
   "famiglia": {
@@ -2487,7 +2487,7 @@
     },
     "gold": {
       "phrase": "Where wealth ends and family begins, our most important work starts.",
-      "subtext": "Generational transition is not an event: it's a process that requires years of preparation and expert direction."
+      "subtext": "Generational transition is not an event: it's a process that requires years of preparation and expert guidance."
     },
     "servizi": {
       "title": "Family Advisory",
@@ -2636,7 +2636,7 @@
     },
     "filosofia": {
       "title": "Our vision",
-      "text": "Wealth transfer is not an event but a process that lasts years. We accompany it with direction that integrates legal, tax, financial and — above all — family aspects."
+      "text": "Wealth transfer is not an event but a process that lasts years. We accompany it with oversight that integrates legal, tax, financial and , above all , family aspects."
     },
     "differentiator": "We don't prepare wills. We build bridges between generations, so wealth outlives those who created it.",
     "cta": "Let's talk about your future"
@@ -2653,7 +2653,7 @@
     "s1": "It all starts from a concrete need.",
     "s2": "Minerva analyzes it within the client's full context.",
     "s3": "Defines a game plan and identifies the necessary competencies.",
-    "s4": "Activates the right people — selected and bound by the Minerva Code.",
+    "s4": "Activates the right people, selected and bound by the Minerva Code.",
     "s5": "The client is an active part of the process.",
     "s6": "Minerva acts and executes, even directly when necessary.",
     "s7": "Coordinates decisions over time, consistently and transparently.",
@@ -2666,5 +2666,86 @@
     "login": "Login",
     "introduced": "Have you been introduced?",
     "minervaBoard": "Minerva Board"
+  },
+  "landing": {
+    "nav": {
+      "access": "ACCESS"
+    },
+    "hero": {
+      "title": "Wealth evolves only when seen in its entirety",
+      "subtitle": "MULTICLIENT FAMILY OFFICE"
+    },
+    "cards": {
+      "sectionTitle": "BESPOKE SOLUTIONS, WITHOUT LIMITS",
+      "ma": {
+        "title": "M&A & Investments",
+        "subtitle": "Deal architects",
+        "text": "Off-market deal origination, capital raising, club deal structuring. True Value Assessment: the real value of your company, line by line. Accelerated Due Diligence. Market-comparable valuations."
+      },
+      "realEstate": {
+        "title": "Real Estate Advisory",
+        "subtitle": "Opportunities beyond listings",
+        "text": "Residential and hospitality value-add, trophy assets, conversions. Automated comparative analysis, aggregated portfolio, development scenario analysis. Real-time cadastral data and yields."
+      },
+      "strategy": {
+        "title": "Strategy Consulting",
+        "subtitle": "Vision turned into action",
+        "text": "Business and Review Plan, Value Creation, Internationalization, M&A Advisory, family-business alignment. Continuous competitive intelligence across markets and sectors."
+      },
+      "wealth": {
+        "title": "Wealth Management",
+        "subtitle": "Pure fee-only",
+        "text": "Strategic asset allocation, private markets, risk/liquidity protection. No retrocessions. Total independence in allocation choices. The Serenity Dashboard: not numbers, but answers."
+      },
+      "family": {
+        "title": "Family Advisory",
+        "subtitle": "Structured governance",
+        "text": "Family agreements, Family Office as-a-service, trusts and complex corporate architecture. 360° Assessment with 3 concrete solutions, quantified impacts on every sphere of the family."
+      },
+      "passion": {
+        "title": "Passion Assets",
+        "subtitle": "Protected emotions",
+        "text": "Collectibles, luxury, vintage. Support in protection and enhancement, lifestyle management and concierge. International auction monitoring and valuations."
+      },
+      "nextgen": {
+        "title": "NextGen ↔ GenExit",
+        "subtitle": "The future is already here",
+        "text": "More than a handover. For those exiting: 5 second-life scenarios, because 'after' can be the finest chapter. For those entering: Readiness Assessment, gap analysis, growth plan. The Deep Dive is the rite of passage."
+      }
+    },
+    "manifesto": {
+      "quote1": "We are born as a confederation of excellence, where each member commits to the other and to the client, offering diverse, sustainable and lasting scenarios.",
+      "principlesLabel": "OUR PRINCIPLES",
+      "quote2": "We are not a bank, not a fund, not a boutique: we are <span style=\"color:#C5A059;font-weight:500\">enablers of value</span> and relationships through shared collective intelligence.",
+      "quote2raw": "We are not a bank, not a fund, not a boutique: we are enablers of value and relationships through shared collective intelligence."
+    },
+    "cta": {
+      "button": "Request access",
+      "tagline": "Excellence without compromise",
+      "modal": {
+        "title": "Request access",
+        "selectMode": "Select the mode",
+        "independentTitle": "Independent request",
+        "independentDesc": "You want to know Minerva Partners or propose a collaboration",
+        "inviteTitle": "By invitation",
+        "inviteDesc": "You were invited by a person, to an event, or for an opportunity",
+        "referralLabel": "Who invited you or how did you learn about us",
+        "referralPlaceholder": "Person, event, opportunity...",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "phone": "Phone",
+        "role": "Role / Activity",
+        "rolePlaceholder": "E.g. Entrepreneur, Accountant, Advisor...",
+        "submit": "Submit request",
+        "back": "Back",
+        "confirmTitle": "Request sent",
+        "confirmDesc": "You will receive a response within 48 hours.",
+        "close": "Close"
+      }
+    },
+    "footer": {
+      "privacy": "Privacy Policy",
+      "cookie": "Cookie Policy"
+    }
   }
 }
