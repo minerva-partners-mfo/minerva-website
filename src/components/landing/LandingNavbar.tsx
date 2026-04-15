@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
+import { RadarOrbit } from './RadarOrbit'
 
-export function LandingNavbar({ onAccedi }: { onAccedi: () => void }) {
+export function LandingNavbar() {
   const t = useTranslations('landing.nav')
   const [scrolled, setScrolled] = useState(false)
 
@@ -30,28 +31,31 @@ export function LandingNavbar({ onAccedi }: { onAccedi: () => void }) {
       }}
     >
       <div className="max-w-[1200px] mx-auto px-5 md:px-8 flex items-center justify-between h-16 md:h-[72px]">
-        {/* Logo — fades in when scrolled past hero */}
+        {/* Logo with radar — fades in on scroll */}
         <div
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 relative"
           style={{
             opacity: scrolled ? 1 : 0,
             transform: scrolled ? 'translateY(0)' : 'translateY(-10px)',
             transition: 'opacity 0.5s ease, transform 0.5s ease',
           }}
         >
-          <Image
-            src="/images/logo-minerva.png"
-            alt="Minerva Partners"
-            width={120}
-            height={36}
-            className="h-8 w-auto object-contain"
-            priority
-          />
+          <div className="relative flex items-center justify-center" style={{ width: 32, height: 32 }}>
+            <RadarOrbit size={48} />
+            <Image
+              src="/images/logo-minerva.png"
+              alt="Minerva Partners"
+              width={120}
+              height={36}
+              className="h-8 w-auto object-contain relative z-10"
+              priority
+            />
+          </div>
         </div>
 
         <div className="flex items-center gap-3">
           <a
-            href="#"
+            href="/cogito"
             className="hidden sm:block hover:text-white hover:border-white/20"
             style={{
               fontFamily: 'var(--font-dm-sans)',
@@ -69,8 +73,10 @@ export function LandingNavbar({ onAccedi }: { onAccedi: () => void }) {
           >
             {t('cogito')}
           </a>
-          <button
-            onClick={onAccedi}
+          <a
+            href="https://minervapartners.it/login"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontSize: 11,
@@ -84,10 +90,12 @@ export function LandingNavbar({ onAccedi }: { onAccedi: () => void }) {
               border: 'none',
               cursor: 'pointer',
               transition: 'all 0.3s',
+              textDecoration: 'none',
+              display: 'inline-block',
             }}
           >
             {t('access')}
-          </button>
+          </a>
         </div>
       </div>
     </motion.nav>

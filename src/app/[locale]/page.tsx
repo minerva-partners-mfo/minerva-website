@@ -100,7 +100,7 @@ export default function HomePage() {
         animate={{ opacity: phase === 'done' ? 1 : 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
-        <LandingNavbar onAccedi={() => setModalOpen(true)} />
+        <LandingNavbar />
         <HeroSection />
         <GoldSeparator />
         <SoluzioniHeader />
