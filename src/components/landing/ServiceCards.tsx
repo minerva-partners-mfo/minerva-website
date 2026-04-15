@@ -7,37 +7,37 @@ const CARDS = [
   {
     title: 'M&A & Investments',
     text: 'Architetti di operazioni. Deal origination off-market, capital raising, strutturazione club deal. 50+ deal chiusi.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80',
+    img: '1486406146926-c627a92ad1ab',
   },
   {
     title: 'Real Estate Advisory',
     text: 'Opportunit\u00e0 fuori dai portali. Value-add residenziale e hospitality, asset trophy, conversioni.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80',
+    img: '1600585154340-be6161a56a0c',
   },
   {
     title: 'Strategy Consulting',
     text: 'Business and Review Plan, Value Creation, Internazionalizzazione, Advisory M&A, allineamento famiglia-azienda.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
+    img: '1454165804606-c3d57bc86b40',
   },
   {
     title: 'Wealth Management',
     text: 'Fee-only pura. Asset allocation strategica, private markets, protezione risk/liquidity. Nessuna retrocessione.',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80',
+    img: '1611974789855-9c2a0a7236a3',
   },
   {
     title: 'Family Advisory',
     text: 'Governance strutturata. Patti di famiglia, Family Office as-a-service, trust e architettura societaria complessa.',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80',
+    img: '1529156069898-49953e39b3ac',
   },
   {
     title: 'Passion Assets',
     text: 'Emozioni. Collectibles, luxury, vintage, supporto nella protezione e nella valorizzazione, lifestyle management e concierge.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80',
+    img: '1558618666-fcd25c85f82e',
   },
   {
     title: 'NextGen \u2194 GenExit',
     text: 'Legacy Planning. Education, programmi NextGen e GenExit, coaching e struttura patrimoniale dinamica.',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80',
+    img: '1523240795612-9a054b0db644',
   },
 ]
 
@@ -51,11 +51,11 @@ export function ServiceCards() {
       className="relative py-8 md:py-16 px-4 md:px-8"
       style={{ background: '#0f1829' }}
     >
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="page-content">
         {CARDS.map((card, i) => (
           <motion.div
             key={card.title}
-            className="card-reveal group"
+            className={`card card--${i + 1}`}
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{
@@ -64,132 +64,199 @@ export function ServiceCards() {
               ease: [0.23, 1, 0.32, 1],
             }}
           >
-            {/* Background image */}
-            <div
-              className="card-reveal__bg"
-              style={{ backgroundImage: `url(${card.image})` }}
-            />
-            {/* Gradient overlay */}
-            <div className="card-reveal__overlay" />
-            {/* Content */}
-            <div className="card-reveal__content">
-              <h3 className="card-reveal__title">{card.title}</h3>
-              <p className="card-reveal__text">{card.text}</p>
+            <div className="content">
+              <h2 className="title">{card.title}</h2>
+              <p className="copy">{card.text}</p>
             </div>
           </motion.div>
         ))}
       </div>
 
       <style>{`
-        .card-reveal {
+        :root {
+          --d: 700ms;
+          --e: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .page-content {
+          display: grid;
+          grid-gap: 1rem;
+          padding: 1rem;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        @media (min-width: 600px) {
+          .page-content {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (min-width: 900px) {
+          .page-content {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+
+        .card {
           position: relative;
-          height: 380px;
-          border-radius: 12px;
+          display: flex;
+          align-items: flex-end;
           overflow: hidden;
-          cursor: pointer;
-          border: 1px solid rgba(197, 160, 89, 0.08);
-          transition: border-color 0.4s;
+          padding: 1rem;
+          width: 100%;
+          text-align: center;
+          color: whitesmoke;
+          background-color: #0a0f1c;
+          border-radius: 10px;
+          box-shadow:
+            0 1px 1px rgba(0,0,0,0.1),
+            0 2px 2px rgba(0,0,0,0.1),
+            0 4px 4px rgba(0,0,0,0.1),
+            0 8px 8px rgba(0,0,0,0.1),
+            0 16px 16px rgba(0,0,0,0.1);
         }
 
-        .card-reveal:hover {
-          border-color: rgba(197, 160, 89, 0.25);
+        @media (min-width: 600px) {
+          .card {
+            height: 350px;
+          }
         }
 
-        .card-reveal__bg {
+        .card:before {
+          content: '';
           position: absolute;
-          inset: 0;
-          background-size: cover;
-          background-position: center;
-          filter: saturate(0.3) brightness(0.5);
-          transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1),
-                      filter 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .card-reveal:hover .card-reveal__bg {
-          transform: scale(1.08);
-          filter: saturate(0.5) brightness(0.35);
-        }
-
-        .card-reveal__overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(
-            to top,
-            rgba(10, 15, 28, 0.95) 0%,
-            rgba(10, 15, 28, 0.6) 40%,
-            rgba(10, 15, 28, 0.1) 100%
-          );
-          transition: background 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .card-reveal:hover .card-reveal__overlay {
-          background: linear-gradient(
-            to top,
-            rgba(10, 15, 28, 0.98) 0%,
-            rgba(10, 15, 28, 0.75) 50%,
-            rgba(10, 15, 28, 0.3) 100%
-          );
-        }
-
-        .card-reveal__content {
-          position: absolute;
-          bottom: 0;
+          top: 0;
           left: 0;
-          right: 0;
-          padding: 24px 20px;
-          transform: translateY(0);
-          transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+          width: 100%;
+          height: 110%;
+          background-size: cover;
+          background-position: 0 0;
+          transition: transform calc(var(--d) * 1.5) var(--e);
+          pointer-events: none;
         }
 
-        .card-reveal:hover .card-reveal__content {
-          transform: translateY(-20px);
-        }
-
-        .card-reveal__title {
-          font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
-          font-size: 20px;
-          font-weight: 600;
-          color: rgba(255, 255, 255, 0.92);
-          line-height: 1.25;
-          margin: 0 0 10px 0;
-          position: relative;
-        }
-
-        .card-reveal__title::after {
+        .card:after {
           content: '';
           display: block;
-          width: 30px;
-          height: 1.5px;
-          background: #C5A059;
-          margin-top: 10px;
-          transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 200%;
+          pointer-events: none;
+          background-image: linear-gradient(
+            to bottom,
+            hsla(0, 0%, 0%, 0) 0%,
+            hsla(0, 0%, 0%, 0.009) 11.7%,
+            hsla(0, 0%, 0%, 0.034) 22.1%,
+            hsla(0, 0%, 0%, 0.072) 31.2%,
+            hsla(0, 0%, 0%, 0.123) 39.4%,
+            hsla(0, 0%, 0%, 0.182) 46.6%,
+            hsla(0, 0%, 0%, 0.249) 53.1%,
+            hsla(0, 0%, 0%, 0.320) 58.9%,
+            hsla(0, 0%, 0%, 0.394) 64.3%,
+            hsla(0, 0%, 0%, 0.468) 69.3%,
+            hsla(0, 0%, 0%, 0.540) 74.1%,
+            hsla(0, 0%, 0%, 0.607) 78.8%,
+            hsla(0, 0%, 0%, 0.668) 83.6%,
+            hsla(0, 0%, 0%, 0.721) 88.7%,
+            hsla(0, 0%, 0%, 0.762) 94.1%,
+            hsla(0, 0%, 0%, 0.790) 100%
+          );
+          transform: translateY(-50%);
+          transition: transform calc(var(--d) * 2) var(--e);
         }
 
-        .card-reveal:hover .card-reveal__title::after {
-          width: 50px;
+        /* ─── Background images per card ─── */
+        .card--1:before { background-image: url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80); }
+        .card--2:before { background-image: url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80); }
+        .card--3:before { background-image: url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80); }
+        .card--4:before { background-image: url(https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80); }
+        .card--5:before { background-image: url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80); }
+        .card--6:before { background-image: url(https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80); }
+        .card--7:before { background-image: url(https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80); }
+
+        .content {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          padding: 1rem;
+          transition: transform var(--d) var(--e);
+          z-index: 1;
         }
 
-        .card-reveal__text {
+        .content > * + * {
+          margin-top: 1rem;
+        }
+
+        .title {
+          font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
+          font-size: 1.3rem;
+          font-weight: 600;
+          line-height: 1.2;
+        }
+
+        .copy {
           font-family: var(--font-dm-sans, 'DM Sans', sans-serif);
-          font-size: 13px;
-          line-height: 1.7;
-          color: rgba(255, 255, 255, 0);
-          margin: 0;
-          transition: color 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-          max-height: 0;
-          overflow: hidden;
-          transition: color 0.7s cubic-bezier(0.19, 1, 0.22, 1),
-                      max-height 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+          font-size: 0.95rem;
+          font-style: italic;
+          line-height: 1.5;
+          color: rgba(255, 255, 255, 0.75);
         }
 
-        .card-reveal:hover .card-reveal__text {
-          color: rgba(255, 255, 255, 0.6);
-          max-height: 200px;
-        }
+        /* ─── Hover effect (desktop only) ─── */
+        @media (hover: hover) and (min-width: 600px) {
+          .card:after {
+            transform: translateY(0);
+          }
 
-        @media (max-width: 639px) {
-          .card-reveal {
-            height: 320px;
+          .content {
+            transform: translateY(calc(100% - 4.5rem));
+          }
+
+          .content > *:not(.title) {
+            opacity: 0;
+            transform: translateY(1rem);
+            transition:
+              transform var(--d) var(--e),
+              opacity var(--d) var(--e);
+          }
+
+          .card:hover,
+          .card:focus-within {
+            align-items: center;
+          }
+
+          .card:hover:before,
+          .card:focus-within:before {
+            transform: translateY(-4%);
+          }
+
+          .card:hover:after,
+          .card:focus-within:after {
+            transform: translateY(-50%);
+          }
+
+          .card:hover .content,
+          .card:focus-within .content {
+            transform: translateY(0);
+          }
+
+          .card:hover .content > *:not(.title),
+          .card:focus-within .content > *:not(.title) {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: calc(var(--d) / 8);
+          }
+
+          .card:focus-within:before,
+          .card:focus-within:after,
+          .card:focus-within .content,
+          .card:focus-within .content > *:not(.title) {
+            transition-duration: 0s;
           }
         }
       `}</style>
