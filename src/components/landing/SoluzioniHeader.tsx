@@ -10,7 +10,7 @@ export function SoluzioniHeader() {
   return (
     <section
       ref={ref}
-      className="relative py-20 md:py-28 px-6"
+      className="relative py-12 md:py-16 px-6"
       style={{ background: '#0f1829' }}
     >
       <motion.div

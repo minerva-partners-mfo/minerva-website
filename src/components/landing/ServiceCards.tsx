@@ -7,37 +7,37 @@ const CARDS = [
   {
     title: 'M&A & Investments',
     text: 'Architetti di operazioni. Deal origination off-market, capital raising, strutturazione club deal. 50+ deal chiusi.',
-    img: '1486406146926-c627a92ad1ab',
+    img: '/images/sfera-impresa.jpg',
   },
   {
     title: 'Real Estate Advisory',
     text: 'Opportunit\u00e0 fuori dai portali. Value-add residenziale e hospitality, asset trophy, conversioni.',
-    img: '1600585154340-be6161a56a0c',
+    img: '/images/sfera-immobili.jpg',
   },
   {
     title: 'Strategy Consulting',
     text: 'Business and Review Plan, Value Creation, Internazionalizzazione, Advisory M&A, allineamento famiglia-azienda.',
-    img: '1454165804606-c3d57bc86b40',
+    img: '/images/strategy.webp',
   },
   {
     title: 'Wealth Management',
     text: 'Fee-only pura. Asset allocation strategica, private markets, protezione risk/liquidity. Nessuna retrocessione.',
-    img: '1611974789855-9c2a0a7236a3',
+    img: '/images/sfera-patrimonio.jpg',
   },
   {
     title: 'Family Advisory',
     text: 'Governance strutturata. Patti di famiglia, Family Office as-a-service, trust e architettura societaria complessa.',
-    img: '1529156069898-49953e39b3ac',
+    img: '/images/sfera-famiglia.jpg',
   },
   {
     title: 'Passion Assets',
     text: 'Emozioni. Collectibles, luxury, vintage, supporto nella protezione e nella valorizzazione, lifestyle management e concierge.',
-    img: '1558618666-fcd25c85f82e',
+    img: '/images/sfera-vita.jpg',
   },
   {
     title: 'NextGen \u2194 GenExit',
     text: 'Legacy Planning. Education, programmi NextGen e GenExit, coaching e struttura patrimoniale dinamica.',
-    img: '1523240795612-9a054b0db644',
+    img: '/images/sfera-futuro.jpg',
   },
 ]
 
@@ -48,14 +48,15 @@ export function ServiceCards() {
   return (
     <section
       ref={ref}
-      className="relative py-8 md:py-16 px-4 md:px-8"
+      className="relative py-4 md:py-8 px-4 md:px-8"
       style={{ background: '#0f1829' }}
     >
       <div className="page-content">
         {CARDS.map((card, i) => (
           <motion.div
             key={card.title}
-            className={`card card--${i + 1}`}
+            className="card"
+            style={{ '--card-img': `url(${card.img})` } as React.CSSProperties}
             initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{
@@ -130,8 +131,9 @@ export function ServiceCards() {
           left: 0;
           width: 100%;
           height: 110%;
+          background-image: var(--card-img);
           background-size: cover;
-          background-position: 0 0;
+          background-position: center;
           transition: transform calc(var(--d) * 1.5) var(--e);
           pointer-events: none;
         }
@@ -167,15 +169,6 @@ export function ServiceCards() {
           transform: translateY(-50%);
           transition: transform calc(var(--d) * 2) var(--e);
         }
-
-        /* ─── Background images per card ─── */
-        .card--1:before { background-image: url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80); }
-        .card--2:before { background-image: url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80); }
-        .card--3:before { background-image: url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80); }
-        .card--4:before { background-image: url(https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&q=80); }
-        .card--5:before { background-image: url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80); }
-        .card--6:before { background-image: url(https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80); }
-        .card--7:before { background-image: url(https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80); }
 
         .content {
           position: relative;

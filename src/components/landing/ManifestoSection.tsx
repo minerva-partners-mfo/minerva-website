@@ -40,10 +40,10 @@ export function ManifestoSection() {
 
   return (
     <section
-      className="relative py-24 md:py-36 px-6"
+      className="relative py-16 md:py-24 px-6"
       style={{ background: '#0a0f1c' }}
     >
-      <div className="max-w-[820px] mx-auto space-y-20 md:space-y-28">
+      <div className="max-w-[820px] mx-auto space-y-14 md:space-y-20">
         {/* Quote 1 */}
         <RevealBlock>
           <p
