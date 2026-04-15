@@ -106,12 +106,12 @@ export function ServiceCards() {
           transition: transform 1050ms cubic-bezier(0.19, 1, 0.22, 1),
                       filter 700ms cubic-bezier(0.19, 1, 0.22, 1);
           pointer-events: none;
-          filter: brightness(0.75) saturate(0.85);
+          filter: brightness(0.45) saturate(0.75);
         }
 
         .card:hover:before,
         .card:focus-within:before {
-          filter: brightness(0.3) saturate(0.7);
+          filter: brightness(0.2) saturate(0.6);
         }
 
         /* ─── Gradient solo in basso per il titolo ─── */
