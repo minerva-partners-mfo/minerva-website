@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 type FormStep = 'choice' | 'form' | 'sent'
 
@@ -10,6 +11,7 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
   onOpenModal: () => void
   onCloseModal: () => void
 }) {
+  const t = useTranslations('landing.cta')
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
@@ -44,7 +46,7 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
             }}
             className="hover:shadow-[0_8px_40px_rgba(197,160,89,0.35)] hover:scale-[1.02] active:scale-[0.98]"
           >
-            Richiedi l&apos;accesso
+            {t('button')}
           </button>
           <p
             className="mt-6"
@@ -57,12 +59,11 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
               margin: '24px 0 0',
             }}
           >
-            L&apos;eccellenza senza compromessi
+            {t('tagline')}
           </p>
         </motion.div>
       </section>
 
-      {/* Modal */}
       <AnimatePresence>
         {modalOpen && <AccessModal onClose={onCloseModal} />}
       </AnimatePresence>
@@ -71,6 +72,7 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
 }
 
 function AccessModal({ onClose }: { onClose: () => void }) {
+  const t = useTranslations('landing.cta.modal')
   const [step, setStep] = useState<FormStep>('choice')
   const [viaInvite, setViaInvite] = useState(false)
   const [inviteNote, setInviteNote] = useState('')
@@ -109,14 +111,12 @@ function AccessModal({ onClose }: { onClose: () => void }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      {/* Backdrop */}
       <div
         className="absolute inset-0"
         style={{ background: 'rgba(10, 15, 28, 0.92)', backdropFilter: 'blur(12px)' }}
         onClick={onClose}
       />
 
-      {/* Modal body */}
       <motion.div
         className="relative w-full max-w-[480px] rounded-xl overflow-hidden"
         style={{
@@ -129,7 +129,6 @@ function AccessModal({ onClose }: { onClose: () => void }) {
         exit={{ scale: 0.95, y: 20 }}
         transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
       >
-        {/* Header */}
         <div className="flex items-center justify-between px-6 pt-6 pb-2">
           <h3
             style={{
@@ -140,7 +139,7 @@ function AccessModal({ onClose }: { onClose: () => void }) {
               margin: 0,
             }}
           >
-            {step === 'sent' ? 'Grazie' : 'Richiedi l\'accesso'}
+            {step === 'sent' ? t('confirmTitle') : t('title')}
           </h3>
           <button
             onClick={onClose}
@@ -158,7 +157,6 @@ function AccessModal({ onClose }: { onClose: () => void }) {
         </div>
 
         <div className="px-6 pb-6">
-          {/* Step: choice */}
           {step === 'choice' && (
             <div className="space-y-3 mt-4">
               <button
@@ -172,7 +170,7 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                   border: '1px solid rgba(197,160,89,0.12)',
                 }}
               >
-                Richiesta indipendente
+                {t('independentTitle')}
               </button>
               <button
                 onClick={() => { setViaInvite(true); setStep('form') }}
@@ -185,12 +183,11 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                   border: '1px solid rgba(197,160,89,0.12)',
                 }}
               >
-                Tramite invito
+                {t('inviteTitle')}
               </button>
             </div>
           )}
 
-          {/* Step: form */}
           {step === 'form' && (
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
               {viaInvite && (
@@ -206,14 +203,14 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                       marginBottom: 6,
                     }}
                   >
-                    Persona, evento o opportunit&agrave;
+                    {t('referralLabel')}
                   </label>
                   <textarea
                     value={inviteNote}
                     onChange={(e) => setInviteNote(e.target.value)}
                     rows={3}
                     style={{ ...inputStyle, resize: 'vertical' }}
-                    placeholder="Descrivi il contatto o l'evento..."
+                    placeholder={t('referralPlaceholder')}
                   />
                 </div>
               )}
@@ -221,14 +218,14 @@ function AccessModal({ onClose }: { onClose: () => void }) {
               <div className="grid grid-cols-2 gap-3">
                 <input
                   required
-                  placeholder="Nome"
+                  placeholder={t('firstName')}
                   value={form.nome}
                   onChange={(e) => setForm({ ...form, nome: e.target.value })}
                   style={inputStyle}
                 />
                 <input
                   required
-                  placeholder="Cognome"
+                  placeholder={t('lastName')}
                   value={form.cognome}
                   onChange={(e) => setForm({ ...form, cognome: e.target.value })}
                   style={inputStyle}
@@ -244,13 +241,13 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                 style={inputStyle}
               />
               <input
-                placeholder="Telefono"
+                placeholder={t('phone')}
                 value={form.telefono}
                 onChange={(e) => setForm({ ...form, telefono: e.target.value })}
                 style={inputStyle}
               />
               <input
-                placeholder="Ruolo / Attivit&agrave;"
+                placeholder={t('role')}
                 value={form.ruolo}
                 onChange={(e) => setForm({ ...form, ruolo: e.target.value })}
                 style={inputStyle}
@@ -273,12 +270,11 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                   marginTop: 8,
                 }}
               >
-                Invia richiesta
+                {t('submit')}
               </button>
             </form>
           )}
 
-          {/* Step: sent */}
           {step === 'sent' && (
             <div className="text-center py-8">
               <p
@@ -291,8 +287,7 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                   margin: 0,
                 }}
               >
-                La tua richiesta &egrave; stata inviata.<br />
-                Ti contatteremo a breve.
+                {t('confirmDesc')}
               </p>
               <button
                 onClick={onClose}
@@ -309,7 +304,7 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                   transition: 'all 0.3s',
                 }}
               >
-                Chiudi
+                {t('close')}
               </button>
             </div>
           )}

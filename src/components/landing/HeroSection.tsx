@@ -2,17 +2,18 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 export function HeroSection() {
-  const title = 'Il Patrimonio evolve solo quando viene visto nella sua interezza'
-  const words = title.split(' ')
+  const t = useTranslations('landing')
+  const words = t('hero.title').split(' ')
 
   return (
     <section
       className="relative flex flex-col items-center justify-center px-6"
       style={{ minHeight: '100vh', background: '#0f1829' }}
     >
-      {/* Pulsing gold glow behind logo */}
+      {/* Pulsing gold glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center" style={{ zIndex: 0 }}>
         <motion.div
           animate={{ opacity: [0.04, 0.14, 0.04] }}
@@ -46,7 +47,7 @@ export function HeroSection() {
           />
         </motion.div>
 
-        {/* Title — word by word stagger */}
+        {/* Title */}
         <h1
           style={{
             fontFamily: 'var(--font-cormorant)',
@@ -88,7 +89,7 @@ export function HeroSection() {
             marginTop: 24,
           }}
         >
-          Multiclient Family Office
+          {t('hero.subtitle')}
         </motion.p>
 
         {/* Gold scroll indicator */}
@@ -108,9 +109,8 @@ export function HeroSection() {
               opacity: 0.5,
             }}
           >
-            Scopri
+            {t('nav.scroll')}
           </motion.span>
-          {/* Animated gold line that pulses downward */}
           <motion.div
             style={{
               width: 1,
@@ -119,15 +119,8 @@ export function HeroSection() {
               borderRadius: 1,
               transformOrigin: 'top',
             }}
-            animate={{
-              scaleY: [0.3, 1, 0.3],
-              opacity: [0.2, 0.6, 0.2],
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            animate={{ scaleY: [0.3, 1, 0.3], opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
           />
           <motion.div
             style={{
@@ -136,15 +129,8 @@ export function HeroSection() {
               borderRadius: '50%',
               background: '#C5A059',
             }}
-            animate={{
-              opacity: [0.15, 0.5, 0.15],
-              scale: [0.8, 1.2, 0.8],
-            }}
-            transition={{
-              duration: 2.5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            animate={{ opacity: [0.15, 0.5, 0.15], scale: [0.8, 1.2, 0.8] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
           />
         </motion.div>
       </div>

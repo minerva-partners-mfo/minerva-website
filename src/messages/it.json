@@ -2669,7 +2669,9 @@
   },
   "landing": {
     "nav": {
-      "access": "ACCEDI"
+      "cogito": "Cogito / Insight",
+      "access": "Accedi",
+      "scroll": "Scopri"
     },
     "hero": {
       "title": "Il Patrimonio evolve solo quando viene visto nella sua interezza",
@@ -2679,45 +2681,47 @@
       "sectionTitle": "SOLUZIONI SU MISURA, SENZA LIMITI",
       "ma": {
         "title": "M&A & Investments",
-        "subtitle": "Architetti di operazioni",
-        "text": "Deal origination off-market, capital raising, strutturazione club deal. True Value Assessment: il vero valore della tua azienda, voce per voce. Due Diligence accelerata. Valutazione con comparables di mercato."
+        "text": "Architetti di operazioni. Deal origination off-market, capital raising, strutturazione club deal. 50+ deal chiusi."
       },
       "realEstate": {
         "title": "Real Estate Advisory",
-        "subtitle": "Opportunità fuori dai portali",
-        "text": "Value-add residenziale e hospitality, asset trophy, conversioni. Analisi comparativa automatica, portfolio aggregato, scenario analysis per sviluppo. Dati catastali e rendimenti in tempo reale."
+        "text": "Opportunità fuori dai portali. Value-add residenziale e hospitality, asset trophy, conversioni."
       },
       "strategy": {
         "title": "Strategy Consulting",
-        "subtitle": "Visione che diventa azione",
-        "text": "Business and Review Plan, Value Creation, Internazionalizzazione, Advisory M&A, allineamento famiglia-azienda. Competitive intelligence continua su mercati e settori."
+        "text": "Business and Review Plan, Value Creation, Internazionalizzazione, Advisory M&A, allineamento famiglia-azienda."
       },
       "wealth": {
         "title": "Wealth Management",
-        "subtitle": "Fee-only pura",
-        "text": "Asset allocation strategica, private markets, protezione risk/liquidity. Nessuna retrocessione. Indipendenza totale nelle scelte di allocazione. Il Cruscotto della Serenità: non numeri, ma risposte."
+        "text": "Fee-only pura. Asset allocation strategica, private markets, protezione risk/liquidity. Nessuna retrocessione."
       },
       "family": {
         "title": "Family Advisory",
-        "subtitle": "Governance strutturata",
-        "text": "Patti di famiglia, Family Office as-a-service, trust e architettura societaria complessa. 360° Assessment con 3 soluzioni concrete, impatti quantificati su ogni sfera della famiglia."
+        "text": "Governance strutturata. Patti di famiglia, Family Office as-a-service, trust e architettura societaria complessa."
       },
       "passion": {
         "title": "Passion Assets",
-        "subtitle": "Emozioni protette",
-        "text": "Collectibles, luxury, vintage. Supporto nella protezione e nella valorizzazione, lifestyle management e concierge. Monitoraggio aste internazionali e valutazioni."
+        "text": "Emozioni. Collectibles, luxury, vintage, protezione e valorizzazione, lifestyle management e concierge."
       },
       "nextgen": {
         "title": "NextGen ↔ GenExit",
-        "subtitle": "Il futuro è già qui",
-        "text": "Non solo un passaggio di testimone. Per chi esce: 5 scenari di seconda vita, perché 'dopo' può essere il capitolo più bello. Per chi entra: Readiness Assessment, gap analysis, piano di crescita. Il Deep Dive è il rito di passaggio."
+        "text": "Legacy Planning. Education, programmi NextGen e GenExit, coaching e struttura patrimoniale dinamica."
       }
     },
     "manifesto": {
       "quote1": "Nasciamo come confederazione di eccellenze, dove ognuno si impegna nei confronti dell'altro e del cliente, nell'offrire diversi scenari, sostenibili e duraturi.",
-      "principlesLabel": "I NOSTRI PRINCIPI",
-      "quote2": "Non siamo una banca, non siamo un fondo, non siamo una boutique: siamo <span style=\"color:#C5A059;font-weight:500\">abilitatori di valore</span> e di relazioni attraverso l'intelligenza collettiva condivisa.",
-      "quote2raw": "Non siamo una banca, non siamo un fondo, non siamo una boutique: siamo abilitatori di valore e di relazioni attraverso l'intelligenza collettiva condivisa."
+      "veritasIntro": "Tutto quello che facciamo lo svolgiamo nei principi della parola",
+      "veritasWord": "VERITAS",
+      "v": "alore",
+      "e": "ccellenza",
+      "r": "iservatezza",
+      "i": "ndipendenza",
+      "t": "rasparenza",
+      "a": "llineamento",
+      "s": "alvaguardia",
+      "quote2pre": "Non siamo una banca, non siamo un fondo, non siamo una boutique: siamo ",
+      "quote2gold": "abilitatori di valore",
+      "quote2post": " e di relazioni attraverso l'intelligenza collettiva condivisa."
     },
     "cta": {
       "button": "Richiedi l'accesso",

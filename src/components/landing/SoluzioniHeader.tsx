@@ -2,8 +2,10 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 export function SoluzioniHeader() {
+  const t = useTranslations('landing.cards')
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
@@ -31,9 +33,8 @@ export function SoluzioniHeader() {
             margin: 0,
           }}
         >
-          Soluzioni su misura, senza limiti
+          {t('sectionTitle')}
         </h2>
-        {/* Gold gradient bar under text */}
         <motion.div
           className="mx-auto mt-5"
           initial={{ scaleX: 0 }}

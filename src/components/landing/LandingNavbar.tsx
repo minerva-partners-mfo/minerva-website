@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 export function LandingNavbar({ onAccedi }: { onAccedi: () => void }) {
+  const t = useTranslations('landing.nav')
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -58,7 +60,7 @@ export function LandingNavbar({ onAccedi }: { onAccedi: () => void }) {
             }}
             className="hidden sm:block hover:text-white hover:border-white/20"
           >
-            Cogito / Insight
+            {t('cogito')}
           </a>
           <button
             onClick={onAccedi}
@@ -77,7 +79,7 @@ export function LandingNavbar({ onAccedi }: { onAccedi: () => void }) {
               transition: 'all 0.3s',
             }}
           >
-            Accedi
+            {t('access')}
           </button>
         </div>
       </div>

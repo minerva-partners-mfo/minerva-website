@@ -2,24 +2,11 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
-const VERITAS = [
-  { letter: 'V', word: 'alore' },
-  { letter: 'E', word: 'ccellenza' },
-  { letter: 'R', word: 'iservatezza' },
-  { letter: 'I', word: 'ndipendenza' },
-  { letter: 'T', word: 'rasparenza' },
-  { letter: 'A', word: 'llineamento' },
-  { letter: 'S', word: 'alvaguardia' },
-]
+const VERITAS_LETTERS = ['v', 'e', 'r', 'i', 't', 'a', 's'] as const
 
-function RevealBlock({
-  children,
-  delay = 0,
-}: {
-  children: React.ReactNode
-  delay?: number
-}) {
+function RevealBlock({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
   return (
@@ -35,6 +22,7 @@ function RevealBlock({
 }
 
 export function ManifestoSection() {
+  const t = useTranslations('landing.manifesto')
   const veritasRef = useRef<HTMLDivElement>(null)
   const veritasInView = useInView(veritasRef, { once: true, margin: '-80px' })
 
@@ -58,9 +46,7 @@ export function ManifestoSection() {
               margin: 0,
             }}
           >
-            Nasciamo come confederazione di eccellenze, dove ognuno si impegna
-            nei confronti dell&apos;altro e del cliente, nell&apos;offrire diversi scenari,
-            sostenibili e duraturi.
+            {t('quote1')}
           </p>
         </RevealBlock>
 
@@ -78,14 +64,13 @@ export function ManifestoSection() {
                 margin: '0 0 32px 0',
               }}
             >
-              Tutto quello che facciamo lo svolgiamo nei principi della parola{' '}
+              {t('veritasIntro')}{' '}
               <span style={{ color: '#C5A059', fontWeight: 600, fontStyle: 'normal' }}>
-                VERITAS
+                {t('veritasWord')}
               </span>
               .
             </p>
 
-            {/* Acronym — all on one row */}
             <motion.div
               ref={veritasRef}
               className="flex flex-wrap justify-center gap-x-3 gap-y-2 md:gap-x-5"
@@ -93,9 +78,9 @@ export function ManifestoSection() {
               animate={veritasInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              {VERITAS.map((v, i) => (
+              {VERITAS_LETTERS.map((key, i) => (
                 <motion.span
-                  key={v.letter}
+                  key={key}
                   className="whitespace-nowrap"
                   initial={{ opacity: 0, y: 10 }}
                   animate={veritasInView ? { opacity: 1, y: 0 } : {}}
@@ -107,17 +92,11 @@ export function ManifestoSection() {
                     letterSpacing: '0.04em',
                   }}
                 >
-                  <span
-                    style={{
-                      color: '#C5A059',
-                      fontWeight: 700,
-                      fontSize: '1.3em',
-                    }}
-                  >
-                    {v.letter}
+                  <span style={{ color: '#C5A059', fontWeight: 700, fontSize: '1.3em' }}>
+                    {key.toUpperCase()}
                   </span>
-                  {v.word}
-                  {i < VERITAS.length - 1 && (
+                  {t(key)}
+                  {i < VERITAS_LETTERS.length - 1 && (
                     <span style={{ color: 'rgba(197,160,89,0.3)', marginLeft: 'clamp(6px, 1.2vw, 14px)' }}>
                       &middot;
                     </span>
@@ -142,12 +121,11 @@ export function ManifestoSection() {
               margin: 0,
             }}
           >
-            Non siamo una banca, non siamo un fondo, non siamo una boutique:
-            siamo{' '}
+            {t('quote2pre')}
             <span style={{ color: '#C5A059', fontWeight: 500 }}>
-              abilitatori di valore
-            </span>{' '}
-            e di relazioni attraverso l&apos;intelligenza collettiva condivisa.
+              {t('quote2gold')}
+            </span>
+            {t('quote2post')}
           </p>
         </RevealBlock>
       </div>

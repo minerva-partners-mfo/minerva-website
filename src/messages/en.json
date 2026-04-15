@@ -2669,7 +2669,9 @@
   },
   "landing": {
     "nav": {
-      "access": "ACCESS"
+      "cogito": "Cogito / Insight",
+      "access": "Log in",
+      "scroll": "Explore"
     },
     "hero": {
       "title": "Wealth evolves only when seen in its entirety",
@@ -2679,45 +2681,47 @@
       "sectionTitle": "BESPOKE SOLUTIONS, WITHOUT LIMITS",
       "ma": {
         "title": "M&A & Investments",
-        "subtitle": "Deal architects",
-        "text": "Off-market deal origination, capital raising, club deal structuring. True Value Assessment: the real value of your company, line by line. Accelerated Due Diligence. Market-comparable valuations."
+        "text": "Deal architects. Off-market origination, capital raising, club deal structuring. 50+ deals closed."
       },
       "realEstate": {
         "title": "Real Estate Advisory",
-        "subtitle": "Opportunities beyond listings",
-        "text": "Residential and hospitality value-add, trophy assets, conversions. Automated comparative analysis, aggregated portfolio, development scenario analysis. Real-time cadastral data and yields."
+        "text": "Beyond the listings. Residential and hospitality value-add, trophy assets, conversions."
       },
       "strategy": {
         "title": "Strategy Consulting",
-        "subtitle": "Vision turned into action",
-        "text": "Business and Review Plan, Value Creation, Internationalization, M&A Advisory, family-business alignment. Continuous competitive intelligence across markets and sectors."
+        "text": "Business & Review Plan, Value Creation, Internationalization, M&A Advisory, family-business alignment."
       },
       "wealth": {
         "title": "Wealth Management",
-        "subtitle": "Pure fee-only",
-        "text": "Strategic asset allocation, private markets, risk/liquidity protection. No retrocessions. Total independence in allocation choices. The Serenity Dashboard: not numbers, but answers."
+        "text": "Pure fee-only. Strategic asset allocation, private markets, risk/liquidity protection. Zero kickbacks."
       },
       "family": {
         "title": "Family Advisory",
-        "subtitle": "Structured governance",
-        "text": "Family agreements, Family Office as-a-service, trusts and complex corporate architecture. 360° Assessment with 3 concrete solutions, quantified impacts on every sphere of the family."
+        "text": "Structured governance. Family agreements, Family Office as-a-service, trusts and complex corporate architecture."
       },
       "passion": {
         "title": "Passion Assets",
-        "subtitle": "Protected emotions",
-        "text": "Collectibles, luxury, vintage. Support in protection and enhancement, lifestyle management and concierge. International auction monitoring and valuations."
+        "text": "Emotions. Collectibles, luxury, vintage, protection and enhancement, lifestyle management and concierge."
       },
       "nextgen": {
         "title": "NextGen ↔ GenExit",
-        "subtitle": "The future is already here",
-        "text": "More than a handover. For those exiting: 5 second-life scenarios, because 'after' can be the finest chapter. For those entering: Readiness Assessment, gap analysis, growth plan. The Deep Dive is the rite of passage."
+        "text": "Legacy Planning. Education, NextGen and GenExit programs, coaching and dynamic wealth structuring."
       }
     },
     "manifesto": {
-      "quote1": "We are born as a confederation of excellence, where each member commits to the other and to the client, offering diverse, sustainable and lasting scenarios.",
-      "principlesLabel": "OUR PRINCIPLES",
-      "quote2": "We are not a bank, not a fund, not a boutique: we are <span style=\"color:#C5A059;font-weight:500\">enablers of value</span> and relationships through shared collective intelligence.",
-      "quote2raw": "We are not a bank, not a fund, not a boutique: we are enablers of value and relationships through shared collective intelligence."
+      "quote1": "We are born as a confederation of excellence, where each commits to the other and to the client, offering diverse, sustainable and lasting scenarios.",
+      "veritasIntro": "Everything we do is guided by the principles of the word",
+      "veritasWord": "VERITAS",
+      "v": "alue",
+      "e": "xcellence",
+      "r": "eserve",
+      "i": "ndependence",
+      "t": "ransparency",
+      "a": "lignment",
+      "s": "afeguard",
+      "quote2pre": "We are not a bank, not a fund, not a boutique: we are ",
+      "quote2gold": "enablers of value",
+      "quote2post": " and relationships through shared collective intelligence."
     },
     "cta": {
       "button": "Request access",

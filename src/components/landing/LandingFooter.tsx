@@ -2,8 +2,10 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 export function LandingFooter() {
+  const t = useTranslations('landing.footer')
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
 
@@ -46,7 +48,7 @@ export function LandingFooter() {
             }}
             className="hover:text-white/50"
           >
-            Privacy Policy
+            {t('privacy')}
           </a>
           <a
             href="#"
@@ -59,7 +61,7 @@ export function LandingFooter() {
             }}
             className="hover:text-white/50"
           >
-            Cookie Policy
+            {t('cookie')}
           </a>
         </div>
       </div>
