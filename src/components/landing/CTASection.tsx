@@ -75,19 +75,30 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
 function AccessModal({ onClose }: { onClose: () => void }) {
   const t = useTranslations('landing.cta.modal')
   const [step, setStep] = useState<FormStep>('choice')
+  const [sending, setSending] = useState(false)
   const [viaInvite, setViaInvite] = useState(false)
   const [inviteNote, setInviteNote] = useState('')
   const [form, setForm] = useState({
     nome: '', cognome: '', email: '', telefono: '', ruolo: '',
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Richiesta accesso:', {
-      tipo: viaInvite ? 'Tramite invito' : 'Richiesta indipendente',
-      inviteNote: viaInvite ? inviteNote : null,
-      ...form,
-    })
+    setSending(true)
+    try {
+      await fetch('/api/access-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tipo: viaInvite ? 'Tramite invito' : 'Richiesta indipendente',
+          inviteNote: viaInvite ? inviteNote : null,
+          ...form,
+        }),
+      })
+    } catch {
+      // silent — show confirmation anyway
+    }
+    setSending(false)
     setStep('sent')
   }
 
@@ -271,7 +282,7 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                   marginTop: 8,
                 }}
               >
-                {t('submit')}
+                {sending ? '...' : t('submit')}
               </button>
             </form>
           )}
