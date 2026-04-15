@@ -25,7 +25,7 @@ export function ServiceCards() {
     <section
       ref={ref}
       className="relative py-4 md:py-8 px-4 md:px-8"
-      style={{ background: '#0f1829' }}
+      style={{ background: 'transparent' }}
     >
       <div className="cards-grid">
         {CARD_KEYS.map((key, i) => (
@@ -152,9 +152,18 @@ export function ServiceCards() {
           flex-direction: column;
           align-items: center;
           width: 100%;
-          padding: 1rem;
+          padding: 1.2rem 1rem;
           transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
           z-index: 1;
+          background: linear-gradient(
+            to top,
+            rgba(5, 8, 16, 0.95) 0%,
+            rgba(5, 8, 16, 0.92) 40%,
+            rgba(5, 8, 16, 0.80) 70%,
+            rgba(5, 8, 16, 0.55) 85%,
+            transparent 100%
+          );
+          border-radius: 0 0 10px 10px;
         }
 
         .card-content > * + * {

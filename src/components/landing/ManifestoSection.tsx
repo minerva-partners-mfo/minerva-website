@@ -28,11 +28,8 @@ export function ManifestoSection() {
 
   return (
     <section
-      className="relative py-16 md:py-24 px-6 overflow-hidden"
-      style={{ background: '#0a0f1c' }}
+      className="relative py-16 md:py-24 px-6"
     >
-      {/* Silk background */}
-      <div className="manifesto-silk" />
 
       <div className="relative z-10 max-w-[820px] mx-auto space-y-14 md:space-y-20">
         {/* Quote 1 — su due righe naturali */}
@@ -140,20 +137,6 @@ export function ManifestoSection() {
       </div>
 
       <style>{`
-        .manifesto-silk {
-          position: absolute;
-          inset: 0;
-          opacity: 0.025;
-          background:
-            radial-gradient(ellipse 90% 40% at 30% 30%, rgba(197,160,89,0.4), transparent),
-            radial-gradient(ellipse 70% 50% at 70% 70%, rgba(197,160,89,0.3), transparent);
-          animation: manifesto-flow 18s ease-in-out infinite;
-        }
-        @keyframes manifesto-flow {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(20px, -15px) scale(1.03); }
-        }
-
         .veritas-word {
           color: #C5A059;
           font-weight: 600;

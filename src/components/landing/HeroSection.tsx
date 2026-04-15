@@ -11,12 +11,8 @@ export function HeroSection() {
   return (
     <section
       className="relative flex flex-col items-center justify-center px-6 overflow-hidden"
-      style={{ minHeight: '100vh', background: '#0f1829' }}
+      style={{ minHeight: '100vh' }}
     >
-      {/* ═══ Silk / luxury animated background ═══ */}
-      <div className="silk-bg" />
-      <div className="silk-bg silk-bg--2" />
-
       {/* Pulsing gold glow */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center" style={{ zIndex: 1 }}>
         <motion.div
@@ -180,33 +176,6 @@ export function HeroSection() {
       </div>
 
       <style>{`
-        /* ═══ Silk luxury background ═══ */
-        .silk-bg {
-          position: absolute;
-          inset: 0;
-          opacity: 0.035;
-          background:
-            radial-gradient(ellipse 80% 50% at 20% 40%, rgba(197,160,89,0.4), transparent),
-            radial-gradient(ellipse 60% 80% at 80% 60%, rgba(197,160,89,0.3), transparent);
-          animation: silk-flow 12s ease-in-out infinite;
-        }
-        .silk-bg--2 {
-          opacity: 0.025;
-          background:
-            radial-gradient(ellipse 70% 60% at 60% 30%, rgba(197,160,89,0.35), transparent),
-            radial-gradient(ellipse 50% 70% at 30% 70%, rgba(197,160,89,0.25), transparent);
-          animation: silk-flow-2 16s ease-in-out infinite;
-        }
-        @keyframes silk-flow {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -20px) scale(1.05); }
-          66% { transform: translate(-20px, 15px) scale(0.97); }
-        }
-        @keyframes silk-flow-2 {
-          0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-          50% { transform: translate(-25px, 25px) scale(1.08) rotate(1deg); }
-        }
-
         /* ═══ Shimmer on subtitle ═══ */
         .subtitle-shimmer {
           position: relative;

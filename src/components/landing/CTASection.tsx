@@ -20,7 +20,7 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
       <section
         ref={ref}
         className="relative py-24 md:py-32 px-6"
-        style={{ background: '#0f1829' }}
+        style={{ background: 'transparent' }}
       >
         <motion.div
           className="flex flex-col items-center text-center"

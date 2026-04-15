@@ -16,20 +16,11 @@ export function SoluzioniHeader() {
   return (
     <section
       ref={ref}
-      className="relative py-12 md:py-16 px-6 overflow-hidden"
-      style={{ background: '#0f1829' }}
+      className="relative py-12 md:py-16 px-6"
     >
-      {/* Subtle silk texture */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          opacity: 0.03,
-          background: 'radial-gradient(ellipse 100% 60% at 50% 50%, rgba(197,160,89,0.5), transparent)',
-        }}
-      />
 
       <motion.div
-        className="relative z-10 text-center max-w-[900px] mx-auto"
+        className="text-center max-w-[900px] mx-auto"
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}

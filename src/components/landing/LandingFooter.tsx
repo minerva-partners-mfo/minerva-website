@@ -17,7 +17,7 @@ export function LandingFooter() {
       transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
       className="px-6 py-12 md:py-16"
       style={{
-        background: '#0a0f1c',
+        background: 'transparent',
         borderTop: '1px solid rgba(197,160,89,0.06)',
       }}
     >
