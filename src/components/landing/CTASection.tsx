@@ -19,17 +19,17 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
     <>
       <section
         ref={ref}
-        className="relative py-24 md:py-32 px-6"
-        style={{ background: 'transparent' }}
+        className="relative land-section px-6"
       >
         <motion.div
           className="flex flex-col items-center text-center"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
         >
           <button
             onClick={onOpenModal}
+            className="cta-shimmer-btn hover:shadow-[0_8px_40px_rgba(197,160,89,0.35)] hover:scale-[1.02] active:scale-[0.98]"
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontSize: 18,
@@ -43,10 +43,11 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
               cursor: 'pointer',
               transition: 'all 0.4s',
               boxShadow: '0 4px 30px rgba(197, 160, 89, 0.2)',
+              position: 'relative',
+              overflow: 'hidden',
             }}
-            className="hover:shadow-[0_8px_40px_rgba(197,160,89,0.35)] hover:scale-[1.02] active:scale-[0.98]"
           >
-            {t('button')}
+            <span style={{ position: 'relative', zIndex: 1 }}>{t('button')}</span>
           </button>
           <p
             className="mt-6"

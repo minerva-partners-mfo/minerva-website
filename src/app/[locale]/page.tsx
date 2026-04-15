@@ -11,6 +11,18 @@ import { ManifestoSection } from '@/components/landing/ManifestoSection'
 import { CTASection } from '@/components/landing/CTASection'
 import { LandingFooter } from '@/components/landing/LandingFooter'
 
+function GoldSeparator() {
+  return (
+    <div className="flex justify-center py-2">
+      <div style={{
+        width: 1,
+        height: 60,
+        background: 'linear-gradient(to bottom, transparent, rgba(197,160,89,0.2), transparent)',
+      }} />
+    </div>
+  )
+}
+
 export default function HomePage() {
   const [modalOpen, setModalOpen] = useState(false)
   const [phase, setPhase] = useState<'logo' | 'shimmer' | 'rise' | 'done'>('logo')
@@ -24,12 +36,15 @@ export default function HomePage() {
 
   return (
     <div className="landing-root" style={{ minHeight: '100vh', position: 'relative' }}>
+      {/* ═══ Premium grid background ═══ */}
+      <div className="grid-bg" />
+
       {/* ═══ Silk overlay ═══ */}
       <div className="silk-global" />
       <div className="silk-global silk-global--2" />
       <div className="silk-global silk-global--3" />
 
-      {/* ═══ INTRO — logo center → shimmer → rises away ═══ */}
+      {/* ═══ INTRO ═══ */}
       <AnimatePresence>
         {phase !== 'done' && (
           <motion.div
@@ -87,9 +102,12 @@ export default function HomePage() {
       >
         <LandingNavbar onAccedi={() => setModalOpen(true)} />
         <HeroSection />
+        <GoldSeparator />
         <SoluzioniHeader />
         <ServiceCards />
+        <GoldSeparator />
         <ManifestoSection />
+        <GoldSeparator />
         <CTASection
           modalOpen={modalOpen}
           onOpenModal={() => setModalOpen(true)}
@@ -103,11 +121,23 @@ export default function HomePage() {
           background: #0a0f1c;
         }
 
-        .silk-global {
+        /* ═══ Premium grid — tessuto sottilissimo ═══ */
+        .grid-bg {
           position: fixed;
           inset: 0;
           pointer-events: none;
           z-index: 0;
+          background-size: 80px 80px;
+          background-image:
+            linear-gradient(to right, rgba(197,160,89,0.03) 0.5px, transparent 0.5px),
+            linear-gradient(to bottom, rgba(197,160,89,0.03) 0.5px, transparent 0.5px);
+          mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+          -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+        }
+
+        /* ═══ SILK ═══ */
+        .silk-global {
+          position: fixed; inset: 0; pointer-events: none; z-index: 0;
           opacity: 0.045;
           background:
             radial-gradient(ellipse 80% 50% at 15% 25%, rgba(197,160,89,0.5) 0%, transparent 60%),
@@ -143,6 +173,12 @@ export default function HomePage() {
           0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
           40% { transform: translate(25px, 15px) scale(1.04) rotate(-0.5deg); }
           80% { transform: translate(-15px, -25px) scale(0.98) rotate(0.3deg); }
+        }
+
+        /* ═══ Uniform section spacing ═══ */
+        .land-section {
+          padding-top: 100px;
+          padding-bottom: 100px;
         }
       `}</style>
     </div>

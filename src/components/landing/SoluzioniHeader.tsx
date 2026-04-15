@@ -16,12 +16,12 @@ export function SoluzioniHeader() {
   return (
     <section
       ref={ref}
-      className="relative py-12 md:py-16 px-6"
+      className="relative land-section px-6"
     >
 
       <motion.div
         className="text-center max-w-[900px] mx-auto"
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
       >

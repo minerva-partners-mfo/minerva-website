@@ -22,25 +22,21 @@ export function ServiceCards() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section
-      ref={ref}
-      className="relative py-4 md:py-8 px-4 md:px-8"
-      style={{ background: 'transparent' }}
-    >
+    <section ref={ref} className="land-section px-4 md:px-8">
       <div className="cards-grid">
         {CARD_KEYS.map((key, i) => (
           <motion.div
             key={key}
             className="card"
             style={{ '--card-img': `url(${CARD_IMAGES[i]})` } as React.CSSProperties}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 0.6,
-              delay: i * 0.08,
-              ease: [0.23, 1, 0.32, 1],
-            }}
+            transition={{ duration: 0.7, delay: i * 0.08, ease: [0.23, 1, 0.32, 1] }}
           >
+            {/* Gold tint overlay */}
+            <div className="card-tint" />
+            {/* Gold top border glow on hover */}
+            <div className="card-border-glow" />
             <div className="card-content">
               <h2 className="card-title">{t(`${key}.title`)}</h2>
               <p className="card-copy">{t(`${key}.text`)}</p>
@@ -71,99 +67,104 @@ export function ServiceCards() {
           color: whitesmoke;
           background-color: #0a0f1c;
           border-radius: 10px;
+          border: 1px solid rgba(197,160,89,0.06);
+          transition: border-color 500ms;
           box-shadow:
-            0 1px 1px rgba(0,0,0,0.1),
-            0 2px 2px rgba(0,0,0,0.1),
-            0 4px 4px rgba(0,0,0,0.1),
-            0 8px 8px rgba(0,0,0,0.1),
-            0 16px 16px rgba(0,0,0,0.1);
+            0 2px 4px rgba(0,0,0,0.15),
+            0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .card:hover {
+          border-color: rgba(197,160,89,0.15);
         }
 
         @media (min-width: 600px) {
-          .card {
-            width: calc(50% - 0.5rem);
-            height: 350px;
-          }
+          .card { width: calc(50% - 0.5rem); height: 380px; }
         }
-
         @media (min-width: 900px) {
-          .card {
-            width: calc(25% - 0.75rem);
-          }
+          .card { width: calc(25% - 0.75rem); }
         }
 
-        /* ─── Immagine chiara, visibile ─── */
+        /* ─── Background image — full cover ─── */
         .card:before {
           content: '';
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 110%;
+          inset: 0;
           background-image: var(--card-img);
           background-size: cover;
           background-position: center;
-          transition: transform 1050ms cubic-bezier(0.19, 1, 0.22, 1),
-                      filter 700ms cubic-bezier(0.19, 1, 0.22, 1);
+          transition: transform 1050ms cubic-bezier(0.19, 1, 0.22, 1);
           pointer-events: none;
-          filter: brightness(0.45) saturate(0.75);
         }
 
-        .card:hover:before,
-        .card:focus-within:before {
-          filter: brightness(0.2) saturate(0.6);
+        /* ─── Gold tint overlay ─── */
+        .card-tint {
+          position: absolute;
+          inset: 0;
+          background: rgba(160, 130, 60, 0.08);
+          mix-blend-mode: color;
+          pointer-events: none;
+          z-index: 1;
         }
 
-        /* ─── Gradient solo in basso per il titolo ─── */
+        /* ─── Top border gold glow on hover ─── */
+        .card-border-glow {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 80px;
+          background: linear-gradient(to bottom, rgba(197,160,89,0.15), transparent);
+          opacity: 0;
+          transition: opacity 500ms;
+          pointer-events: none;
+          z-index: 2;
+        }
+        .card:hover .card-border-glow {
+          opacity: 1;
+        }
+
+        /* ─── Gradient overlay — covers full card, heavy at bottom ─── */
         .card:after {
           content: '';
-          display: block;
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 200%;
           pointer-events: none;
+          z-index: 2;
           background-image: linear-gradient(
             to bottom,
             hsla(0, 0%, 0%, 0) 0%,
-            hsla(0, 0%, 0%, 0) 30%,
-            hsla(0, 0%, 0%, 0) 40%,
-            hsla(0, 0%, 0%, 0.02) 45%,
-            hsla(0, 0%, 0%, 0.08) 50%,
-            hsla(0, 0%, 0%, 0.18) 55%,
-            hsla(0, 0%, 0%, 0.32) 60%,
-            hsla(0, 0%, 0%, 0.50) 65%,
-            hsla(0, 0%, 0%, 0.65) 70%,
-            hsla(0, 0%, 0%, 0.78) 75%,
-            hsla(0, 0%, 0%, 0.86) 80%,
-            hsla(0, 0%, 0%, 0.92) 85%,
-            hsla(0, 0%, 0%, 0.96) 90%,
-            hsla(0, 0%, 0%, 0.98) 95%,
-            hsla(0, 0%, 0%, 1.0) 100%
+            hsla(0, 0%, 0%, 0.01) 8%,
+            hsla(0, 0%, 0%, 0.04) 16%,
+            hsla(0, 0%, 0%, 0.10) 24%,
+            hsla(0, 0%, 0%, 0.18) 32%,
+            hsla(0, 0%, 0%, 0.28) 40%,
+            hsla(0, 0%, 0%, 0.40) 48%,
+            hsla(0, 0%, 0%, 0.54) 56%,
+            hsla(0, 0%, 0%, 0.66) 64%,
+            hsla(0, 0%, 0%, 0.76) 72%,
+            hsla(0, 0%, 0%, 0.84) 80%,
+            hsla(0, 0%, 0%, 0.90) 88%,
+            hsla(0, 0%, 0%, 0.95) 96%,
+            hsla(0, 0%, 0%, 0.98) 100%
           );
           transform: translateY(-50%);
           transition: transform 1400ms cubic-bezier(0.19, 1, 0.22, 1);
         }
 
+        /* ─── Content ─── */
         .card-content {
           position: relative;
           display: flex;
           flex-direction: column;
           align-items: center;
           width: 100%;
-          padding: 1.2rem 1rem;
+          padding: 1.5rem 1rem;
           transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
-          z-index: 1;
-          background: linear-gradient(
-            to top,
-            rgba(5, 8, 16, 0.95) 0%,
-            rgba(5, 8, 16, 0.92) 40%,
-            rgba(5, 8, 16, 0.80) 70%,
-            rgba(5, 8, 16, 0.55) 85%,
-            transparent 100%
-          );
-          border-radius: 0 0 10px 10px;
+          z-index: 3;
         }
 
         .card-content > * + * {
@@ -176,24 +177,20 @@ export function ServiceCards() {
           font-weight: 600;
           line-height: 1.2;
           color: #C5A059;
-          text-shadow:
-            0 1px 3px rgba(0,0,0,0.9),
-            0 2px 12px rgba(0,0,0,0.8);
+          text-shadow: 0 1px 3px rgba(0,0,0,0.9), 0 2px 12px rgba(0,0,0,0.8);
         }
 
         .card-copy {
           font-family: var(--font-dm-sans, 'DM Sans', sans-serif);
           font-size: 0.85rem;
           font-style: italic;
-          line-height: 1.5;
-          color: rgba(255, 255, 255, 0.95);
-          text-shadow:
-            0 1px 2px rgba(0,0,0,0.95),
-            0 2px 10px rgba(0,0,0,0.9);
+          line-height: 1.55;
+          color: rgba(255, 255, 255, 0.92);
+          text-shadow: 0 1px 3px rgba(0,0,0,0.95), 0 2px 10px rgba(0,0,0,0.9);
           max-width: 240px;
         }
 
-        /* ─── Hover effect (desktop only) ─── */
+        /* ─── Hover: full card coverage (desktop) ─── */
         @media (hover: hover) and (min-width: 600px) {
           .card:after {
             transform: translateY(0);
