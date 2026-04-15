@@ -93,7 +93,7 @@ export function ServiceCards() {
           }
         }
 
-        /* ─── Background image (::before) ─── */
+        /* ─── Background image (::before) — molto scuro di default ─── */
         .card:before {
           content: '';
           position: absolute;
@@ -104,11 +104,18 @@ export function ServiceCards() {
           background-image: var(--card-img);
           background-size: cover;
           background-position: center;
-          transition: transform 1050ms cubic-bezier(0.19, 1, 0.22, 1);
+          transition: transform 1050ms cubic-bezier(0.19, 1, 0.22, 1),
+                      filter 700ms cubic-bezier(0.19, 1, 0.22, 1);
           pointer-events: none;
+          filter: brightness(0.35);
         }
 
-        /* ─── Gradient overlay (::after) ─── */
+        .card:hover:before,
+        .card:focus-within:before {
+          filter: brightness(0.18);
+        }
+
+        /* ─── Gradient overlay (::after) — piu' pesante ─── */
         .card:after {
           content: '';
           display: block;
@@ -121,21 +128,21 @@ export function ServiceCards() {
           background-image: linear-gradient(
             to bottom,
             hsla(0, 0%, 0%, 0) 0%,
-            hsla(0, 0%, 0%, 0.009) 11.7%,
-            hsla(0, 0%, 0%, 0.034) 22.1%,
-            hsla(0, 0%, 0%, 0.072) 31.2%,
-            hsla(0, 0%, 0%, 0.123) 39.4%,
-            hsla(0, 0%, 0%, 0.182) 46.6%,
-            hsla(0, 0%, 0%, 0.249) 53.1%,
-            hsla(0, 0%, 0%, 0.320) 58.9%,
-            hsla(0, 0%, 0%, 0.394) 64.3%,
-            hsla(0, 0%, 0%, 0.468) 69.3%,
-            hsla(0, 0%, 0%, 0.540) 74.1%,
-            hsla(0, 0%, 0%, 0.607) 78.8%,
-            hsla(0, 0%, 0%, 0.668) 83.6%,
-            hsla(0, 0%, 0%, 0.721) 88.7%,
-            hsla(0, 0%, 0%, 0.762) 94.1%,
-            hsla(0, 0%, 0%, 0.790) 100%
+            hsla(0, 0%, 0%, 0.05) 11.7%,
+            hsla(0, 0%, 0%, 0.12) 22.1%,
+            hsla(0, 0%, 0%, 0.20) 31.2%,
+            hsla(0, 0%, 0%, 0.30) 39.4%,
+            hsla(0, 0%, 0%, 0.40) 46.6%,
+            hsla(0, 0%, 0%, 0.50) 53.1%,
+            hsla(0, 0%, 0%, 0.60) 58.9%,
+            hsla(0, 0%, 0%, 0.68) 64.3%,
+            hsla(0, 0%, 0%, 0.75) 69.3%,
+            hsla(0, 0%, 0%, 0.80) 74.1%,
+            hsla(0, 0%, 0%, 0.85) 78.8%,
+            hsla(0, 0%, 0%, 0.88) 83.6%,
+            hsla(0, 0%, 0%, 0.91) 88.7%,
+            hsla(0, 0%, 0%, 0.93) 94.1%,
+            hsla(0, 0%, 0%, 0.95) 100%
           );
           transform: translateY(-50%);
           transition: transform 1400ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -163,7 +170,9 @@ export function ServiceCards() {
           font-weight: 600;
           line-height: 1.2;
           color: #C5A059;
-          text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+          text-shadow:
+            0 1px 3px rgba(0,0,0,0.9),
+            0 2px 12px rgba(0,0,0,0.8);
         }
 
         .card-copy {
@@ -171,8 +180,10 @@ export function ServiceCards() {
           font-size: 0.85rem;
           font-style: italic;
           line-height: 1.5;
-          color: rgba(255, 255, 255, 0.85);
-          text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+          color: rgba(255, 255, 255, 0.95);
+          text-shadow:
+            0 1px 2px rgba(0,0,0,0.95),
+            0 2px 10px rgba(0,0,0,0.9);
           max-width: 240px;
         }
 
