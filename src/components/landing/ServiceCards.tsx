@@ -79,7 +79,6 @@ export function ServiceCards() {
             0 16px 16px rgba(0,0,0,0.1);
         }
 
-        /* ─── Responsive widths: 1 mobile, 2 tablet, 4+3 desktop ─── */
         @media (min-width: 600px) {
           .card {
             width: calc(50% - 0.5rem);
@@ -93,7 +92,7 @@ export function ServiceCards() {
           }
         }
 
-        /* ─── Background image (::before) — molto scuro di default ─── */
+        /* ─── Immagine chiara, visibile ─── */
         .card:before {
           content: '';
           position: absolute;
@@ -107,15 +106,15 @@ export function ServiceCards() {
           transition: transform 1050ms cubic-bezier(0.19, 1, 0.22, 1),
                       filter 700ms cubic-bezier(0.19, 1, 0.22, 1);
           pointer-events: none;
-          filter: brightness(0.35);
+          filter: brightness(0.75) saturate(0.85);
         }
 
         .card:hover:before,
         .card:focus-within:before {
-          filter: brightness(0.18);
+          filter: brightness(0.3) saturate(0.7);
         }
 
-        /* ─── Gradient overlay (::after) — piu' pesante ─── */
+        /* ─── Gradient solo in basso per il titolo ─── */
         .card:after {
           content: '';
           display: block;
@@ -128,27 +127,25 @@ export function ServiceCards() {
           background-image: linear-gradient(
             to bottom,
             hsla(0, 0%, 0%, 0) 0%,
-            hsla(0, 0%, 0%, 0.05) 11.7%,
-            hsla(0, 0%, 0%, 0.12) 22.1%,
-            hsla(0, 0%, 0%, 0.20) 31.2%,
-            hsla(0, 0%, 0%, 0.30) 39.4%,
-            hsla(0, 0%, 0%, 0.40) 46.6%,
-            hsla(0, 0%, 0%, 0.50) 53.1%,
-            hsla(0, 0%, 0%, 0.60) 58.9%,
-            hsla(0, 0%, 0%, 0.68) 64.3%,
-            hsla(0, 0%, 0%, 0.75) 69.3%,
-            hsla(0, 0%, 0%, 0.80) 74.1%,
-            hsla(0, 0%, 0%, 0.85) 78.8%,
-            hsla(0, 0%, 0%, 0.88) 83.6%,
-            hsla(0, 0%, 0%, 0.91) 88.7%,
-            hsla(0, 0%, 0%, 0.93) 94.1%,
-            hsla(0, 0%, 0%, 0.95) 100%
+            hsla(0, 0%, 0%, 0) 30%,
+            hsla(0, 0%, 0%, 0) 40%,
+            hsla(0, 0%, 0%, 0.02) 45%,
+            hsla(0, 0%, 0%, 0.08) 50%,
+            hsla(0, 0%, 0%, 0.18) 55%,
+            hsla(0, 0%, 0%, 0.32) 60%,
+            hsla(0, 0%, 0%, 0.50) 65%,
+            hsla(0, 0%, 0%, 0.65) 70%,
+            hsla(0, 0%, 0%, 0.78) 75%,
+            hsla(0, 0%, 0%, 0.86) 80%,
+            hsla(0, 0%, 0%, 0.92) 85%,
+            hsla(0, 0%, 0%, 0.96) 90%,
+            hsla(0, 0%, 0%, 0.98) 95%,
+            hsla(0, 0%, 0%, 1.0) 100%
           );
           transform: translateY(-50%);
           transition: transform 1400ms cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        /* ─── Content ─── */
         .card-content {
           position: relative;
           display: flex;

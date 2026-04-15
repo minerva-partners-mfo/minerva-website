@@ -9,14 +9,27 @@ export function SoluzioniHeader() {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
+  // Split "SOLUZIONI SU MISURA, SENZA LIMITI" → two lines
+  const title = t('sectionTitle')
+  const parts = title.split(',')
+
   return (
     <section
       ref={ref}
-      className="relative py-12 md:py-16 px-6"
+      className="relative py-12 md:py-16 px-6 overflow-hidden"
       style={{ background: '#0f1829' }}
     >
+      {/* Subtle silk texture */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          opacity: 0.03,
+          background: 'radial-gradient(ellipse 100% 60% at 50% 50%, rgba(197,160,89,0.5), transparent)',
+        }}
+      />
+
       <motion.div
-        className="text-center max-w-[900px] mx-auto"
+        className="relative z-10 text-center max-w-[900px] mx-auto"
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
@@ -27,13 +40,15 @@ export function SoluzioniHeader() {
             fontWeight: 600,
             fontSize: 'clamp(24px, 5vw, 52px)',
             color: 'rgba(255,255,255,0.92)',
-            lineHeight: 1.2,
+            lineHeight: 1.25,
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
             margin: 0,
           }}
         >
-          {t('sectionTitle')}
+          {parts[0]?.trim()},
+          <br />
+          {parts[1]?.trim()}
         </h2>
         <motion.div
           className="mx-auto mt-5"

@@ -2721,7 +2721,8 @@
       "s": "afeguard",
       "quote2pre": "We are not a bank, not a fund, not a boutique: we are ",
       "quote2gold": "enablers of value",
-      "quote2post": " and relationships through shared collective intelligence."
+      "quote2mid": " and relationships",
+      "quote2end": "through shared collective intelligence."
     },
     "cta": {
       "button": "Request access",
