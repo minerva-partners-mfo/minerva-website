@@ -15,34 +15,33 @@ export function ConsentToggle({ checked, onChange, disabled, label }: ConsentTog
       aria-label={label}
       disabled={disabled}
       onClick={() => !disabled && onChange(!checked)}
-      className="relative shrink-0 transition-colors duration-200 rounded-full"
       style={{
+        position: 'relative',
         width: 44,
         height: 24,
+        flexShrink: 0,
         background: checked ? '#D4AF37' : '#061a28',
-        border: checked ? '1px solid #D4AF37' : '1px solid rgba(255,255,255,0.15)',
+        border: checked ? '1px solid #D4AF37' : '1px solid rgba(212,175,55,0.2)',
+        borderRadius: 12,
         cursor: disabled ? 'not-allowed' : 'pointer',
-        opacity: disabled ? 0.7 : 1,
+        opacity: disabled ? 0.6 : 1,
+        transition: 'all 200ms ease',
+        padding: 0,
       }}
     >
       <span
-        className="absolute top-[2px] rounded-full transition-transform duration-200"
         style={{
+          position: 'absolute',
+          top: 2,
+          left: checked ? 22 : 2,
           width: 18,
           height: 18,
-          background: 'white',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.3)',
-          transform: checked ? 'translateX(22px)' : 'translateX(2px)',
+          background: '#ffffff',
+          borderRadius: '50%',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
+          transition: 'left 200ms ease',
         }}
       />
-      {disabled && (
-        <span className="absolute inset-0 flex items-center justify-center">
-          <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="relative" style={{ left: checked ? 4 : -4 }}>
-            <rect x="1" y="5" width="8" height="6" rx="1" stroke="#D4AF37" strokeWidth="1.2" fill="none" />
-            <path d="M3 5V3.5C3 2.12 3.9 1 5 1s2 1.12 2 2.5V5" stroke="#D4AF37" strokeWidth="1.2" fill="none" />
-          </svg>
-        </span>
-      )}
     </button>
   )
 }

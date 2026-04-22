@@ -16,6 +16,7 @@ interface CookieConsentContextValue {
   consent: ConsentState
   showBanner: boolean
   showPreferences: boolean
+  initialized: boolean
   acceptAll: () => void
   rejectAll: () => void
   savePreferences: (categories: Partial<ConsentState>) => void
@@ -49,12 +50,29 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
     setInitialized(true)
   }, [])
 
-  // Body scroll lock
+  // Body scroll lock — position:fixed technique for iOS Safari compatibility
   useEffect(() => {
     if (!initialized) return
-    const locked = showBanner || showPreferences
-    document.body.style.overflow = locked ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    const isLocked = showBanner || showPreferences
+
+    if (isLocked) {
+      const scrollY = window.scrollY
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.left = '0'
+      document.body.style.right = '0'
+      document.body.style.overflow = 'hidden'
+
+      return () => {
+        const storedY = document.body.style.top
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.left = ''
+        document.body.style.right = ''
+        document.body.style.overflow = ''
+        window.scrollTo(0, parseInt(storedY || '0') * -1)
+      }
+    }
   }, [showBanner, showPreferences, initialized])
 
   const persistConsent = useCallback((state: ConsentState, action: 'accept_all' | 'reject_all' | 'save_preferences') => {
@@ -87,7 +105,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
     persistConsent({
       ...consent,
       ...categories,
-      necessary: true, // always
+      necessary: true,
       timestamp: Date.now(),
     }, 'save_preferences')
   }, [persistConsent, consent])
@@ -97,13 +115,8 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const closePreferences = useCallback(() => {
-    // If banner was showing, go back to banner; otherwise just close
-    if (showBanner) {
-      setShowPreferences(false)
-    } else {
-      setShowPreferences(false)
-    }
-  }, [showBanner])
+    setShowPreferences(false)
+  }, [])
 
   // Expose openPreferences globally for footer button
   useEffect(() => {
@@ -120,6 +133,7 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
         consent,
         showBanner,
         showPreferences,
+        initialized,
         acceptAll,
         rejectAll,
         savePreferences,
