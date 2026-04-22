@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { useCookieConsent } from '@/components/providers/CookieConsentProvider'
-import { MinervaLogo } from '@/components/MinervaLogo'
 
 export function ConsentBanner() {
   const t = useTranslations('consent.banner')
@@ -56,9 +56,16 @@ export function ConsentBanner() {
           animation: 'consentSlideUp 400ms ease-out',
         }}
       >
-        {/* Logo — inline SVG, no async loading flash */}
+        {/* Logo */}
         <div className="flex justify-center mb-6">
-          <MinervaLogo width={48} iconOnly color="#D4AF37" />
+          <Image
+            src="/images/logo-minerva.png"
+            alt="Minerva Partners"
+            width={160}
+            height={44}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </div>
 
         {/* Title */}
