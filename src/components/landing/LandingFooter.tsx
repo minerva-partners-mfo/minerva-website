@@ -82,7 +82,7 @@ export function LandingFooter() {
             }}
             className="hover:text-[#D4AF37]"
           >
-            Preferenze cookie
+            {t('cookiePreferences')}
           </button>
         </div>
       </div>

@@ -146,6 +146,7 @@
       "codice": "The Minerva Code",
       "veritas": "Values & VERITAS",
       "selezione": "Selection",
+      "cogito": "Cogito",
       "eventi": "Events",
       "pointZero": "Point Zero",
       "clubDeal": "Club Deal",
@@ -534,12 +535,12 @@
       "text": "Every professional signs the Minerva Code before operating. Three documents: Ethical, Compensation, Operational. The decision filter: VERITAS.",
       "veritas": {
         "v": "Value",
-        "e": "Ethics",
-        "r": "Responsibility",
-        "i": "Innovation",
+        "e": "Excellence",
+        "r": "Restraint",
+        "i": "Independence",
         "t": "Transparency",
-        "a": "Alliance",
-        "s": "Sustainability"
+        "a": "Alignment",
+        "s": "Stewardship"
       },
       "linkCodice": "The Minerva Code",
       "linkVeritas": "VERITAS"
@@ -2752,13 +2753,24 @@
     },
     "footer": {
       "privacy": "Privacy Policy",
-      "cookie": "Cookie Policy"
+      "cookie": "Cookie Policy",
+      "cookiePreferences": "Cookie preferences"
     }
   },
   "cogito": {
-    "title": "Minerva Cogito",
-    "subtitle": "Insight & Intelligence — Coming Soon",
-    "back": "Back to home"
+    "title": "Cogito",
+    "subtitle": "Ergo sum.",
+    "manifesto": "Where thought becomes method. Reflections, market insights, events and conversations with those who build value over the long term. Our contribution to the culture of wealth, family and enterprise.",
+    "comingSoon": "Coming soon",
+    "back": "Back to home",
+    "newsletter": {
+      "title": "Receive Cogito",
+      "subtitle": "Minerva's thinking directly in your inbox. A selection, not a stream.",
+      "emailPlaceholder": "your-email@example.com",
+      "submit": "Subscribe",
+      "success": "Thank you. We will write to you when Cogito is live.",
+      "privacy": "We respect your privacy. You can unsubscribe at any time."
+    }
   },
   "consent": {
     "banner": {

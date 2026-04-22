@@ -93,9 +93,7 @@ export function LandingNavbar() {
             {t('cogito')}
           </a>
           <a
-            href="https://minervapartners.it/login"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/board"
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontSize: 11,

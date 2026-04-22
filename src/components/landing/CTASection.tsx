@@ -74,24 +74,26 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
 
 function AccessModal({ onClose }: { onClose: () => void }) {
   const t = useTranslations('landing.cta.modal')
-  const [step, setStep] = useState<FormStep>('choice')
+  const [step, setStep] = useState<FormStep>('form')
   const [sending, setSending] = useState(false)
-  const [viaInvite, setViaInvite] = useState(false)
-  const [inviteNote, setInviteNote] = useState('')
+  const [typology, setTypology] = useState<'self-initiated' | 'referral' | ''>('')
+  const [referralFrom, setReferralFrom] = useState('')
   const [form, setForm] = useState({
     nome: '', cognome: '', email: '', telefono: '', ruolo: '',
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!typology) return
+    if (typology === 'referral' && referralFrom.trim().length < 2) return
     setSending(true)
     try {
       await fetch('/api/access-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          tipo: viaInvite ? 'Tramite invito' : 'Richiesta indipendente',
-          inviteNote: viaInvite ? inviteNote : null,
+          typology,
+          referralFrom: typology === 'referral' ? referralFrom : null,
           ...form,
         }),
       })
@@ -169,62 +171,43 @@ function AccessModal({ onClose }: { onClose: () => void }) {
         </div>
 
         <div className="px-6 pb-6">
-          {step === 'choice' && (
-            <div className="space-y-3 mt-4">
-              <button
-                onClick={() => { setViaInvite(false); setStep('form') }}
-                className="w-full text-left px-5 py-4 rounded-lg transition-all duration-300 hover:border-[rgba(197,160,89,0.35)]"
-                style={{
-                  fontFamily: 'var(--font-dm-sans)',
-                  fontSize: 14,
-                  color: 'rgba(255,255,255,0.8)',
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(197,160,89,0.12)',
-                }}
-              >
-                {t('independentTitle')}
-              </button>
-              <button
-                onClick={() => { setViaInvite(true); setStep('form') }}
-                className="w-full text-left px-5 py-4 rounded-lg transition-all duration-300 hover:border-[rgba(197,160,89,0.35)]"
-                style={{
-                  fontFamily: 'var(--font-dm-sans)',
-                  fontSize: 14,
-                  color: 'rgba(255,255,255,0.8)',
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(197,160,89,0.12)',
-                }}
-              >
-                {t('inviteTitle')}
-              </button>
-            </div>
-          )}
-
           {step === 'form' && (
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-              {viaInvite && (
-                <div>
-                  <label
+              {/* Typology radio cards */}
+              <div className="grid grid-cols-2 gap-3">
+                {(['self-initiated', 'referral'] as const).map((type) => (
+                  <button
+                    key={type}
+                    type="button"
+                    onClick={() => setTypology(type)}
+                    className="transition-all duration-200"
                     style={{
                       fontFamily: 'var(--font-dm-sans)',
-                      fontSize: 11,
-                      color: '#C5A059',
-                      letterSpacing: '0.08em',
-                      textTransform: 'uppercase',
-                      display: 'block',
-                      marginBottom: 6,
+                      fontSize: 13,
+                      textAlign: 'center',
+                      padding: '16px 12px',
+                      borderRadius: 10,
+                      cursor: 'pointer',
+                      background: typology === type ? 'rgba(197,160,89,0.08)' : '#0a1e2e',
+                      border: typology === type ? '1px solid #C5A059' : '0.5px solid rgba(197,160,89,0.2)',
+                      color: typology === type ? '#C5A059' : 'rgba(255,255,255,0.8)',
+                      boxShadow: typology === type ? '0 0 20px rgba(197,160,89,0.15)' : 'none',
                     }}
                   >
-                    {t('referralLabel')}
-                  </label>
-                  <textarea
-                    value={inviteNote}
-                    onChange={(e) => setInviteNote(e.target.value)}
-                    rows={3}
-                    style={{ ...inputStyle, resize: 'vertical' }}
-                    placeholder={t('referralPlaceholder')}
-                  />
-                </div>
+                    {type === 'self-initiated' ? t('independentTitle') : t('inviteTitle')}
+                  </button>
+                ))}
+              </div>
+
+              {/* Conditional referral field */}
+              {typology === 'referral' && (
+                <input
+                  required
+                  value={referralFrom}
+                  onChange={(e) => setReferralFrom(e.target.value)}
+                  placeholder={t('referralPlaceholder')}
+                  style={inputStyle}
+                />
               )}
 
               <div className="grid grid-cols-2 gap-3">
@@ -267,6 +250,7 @@ function AccessModal({ onClose }: { onClose: () => void }) {
 
               <button
                 type="submit"
+                disabled={!typology || sending}
                 className="w-full hover:brightness-110 active:scale-[0.98]"
                 style={{
                   fontFamily: 'var(--font-dm-sans)',
@@ -277,7 +261,8 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                   background: 'linear-gradient(135deg, #C5A059, #d4af61)',
                   border: 'none',
                   borderRadius: 6,
-                  cursor: 'pointer',
+                  cursor: !typology || sending ? 'not-allowed' : 'pointer',
+                  opacity: !typology ? 0.5 : 1,
                   transition: 'all 0.3s',
                   marginTop: 8,
                 }}
