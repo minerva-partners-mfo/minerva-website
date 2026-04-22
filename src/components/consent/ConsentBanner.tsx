@@ -1,13 +1,13 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { useCookieConsent } from '@/components/providers/CookieConsentProvider'
+import { MinervaLogo } from '@/components/MinervaLogo'
 
 export function ConsentBanner() {
   const t = useTranslations('consent.banner')
-  const { showBanner, showPreferences, acceptAll, rejectAll, openPreferences } = useCookieConsent()
+  const { showBanner, showPreferences, initialized, acceptAll, rejectAll, openPreferences } = useCookieConsent()
   const cardRef = useRef<HTMLDivElement>(null)
 
   // Focus trap: focus first button on mount
@@ -18,7 +18,8 @@ export function ConsentBanner() {
     }
   }, [showBanner, showPreferences])
 
-  if (!showBanner || showPreferences) return null
+  // Don't render until client-side initialization is complete (prevents FOUC / locale mismatch)
+  if (!initialized || !showBanner || showPreferences) return null
 
   return (
     <div
@@ -55,15 +56,9 @@ export function ConsentBanner() {
           animation: 'consentSlideUp 400ms ease-out',
         }}
       >
-        {/* Logo */}
+        {/* Logo — inline SVG, no async loading flash */}
         <div className="flex justify-center mb-6">
-          <Image
-            src="/images/logo-minerva.png"
-            alt="Minerva Partners"
-            width={120}
-            height={48}
-            className="h-12 w-auto object-contain"
-          />
+          <MinervaLogo width={48} iconOnly color="#D4AF37" />
         </div>
 
         {/* Title */}

@@ -17,6 +17,7 @@ export function ConsentPreferences() {
   })
   const [expanded, setExpanded] = useState<ConsentCategory | null>(null)
   const modalRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   // Sync local state when consent changes
   useEffect(() => {
@@ -28,11 +29,14 @@ export function ConsentPreferences() {
     })
   }, [consent])
 
-  // Focus trap
+  // Focus first button + reset scroll on open
   useEffect(() => {
-    if (showPreferences && modalRef.current) {
-      const firstBtn = modalRef.current.querySelector('button')
-      firstBtn?.focus()
+    if (showPreferences) {
+      if (scrollRef.current) scrollRef.current.scrollTop = 0
+      if (modalRef.current) {
+        const firstBtn = modalRef.current.querySelector('button')
+        firstBtn?.focus()
+      }
     }
   }, [showPreferences])
 
@@ -117,7 +121,11 @@ export function ConsentPreferences() {
         </div>
 
         {/* Categories list - scrollable */}
-        <div className="flex-1 overflow-y-auto px-8 py-4" style={{ minHeight: 0 }}>
+        <div
+          ref={scrollRef}
+          className="flex-1 overflow-y-auto px-8 py-4"
+          style={{ minHeight: 0, overscrollBehavior: 'contain', WebkitOverflowScrolling: 'touch' }}
+        >
           {CATEGORIES.map((cat) => {
             const isNecessary = cat === 'necessary'
             const isChecked = isNecessary ? true : localState[cat as keyof typeof localState]
@@ -136,8 +144,8 @@ export function ConsentPreferences() {
                 }}
               >
                 {/* Category header */}
-                <div className="flex items-center justify-between px-5 py-4">
-                  <div className="flex-1 mr-4">
+                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 20, padding: '20px 24px' }}>
+                  <div style={{ flex: '1 1 auto', minWidth: 0 }}>
                     <div className="flex items-center gap-3 mb-1">
                       <h3
                         style={{
@@ -177,12 +185,14 @@ export function ConsentPreferences() {
                       {t(`modal.categories.${cat}.description`)}
                     </p>
                   </div>
-                  <ConsentToggle
-                    checked={isChecked}
-                    onChange={() => toggleCategory(cat)}
-                    disabled={isNecessary}
-                    label={t(`modal.categories.${cat}.title`)}
-                  />
+                  <div style={{ flex: '0 0 auto', paddingTop: 4 }}>
+                    <ConsentToggle
+                      checked={isChecked}
+                      onChange={() => toggleCategory(cat)}
+                      disabled={isNecessary}
+                      label={t(`modal.categories.${cat}.title`)}
+                    />
+                  </div>
                 </div>
 
                 {/* Expand button */}
