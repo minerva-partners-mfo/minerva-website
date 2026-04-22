@@ -389,17 +389,17 @@
       "londra": {
         "location": "LONDON",
         "title": "The speed of decisions.",
-        "text": "Workgroups in days, not months. A digital portal that accelerates every phase. Because those who decide first decide best."
+        "text": "Working groups assembled in days, not months. A digital portal that accelerates every phase. Because in our world, speed of decision is a competitive advantage."
       },
       "italia": {
         "location": "ITALY",
         "title": "The value of authentic relationships.",
-        "text": "We structure word-of-mouth without killing it. No algorithm will replace a handshake. Relationships are our true asset."
+        "text": "We structure referrals without diminishing them. No algorithm will replace a handshake. Relationships are our most valuable asset."
       },
       "singapore": {
         "location": "SINGAPORE",
         "title": "The global vision.",
-        "text": "Italian competencies with international reach. Global capital with Italian quality. A bridge between worlds that operates with discretion."
+        "text": "Italian expertise with international reach. Global capital paired with Italian quality. A bridge between worlds, operating with the utmost discretion."
       }
     },
     "ispirazioni": {
@@ -452,7 +452,7 @@
     "subtitle": "A system that assembles around your wealth. Not a catalogue of services, but an integrated solution built for you.",
     "blocco1": {
       "label": "THE UNIFIED MODEL",
-      "text": "Minerva doesn't sell individual services. It designs integrated solutions. Each solution is made of \"bricks\": some pre-established (Hub), others activated as needed (Partners, Friends). The oversight is unified.",
+      "text": "Minerva does not sell individual services. It architects integrated solutions. Each solution is composed of building blocks: some permanent (Hub), others activated as needed (Partners, Friends). The oversight is always unified.",
       "regia": "MINERVA OVERSIGHT",
       "hub": {
         "ma": "M&A",
@@ -479,7 +479,7 @@
     },
     "blocco2": {
       "label": "THE HUB & SPOKE CONFEDERATION",
-      "text": "The wealth at the center. Competencies around it. The system assembles around it.",
+      "text": "Wealth at the centre. Expertise around it. The system assembles itself accordingly.",
       "center1": "THE",
       "center2": "WEALTH",
       "hub": {
@@ -571,7 +571,7 @@
     },
     "blocco6": {
       "label": "SKIN IN THE GAME",
-      "text": "When we propose opportunities, our interest is to participate actively. We share the risk. Minerva Fund: fed by setting aside a portion of equity partners' remuneration.",
+      "text": "When we propose an opportunity, we invest alongside you. We share the risk. The Minerva Fund is capitalised by setting aside a portion of the equity partners' remuneration.",
       "schema": {
         "fondo": "Minerva Fund",
         "fam1": "Family 1",
@@ -847,21 +847,21 @@
         "title": "Entrepreneurs",
         "short": "Entrepreneurs",
         "subtitle": "Those who built",
-        "desc": "The entrepreneur who dedicated decades to their company. Wealth grew with them: business, real estate, investments, family. But the system to manage all this hasn't kept pace. Too many advisors, no oversight. 67% of their wealth is locked in business equity.",
+        "desc": "The entrepreneur who devoted decades to building their company. Wealth grew with them -- business, real estate, investments, family. But the infrastructure to manage it all has not kept pace. Too many advisors, no unified oversight. 67% of their wealth remains locked in business equity.",
         "services": "M&A advisory · Exit planning · Wealth structuring · Governance · Generational transition · Club Deal · Post-exit wealth management"
       },
       "p02": {
         "title": "Families",
         "short": "Families",
         "subtitle": "Those who protect and transmit",
-        "desc": "Families with multi-generational wealth: businesses, properties, holdings, income. Often with multiple branches, multiple interests, multiple visions. Family governance is absent or informal. Decisions are made at the Christmas dinner table. 70% don't survive the second generation.",
+        "desc": "Families with multi-generational wealth: businesses, properties, holdings, income streams. Often spanning multiple branches, multiple interests, multiple visions. Family governance is absent or informal. Major decisions are still made at the dinner table. 70% do not survive the second generation.",
         "services": "Family governance · Family constitution · Mediation · Next Gen <> Gen Exit · Personal family office · Asset protection"
       },
       "p03": {
         "title": "Investment Funds",
         "short": "Funds",
         "subtitle": "Those who invest to grow",
-        "desc": "Private equity, venture capital, private debt funds. They seek qualified deal flow, off-market access, co-investment with aligned entrepreneurs. Italy has 207,000 mid-market SMEs: fertile ground for those who know where to look and who to work with. Minerva is the bridge.",
+        "desc": "Private equity, venture capital and private debt funds seeking qualified deal flow, off-market access and co-investment alongside aligned entrepreneurs. Italy has 207,000 mid-market SMEs -- fertile ground for those who know where to look and whom to engage. Minerva serves as the bridge.",
         "services": "Deal origination · Buy-side advisory · Due diligence coordination · Club deal structuring · Co-investment · Exit strategy · Portfolio monitoring"
       },
       "p04": {
@@ -875,14 +875,14 @@
         "title": "Holdings",
         "short": "Holdings",
         "subtitle": "Those who coordinate and optimize",
-        "desc": "Family and industrial holdings managing portfolios of participations. Often grown without a unified strategy: opportunistic acquisitions, postponed disposals, unstructured governance. The holding's value is often less than the sum of its parts.",
+        "desc": "Family and industrial holdings managing portfolios of participations. Often grown without a unified strategy -- opportunistic acquisitions, deferred disposals, unstructured governance. The holding's value frequently falls short of the sum of its parts.",
         "services": "Portfolio strategy · Structure optimization · Disposals and acquisitions · Governance · Asset valuation · Corporate restructuring"
       },
       "p06": {
         "title": "Corporations",
         "short": "Corporations",
         "subtitle": "Those who operate and compete",
-        "desc": "Structured SpA and Srl facing extraordinary operations: M&A, capital raising, restructuring, financial partner entry. Management seeks an advisor who understands both the industrial and the financial and wealth side. A single point of contact.",
+        "desc": "Structured companies (SpA and Srl) navigating transformational events: M&A, capital raising, restructuring, financial partner entry. Management needs an advisor who understands both the industrial logic and the financial and wealth dimensions. One point of contact.",
         "services": "M&A sell-side and buy-side · Capital raising · Restructuring · Business plan · Fairness opinion · Post-deal integration · Negotiation support"
       },
       "p07": {
@@ -1188,7 +1188,7 @@
       "num": "04",
       "title": "Wealth Management",
       "subtitle": "The relationship that protects value over time.",
-      "desc": "We don't build portfolios. We build strategies. Fee-only, 100% retrocession. No products to push.",
+      "desc": "We do not build portfolios. We build strategies. Fee-only, 100% retrocession to the client. No products to sell.",
       "caps": {
         "c1": {
           "title": "Asset Allocation",
@@ -1233,7 +1233,7 @@
     "label": "THE SYSTEM",
     "headline1": "Not à-la-carte solutions,",
     "headline2": "but infinite combinations",
-    "subtitle": "The Minerva ecosystem is a confederation of independent specialists, coordinated by a single team. Every member has a role, a code, and a shared interest.",
+    "subtitle": "The Minerva ecosystem is a confederation of independent specialists, coordinated by a single team. Every member has a defined role, a binding code and a shared interest.",
     "map": {
       "center": "THE WEALTH",
       "hub": "HUB",
@@ -1283,19 +1283,19 @@
       },
       "b2": {
         "title": "ONE COORDINATED TEAM",
-        "desc": "It's not a marketplace. It's a coordinated ecosystem. Minerva Hub orchestrates everything: who does what, when, how. The client has one single point of contact.",
+        "desc": "This is not a marketplace. It is a coordinated ecosystem. Minerva Hub orchestrates everything: who does what, when, how. The client has a single point of contact.",
         "num": "1",
         "numLabel": "point of reference"
       },
       "b3": {
         "title": "SKIN IN THE GAME",
-        "desc": "When we propose a deal, we invest first. We don't ask for trust on words alone.",
+        "desc": "When we propose a deal, we invest first. Trust is earned with capital, not words.",
         "num": "€",
         "numLabel": "our capital alongside yours"
       }
     },
     "join": {
-      "title": "The ecosystem is open to those who share the values.",
+      "title": "The ecosystem is open to those who share our values.",
       "c1": {
         "title": "ARE YOU A PROFESSIONAL?",
         "desc": "Become a Partner. Keep your independence, access deal flow, qualified clients, co-investment.",
@@ -1313,7 +1313,7 @@
       },
       "c4": {
         "title": "ARE YOU AN ENTREPRENEUR / A FAMILY?",
-        "desc": "You're not just a client. You can be an originator, investor, proponent. The ecosystem grows because every member feeds it.",
+        "desc": "You are not merely a client. You can be an originator, investor or proponent. The ecosystem thrives because every member contributes to it.",
         "cta": "Let's talk →"
       }
     },
@@ -1532,7 +1532,7 @@
     "steps": {
       "s1": {
         "title": "THE SITUATION",
-        "desc": "Every estate is different. Every family is different. We start by listening."
+        "desc": "Every estate is unique. Every family is different. We begin by listening."
       },
       "s2": {
         "title": "THE DIAGNOSIS",
@@ -1540,7 +1540,7 @@
       },
       "s3": {
         "title": "THE PLAN",
-        "desc": "A proposal built around you. Who does what, when, at what cost. If it doesn't convince, no commitment."
+        "desc": "A proposal built around you. Who does what, when, at what cost. If it does not convince you, there is no obligation."
       },
       "s4": {
         "title": "THE EXECUTION",
@@ -1548,7 +1548,7 @@
       },
       "s5": {
         "title": "THE REVIEW",
-        "desc": "Quarterly Council Meeting. Performance, strategy, governance. It’s not a service: it’s a relationship."
+        "desc": "Quarterly Council Meeting. Performance, strategy, governance. This is not a service -- it is a relationship."
       }
     },
     "casesTitle": "Every case is unique. Here are some examples.",
@@ -1590,7 +1590,7 @@
   },
   "abilitatori": {
     "headline": "The ecosystem’s tools.",
-    "subtitle": "It’s not just who we are. It’s what we make available.",
+    "subtitle": "It is not just who we are. It is what we make available.",
     "bacheca": {
       "title": "The Board",
       "subtitle": "Off-market deals. Reserved. Filtered.",
@@ -1637,7 +1637,7 @@
     },
     "coinvolgimento": {
       "title": "Active Involvement of Everyone, Including the Client",
-      "desc": "Minerva isn't the only one that moves. Every ecosystem member can explore, contribute, originate, invest.",
+      "desc": "Minerva is not the only party in motion. Every ecosystem member can explore, contribute, originate and invest.",
       "roles": {
         "r1": {
           "title": "ORIGINATOR",
@@ -1718,7 +1718,7 @@
       },
       "c6": {
         "title": "Post-Exit Wealth Strategy",
-        "desc": "From liquidity to structured wealth. Diversification, protection, governance. The most important thing: don’t lose what you’ve earned."
+        "desc": "From liquidity to structured wealth. Diversification, protection, governance. The cardinal rule: preserve what you have earned."
       }
     },
     "stats": {
@@ -1743,7 +1743,7 @@
   },
   "codice": {
     "label": "The Minerva Code",
-    "opening": "Your security and ours: operate and sleep peacefully.",
+    "opening": "Your protection and ours: operate with confidence, rest with peace of mind.",
     "headline": "Three codes. One rule: no compromise.",
     "subtitle": "Every professional signs the Minerva Code before operating. Three binding documents that define how we work, how value is distributed and how clients are protected.",
     "firma": "Everyone signs before operating.",
@@ -1917,8 +1917,8 @@
         "desc": "Definition of role, areas of expertise and terms of collaboration."
       }
     },
-    "exitHeadline": "Those who don't contribute, exit.",
-    "exitText": "The ecosystem is alive. Those who don't generate value, who don't meet standards, who aren't aligned with principles, are shown the door. No exceptions."
+    "exitHeadline": "Those who do not contribute, exit.",
+    "exitText": "The ecosystem is a living system. Those who fail to generate value, who fall short of standards, who are not aligned with our principles, are shown the door. No exceptions."
   },
   "eventi": {
     "label": "Minerva Events",
@@ -1977,7 +1977,7 @@
     "hotSeatSvgTop": "HOT",
     "hotSeatSvgBottom": "SEAT",
     "hotSeatLabel": "The format: Hot Seat",
-    "hotSeatDesc": "One member sits at the centre. They present their situation, wealth, business, family. The others listen, question, challenge. No filters, no diplomacy. Only brutal honesty and expertise at the service of those brave enough to be exposed.",
+    "hotSeatDesc": "One member takes the centre. They present their full situation -- wealth, business, family. The others listen, question, challenge. No filters, no diplomacy. Only candid honesty and expertise at the service of those courageous enough to be fully transparent.",
     "hotSeatNote": "Inspired by the Tiger 21 model",
     "regoleLabel": "The 4 rules",
     "regole": {
@@ -2013,16 +2013,16 @@
     "label": "Next Gen <> Gen Exit",
     "headline": "Next Gen <> Gen Exit",
     "subtitle": "Generational transition has two protagonists. Not one.",
-    "intro": "Everyone talks about preparing the next generation. Nobody prepares those who need to let go. Generational transition is not an event: it's a two-way process. Those entering must learn to lead. Those exiting must learn to let go. Minerva accompanies both.",
+    "intro": "Everyone speaks about preparing the next generation. No one prepares those who must let go. Generational transition is not an event -- it is a two-way process. Those entering must learn to lead. Those exiting must learn to release. Minerva accompanies both.",
     "nextGen": {
       "title": "NEXT GEN",
       "sub": "Those entering",
-      "text": "Learn the language of wealth. Build skills, relationships and awareness before inheriting responsibility. Don't undergo the transition: lead it."
+      "text": "Learn the language of wealth. Build skills, relationships and awareness before inheriting responsibility. Do not undergo the transition -- lead it."
     },
     "genExit": {
       "title": "GEN EXIT",
       "sub": "Those exiting",
-      "text": "Letting go doesn't mean losing. It means transforming your role: from decision-maker to mentor, from operational to strategic. Planning the exit with the same care used to build the entry."
+      "text": "Letting go does not mean losing. It means transforming your role: from decision-maker to mentor, from operational to strategic. Planning the exit with the same rigour applied to building the enterprise."
     },
     "dialogoQuote": "The <> in our name is not a symbol. It's a dialogue.",
     "beneficiLabel": "Why it only works if it works for both",
@@ -2033,7 +2033,7 @@
       },
       "b2": {
         "title": "Skills that transfer",
-        "desc": "Not just knowledge, relationships, values, vision. The things you can't learn in a master's programme."
+        "desc": "Not just knowledge -- but relationships, values and vision. The things no master's programme can teach."
       },
       "b3": {
         "title": "Conflicts prevented",
@@ -2049,7 +2049,7 @@
       },
       "b6": {
         "title": "Shared decisions",
-        "desc": "The most important choices are made together, in a structured context. Not at the dinner table on Christmas Eve."
+        "desc": "The most consequential decisions are made together, in a structured setting -- not at the dinner table on Christmas Eve."
       }
     },
     "livelliLabel": "The Next Gen path",
@@ -2085,7 +2085,7 @@
       "s3": {
         "title": "NEW CHAPTER",
         "eta": "70+ years",
-        "desc": "Wealth is in prepared hands. The founder is free to dedicate themselves to what matters: family, passions, legacy. It's not an ending: it's a transformation."
+        "desc": "Wealth is in capable hands. The founder is free to devote themselves to what truly matters: family, passions, legacy. This is not an ending -- it is a transformation."
       }
     },
     "deepDiveLabel": "Two-way deep dives",
@@ -2368,7 +2368,7 @@
         "label": "sectors covered"
       }
     },
-    "differentiator": "We don't accept mandates we can't close. We don't burn operations. And when we propose a deal to the Club, we invest first.*",
+    "differentiator": "We do not accept mandates we cannot close. We never compromise a transaction. And when we bring a deal to the Club, we invest first.*",
     "disclaimer": "*Every co-investment operation is subject to prior validation by the Minerva Partners Investment Committee.",
     "cta": "Let's talk about your business"
   },
@@ -2423,7 +2423,7 @@
         }
       }
     },
-    "differentiator": "We are not real estate agents. We are advisors who integrate real estate into the overall wealth vision.",
+    "differentiator": "We are not estate agents. We are advisors who integrate real estate into a holistic wealth strategy.",
     "disclaimer": "*Every co-investment operation is subject to prior validation by the Minerva Partners Investment Committee.",
     "cta": "Let's talk about your real estate"
   },
@@ -2478,7 +2478,7 @@
         "label": "clients on fee-only"
       }
     },
-    "differentiator": "We don't manage money. We don't custody assets. We provide the independent oversight that was missing between you and the market.",
+    "differentiator": "We do not manage money. We do not custody assets. We provide the independent oversight that was missing between you and the market.",
     "cta": "Let's talk about your wealth"
   },
   "famiglia": {
@@ -2540,7 +2540,7 @@
         "source": "Source: Williams Group"
       }
     },
-    "differentiator": "We're not psychologists, but we know that behind every wealth decision there's a family dynamic. And we manage it.",
+    "differentiator": "We are not psychologists -- but we understand that behind every wealth decision lies a family dynamic. And we address it.",
     "cta": "Let's talk about your family"
   },
   "passioni": {
@@ -2580,7 +2580,7 @@
       "title": "Our philosophy",
       "text": "Passions are not distractions from wealth: they are an integral part of it. We treat them with the same analytical rigor and care we reserve for financial and real estate investments."
     },
-    "differentiator": "We don't sell experiences. We help you live your passions as part of a conscious wealth strategy.",
+    "differentiator": "We do not sell experiences. We help you integrate your passions into a deliberate wealth strategy.",
     "cta": "Let's talk about your passions"
   },
   "futuro": {
@@ -2636,14 +2636,16 @@
     },
     "filosofia": {
       "title": "Our vision",
-      "text": "Wealth transfer is not an event but a process that lasts years. We accompany it with oversight that integrates legal, tax, financial and , above all , family aspects."
+      "text": "Wealth transfer is not an event but a process that unfolds over years. We guide it with an integrated approach spanning legal, tax, financial and -- above all -- family dimensions."
     },
-    "differentiator": "We don't prepare wills. We build bridges between generations, so wealth outlives those who created it.",
+    "differentiator": "We do not draft wills. We build bridges between generations, ensuring wealth endures beyond those who created it.",
     "cta": "Let's talk about your future"
   },
   "footer": {
     "privacy": "Privacy Policy",
-    "disclaimer": "Cookie Policy"
+    "cookiePolicy": "Cookie Policy",
+    "cookiePreferences": "Cookie preferences",
+    "disclaimer": "Disclaimer"
   },
   "flow": {
     "label": "THE MINERVA MODEL",
@@ -2709,7 +2711,7 @@
       }
     },
     "manifesto": {
-      "quote1": "We are born as a confederation of excellence, where each commits to the other and to the client, offering diverse, sustainable and lasting scenarios.",
+      "quote1": "We are a confederation of excellence, where each member commits to the others and to the client, delivering diverse, sustainable and enduring outcomes.",
       "veritasIntro": "Everything we do is guided by the principles of the word",
       "veritasWord": "VERITAS",
       "v": "alue",
@@ -2722,7 +2724,7 @@
       "quote2pre": "We are not a bank, not a fund, not a boutique: we are ",
       "quote2gold": "enablers of value",
       "quote2mid": " and relationships",
-      "quote2end": "through shared collective intelligence."
+      "quote2end": "through shared collective intelligence and purpose."
     },
     "cta": {
       "button": "Request access",
@@ -2758,45 +2760,63 @@
     "subtitle": "Insight & Intelligence — Coming Soon",
     "back": "Back to home"
   },
-  "cookie": {
-    "banner": "This website uses cookies to enhance your browsing experience.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "policy": "Cookie Policy"
-  },
-  "privacy": {
-    "title": "Privacy Policy",
-    "lastUpdated": "Last updated: April 2026",
-    "intro": "Minerva Partners S.r.l. (\"Minerva\", \"we\", \"us\") is committed to protecting the privacy of its users. This policy describes how we collect, use and protect your personal data.",
-    "sections": {
-      "controller": {
-        "title": "Data Controller",
-        "text": "Minerva Partners S.r.l., Via Roggia Vignola 9, 24047 Treviglio (BG), Italy. Email: info@minervapartners.it"
+  "consent": {
+    "banner": {
+      "title": "We respect your privacy",
+      "body": "We use technical cookies to operate the site and, with your consent, analytics and marketing cookies to measure traffic, understand how you interact with our content and deliver relevant communications. By clicking \"Accept all\" you consent to all cookies in accordance with our <cookiePolicyLink>Cookie Policy</cookiePolicyLink>. You can change your choice at any time.",
+      "customize": "Customize",
+      "reject": "Reject",
+      "acceptAll": "Accept all"
+    },
+    "modal": {
+      "title": "Customize Consent Preferences",
+      "intro": "We use cookies to ensure the proper functioning of the site, analyze traffic and, with your consent, deliver relevant content. You can enable or disable each category individually below.",
+      "introNote": "Cookies classified as \"Necessary\" are essential to site operation and do not require consent. For all others, no cookies will be stored on your device without your explicit consent.",
+      "showMore": "Show details",
+      "showLess": "Hide details",
+      "alwaysActive": "Always Active",
+      "categories": {
+        "necessary": {
+          "title": "Necessary",
+          "description": "Necessary cookies are essential for core site features such as authentication, language preferences and security. They do not collect personally identifiable data."
+        },
+        "functional": {
+          "title": "Functional",
+          "description": "Functional cookies enable additional features such as remembering user preferences and integration with external platforms."
+        },
+        "analytics": {
+          "title": "Analytics",
+          "description": "Analytics cookies help us understand how visitors use the site — pages visited, time spent, traffic sources — to improve content and experience. Data is aggregated and anonymized."
+        },
+        "performance": {
+          "title": "Performance",
+          "description": "Performance cookies measure key site indicators (loading times, errors, stability) to ensure a smooth and fast experience."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "description": "Marketing cookies are used to show you relevant communications on our platforms and external networks, and to measure the effectiveness of our communication initiatives."
+        }
       },
-      "data": {
-        "title": "Data Collected",
-        "text": "We collect personal data you voluntarily provide through our contact forms: name, email address, phone number and message content. We also collect technical data through cookies (IP address, browser type, pages visited)."
+      "table": {
+        "service": "Service",
+        "provider": "Provider",
+        "purpose": "Purpose",
+        "duration": "Duration",
+        "privacyPolicy": "Privacy policy"
       },
-      "purpose": {
-        "title": "Purpose of Processing",
-        "text": "Your data is processed to respond to your enquiries, provide the services you have requested, send communications related to our activities (with your consent), and comply with legal obligations."
-      },
-      "legal": {
-        "title": "Legal Basis",
-        "text": "Data processing is based on your consent (Art. 6(1)(a) GDPR), the performance of a contract or pre-contractual measures (Art. 6(1)(b) GDPR), and compliance with legal obligations (Art. 6(1)(c) GDPR)."
-      },
-      "retention": {
-        "title": "Data Retention",
-        "text": "Personal data is retained for the time necessary to fulfil the purposes for which it was collected, and in any case no longer than 24 months from the last interaction, unless a longer retention period is required by law."
-      },
-      "rights": {
-        "title": "Your Rights",
-        "text": "You have the right to access, rectify, erase, restrict processing, data portability and object to the processing of your personal data. To exercise these rights, please contact us at info@minervapartners.it."
-      },
-      "cookies": {
-        "title": "Cookies",
-        "text": "This website uses technical cookies necessary for the functioning of the site and analytical cookies to understand how visitors interact with the site. You can manage your cookie preferences through the banner displayed on your first visit."
-      }
+      "rejectAll": "Reject all",
+      "save": "Save preferences",
+      "acceptAll": "Accept all"
     }
+  },
+  "privacyPolicy": {
+    "breadcrumb": "Legal",
+    "title": "Privacy Policy",
+    "lastUpdate": "Last updated: April 2026"
+  },
+  "cookiePolicy": {
+    "breadcrumb": "Legal",
+    "title": "Cookie Policy",
+    "lastUpdate": "Last updated: April 2026"
   }
 }

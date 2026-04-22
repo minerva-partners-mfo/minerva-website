@@ -1,14 +1,16 @@
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Playfair_Display, DM_Sans, Cormorant_Garamond } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
+import { CookieConsentProvider } from '@/components/providers/CookieConsentProvider'
 
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
-import { CookieBanner } from '@/components/layout/CookieBanner'
+import { CookieConsent } from '@/components/layout/CookieBanner'
 import '../globals.css'
 
 const playfair = Playfair_Display({
@@ -88,14 +90,35 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${playfair.variable} ${dmSans.variable} ${cormorant.variable}`}>
+      <head>
+        <Script id="gcm-defaults" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('consent', 'default', {
+              'ad_storage': 'denied',
+              'analytics_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'functionality_storage': 'denied',
+              'personalization_storage': 'denied',
+              'security_storage': 'granted',
+              'wait_for_update': 500
+            });
+          `}
+        </Script>
+      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <SmoothScrollProvider>
-            {children}
-            <Footer />
-          </SmoothScrollProvider>
-          <CookieBanner />
+          <CookieConsentProvider>
+            <Navbar />
+            <SmoothScrollProvider>
+              {children}
+              <Footer />
+            </SmoothScrollProvider>
+            <CookieConsent />
+          </CookieConsentProvider>
         </NextIntlClientProvider>
       </body>
     </html>
