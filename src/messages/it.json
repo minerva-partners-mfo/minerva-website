@@ -2643,7 +2643,9 @@
   },
   "footer": {
     "privacy": "Privacy Policy",
-    "disclaimer": "Cookie Policy"
+    "cookiePolicy": "Cookie Policy",
+    "cookiePreferences": "Preferenze cookie",
+    "disclaimer": "Disclaimer"
   },
   "flow": {
     "label": "IL MODELLO MINERVA",
@@ -2758,45 +2760,63 @@
     "subtitle": "Insight & Intelligence — Coming Soon",
     "back": "Torna alla home"
   },
-  "cookie": {
-    "banner": "Questo sito utilizza cookie per migliorare la tua esperienza di navigazione.",
-    "accept": "Accetta",
-    "decline": "Rifiuta",
-    "policy": "Cookie Policy"
-  },
-  "privacy": {
-    "title": "Privacy Policy",
-    "lastUpdated": "Ultimo aggiornamento: aprile 2026",
-    "intro": "Minerva Partners S.r.l. (\"Minerva\", \"noi\") si impegna a proteggere la privacy dei propri utenti. Questa informativa descrive come raccogliamo, utilizziamo e proteggiamo i vostri dati personali.",
-    "sections": {
-      "controller": {
-        "title": "Titolare del Trattamento",
-        "text": "Minerva Partners S.r.l., Via Roggia Vignola 9, 24047 Treviglio (BG), Italia. Email: info@minervapartners.it"
+  "consent": {
+    "banner": {
+      "title": "Rispettiamo la tua privacy",
+      "body": "Utilizziamo cookie tecnici per il funzionamento del sito e, previo tuo consenso, cookie di analisi e marketing per misurare il traffico, comprendere come interagisci con i contenuti e mostrarti comunicazioni pertinenti. Cliccando \"Accetta tutti\" acconsenti all'uso di tutti i cookie in conformità alla nostra <cookiePolicyLink>Cookie Policy</cookiePolicyLink>. Puoi modificare la tua scelta in qualsiasi momento.",
+      "customize": "Personalizza",
+      "reject": "Rifiuta",
+      "acceptAll": "Accetta tutti"
+    },
+    "modal": {
+      "title": "Personalizza le preferenze di consenso",
+      "intro": "Utilizziamo i cookie per garantire il corretto funzionamento del sito, analizzare il traffico e, previo tuo consenso, offrirti contenuti rilevanti. Puoi abilitare o disabilitare singolarmente le categorie di cookie qui sotto.",
+      "introNote": "I cookie classificati come \"Necessari\" sono essenziali per il funzionamento del sito e non richiedono consenso. Per tutti gli altri, nessun cookie verrà salvato sul tuo dispositivo senza il tuo consenso esplicito.",
+      "showMore": "Mostra dettagli",
+      "showLess": "Nascondi dettagli",
+      "alwaysActive": "Sempre attivi",
+      "categories": {
+        "necessary": {
+          "title": "Necessari",
+          "description": "I cookie necessari sono indispensabili per le funzionalità di base del sito, come l'autenticazione, la gestione delle preferenze linguistiche e la sicurezza. Non raccolgono dati personali identificativi."
+        },
+        "functional": {
+          "title": "Funzionali",
+          "description": "I cookie funzionali abilitano caratteristiche aggiuntive come il ricordo delle preferenze utente e l'integrazione con piattaforme esterne."
+        },
+        "analytics": {
+          "title": "Analitici",
+          "description": "I cookie analitici ci aiutano a capire come i visitatori utilizzano il sito — pagine visitate, tempo di permanenza, provenienza del traffico — per migliorare contenuti ed esperienza. I dati sono aggregati e anonimizzati."
+        },
+        "performance": {
+          "title": "Performance",
+          "description": "I cookie di performance misurano gli indicatori chiave del sito (tempi di caricamento, errori, stabilità) per garantire un'esperienza fluida e veloce."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "description": "I cookie di marketing sono utilizzati per mostrarti comunicazioni pertinenti sulle nostre piattaforme e su reti esterne, e per misurare l'efficacia delle nostre iniziative di comunicazione."
+        }
       },
-      "data": {
-        "title": "Dati Raccolti",
-        "text": "Raccogliamo i dati personali forniti volontariamente attraverso i nostri moduli di contatto: nome, indirizzo email, numero di telefono e contenuto del messaggio. Raccogliamo inoltre dati tecnici tramite cookie (indirizzo IP, tipo di browser, pagine visitate)."
+      "table": {
+        "service": "Servizio",
+        "provider": "Fornitore",
+        "purpose": "Finalità",
+        "duration": "Durata",
+        "privacyPolicy": "Privacy policy"
       },
-      "purpose": {
-        "title": "Finalità del Trattamento",
-        "text": "I vostri dati sono trattati per rispondere alle vostre richieste, fornire i servizi richiesti, inviare comunicazioni relative alle nostre attività (con il vostro consenso) e adempiere agli obblighi di legge."
-      },
-      "legal": {
-        "title": "Base Giuridica",
-        "text": "Il trattamento dei dati si fonda sul vostro consenso (Art. 6(1)(a) GDPR), sull'esecuzione di un contratto o di misure precontrattuali (Art. 6(1)(b) GDPR) e sull'adempimento di obblighi di legge (Art. 6(1)(c) GDPR)."
-      },
-      "retention": {
-        "title": "Conservazione dei Dati",
-        "text": "I dati personali sono conservati per il tempo necessario al raggiungimento delle finalità per cui sono stati raccolti e comunque non oltre 24 mesi dall'ultima interazione, salvo che la legge richieda un periodo di conservazione più lungo."
-      },
-      "rights": {
-        "title": "I Vostri Diritti",
-        "text": "Avete il diritto di accesso, rettifica, cancellazione, limitazione del trattamento, portabilità dei dati e opposizione al trattamento dei vostri dati personali. Per esercitare questi diritti, contattateci all'indirizzo info@minervapartners.it."
-      },
-      "cookies": {
-        "title": "Cookie",
-        "text": "Questo sito utilizza cookie tecnici necessari per il funzionamento del sito e cookie analitici per comprendere come i visitatori interagiscono con il sito. Potete gestire le vostre preferenze sui cookie tramite il banner visualizzato alla prima visita."
-      }
+      "rejectAll": "Rifiuta tutti",
+      "save": "Salva preferenze",
+      "acceptAll": "Accetta tutti"
     }
+  },
+  "privacyPolicy": {
+    "breadcrumb": "Legale",
+    "title": "Privacy Policy",
+    "lastUpdate": "Ultimo aggiornamento: aprile 2026"
+  },
+  "cookiePolicy": {
+    "breadcrumb": "Legale",
+    "title": "Cookie Policy",
+    "lastUpdate": "Ultimo aggiornamento: aprile 2026"
   }
 }

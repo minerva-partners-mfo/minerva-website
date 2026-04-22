@@ -37,33 +37,54 @@ export function LandingFooter() {
           info@minervapartners.it
         </a>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 flex-wrap justify-center">
           <Link
-            href="/privacy"
+            href="/privacy-policy"
             style={{
               fontFamily: 'var(--font-dm-sans)',
-              fontSize: 12,
+              fontSize: 11,
               color: 'rgba(255,255,255,0.3)',
               textDecoration: 'none',
-              transition: 'color 0.3s',
+              transition: 'color 0.2s',
             }}
-            className="hover:text-white/50"
+            className="hover:text-[#D4AF37]"
           >
             {t('privacy')}
           </Link>
+          <span style={{ color: 'rgba(255,255,255,0.15)' }}>|</span>
           <Link
-            href="/privacy"
+            href="/cookie-policy"
             style={{
               fontFamily: 'var(--font-dm-sans)',
-              fontSize: 12,
+              fontSize: 11,
               color: 'rgba(255,255,255,0.3)',
               textDecoration: 'none',
-              transition: 'color 0.3s',
+              transition: 'color 0.2s',
             }}
-            className="hover:text-white/50"
+            className="hover:text-[#D4AF37]"
           >
             {t('cookie')}
           </Link>
+          <span style={{ color: 'rgba(255,255,255,0.15)' }}>|</span>
+          <button
+            onClick={() => {
+              const w = window as Window & { MinervaConsent?: { showPreferences: () => void } }
+              w.MinervaConsent?.showPreferences()
+            }}
+            style={{
+              fontFamily: 'var(--font-dm-sans)',
+              fontSize: 11,
+              color: 'rgba(255,255,255,0.3)',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              padding: 0,
+              transition: 'color 0.2s',
+            }}
+            className="hover:text-[#D4AF37]"
+          >
+            Preferenze cookie
+          </button>
         </div>
       </div>
     </motion.footer>
