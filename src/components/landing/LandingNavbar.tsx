@@ -73,7 +73,7 @@ export function LandingNavbar() {
           >
             {otherLocale.toUpperCase()}
           </Link>
-          <a
+          <Link
             href="/cogito"
             className="hover:text-white hover:border-white/20"
             style={{
@@ -91,7 +91,7 @@ export function LandingNavbar() {
             }}
           >
             {t('cogito')}
-          </a>
+          </Link>
           <a
             href="/board"
             style={{
