@@ -75,7 +75,7 @@ export function LandingNavbar() {
           </Link>
           <a
             href="/cogito"
-            className="hidden sm:block hover:text-white hover:border-white/20"
+            className="hover:text-white hover:border-white/20"
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontSize: 11,

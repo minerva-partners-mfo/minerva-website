@@ -3,9 +3,11 @@
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
+import { useCookieConsent } from '@/components/providers/CookieConsentProvider'
 
 export function Footer() {
   const t = useTranslations('footer')
+  const { openPreferences } = useCookieConsent()
   const pathname = usePathname()
 
   if (pathname === '/') return null
@@ -36,10 +38,7 @@ export function Footer() {
             <Link href="/cookie-policy" className="font-sans text-[11px] text-white/50 hover:text-[#D4AF37] transition-colors">{t('cookiePolicy')}</Link>
             <span className="text-white/20">|</span>
             <button
-              onClick={() => {
-                const w = window as Window & { MinervaConsent?: { showPreferences: () => void } }
-                w.MinervaConsent?.showPreferences()
-              }}
+              onClick={openPreferences}
               className="font-sans text-[11px] text-white/50 hover:text-[#D4AF37] transition-colors bg-transparent border-none cursor-pointer p-0"
             >
               {t('cookiePreferences')}

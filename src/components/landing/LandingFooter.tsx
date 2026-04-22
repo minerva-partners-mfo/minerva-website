@@ -4,9 +4,11 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
+import { useCookieConsent } from '@/components/providers/CookieConsentProvider'
 
 export function LandingFooter() {
   const t = useTranslations('landing.footer')
+  const { openPreferences } = useCookieConsent()
   const ref = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
 
@@ -67,10 +69,7 @@ export function LandingFooter() {
           </Link>
           <span style={{ color: 'rgba(255,255,255,0.15)' }}>|</span>
           <button
-            onClick={() => {
-              const w = window as Window & { MinervaConsent?: { showPreferences: () => void } }
-              w.MinervaConsent?.showPreferences()
-            }}
+            onClick={openPreferences}
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontSize: 11,
