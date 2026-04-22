@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
 export function LandingFooter() {
   const t = useTranslations('landing.footer')
@@ -37,8 +38,8 @@ export function LandingFooter() {
         </a>
 
         <div className="flex items-center gap-6">
-          <a
-            href="#"
+          <Link
+            href="/privacy"
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontSize: 12,
@@ -49,9 +50,9 @@ export function LandingFooter() {
             className="hover:text-white/50"
           >
             {t('privacy')}
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/privacy"
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontSize: 12,
@@ -62,7 +63,7 @@ export function LandingFooter() {
             className="hover:text-white/50"
           >
             {t('cookie')}
-          </a>
+          </Link>
         </div>
       </div>
     </motion.footer>

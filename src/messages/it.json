@@ -2642,8 +2642,8 @@
     "cta": "Parliamo del tuo futuro"
   },
   "footer": {
-    "privacy": "Privacy",
-    "disclaimer": "Disclaimer"
+    "privacy": "Privacy Policy",
+    "disclaimer": "Cookie Policy"
   },
   "flow": {
     "label": "IL MODELLO MINERVA",
@@ -2751,6 +2751,52 @@
     "footer": {
       "privacy": "Privacy Policy",
       "cookie": "Cookie Policy"
+    }
+  },
+  "cogito": {
+    "title": "Minerva Cogito",
+    "subtitle": "Insight & Intelligence — Coming Soon",
+    "back": "Torna alla home"
+  },
+  "cookie": {
+    "banner": "Questo sito utilizza cookie per migliorare la tua esperienza di navigazione.",
+    "accept": "Accetta",
+    "decline": "Rifiuta",
+    "policy": "Cookie Policy"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Ultimo aggiornamento: aprile 2026",
+    "intro": "Minerva Partners S.r.l. (\"Minerva\", \"noi\") si impegna a proteggere la privacy dei propri utenti. Questa informativa descrive come raccogliamo, utilizziamo e proteggiamo i vostri dati personali.",
+    "sections": {
+      "controller": {
+        "title": "Titolare del Trattamento",
+        "text": "Minerva Partners S.r.l., Via Roggia Vignola 9, 24047 Treviglio (BG), Italia. Email: info@minervapartners.it"
+      },
+      "data": {
+        "title": "Dati Raccolti",
+        "text": "Raccogliamo i dati personali forniti volontariamente attraverso i nostri moduli di contatto: nome, indirizzo email, numero di telefono e contenuto del messaggio. Raccogliamo inoltre dati tecnici tramite cookie (indirizzo IP, tipo di browser, pagine visitate)."
+      },
+      "purpose": {
+        "title": "Finalità del Trattamento",
+        "text": "I vostri dati sono trattati per rispondere alle vostre richieste, fornire i servizi richiesti, inviare comunicazioni relative alle nostre attività (con il vostro consenso) e adempiere agli obblighi di legge."
+      },
+      "legal": {
+        "title": "Base Giuridica",
+        "text": "Il trattamento dei dati si fonda sul vostro consenso (Art. 6(1)(a) GDPR), sull'esecuzione di un contratto o di misure precontrattuali (Art. 6(1)(b) GDPR) e sull'adempimento di obblighi di legge (Art. 6(1)(c) GDPR)."
+      },
+      "retention": {
+        "title": "Conservazione dei Dati",
+        "text": "I dati personali sono conservati per il tempo necessario al raggiungimento delle finalità per cui sono stati raccolti e comunque non oltre 24 mesi dall'ultima interazione, salvo che la legge richieda un periodo di conservazione più lungo."
+      },
+      "rights": {
+        "title": "I Vostri Diritti",
+        "text": "Avete il diritto di accesso, rettifica, cancellazione, limitazione del trattamento, portabilità dei dati e opposizione al trattamento dei vostri dati personali. Per esercitare questi diritti, contattateci all'indirizzo info@minervapartners.it."
+      },
+      "cookies": {
+        "title": "Cookie",
+        "text": "Questo sito utilizza cookie tecnici necessari per il funzionamento del sito e cookie analitici per comprendere come i visitatori interagiscono con il sito. Potete gestire le vostre preferenze sui cookie tramite il banner visualizzato alla prima visita."
+      }
     }
   }
 }

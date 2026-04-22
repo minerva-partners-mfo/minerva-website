@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { usePathname } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 
 export function Footer() {
   const t = useTranslations('footer')
@@ -31,8 +31,8 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="font-sans text-[12px] text-white/90">© 2026 Minerva Partners S.r.l.</span>
           <div className="flex items-center gap-6">
-            <a href="#" className="font-sans text-[12px] text-white/90 hover:text-[#C9912B] transition-colors">{t('privacy')}</a>
-            <a href="#" className="font-sans text-[12px] text-white/90 hover:text-[#C9912B] transition-colors">{t('disclaimer')}</a>
+            <Link href="/privacy" className="font-sans text-[12px] text-white/90 hover:text-[#C9912B] transition-colors">{t('privacy')}</Link>
+            <Link href="/privacy" className="font-sans text-[12px] text-white/90 hover:text-[#C9912B] transition-colors">{t('disclaimer')}</Link>
           </div>
         </div>
       </div>

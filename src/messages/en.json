@@ -2,7 +2,7 @@
   "meta": {
     "home": {
       "title": "Minerva Partners: Multiclient Family Office",
-      "desc": "Wealth needs someone who sees it with the same care as those who built it."
+      "desc": "Your wealth deserves the same vision and care that went into building it."
     },
     "hub": {
       "title": "Minerva Hub: The Core",
@@ -171,13 +171,13 @@
     }
   },
   "loStatement": {
-    "text": "Minerva Partners is more than a Family Office.\nIt is the ecosystem where the best minds converge,\nthat together can offer you the finest solution for your wealth.",
-    "imageCaption": "An ecosystem of professionals who share competencies, relationships and the satisfaction of an excellent result."
+    "text": "Minerva Partners is more than a Family Office.\nIt is the ecosystem where the finest minds converge\nto deliver the optimal solution for your wealth.",
+    "imageCaption": "An ecosystem of professionals who share expertise, relationships and a commitment to exceptional results."
   },
   "imageEcosistema": {
     "line1": "Minerva Partners is not just a Family Office.",
-    "line2": "It is the ecosystem where the best minds converge, that together can offer you the finest solution for your wealth.",
-    "line3": "Professionals who have accepted a code of confidentiality and transparency. Who share competencies, relationships and the satisfaction of an excellent result."
+    "line2": "It is the ecosystem where the finest minds converge to deliver the optimal solution for your wealth.",
+    "line3": "Professionals bound by a code of confidentiality and transparency. Who share expertise, relationships and a commitment to exceptional results."
   },
   "homeEcosistema": {
     "center": "THE WEALTH",
@@ -198,7 +198,7 @@
       },
       "4": {
         "title": "MINERVA FRIENDS",
-        "text": "The family's historical memory, specialists introduced by a Partner, competencies activated for specific projects.",
+        "text": "The family's institutional memory, specialists introduced by a Partner, expertise activated for specific projects.",
         "link": "Discover the Friends →"
       },
       "5": {
@@ -264,7 +264,7 @@
         "competenza": "Activated\nCompetency"
       }
     },
-    "closing1": "Nothing is impossible, only the cost of waiting and not acting is very high; we don't seek the impossible: we join forces to deliver an excellent result.",
+    "closing1": "Nothing is impossible -- only the cost of inaction is prohibitively high. We do not chase the impossible: we unite expertise to deliver exceptional results.",
     "closing2": "WE WILL BE HERE TOMORROW TOO."
   },
   "skinInTheGame": {
@@ -374,12 +374,12 @@
   },
   "posizionamento": {
     "label": "POSITIONING",
-    "headline": "We took the best from those who do this at the highest levels in the world.",
+    "headline": "We studied the best in the world. Then we built something of our own.",
     "blocks": {
       "wallStreet": {
         "location": "WALL STREET",
         "title": "The discipline of execution.",
-        "text": "Structured pipeline, rigorous stage gates, total accountability. Every operation follows a clear, measurable and results-oriented process."
+        "text": "Structured pipeline, rigorous stage gates, total accountability. Every transaction follows a clear, measurable, results-driven process."
       },
       "ginevra": {
         "location": "GENEVA",
@@ -586,7 +586,7 @@
     "atto1": {
       "label": "ACT 1: THE DISPERSION",
       "headline": "The business model that worked for decades no longer works.",
-      "text": "Margins have shrunk, complexity has exploded, markets move ever faster. Today, everything is difficult, wasted time, pointless processes and systemic inefficiencies.",
+      "text": "Margins have compressed, complexity has multiplied and markets move faster than ever. The result: wasted time, redundant processes and systemic inefficiencies.",
       "col1": {
         "title": "Mandates that never close",
         "text": "Too many advisors take on assignments they cannot complete.",
@@ -605,8 +605,8 @@
     },
     "atto2": {
       "label": "ACT 2: THE FRAGMENTATION",
-      "text": "For every problem, a professional is called in, a specialist: but this very specialisation fragments overall value. Each one looks at their piece and optimises it, without considering the decisions of others. So the picture never takes on the substance it should have.",
-      "counterText": "An Italian entrepreneur with significant wealth has on average 5-7 professionals who don't communicate with each other.",
+      "text": "For every challenge, a specialist is engaged -- yet it is precisely this fragmentation that erodes overall value. Each advisor optimises their own silo without considering the decisions of others. The complete picture never materialises.",
+      "counterText": "A typical Italian entrepreneur with substantial wealth retains 5-7 professionals who rarely communicate with one another.",
       "source": "AIPB, ABI 2025",
       "words": {
         "tempo": "WASTED TIME",
@@ -617,7 +617,7 @@
     },
     "atto3": {
       "label": "ACT 3: THE DISSATISFACTION",
-      "text": "The result? Dissatisfaction. Sometimes explicit, badly managed operations, fragmented wealth, traumatic generational transitions. Sometimes latent, that feeling that things are not in their place, that one could do better, that no one is looking at the full picture. That voice that says: 'My wealth deserves more.'",
+      "text": "The result? Dissatisfaction. Sometimes overt -- mismanaged transactions, fragmented estates, traumatic generational transitions. Sometimes latent -- the quiet sense that things are not where they should be, that no one holds the complete view. That inner conviction: 'My wealth deserves better.'",
       "cosaFare": "What to do?",
       "answer": "Minerva Partners is more than a Family Office. It is the oversight your wealth deserves.",
       "cta": "Discover how it works"
@@ -625,49 +625,49 @@
   },
   "pensiero": {
     "letterLabel": "OPEN LETTER",
-    "intro1": "Minerva Partners is born from a conviction: the most important value of a family is not what it owns, but the ability to evolve what it has built.",
-    "intro2": "For this reason, our model assigns the client a dual role. On one hand, a recipient of strategic and wealth advisory; on the other, an active participant in an environment where opportunities, relationships and vision come together. A place conceived as a temple of opportunities, business and growth.",
+    "intro1": "Minerva Partners was born from a conviction: a family's greatest asset is not what it owns, but its capacity to evolve what it has built.",
+    "intro2": "For this reason, our model assigns the client a dual role: on one hand, the recipient of strategic and wealth advisory; on the other, an active participant in an environment where opportunities, relationships and vision converge. A setting conceived as a crucible for opportunities, enterprise and growth.",
     "sections": {
       "architettura": {
         "title": "THE ARCHITECTURE",
         "paragraphs": [
-          "At the center exists the hub: four pillars representing our distinctive competencies, **M&A, real estate, strategy consulting and wealth management**, integrated into a single design that reads wealth as a system.",
-          "Around the hub, Partners are activated with their most relevant verticals: legal, tax, industrial, energy, insurance, international, and the Friends, bearers of specialist skills, connections and unconventional perspectives.",
-          "The goal is not to offer services, but to outline each time **the best solution for that family**, at that moment, along that trajectory."
+          "At the centre stands the hub: four pillars representing our core competencies -- **M&A, real estate, strategy consulting and wealth management** -- integrated into a unified framework that reads wealth as a system.",
+          "Around the hub, Partners are engaged across their most relevant verticals -- legal, tax, industrial, energy, insurance, international -- alongside the Friends, who bring specialist expertise, connections and unconventional perspectives.",
+          "The goal is not to offer services, but to architect **the optimal solution for each family**, at the right moment, along the right trajectory."
         ]
       },
       "marketplace": {
         "title": "THE RESERVED MARKETPLACE",
         "paragraphs": [
-          "This approach takes shape in a **reserved marketplace** that structures networking and makes it operational. A selective space, accessible by invitation, where opportunities of any type of private assets are shared on a blind basis, examined by qualified parties and developed by restricted working groups. Here networking becomes infrastructure and deal flow becomes process.",
+          "This approach takes shape in a **reserved marketplace** that structures networking and renders it operational. A selective space, accessible by invitation, where private-asset opportunities of every kind are shared on a blind basis, examined by qualified parties and developed by dedicated working groups. Here, networking becomes infrastructure and deal flow becomes process.",
           "The client participates: they can explore, contribute, originate, invest, observe. The system grows because its members fuel it."
         ]
       },
       "codice": {
         "title": "THE MINERVA CODE",
         "paragraphs": [
-          "To ensure coherence, the **Minerva Code** exists: ethical, compensation-related and operational, defining how we work together, how value is distributed and how conflicts are managed."
+          "To ensure coherence, there is the **Minerva Code** -- ethical, compensation-related and operational -- defining how we collaborate, how value is distributed and how conflicts are managed."
         ]
       },
       "skin": {
         "title": "SKIN IN THE GAME",
         "paragraphs": [
-          "A distinctive element is **skin in the game**. When we propose opportunities, our interest is to participate actively. By building solutions together, we share the risk. This transforms the relationship from advisory to co-responsibility."
+          "A distinctive element is **skin in the game**. When we propose an opportunity, we participate with our own capital. By building solutions together, we share the risk. This transforms the relationship from advisory into co-responsibility."
         ]
       },
       "custodia": {
         "title": "STEWARDSHIP AND CONTINUITY",
         "paragraphs": [
-          "The model remains deliberately open. Needs evolve, generations change, opportunities transform: Minerva is built to adapt without losing identity, shaping the business together with the members of the ecosystem.",
-          "The common thread is the **sustainability of value stewardship**. To steward means to protect, grow, transmit and give meaning. To accompany decisions that do not belong to the short term, but to continuity.",
-          "Minerva does not position itself as an answer to a contingent need. It positions itself as a context where important decisions find space, time and quality to be made correctly."
+          "The model remains deliberately open. Needs evolve, generations change, opportunities transform. Minerva is built to adapt without losing its identity, shaping the platform together with the members of its ecosystem.",
+          "The common thread is the **sustainability of value stewardship**. To steward is to protect, grow, transmit and give meaning -- to support decisions that belong not to the short term, but to continuity.",
+          "Minerva does not position itself as the answer to an immediate need. It is the environment where consequential decisions find the space, time and rigour to be made well."
         ]
       }
     },
     "quote": "Wealth deserves the same care as those who built it.",
     "closing": [
-      "Minerva is an adaptive structure: you will enter a system that learns, adapts and grows with you. Making better opportunities, more evolved conversations and more conscious trajectories possible.",
-      "Our work is not measured in completed transactions, but in the quality of choices that become possible over time.",
+      "Minerva is an adaptive structure: you enter a system that learns, adapts and grows alongside you -- unlocking better opportunities, richer dialogue and more deliberate trajectories.",
+      "Our work is measured not in transactions closed, but in the quality of decisions that become possible over time.",
       "And it is on this that we build every relationship."
     ],
     "signatories": "Marco Vittoni & Enrico Viganò"
@@ -678,7 +678,7 @@
     "marco": {
       "name": "Marco Vittoni",
       "role": "EQUITY PARTNER",
-      "bio": "Expert in M&A, corporate finance and strategic-operational advisory for SMEs and Mid Caps. Works alongside entrepreneurs, families and institutional investors. Former member of several investment banks in Italy and Switzerland. Successfully completed approximately 50 deals.",
+      "bio": "Expert in M&A, corporate finance and strategic advisory for SMEs and mid-caps. Works alongside entrepreneurs, families and institutional investors. Formerly with leading investment banks in Italy and Switzerland. Approximately 50 deals successfully completed.",
       "formazione": "Education: Master's degree in Management, Bocconi University. Bachelor's degree, University of Parma. eMBA, Universidade Católica Portuguesa, Lisbon."
     },
     "enrico": {
@@ -691,7 +691,7 @@
   "contatti": {
     "label": "CONTACT",
     "headline": "Let's talk.",
-    "subtitle": "Whether exploring a partnership, presenting an opportunity, or simply understanding if Minerva is the right answer, we're here.",
+    "subtitle": "Whether you are exploring a partnership, presenting an opportunity or simply evaluating whether Minerva is the right fit, we are here.",
     "form": {
       "nome": "Full Name",
       "email": "Email",
@@ -2642,8 +2642,8 @@
     "cta": "Let's talk about your future"
   },
   "footer": {
-    "privacy": "Privacy",
-    "disclaimer": "Disclaimer"
+    "privacy": "Privacy Policy",
+    "disclaimer": "Cookie Policy"
   },
   "flow": {
     "label": "THE MINERVA MODEL",
@@ -2751,6 +2751,52 @@
     "footer": {
       "privacy": "Privacy Policy",
       "cookie": "Cookie Policy"
+    }
+  },
+  "cogito": {
+    "title": "Minerva Cogito",
+    "subtitle": "Insight & Intelligence — Coming Soon",
+    "back": "Back to home"
+  },
+  "cookie": {
+    "banner": "This website uses cookies to enhance your browsing experience.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "policy": "Cookie Policy"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: April 2026",
+    "intro": "Minerva Partners S.r.l. (\"Minerva\", \"we\", \"us\") is committed to protecting the privacy of its users. This policy describes how we collect, use and protect your personal data.",
+    "sections": {
+      "controller": {
+        "title": "Data Controller",
+        "text": "Minerva Partners S.r.l., Via Roggia Vignola 9, 24047 Treviglio (BG), Italy. Email: info@minervapartners.it"
+      },
+      "data": {
+        "title": "Data Collected",
+        "text": "We collect personal data you voluntarily provide through our contact forms: name, email address, phone number and message content. We also collect technical data through cookies (IP address, browser type, pages visited)."
+      },
+      "purpose": {
+        "title": "Purpose of Processing",
+        "text": "Your data is processed to respond to your enquiries, provide the services you have requested, send communications related to our activities (with your consent), and comply with legal obligations."
+      },
+      "legal": {
+        "title": "Legal Basis",
+        "text": "Data processing is based on your consent (Art. 6(1)(a) GDPR), the performance of a contract or pre-contractual measures (Art. 6(1)(b) GDPR), and compliance with legal obligations (Art. 6(1)(c) GDPR)."
+      },
+      "retention": {
+        "title": "Data Retention",
+        "text": "Personal data is retained for the time necessary to fulfil the purposes for which it was collected, and in any case no longer than 24 months from the last interaction, unless a longer retention period is required by law."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "text": "You have the right to access, rectify, erase, restrict processing, data portability and object to the processing of your personal data. To exercise these rights, please contact us at info@minervapartners.it."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "text": "This website uses technical cookies necessary for the functioning of the site and analytical cookies to understand how visitors interact with the site. You can manage your cookie preferences through the banner displayed on your first visit."
+      }
     }
   }
 }

@@ -8,6 +8,7 @@ import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvide
 
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { CookieBanner } from '@/components/layout/CookieBanner'
 import '../globals.css'
 
 const playfair = Playfair_Display({
@@ -94,6 +95,7 @@ export default async function LocaleLayout({
             {children}
             <Footer />
           </SmoothScrollProvider>
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

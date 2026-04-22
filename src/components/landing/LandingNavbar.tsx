@@ -3,11 +3,15 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
+import { Link, usePathname } from '@/i18n/navigation'
 import { RadarOrbit } from './RadarOrbit'
 
 export function LandingNavbar() {
   const t = useTranslations('landing.nav')
+  const locale = useLocale()
+  const pathname = usePathname()
+  const otherLocale = locale === 'it' ? 'en' : 'it'
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -54,6 +58,21 @@ export function LandingNavbar() {
         </div>
 
         <div className="flex items-center gap-3">
+          <Link
+            href={pathname}
+            locale={otherLocale}
+            className="hidden sm:flex items-center justify-center w-8 h-8 rounded-full border border-white/10 hover:border-[#C9912B]/30 transition-all duration-300"
+            style={{
+              fontFamily: 'var(--font-dm-sans)',
+              fontSize: 10,
+              fontWeight: 600,
+              letterSpacing: '0.08em',
+              color: 'rgba(255,255,255,0.8)',
+              textDecoration: 'none',
+            }}
+          >
+            {otherLocale.toUpperCase()}
+          </Link>
           <a
             href="/cogito"
             className="hidden sm:block hover:text-white hover:border-white/20"
