@@ -2699,6 +2699,8 @@
     },
     "cta": {
       "button": "Request access",
+      "btnSpontaneous": "Spontaneous",
+      "btnReferral": "Referral",
       "tagline": "Excellence without compromise",
       "modal": {
         "title": "Request access",

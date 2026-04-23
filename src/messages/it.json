@@ -2699,6 +2699,8 @@
     },
     "cta": {
       "button": "Richiedi l'accesso",
+      "btnSpontaneous": "Autocandidatura",
+      "btnReferral": "Su invito",
       "tagline": "L'eccellenza senza compromessi",
       "modal": {
         "title": "Richiedi l'accesso",
