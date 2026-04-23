@@ -92,8 +92,8 @@ function AccessModal({ onClose }: { onClose: () => void }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          typology,
-          referralFrom: typology === 'referral' ? referralFrom : null,
+          tipo: typology,
+          inviteNote: typology === 'referral' ? referralFrom : null,
           ...form,
         }),
       })
