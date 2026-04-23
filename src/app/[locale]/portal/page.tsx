@@ -134,9 +134,24 @@ export default function PortalPage() {
           {t('cta')}
         </a>
 
+        {/* Restricted access notice */}
+        <p
+          className="mt-6"
+          style={{
+            fontFamily: 'var(--font-cormorant)',
+            fontStyle: 'italic',
+            fontSize: 15,
+            color: 'rgba(255,255,255,0.5)',
+            letterSpacing: '0.04em',
+            margin: '20px 0 0',
+          }}
+        >
+          {t('restricted')}
+        </p>
+
         {/* Note */}
         <p
-          className="mt-8"
+          className="mt-4"
           style={{
             fontFamily: 'var(--font-dm-sans)',
             fontSize: 13,

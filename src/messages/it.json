@@ -2747,6 +2747,7 @@
     "title": "Area Riservata",
     "subtitle": "Accesso riservato ai clienti e ai professionisti dell'ecosistema Minerva.",
     "cta": "Accedi al Portale",
+    "restricted": "Accesso riservato ai soli autorizzati",
     "back": "minervapartners.it",
     "note": "Se non disponi ancora delle credenziali, richiedi l'accesso dalla homepage."
   },
