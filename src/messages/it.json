@@ -2741,6 +2741,13 @@
       "privacy": "Rispettiamo la tua privacy. Potrai cancellarti in qualsiasi momento."
     }
   },
+  "portal": {
+    "title": "Area Riservata",
+    "subtitle": "Accesso riservato ai clienti e ai professionisti dell'ecosistema Minerva.",
+    "cta": "Accedi al Portale",
+    "back": "minervapartners.it",
+    "note": "Se non disponi ancora delle credenziali, richiedi l'accesso dalla homepage."
+  },
   "consent": {
     "banner": {
       "title": "Rispettiamo la tua privacy",

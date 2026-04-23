@@ -2741,6 +2741,13 @@
       "privacy": "We respect your privacy. You can unsubscribe at any time."
     }
   },
+  "portal": {
+    "title": "Reserved Area",
+    "subtitle": "Access reserved for clients and professionals of the Minerva ecosystem.",
+    "cta": "Access the Portal",
+    "back": "minervapartners.it",
+    "note": "If you do not yet have credentials, request access from the homepage."
+  },
   "consent": {
     "banner": {
       "title": "We respect your privacy",

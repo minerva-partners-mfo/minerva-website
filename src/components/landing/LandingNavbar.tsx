@@ -92,8 +92,8 @@ export function LandingNavbar() {
           >
             {t('cogito')}
           </Link>
-          <a
-            href={process.env.NEXT_PUBLIC_PORTAL_URL || "/portal"}
+          <Link
+            href="/portal"
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontSize: 11,
@@ -112,7 +112,7 @@ export function LandingNavbar() {
             }}
           >
             {t('access')}
-          </a>
+          </Link>
         </div>
       </div>
     </motion.nav>

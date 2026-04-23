@@ -10,7 +10,7 @@ export function Navbar() {
   const locale = useLocale()
   const pathname = usePathname()
   const otherLocale = locale === 'it' ? 'en' : 'it'
-  const isHome = pathname === '/' || pathname === '/cogito'
+  const isHome = pathname === '/' || pathname === '/cogito' || pathname === '/portal'
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -55,8 +55,8 @@ export function Navbar() {
           </Link>
 
           {/* Accedi */}
-          <a
-            href={process.env.NEXT_PUBLIC_PORTAL_URL || "/portal"}
+          <Link
+            href="/portal"
             className="font-sans text-[10px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:border-[#c5a35a]"
             style={{
               color: '#c5a35a',
@@ -68,7 +68,7 @@ export function Navbar() {
             }}
           >
             {t('access')}
-          </a>
+          </Link>
 
           {/* Lang switch */}
           <Link
