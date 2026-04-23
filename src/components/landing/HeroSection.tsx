@@ -8,7 +8,8 @@ import { RadarOrbit } from './RadarOrbit'
 
 export function HeroSection() {
   const t = useTranslations('landing')
-  const words = t('hero.title').split(' ')
+  const line1Words = t('hero.titleLine1').split(' ')
+  const line2Words = t('hero.titleLine2').split(' ')
   const heroRef = useRef<HTMLElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
@@ -85,11 +86,20 @@ export function HeroSection() {
 
         {/* Title */}
         <h1 style={{ fontFamily: 'var(--font-cormorant)', fontWeight: 300, fontSize: 'clamp(26px, 4.5vw, 48px)', color: 'rgba(255,255,255,0.9)', lineHeight: 1.35, margin: 0 }}>
-          {words.map((word, i) => (
-            <motion.span key={i} className="inline-block mr-[0.3em]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 + i * 0.07, ease: [0.23, 1, 0.32, 1] }}>
-              {word}
-            </motion.span>
-          ))}
+          <span style={{ display: 'block' }}>
+            {line1Words.map((word, i) => (
+              <motion.span key={i} className="inline-block mr-[0.3em]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 + i * 0.07, ease: [0.23, 1, 0.32, 1] }}>
+                {word}
+              </motion.span>
+            ))}
+          </span>
+          <span style={{ display: 'block' }}>
+            {line2Words.map((word, i) => (
+              <motion.span key={i} className="inline-block mr-[0.3em]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.8 + (line1Words.length + i) * 0.07, ease: [0.23, 1, 0.32, 1] }}>
+                {word}
+              </motion.span>
+            ))}
+          </span>
         </h1>
 
         {/* Subtitle with shimmer */}

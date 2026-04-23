@@ -2646,7 +2646,8 @@
       "scroll": "Scopri"
     },
     "hero": {
-      "title": "Il Patrimonio evolve solo quando viene visto nella sua interezza",
+      "titleLine1": "Il Patrimonio evolve solo",
+      "titleLine2": "quando viene visto nella sua interezza",
       "subtitle": "MULTICLIENT FAMILY OFFICE"
     },
     "cards": {

@@ -2646,7 +2646,8 @@
       "scroll": "Explore"
     },
     "hero": {
-      "title": "Wealth evolves only when it is seen in its entirety",
+      "titleLine1": "Wealth evolves only",
+      "titleLine2": "when it is seen in its entirety",
       "subtitle": "MULTICLIENT FAMILY OFFICE"
     },
     "cards": {
