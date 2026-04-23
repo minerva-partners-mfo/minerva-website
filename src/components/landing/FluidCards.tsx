@@ -184,8 +184,9 @@ export function FluidCards() {
           font-family: var(--font-cormorant, 'Cormorant Garamond', serif);
           font-size: 17px;
           font-weight: 600;
-          color: rgba(255,255,255,0.9);
+          color: #ffffff;
           line-height: 1.2;
+          text-shadow: 0 1px 12px rgba(212,175,55,0.5);
         }
 
         /* ── Subtitle ── */
@@ -197,7 +198,8 @@ export function FluidCards() {
           margin: 0;
           font-family: var(--font-dm-sans, 'DM Sans', sans-serif);
           font-size: 11px;
-          color: rgba(197,160,89,0.6);
+          color: rgba(212,175,55,0.95);
+          font-weight: 400;
           letter-spacing: 0.02em;
           transition: 0.3s ease-out;
         }
