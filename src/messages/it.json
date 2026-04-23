@@ -126,39 +126,8 @@
     }
   },
   "nav": {
-    "groups": {
-      "modello": "Il Modello",
-      "servizi": "Servizi",
-      "fiducia": "Fiducia",
-      "relazioni": "Relazioni e Network",
-      "chiSiamo": "Chi Siamo"
-    },
-    "items": {
-      "problema": "Il Problema",
-      "comeFunziona": "Come Funziona",
-      "posizionamento": "Posizionamento",
-      "settori": "Settori e Player",
-      "soluzioni": "Soluzioni Unified",
-      "hub": "Minerva Hub",
-      "ecosistema": "L'Ecosistema",
-      "abilitatori": "Abilitatori",
-      "wealth": "Wealth Management",
-      "codice": "Il Codice Minerva",
-      "veritas": "Valori e VERITAS",
-      "selezione": "Selezione",
-      "cogito": "Cogito",
-      "eventi": "Eventi",
-      "pointZero": "Point Zero",
-      "clubDeal": "Club Deal",
-      "nextGen": "Next Gen",
-      "pensiero": "Il Pensiero",
-      "strategia": "Strategia",
-      "management": "Management",
-      "contatti": "Contatti"
-    },
-    "cta": "Area Riservata",
-    "minervaBoard": "Minerva Board",
-    "menuLabel": "Menu",
+    "cogito": "Cogito",
+    "access": "Accedi",
     "langSwitch": "EN"
   },
   "ilMosaico": {

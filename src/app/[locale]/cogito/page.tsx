@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 
@@ -12,91 +11,124 @@ export default function CogitoPage() {
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!email || loading) return
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError(locale === 'it' ? "Inserisci un'email valida" : 'Please enter a valid email')
+      return
+    }
     setLoading(true)
+    setError('')
     try {
-      // TODO: wire to /api/cogito/subscribe when Supabase table is ready
-      await new Promise((r) => setTimeout(r, 800))
+      const res = await fetch('/api/cogito/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, locale }),
+      })
+      if (!res.ok) throw new Error()
       setSubmitted(true)
     } catch {
-      // fail silently
+      setError(locale === 'it' ? 'Errore. Riprova tra poco.' : 'Error. Please try again.')
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen relative" style={{ background: '#0D1520' }}>
-      {/* Top bar */}
-      <div className="flex items-center justify-between px-6 md:px-10 pt-6">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/images/logo-minerva.png"
-            alt="Minerva Partners"
-            width={160}
-            height={44}
-            className="h-10 w-auto object-contain"
-            priority
-          />
-        </Link>
-        <Link
-          href="/cogito"
-          locale={otherLocale}
-          className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 hover:border-[#C9912B]/30 transition-all duration-300"
+    <div className="min-h-screen flex flex-col items-center px-6" style={{ background: 'radial-gradient(ellipse at top, #0a1428 0%, #001220 60%)' }}>
+      {/* Mini header */}
+      <header
+        className="w-full flex justify-between items-center py-7"
+        style={{
+          maxWidth: 720,
+          borderBottom: '0.5px solid rgba(212,175,55,0.12)',
+          marginBottom: 80,
+        }}
+      >
+        <a
+          href="https://minervapartners.it"
           style={{
             fontFamily: 'var(--font-dm-sans)',
+            color: 'rgba(255,255,255,0.5)',
             fontSize: 11,
-            fontWeight: 600,
-            letterSpacing: '0.1em',
-            color: 'rgba(255,255,255,0.8)',
+            letterSpacing: '0.15em',
+            textDecoration: 'none',
           }}
         >
-          {locale === 'it' ? 'EN' : 'IT'}
-        </Link>
-      </div>
+          ← minervapartners.it
+        </a>
+        <div className="flex items-center gap-4">
+          <span
+            style={{
+              fontFamily: 'var(--font-cormorant)',
+              fontSize: 13,
+              color: '#D4AF37',
+              letterSpacing: '0.3em',
+              fontWeight: 500,
+            }}
+          >
+            MINERVA PARTNERS
+          </span>
+          <Link
+            href="/cogito"
+            locale={otherLocale}
+            className="flex items-center justify-center w-8 h-8 rounded-full border border-white/10 hover:border-[#C9912B]/30 transition-all duration-300"
+            style={{
+              fontFamily: 'var(--font-dm-sans)',
+              fontSize: 10,
+              fontWeight: 600,
+              letterSpacing: '0.1em',
+              color: 'rgba(255,255,255,0.8)',
+            }}
+          >
+            {otherLocale.toUpperCase()}
+          </Link>
+        </div>
+      </header>
 
-      {/* Hero */}
-      <div
-        className="flex flex-col items-center justify-center px-6 text-center"
-        style={{ minHeight: 'calc(100vh - 80px)', paddingBottom: 80 }}
-      >
+      {/* Main content */}
+      <main className="w-full text-center flex-1" style={{ maxWidth: 720 }}>
         {/* Title */}
         <h1
           style={{
             fontFamily: 'var(--font-cormorant)',
-            fontWeight: 600,
-            fontSize: 'clamp(48px, 8vw, 96px)',
-            color: '#C5A059',
-            letterSpacing: '0.05em',
+            fontSize: 'clamp(72px, 14vw, 120px)',
+            fontWeight: 300,
+            color: '#D4AF37',
+            letterSpacing: '0.06em',
+            lineHeight: 1,
             margin: 0,
           }}
         >
-          {t('title')}
+          Cogito
         </h1>
 
-        {/* Subtitle italic */}
+        {/* Subtitle */}
         <p
           style={{
             fontFamily: 'var(--font-cormorant)',
+            fontSize: 'clamp(18px, 3vw, 26px)',
             fontStyle: 'italic',
-            fontSize: 24,
             color: 'rgba(255,255,255,0.88)',
-            marginTop: 12,
+            marginTop: 16,
+            letterSpacing: '0.04em',
+            fontWeight: 300,
           }}
         >
-          {t('subtitle')}
+          Ergo sum.
         </p>
 
-        {/* Divider */}
+        {/* Gold line */}
         <div
-          className="mx-auto my-12"
+          className="mx-auto"
           style={{
             width: 60,
             height: 1,
-            background: 'linear-gradient(90deg, transparent, #C5A059, transparent)',
+            background: 'linear-gradient(90deg, transparent, #D4AF37, transparent)',
+            margin: '48px auto',
+            opacity: 0.6,
           }}
         />
 
@@ -105,10 +137,11 @@ export default function CogitoPage() {
           style={{
             fontFamily: 'var(--font-dm-sans)',
             fontSize: 16,
-            lineHeight: 1.8,
+            lineHeight: 1.85,
             color: 'rgba(255,255,255,0.88)',
-            maxWidth: 560,
+            maxWidth: 520,
             margin: '0 auto',
+            fontWeight: 300,
           }}
         >
           {t('manifesto')}
@@ -116,40 +149,52 @@ export default function CogitoPage() {
 
         {/* Coming soon badge */}
         <div
-          className="mt-10 inline-flex items-center gap-2 px-5 py-2"
+          className="inline-flex items-center gap-2 mt-12"
           style={{
-            border: '1px solid rgba(197,160,89,0.3)',
-            borderRadius: 20,
-            background: 'rgba(197,160,89,0.06)',
+            padding: '8px 20px',
+            border: '0.5px solid rgba(212,175,55,0.3)',
+            borderRadius: 32,
+            background: 'rgba(212,175,55,0.06)',
           }}
         >
           <span
             className="w-1.5 h-1.5 rounded-full"
-            style={{ background: '#C5A059', animation: 'pulse 2s ease-in-out infinite' }}
+            style={{ background: '#D4AF37', opacity: 0.7, animation: 'pulse 2s ease-in-out infinite' }}
           />
           <span
             style={{
               fontFamily: 'var(--font-dm-sans)',
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: '0.15em',
+              fontSize: 10,
+              letterSpacing: '0.25em',
               textTransform: 'uppercase',
-              color: 'rgba(197,160,89,0.8)',
+              color: '#D4AF37',
+              opacity: 0.8,
             }}
           >
             {t('comingSoon')}
           </span>
         </div>
 
-        {/* Newsletter section */}
-        <div className="mt-16 w-full max-w-[440px]">
+        {/* Vertical divider */}
+        <div
+          className="mx-auto"
+          style={{
+            width: 1,
+            height: 80,
+            background: 'linear-gradient(180deg, transparent, rgba(212,175,55,0.2), transparent)',
+            margin: '72px auto',
+          }}
+        />
+
+        {/* Newsletter form */}
+        <div style={{ maxWidth: 440, margin: '0 auto' }}>
           <h2
             style={{
               fontFamily: 'var(--font-cormorant)',
-              fontSize: 22,
-              fontWeight: 600,
-              color: '#C5A059',
-              marginBottom: 8,
+              fontSize: 'clamp(22px, 3.5vw, 30px)',
+              fontWeight: 300,
+              color: '#fff',
+              marginBottom: 12,
             }}
           >
             {t('newsletter.title')}
@@ -157,10 +202,10 @@ export default function CogitoPage() {
           <p
             style={{
               fontFamily: 'var(--font-dm-sans)',
-              fontSize: 13,
-              lineHeight: 1.6,
+              fontSize: 14,
               color: 'rgba(255,255,255,0.5)',
-              marginBottom: 20,
+              lineHeight: 1.6,
+              marginBottom: 32,
             }}
           >
             {t('newsletter.subtitle')}
@@ -169,73 +214,94 @@ export default function CogitoPage() {
           {submitted ? (
             <p
               style={{
-                fontFamily: 'var(--font-dm-sans)',
-                fontSize: 14,
-                color: '#C5A059',
-                padding: '16px 0',
+                fontFamily: 'var(--font-cormorant)',
+                fontSize: 18,
+                fontStyle: 'italic',
+                color: '#D4AF37',
+                lineHeight: 1.6,
               }}
             >
               {t('newsletter.success')}
             </p>
           ) : (
-            <form onSubmit={handleSubmit} className="flex gap-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={t('newsletter.emailPlaceholder')}
-                required
-                className="flex-1 outline-none"
-                style={{
-                  fontFamily: 'var(--font-dm-sans)',
-                  fontSize: 14,
-                  padding: '12px 16px',
-                  borderRadius: 8,
-                  border: '1px solid rgba(197,160,89,0.2)',
-                  background: 'rgba(10,30,46,0.8)',
-                  color: 'white',
-                }}
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                style={{
-                  fontFamily: 'var(--font-dm-sans)',
-                  fontSize: 12,
-                  fontWeight: 600,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  padding: '12px 24px',
-                  borderRadius: 8,
-                  border: 'none',
-                  background: 'linear-gradient(135deg, #C5A059, #d4af61)',
-                  color: '#0D1520',
-                  cursor: loading ? 'wait' : 'pointer',
-                  opacity: loading ? 0.7 : 1,
-                }}
-              >
-                {t('newsletter.submit')}
-              </button>
+            <form onSubmit={handleSubmit}>
+              <div className="flex gap-2 flex-wrap">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={t('newsletter.emailPlaceholder')}
+                  disabled={loading}
+                  className="flex-1 outline-none"
+                  style={{
+                    minWidth: 260,
+                    background: '#0a1e2e',
+                    border: '0.5px solid rgba(212,175,55,0.2)',
+                    borderRadius: 10,
+                    padding: '14px 16px',
+                    color: '#fff',
+                    fontFamily: 'var(--font-dm-sans)',
+                    fontSize: 13,
+                  }}
+                />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  style={{
+                    background: 'linear-gradient(135deg, #D4AF37, #E8C84A)',
+                    color: '#001220',
+                    border: 'none',
+                    borderRadius: 10,
+                    padding: '14px 28px',
+                    fontFamily: 'var(--font-dm-sans)',
+                    fontSize: 12,
+                    fontWeight: 600,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    cursor: loading ? 'not-allowed' : 'pointer',
+                    opacity: loading ? 0.7 : 1,
+                    transition: 'all 0.3s',
+                  }}
+                >
+                  {loading ? '...' : t('newsletter.submit')}
+                </button>
+              </div>
+              {error && (
+                <p style={{ marginTop: 8, fontSize: 12, color: '#e07070' }}>{error}</p>
+              )}
+              <p style={{ marginTop: 16, fontSize: 11, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.04em' }}>
+                {t('newsletter.privacy')}
+              </p>
             </form>
           )}
-
-          <p
-            className="mt-4"
-            style={{
-              fontFamily: 'var(--font-dm-sans)',
-              fontSize: 11,
-              color: 'rgba(255,255,255,0.3)',
-            }}
-          >
-            {t('newsletter.privacy')}
-          </p>
         </div>
-      </div>
+      </main>
+
+      {/* Minimal footer */}
+      <footer
+        className="w-full text-center"
+        style={{
+          maxWidth: 720,
+          padding: '48px 0 32px',
+          borderTop: '0.5px solid rgba(212,175,55,0.08)',
+          marginTop: 80,
+        }}
+      >
+        <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em' }}>
+          © 2026 Minerva Partners S.r.l. —{' '}
+          <Link
+            href="/privacy-policy"
+            style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'none' }}
+          >
+            Privacy
+          </Link>
+        </p>
+      </footer>
 
       <style>{`
         @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 1; }
         }
       `}</style>
     </div>

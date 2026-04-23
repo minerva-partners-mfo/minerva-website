@@ -10,7 +10,7 @@ export function Footer() {
   const { openPreferences } = useCookieConsent()
   const pathname = usePathname()
 
-  if (pathname === '/') return null
+  if (pathname === '/' || pathname === '/cogito') return null
 
   return (
     <footer className="py-12 md:py-16 px-4 md:px-6" style={{ backgroundColor: '#131E33' }}>

@@ -4,25 +4,9 @@ const BASE_URL = 'https://minervapartners.it'
 
 const pages = [
   '',
-  '/hub',
-  '/ecosistema',
-  '/ecosistema/partners',
-  '/ecosistema/friends',
-  '/ecosistema/advisors',
-  '/soluzioni',
-  '/abilitatori',
-  '/codice',
-  '/selezione',
-  '/eventi',
-  '/point-zero',
-  '/next-gen',
-  '/management',
-  '/pensiero',
-  '/contatti',
-  '/problema',
-  '/come-funziona',
-  '/posizionamento',
-  '/settori',
+  '/cogito',
+  '/privacy-policy',
+  '/cookie-policy',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
