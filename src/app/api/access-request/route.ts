@@ -7,7 +7,7 @@ export async function POST(request: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY)
   try {
     const body = await request.json()
-    const { tipo, inviteNote, nome, cognome, email, telefono, ruolo } = body
+    const { tipo, inviteNote, nome, cognome, email, telefono, ruolo, messaggio } = body
 
     if (!nome || !cognome || !email) {
       return NextResponse.json(
@@ -31,6 +31,7 @@ export async function POST(request: Request) {
             <tr><td style="padding: 8px 0; color: #666;">Email</td><td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #C9912B;">${email}</a></td></tr>
             ${telefono ? `<tr><td style="padding: 8px 0; color: #666;">Telefono</td><td style="padding: 8px 0; color: #1A2744;">${telefono}</td></tr>` : ''}
             ${ruolo ? `<tr><td style="padding: 8px 0; color: #666;">Ruolo</td><td style="padding: 8px 0; color: #1A2744;">${ruolo}</td></tr>` : ''}
+            ${messaggio ? `<tr><td style="padding: 8px 0; color: #666;">Messaggio</td><td style="padding: 8px 0; color: #1A2744;">${messaggio}</td></tr>` : ''}
           </table>
           <hr style="border: none; border-top: 1px solid #ddd; margin: 24px 0;" />
           <p style="color: #999; font-size: 12px; margin: 0;">Inviato dal sito minervapartners.it</p>
@@ -58,6 +59,7 @@ export async function POST(request: Request) {
             email,
             telefono: telefono || '',
             ruolo: ruolo || '',
+            messaggio: messaggio || '',
           }),
         })
       } catch (sheetErr) {

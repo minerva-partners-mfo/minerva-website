@@ -76,25 +76,36 @@ function AccessModal({ onClose }: { onClose: () => void }) {
   const t = useTranslations('landing.cta.modal')
   const [step, setStep] = useState<FormStep>('form')
   const [sending, setSending] = useState(false)
-  const [typology, setTypology] = useState<'self-initiated' | 'referral' | ''>('')
-  const [referralFrom, setReferralFrom] = useState('')
-  const [form, setForm] = useState({
-    nome: '', cognome: '', email: '', telefono: '', ruolo: '',
+  const [formData, setFormData] = useState({
+    typology: '' as '' | 'self-initiated' | 'referral',
+    name: '',
+    email: '',
+    phone: '',
+    profile: '',
+    referralFrom: '',
+    message: '',
   })
+
+  const set = (field: string, value: string) =>
+    setFormData((prev) => ({ ...prev, [field]: value }))
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!typology) return
-    if (typology === 'referral' && referralFrom.trim().length < 2) return
+    if (!formData.typology) return
+    if (formData.typology === 'referral' && formData.referralFrom.trim().length < 2) return
     setSending(true)
     try {
       await fetch('/api/access-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          tipo: typology,
-          inviteNote: typology === 'referral' ? referralFrom : null,
-          ...form,
+          tipo: formData.typology,
+          inviteNote: formData.typology === 'referral' ? formData.referralFrom : null,
+          nome: formData.name,
+          email: formData.email,
+          telefono: formData.phone,
+          ruolo: formData.profile,
+          messaggio: formData.message || null,
         }),
       })
     } catch {
@@ -132,7 +143,7 @@ function AccessModal({ onClose }: { onClose: () => void }) {
       />
 
       <motion.div
-        className="relative w-full max-w-[480px] rounded-xl overflow-hidden"
+        className="relative w-full max-w-[480px] rounded-xl overflow-hidden max-h-[90vh] overflow-y-auto"
         style={{
           background: 'linear-gradient(180deg, #101c2e, #0a1220)',
           border: '1px solid rgba(197,160,89,0.12)',
@@ -173,84 +184,122 @@ function AccessModal({ onClose }: { onClose: () => void }) {
         <div className="px-6 pb-6">
           {step === 'form' && (
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+              {/* Typology label */}
+              <p
+                style={{
+                  fontFamily: 'var(--font-dm-sans)',
+                  fontSize: 12,
+                  color: 'rgba(255,255,255,0.5)',
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  margin: '0 0 -4px',
+                }}
+              >
+                {t('typologyLabel')}
+              </p>
+
               {/* Typology radio cards */}
-              <div className="grid grid-cols-2 gap-3">
+              <div style={{ display: 'flex', gap: 8 }}>
                 {(['self-initiated', 'referral'] as const).map((type) => (
                   <button
                     key={type}
                     type="button"
-                    onClick={() => setTypology(type)}
+                    onClick={() => set('typology', type)}
                     className="transition-all duration-200"
                     style={{
+                      flex: 1,
                       fontFamily: 'var(--font-dm-sans)',
                       fontSize: 13,
                       textAlign: 'center',
                       padding: '16px 12px',
                       borderRadius: 10,
                       cursor: 'pointer',
-                      background: typology === type ? 'rgba(197,160,89,0.08)' : '#0a1e2e',
-                      border: typology === type ? '1px solid #C5A059' : '0.5px solid rgba(197,160,89,0.2)',
-                      color: typology === type ? '#C5A059' : 'rgba(255,255,255,0.8)',
-                      boxShadow: typology === type ? '0 0 20px rgba(197,160,89,0.15)' : 'none',
+                      background: formData.typology === type ? 'rgba(212,175,55,0.08)' : '#0a1e2e',
+                      border: formData.typology === type ? '1px solid #D4AF37' : '0.5px solid rgba(212,175,55,0.2)',
+                      color: formData.typology === type ? '#D4AF37' : 'rgba(255,255,255,0.7)',
+                      boxShadow: formData.typology === type ? '0 0 20px rgba(212,175,55,0.15)' : 'none',
                     }}
                   >
-                    {type === 'self-initiated' ? t('independentTitle') : t('inviteTitle')}
+                    {type === 'self-initiated' ? t('selfInitiated') : t('referral')}
                   </button>
                 ))}
               </div>
 
               {/* Conditional referral field */}
-              {typology === 'referral' && (
-                <input
-                  required
-                  value={referralFrom}
-                  onChange={(e) => setReferralFrom(e.target.value)}
-                  placeholder={t('referralPlaceholder')}
-                  style={inputStyle}
-                />
+              {formData.typology === 'referral' && (
+                <div>
+                  <p
+                    style={{
+                      fontFamily: 'var(--font-dm-sans)',
+                      fontSize: 12,
+                      color: 'rgba(255,255,255,0.5)',
+                      letterSpacing: '0.04em',
+                      margin: '0 0 6px',
+                    }}
+                  >
+                    {t('referralLabel')}
+                  </p>
+                  <input
+                    required
+                    value={formData.referralFrom}
+                    onChange={(e) => set('referralFrom', e.target.value)}
+                    placeholder={t('referralPlaceholder')}
+                    style={inputStyle}
+                  />
+                </div>
               )}
 
-              <div className="grid grid-cols-2 gap-3">
-                <input
-                  required
-                  placeholder={t('firstName')}
-                  value={form.nome}
-                  onChange={(e) => setForm({ ...form, nome: e.target.value })}
-                  style={inputStyle}
-                />
-                <input
-                  required
-                  placeholder={t('lastName')}
-                  value={form.cognome}
-                  onChange={(e) => setForm({ ...form, cognome: e.target.value })}
-                  style={inputStyle}
-                />
-              </div>
+              {/* Name */}
+              <input
+                required
+                placeholder={t('name')}
+                value={formData.name}
+                onChange={(e) => set('name', e.target.value)}
+                style={inputStyle}
+              />
 
+              {/* Email */}
               <input
                 required
                 type="email"
-                placeholder="Email"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                placeholder={t('email')}
+                value={formData.email}
+                onChange={(e) => set('email', e.target.value)}
                 style={inputStyle}
               />
+
+              {/* Phone */}
               <input
                 placeholder={t('phone')}
-                value={form.telefono}
-                onChange={(e) => setForm({ ...form, telefono: e.target.value })}
+                value={formData.phone}
+                onChange={(e) => set('phone', e.target.value)}
                 style={inputStyle}
               />
+
+              {/* Profile */}
               <input
-                placeholder={t('role')}
-                value={form.ruolo}
-                onChange={(e) => setForm({ ...form, ruolo: e.target.value })}
+                placeholder={t('profile')}
+                value={formData.profile}
+                onChange={(e) => set('profile', e.target.value)}
                 style={inputStyle}
+              />
+
+              {/* Message */}
+              <textarea
+                placeholder={t('messagePlaceholder')}
+                value={formData.message}
+                onChange={(e) => set('message', e.target.value)}
+                rows={3}
+                style={{
+                  ...inputStyle,
+                  resize: 'vertical',
+                  minHeight: 72,
+                }}
               />
 
               <button
                 type="submit"
-                disabled={!typology || sending}
+                disabled={!formData.typology || sending}
                 className="w-full hover:brightness-110 active:scale-[0.98]"
                 style={{
                   fontFamily: 'var(--font-dm-sans)',
@@ -261,8 +310,8 @@ function AccessModal({ onClose }: { onClose: () => void }) {
                   background: 'linear-gradient(135deg, #C5A059, #d4af61)',
                   border: 'none',
                   borderRadius: 6,
-                  cursor: !typology || sending ? 'not-allowed' : 'pointer',
-                  opacity: !typology ? 0.5 : 1,
+                  cursor: !formData.typology || sending ? 'not-allowed' : 'pointer',
+                  opacity: !formData.typology ? 0.5 : 1,
                   transition: 'all 0.3s',
                   marginTop: 8,
                 }}
