@@ -74,20 +74,10 @@ export function ManifestoSection() {
               .
             </p>
 
-            {/* VERITAS acronimi — wrap su mobile */}
+            {/* VERITAS acronimi — una riga, wrap solo su mobile */}
             <motion.div
               ref={veritasRef}
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '6px 12px',
-                maxWidth: '100%',
-                padding: '0 16px',
-                overflow: 'visible',
-                boxSizing: 'border-box',
-              }}
+              className="veritas-row"
               initial={{ opacity: 0 }}
               animate={veritasInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -156,6 +146,24 @@ export function ManifestoSection() {
           height: 1px;
           background: linear-gradient(90deg, transparent, #C5A059, transparent);
           opacity: 0.4;
+        }
+        .veritas-row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 6px 12px;
+          flex-wrap: nowrap;
+          white-space: nowrap;
+          max-width: 100%;
+          padding: 0 16px;
+          overflow: visible;
+          box-sizing: border-box;
+        }
+        @media (max-width: 640px) {
+          .veritas-row {
+            flex-wrap: wrap;
+            white-space: normal;
+          }
         }
       `}</style>
     </section>
