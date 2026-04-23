@@ -47,14 +47,12 @@ export function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-3">
           {/* Cogito */}
-          <a
-            href="https://cogito.minervapartners.it"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/cogito"
             className="font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-white/70 hover:text-[#C9912B] transition-colors duration-300"
           >
             {t('cogito')}
-          </a>
+          </Link>
 
           {/* Accedi */}
           <a
