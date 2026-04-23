@@ -2692,10 +2692,10 @@
       "t": "RANSPARENCY",
       "a": "LIGNMENT",
       "s": "TEWARDSHIP",
-      "quote2pre": "We are not a bank, not a fund, not a boutique: we are ",
-      "quote2gold": "enablers of value",
-      "quote2mid": " and relationships",
-      "quote2end": "through shared collective intelligence and purpose."
+      "quote2pre": "We are not a bank, not a fund, not a boutique:",
+      "quote2mid": "we are ",
+      "quote2gold": "enablers of value and relationships",
+      "quote2end": " through shared collective intelligence and purpose."
     },
     "cta": {
       "button": "Request access",

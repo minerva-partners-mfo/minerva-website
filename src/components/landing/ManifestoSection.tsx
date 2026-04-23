@@ -120,11 +120,11 @@ export function ManifestoSection() {
             }}
           >
             {t('quote2pre')}
+            <br />
+            {t('quote2mid')}
             <span style={{ color: '#C5A059', fontWeight: 500 }}>
               {t('quote2gold')}
             </span>
-            {t('quote2mid')}
-            <br />
             {t('quote2end')}
           </p>
         </RevealBlock>

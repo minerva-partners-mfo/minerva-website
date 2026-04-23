@@ -2692,10 +2692,10 @@
       "t": "rasparenza",
       "a": "llineamento",
       "s": "alvaguardia",
-      "quote2pre": "Non siamo una banca, non siamo un fondo, non siamo una boutique: siamo ",
-      "quote2gold": "abilitatori di valore",
-      "quote2mid": " e di relazioni",
-      "quote2end": "attraverso l'intelligenza collettiva condivisa."
+      "quote2pre": "Non siamo una banca, non siamo un fondo, non siamo una boutique:",
+      "quote2mid": "siamo ",
+      "quote2gold": "abilitatori di valore e di relazioni",
+      "quote2end": " attraverso l'intelligenza collettiva condivisa."
     },
     "cta": {
       "button": "Richiedi l'accesso",
