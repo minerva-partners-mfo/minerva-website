@@ -6,32 +6,14 @@ import { useTranslations } from 'next-intl'
 
 type FormStep = 'choice' | 'form' | 'sent'
 
-export function CTASection({ modalOpen, onOpenModal, onCloseModal, initialTypology }: {
+export function CTASection({ modalOpen, onOpenModal, onCloseModal }: {
   modalOpen: boolean
-  onOpenModal: (typology?: 'self-initiated' | 'referral') => void
+  onOpenModal: () => void
   onCloseModal: () => void
-  initialTypology?: 'self-initiated' | 'referral'
 }) {
   const t = useTranslations('landing.cta')
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
-
-  const btnStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-dm-sans)',
-    fontSize: 16,
-    fontWeight: 600,
-    color: '#0a0f1c',
-    letterSpacing: '0.06em',
-    padding: '18px 40px',
-    background: 'linear-gradient(135deg, #C5A059, #d4af61, #C5A059)',
-    border: 'none',
-    borderRadius: 6,
-    cursor: 'pointer',
-    transition: 'all 0.4s',
-    boxShadow: '0 4px 30px rgba(197, 160, 89, 0.2)',
-    position: 'relative',
-    overflow: 'hidden',
-  }
 
   return (
     <>
@@ -45,22 +27,28 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal, initialTypolo
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
         >
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={() => onOpenModal('self-initiated')}
-              className="cta-shimmer-btn hover:shadow-[0_8px_40px_rgba(197,160,89,0.35)] hover:scale-[1.02] active:scale-[0.98]"
-              style={btnStyle}
-            >
-              <span style={{ position: 'relative', zIndex: 1 }}>{t('btnSpontaneous')}</span>
-            </button>
-            <button
-              onClick={() => onOpenModal('referral')}
-              className="cta-shimmer-btn hover:shadow-[0_8px_40px_rgba(197,160,89,0.35)] hover:scale-[1.02] active:scale-[0.98]"
-              style={btnStyle}
-            >
-              <span style={{ position: 'relative', zIndex: 1 }}>{t('btnReferral')}</span>
-            </button>
-          </div>
+          <button
+            onClick={onOpenModal}
+            className="cta-shimmer-btn hover:shadow-[0_8px_40px_rgba(197,160,89,0.35)] hover:scale-[1.02] active:scale-[0.98]"
+            style={{
+              fontFamily: 'var(--font-dm-sans)',
+              fontSize: 18,
+              fontWeight: 600,
+              color: '#0a0f1c',
+              letterSpacing: '0.06em',
+              padding: '20px 64px',
+              background: 'linear-gradient(135deg, #C5A059, #d4af61, #C5A059)',
+              border: 'none',
+              borderRadius: 6,
+              cursor: 'pointer',
+              transition: 'all 0.4s',
+              boxShadow: '0 4px 30px rgba(197, 160, 89, 0.2)',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
+            <span style={{ position: 'relative', zIndex: 1 }}>{t('button')}</span>
+          </button>
           <p
             className="mt-6"
             style={{
@@ -78,18 +66,18 @@ export function CTASection({ modalOpen, onOpenModal, onCloseModal, initialTypolo
       </section>
 
       <AnimatePresence>
-        {modalOpen && <AccessModal onClose={onCloseModal} initialTypology={initialTypology} />}
+        {modalOpen && <AccessModal onClose={onCloseModal} />}
       </AnimatePresence>
     </>
   )
 }
 
-function AccessModal({ onClose, initialTypology }: { onClose: () => void; initialTypology?: 'self-initiated' | 'referral' }) {
+function AccessModal({ onClose }: { onClose: () => void }) {
   const t = useTranslations('landing.cta.modal')
   const [step, setStep] = useState<FormStep>('form')
   const [sending, setSending] = useState(false)
   const [formData, setFormData] = useState({
-    typology: (initialTypology || '') as '' | 'self-initiated' | 'referral',
+    typology: '' as '' | 'self-initiated' | 'referral',
     name: '',
     email: '',
     phone: '',
