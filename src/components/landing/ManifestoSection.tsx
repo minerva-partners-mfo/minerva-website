@@ -74,11 +74,20 @@ export function ManifestoSection() {
               .
             </p>
 
-            {/* VERITAS acronimi — forza una riga */}
+            {/* VERITAS acronimi — wrap su mobile */}
             <motion.div
               ref={veritasRef}
-              className="flex justify-center gap-x-2 md:gap-x-4"
-              style={{ flexWrap: 'nowrap', whiteSpace: 'nowrap', overflowX: 'auto' }}
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: '6px 12px',
+                maxWidth: '100%',
+                padding: '0 16px',
+                overflow: 'visible',
+                boxSizing: 'border-box',
+              }}
               initial={{ opacity: 0 }}
               animate={veritasInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -89,21 +98,16 @@ export function ManifestoSection() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={veritasInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
-                  style={{
-                    fontFamily: 'var(--font-dm-sans)',
-                    fontSize: 'clamp(11px, 1.4vw, 15px)',
-                    color: 'rgba(255,255,255,0.55)',
-                    letterSpacing: '0.04em',
-                  }}
+                  style={{ whiteSpace: 'nowrap', fontFamily: "var(--font-cormorant, 'Cormorant Garamond', Georgia, serif)" }}
                 >
-                  <span style={{ color: '#C5A059', fontWeight: 700, fontSize: '1.3em' }}>
+                  <span style={{ color: '#D4AF37', fontWeight: 700, fontSize: 'clamp(15px, 2vw, 20px)' }}>
                     {key.toUpperCase()}
                   </span>
-                  {t(key)}
+                  <span style={{ color: 'rgba(255,255,255,0.88)', fontWeight: 300, fontSize: 'clamp(13px, 1.6vw, 17px)' }}>
+                    {t(key)}
+                  </span>
                   {i < VERITAS_LETTERS.length - 1 && (
-                    <span style={{ color: 'rgba(197,160,89,0.35)', marginLeft: 'clamp(4px, 0.8vw, 10px)' }}>
-                      ·
-                    </span>
+                    <span style={{ color: 'rgba(212,175,55,0.25)', margin: '0 6px', fontSize: 9 }}>·</span>
                   )}
                 </motion.span>
               ))}
