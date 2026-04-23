@@ -58,7 +58,7 @@ export function Navbar() {
 
           {/* Accedi */}
           <a
-            href="/portal"
+            href={process.env.NEXT_PUBLIC_PORTAL_URL || "/portal"}
             className="font-sans text-[10px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:border-[#c5a35a]"
             style={{
               color: '#c5a35a',
