@@ -24,7 +24,7 @@ function GoldSeparator() {
 }
 
 export default function HomePage() {
-  const [modalTypology, setModalTypology] = useState<'self-initiated' | 'referral' | null>(null)
+  const [modalOpen, setModalOpen] = useState(false)
   const [phase, setPhase] = useState<'logo' | 'shimmer' | 'rise' | 'done'>('logo')
 
   useEffect(() => {
@@ -109,10 +109,9 @@ export default function HomePage() {
         <ManifestoSection />
         <GoldSeparator />
         <CTASection
-          modalOpen={!!modalTypology}
-          onOpenModal={(typology) => setModalTypology(typology)}
-          onCloseModal={() => setModalTypology(null)}
-          initialTypology={modalTypology || undefined}
+          modalOpen={modalOpen}
+          onOpenModal={() => setModalOpen(true)}
+          onCloseModal={() => setModalOpen(false)}
         />
         <LandingFooter />
       </motion.div>
