@@ -4,6 +4,7 @@ import { Playfair_Display, DM_Sans, Cormorant_Garamond } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import { headers } from 'next/headers'
 import { routing } from '@/i18n/routing'
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider'
 import { CookieConsentProvider } from '@/components/providers/CookieConsentProvider'
@@ -87,6 +88,9 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages()
+  const headersList = await headers()
+  const host = headersList.get('host') || ''
+  const isCogito = host.startsWith('cogito.')
 
   return (
     <html lang={locale} className={`${playfair.variable} ${dmSans.variable} ${cormorant.variable}`}>
@@ -122,11 +126,15 @@ export default async function LocaleLayout({
         </Script>
         <NextIntlClientProvider messages={messages}>
           <CookieConsentProvider>
-            <Navbar />
-            <SmoothScrollProvider>
-              {children}
-              <Footer />
-            </SmoothScrollProvider>
+            {!isCogito && <Navbar />}
+            {isCogito ? (
+              children
+            ) : (
+              <SmoothScrollProvider>
+                {children}
+                <Footer />
+              </SmoothScrollProvider>
+            )}
             <CookieConsent />
           </CookieConsentProvider>
         </NextIntlClientProvider>
