@@ -92,8 +92,8 @@ export function LandingNavbar() {
           >
             {t('cogito')}
           </a>
-          <Link
-            href="/portal"
+          <a
+            href="https://board.minervapartners.it"
             style={{
               fontFamily: 'var(--font-dm-sans)',
               fontSize: 11,
@@ -112,7 +112,7 @@ export function LandingNavbar() {
             }}
           >
             {t('access')}
-          </Link>
+          </a>
         </div>
       </div>
     </motion.nav>

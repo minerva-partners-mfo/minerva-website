@@ -10,7 +10,7 @@ export function Navbar() {
   const locale = useLocale()
   const pathname = usePathname()
   const otherLocale = locale === 'it' ? 'en' : 'it'
-  const isHome = pathname === '/' || pathname === '/portal'
+  const isHome = pathname === '/'
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -55,8 +55,8 @@ export function Navbar() {
           </a>
 
           {/* Accedi */}
-          <Link
-            href="/portal"
+          <a
+            href="https://board.minervapartners.it"
             className="font-sans text-[10px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:border-[#c5a35a]"
             style={{
               color: '#c5a35a',
@@ -68,7 +68,7 @@ export function Navbar() {
             }}
           >
             {t('access')}
-          </Link>
+          </a>
 
           {/* Lang switch */}
           <Link
