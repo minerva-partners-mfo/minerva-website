@@ -90,7 +90,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${playfair.variable} ${dmSans.variable} ${cormorant.variable}`}>
-      <head>
+      <body>
         <Script id="gcm-defaults" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -108,8 +108,18 @@ export default async function LocaleLayout({
             });
           `}
         </Script>
-      </head>
-      <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-HKESFFK4FK"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HKESFFK4FK');
+          `}
+        </Script>
         <NextIntlClientProvider messages={messages}>
           <CookieConsentProvider>
             <Navbar />
