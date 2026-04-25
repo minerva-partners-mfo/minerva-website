@@ -4,7 +4,6 @@ const BASE_URL = 'https://minervapartners.it'
 
 const pages = [
   '',
-  '/cogito',
   '/privacy-policy',
   '/cookie-policy',
 ]

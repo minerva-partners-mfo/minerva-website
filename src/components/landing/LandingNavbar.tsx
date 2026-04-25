@@ -73,8 +73,8 @@ export function LandingNavbar() {
           >
             {otherLocale.toUpperCase()}
           </Link>
-          <Link
-            href="/cogito"
+          <a
+            href="https://cogito.minervapartners.it"
             className="hover:text-white hover:border-white/20"
             style={{
               fontFamily: 'var(--font-dm-sans)',
@@ -91,7 +91,7 @@ export function LandingNavbar() {
             }}
           >
             {t('cogito')}
-          </Link>
+          </a>
           <Link
             href="/portal"
             style={{

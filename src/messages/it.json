@@ -2729,21 +2729,6 @@
       "cookiePreferences": "Preferenze cookie"
     }
   },
-  "cogito": {
-    "title": "Cogito",
-    "subtitle": "Ergo sum.",
-    "manifesto": "Dove il pensiero diventa metodo. Riflessioni, analisi di mercato, eventi e conversazioni con chi costruisce valore nel lungo periodo. Il nostro contributo alla cultura del patrimonio, della famiglia, dell'impresa.",
-    "comingSoon": "Prossimamente",
-    "back": "Torna alla home",
-    "newsletter": {
-      "title": "Ricevi Cogito",
-      "subtitle": "Il pensiero Minerva direttamente nella tua inbox. Una selezione, non un flusso.",
-      "emailPlaceholder": "la-tua-email@esempio.it",
-      "submit": "Iscriviti",
-      "success": "Grazie. Ti scriveremo quando Cogito sarà attivo.",
-      "privacy": "Rispettiamo la tua privacy. Potrai cancellarti in qualsiasi momento."
-    }
-  },
   "portal": {
     "title": "Area Riservata",
     "subtitle": "Accesso riservato ai clienti e ai professionisti dell'ecosistema Minerva.",

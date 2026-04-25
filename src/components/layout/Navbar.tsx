@@ -10,7 +10,7 @@ export function Navbar() {
   const locale = useLocale()
   const pathname = usePathname()
   const otherLocale = locale === 'it' ? 'en' : 'it'
-  const isHome = pathname === '/' || pathname === '/cogito' || pathname === '/portal'
+  const isHome = pathname === '/' || pathname === '/portal'
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -47,12 +47,12 @@ export function Navbar() {
         {/* Right side */}
         <div className="flex items-center gap-3">
           {/* Cogito */}
-          <Link
-            href="/cogito"
+          <a
+            href="https://cogito.minervapartners.it"
             className="font-sans text-[11px] font-semibold tracking-[0.12em] uppercase text-white/70 hover:text-[#C9912B] transition-colors duration-300"
           >
             {t('cogito')}
-          </Link>
+          </a>
 
           {/* Accedi */}
           <Link
